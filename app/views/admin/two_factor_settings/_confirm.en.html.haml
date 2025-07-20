@@ -1,0 +1,32 @@
+= form_tag admin_two_factor_settings_path, method: :patch, class: "form-horizontal" do
+  .panel.panel-default
+    .panel-heading
+      Two Factor Authentication
+    .panel-body
+      %h4 Status
+      %p
+        Currently, two factor authentication is being setup, but <strong>not yet active</strong>.
+    .panel-body
+      %h4 Finish Setup
+      %p
+        To activate two factor authentication, please open your authenticator app,
+        scan the following QR code, and enter the code for confirmation below.
+        Don't forget to save the token in you app (some apps do that automatically,
+        others don't).
+    .panel-body
+      .text-center.mb-4
+        = raw current_user.otp_provisioning_qrcode(width: "350")
+
+      .form-group
+        = label_tag :otp_attempt, "Code for confirmation", class: "control-label col-sm-4"
+        .col-sm-8
+          = text_field_tag :otp_attempt, nil,
+            required:     true,
+            autofocus:    true,
+            autocomplete: "one-time-code",
+            maxlength:    6,
+            minlength:    6,
+            pattern:      "\\d{6}",
+            class:        "form-control"
+    .panel-footer.text-right
+      %button.btn.btn-primary{ type: :submit, data: { disable_with: t(:wait) } } Confirm

@@ -1,0 +1,40 @@
+@import "vue-select/dist/vue-select.css";
+
+:root {
+  // we're adding a .form-control on the container
+  --vs-border-width:                   1px;
+  --vs-border-color:                   #{$input-border};
+
+  --vs-dropdown-option--active-bg:     #{$brand-primary};
+  --vs-controls-color:                 #{$text-muted};
+  --vs-controls--deselect-text-shadow: none
+}
+
+.v-select.form-control {
+  padding: 0;
+  height: auto;
+}
+
+.vs__dropdown-menu {
+  z-index: 3;
+
+  .no-results {
+    @extend .text-muted;
+  }
+}
+
+.vs__dropdown-toggle {
+  border: none
+}
+
+.vs__dropdown-option {
+  white-space: normal;
+}
+
+.vs--single {
+  &.vs--loading, &.vs--open {
+    .vs__selected {
+      position: relative;
+    }
+  }
+}

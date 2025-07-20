@@ -1,0 +1,46 @@
+- schema_scope :main, "LocalBusiness"
+- opengraph_data do |og|
+  - og.url          villa_url(villa)
+  - og.title        h1 || villa.name
+  - if medium = villa.main_image.presence
+    - og.image      media_url(medium, preset: :carousel)
+  - og.type         "website"
+  - og.description  villa.descriptions.get(:teaser)
+
+= page_header do
+  = render "average_rating", villa: villa
+  - breadcrumb.add link_to t("shared.menu.villas"), "/villas"
+  = breadcrumb.render link_to villa.name, villa, itemprop: "url"
+
+  %h1><
+    %meta{ itemprop: "name", content: villa.name }>
+    %meta{ itemprop: "branchOf", content: (intervilla_corp? ? "Intervilla Corp." : "Intervilla GmbH") }>
+    - if medium = villa.main_image.presence
+      %meta{ itemprop: "image", content: media_url(medium, preset: :teaser) }
+    = h1 || villa.name
+
+.container.mt-5
+  .row
+    %section.col-sm-12.col-md-8
+      = image_gallery villa.images.active
+    .col-sm-12.col-md-4
+      = reservation_form_tag(villa)
+
+= render "description"
+
+- if villa.has_videos?
+  %section.container.mt-5
+    = render "videos"
+
+- if villa.has_panoramas?
+  %section.container.mt-5
+    = render "panorama"
+
+= render "map"
+
+- if villa.show_reviews?
+  %section.container.mt-5#ratings
+    = render "reviews"
+
+= render "boats"
+= render "other_villas"

@@ -1,0 +1,32 @@
+%section.mt-5
+  .container
+    .row
+      .col-sm-6.mt-5
+        %h2.lined-heading
+          %span= t "villas.show.overview"
+
+        %ul.nav.nav-tabs
+          %li.active
+            %a{ href: "#description", data: { toggle: :tab } }
+              = t "villas.show.tabs.description"
+          %li
+            %a{ href: "#prices", data: { toggle: :tab } }
+              = t "villas.show.preise"
+
+        .tab-content
+          #description.tab-pane.fade.in.active
+            %read-more-wrapper{ label: t("villas.show.read_more.description"), height: 150 }
+              - if header = villa.descriptions.get(:header).presence
+                %h3= header
+              - if desc = villa.descriptions.get(:description).presence
+                = raw RenderKramdown.new(insert_yt_link(desc, villa.name) || "").to_html
+
+          #prices.tab-pane.fade
+            = render "prices"
+
+      .col-sm-6.mt-5
+        %h2.lined-heading
+          %span= t "villas.show.ausstattung"
+
+        %read-more-wrapper{ label: t("villas.show.read_more.tags"), height: 220 }
+          = render "details"

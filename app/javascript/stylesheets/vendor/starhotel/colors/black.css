@@ -1,0 +1,135 @@
+@charset "utf-8";
+/* Starhotel template color: Black
+				HEX = #000000
+				RGB = 0, 0, 0
+====================================================
+*/
+
+/* Basic Styles
+-------------------------------------------------- */
+
+/* Links color */
+
+a {
+  color: #000000;
+}
+
+/* Icon color */
+
+.box-icon i,
+table i,
+#go-top i,
+#go-top {
+  color: #000000;
+}
+
+/* UI border color */
+
+#top-header,
+.navbar-nav .dropdown-menu,
+.blog-author img,
+.comment .avatar img,
+aside h3,
+blockquote,
+#go-top,
+.box-icon .circle {
+  border-color: #000000 !important;
+}
+
+/* UI background color */
+
+#top-header .th-text .th-item .btn-group ul.dropdown-menu>li>a:hover,
+article .meta-date,
+.comment .reply-button,
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:hover,
+.nav-pills>li.active>a:focus,
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus,
+#go-top:hover,
+.box-icon .circle:hover {
+  background: #000000;
+}
+
+/* RGB background color */
+
+.comment,
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th,
+.panel-default>.panel-heading {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Header
+-------------------------------------------------- */
+
+/* Navigation text colors */
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav .dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav .dropdown-menu>li>a:focus {
+  color: #000000;
+}
+
+/* Navigation Mobile colors */
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+    color: #000000;
+    background-color: transparent;
+  }
+}
+
+/*Primary Button Color
+-------------------------------------------------- */
+
+.btn-default {
+  color: #000000;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #000000;
+}
+
+.btn-primary {
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.13) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.33)), color-stop(100%, rgba(255, 255, 255, 0.13))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.13) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.13) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.13) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.13) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#54ffffff',endColorstr='#21ffffff',GradientType=0); /* IE6-9 */
+  background-color: #000;
+  border-color: #000;
+  text-shadow: 0 -1px 0 #000;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: #333;
+  border-color: #000;
+  color: #fff;
+}

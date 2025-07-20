@@ -1,0 +1,20 @@
+.mt-3.mb-4
+  .pull-right
+    - if params[:historic] == "1"
+      = link_to url_for(historic: 0), class: "btn btn-default" do
+        = fa :clock_o
+        aktuelle Daten anzeigen
+    - else
+      = link_to url_for(historic: 1), class: "btn btn-default" do
+        = fa :clock_o
+        historische Daten anzeigen
+
+    = link_to [:new, :admin, :high_season], class: "ml-1 btn btn-primary" do
+      = fa :plus, text: "hinzufügen"
+
+  %h2 Hochsaisons verwalten
+
+- if high_seasons.none?
+  %p.alert.alert-info= t ".none"
+- else
+  = render "high_seasons"

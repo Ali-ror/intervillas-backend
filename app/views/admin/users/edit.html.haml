@@ -1,0 +1,40 @@
+.row
+  .col-md-3
+    %h2 Benutzer bearbeiten
+
+    %ul.nav.nav-pills.nav-stacked.js-main-nav.hidden-print
+      %li= link_to fa(:caret_left, text: "zurück zur Übersicht"), admin_users_path
+
+      %li.active
+        = link_to "#basics", data: { toggle: :pill } do
+          - if resource.new_record?
+            E-Mail und Berechtigungen
+          - else
+            E-Mail, Berechtigungen und Passwort-Reset
+
+      - if resource.persisted?
+        %li= link_to "Kontakte",                "#contacts",  data: { toggle: :pill }
+        %li= link_to "Benutzer zusammenführen", "#merge",     data: { toggle: :pill }
+
+  .col-md-9
+    .tab-content.main-tab-content.mt-5
+      .tab-pane.active#basics
+        .row
+          .col-md-6
+            = render "admin/users/forms/basics"
+            - if resource.persisted?
+              = render "admin/users/forms/password_reset"
+          .col-md-6
+            .well.well-sm= render "info_access_level"
+
+      - if resource.persisted?
+        .tab-pane#contacts
+          .row
+            .col-md-6= render "admin/users/forms/contacts"
+            .col-md-6
+              .well.well-sm= render "info_contacts"
+        .tab-pane#merge
+          .row
+            .col-md-6= render "admin/users/forms/merge"
+            .col-md-6
+              .well.well-sm= render "info_user_merge"

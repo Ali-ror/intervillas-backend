@@ -1,0 +1,9 @@
+.panel.panel-warning
+  .panel-heading
+    = t ".heading"
+  .panel-footer.d-flex.justify-content-end
+    %uncancel-inquiry-modal{
+      url:           api_admin_cancellation_path(inquiry.id),
+      "index-url" => admin_cancellations_url,
+      ":id"       => inquiry.id,
+    }

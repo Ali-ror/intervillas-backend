@@ -1,0 +1,40 @@
+---
+en:
+  settings:
+    description:
+      exchange_rate_usd: >-
+        Exchange rate from EUR to USD. Should include a small buffer to stave off short-short and/or larger changes in exchange
+        rates.
+      paypal_fees_relative: Fees for cross-border PayPal transactions.
+      paypal_fees_absolute: Per-Transaction fees (in EUR) for PayPal.
+      bsp1_fees_relative: Fees for cross-border BS PAYONE transactions.
+      bsp1_fees_absolute: Per-Transaction fees (in EUR) for BS PAYONE.
+      energy_price_eur: Energy price per kWh (in EUR).
+      energy_price_usd: Energy price per kWh (in USD).
+    extra_links:
+      exchange_rate_usd:
+      - text: ECB euro reference exchange rate
+        href: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html
+      paypal_fees_absolute:
+      - text: PayPal Fees Policy, §1.3.2. Fixed Fee
+        href: https://www.paypal.com/ch/webapps/mpp/ua/feespolicy-full
+      paypal_fees_relative:
+      - text: PayPal Fees Policy, §3.4. Receiving Cross-Border Transactions
+        href: https://www.paypal.com/ch/webapps/mpp/ua/feespolicy-full
+    further_information: Further information
+    title:
+      exchange_rate_usd: Exchange Rate
+      paypal_fees_relative: PayPal cross-border fees
+      paypal_fees_absolute: PayPal flat fee
+      bsp1_fees_relative: BS PAYONE fees
+      bsp1_fees_absolute: BS PAYONE flat fee
+      energy_price_eur: Energy price
+      energy_price_usd: Energy price
+    value_labels:
+      exchange_rate_usd: "1 EUR ="
+      paypal_fees_relative: Percentage
+      paypal_fees_absolute: EUR
+      bsp1_fees_relative: Percentage
+      bsp1_fees_absolute: EUR
+      energy_price_eur: EUR
+      energy_price_usd: USD

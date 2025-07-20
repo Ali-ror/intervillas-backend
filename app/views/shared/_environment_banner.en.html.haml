@@ -1,0 +1,7 @@
+.environment-banner.environment-banner-right{ class: "environment-banner-#{Rails.env}" }
+  %strong #{Rails.env.capitalize} environment
+  - if Rails.env.staging?
+    Apart from mails for password reset instructions, <em>no emails</em>
+    are delivered. In general, messages will only be <em>prepared</em>
+    for delivery (so that the preview feature works), but they won't
+    be processed any further.

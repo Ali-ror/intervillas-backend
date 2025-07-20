@@ -1,0 +1,19 @@
+- main_image = boat.main_image
+.room-thumb.boat
+  - if main_image
+    .teaser-image
+      = image_srcset_tag(main_image, preset: :teaser, alt: "#{boat.model} Florida")
+
+  .ident
+    %h4
+      = link_to boat do
+        = boat.model
+
+  %small.notes
+    - if boat.inclusive?
+      = t ".inclusive"
+    - else
+      = t ".ab"
+      - days, price = boat.teaser_price
+      = display_price price
+      = t ".bei_buchung_von_x_tagen", x: days

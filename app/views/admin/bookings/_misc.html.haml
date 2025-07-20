@@ -1,0 +1,25 @@
+= semantic_form_for misc_form, url: [:admin, misc_form, anchor: "misc"] do |form|
+  = form.inputs t(".heading") do
+    = form.input :comment, as: :text
+
+  = form.inputs t(".billing") do
+    %p.form-control-static
+      %label= t ".billing_month"
+
+    .row
+      .col-sm-6.col-md-2
+        = form.input :summary_month, as: :select, collection: month_select_collection, label: false
+      .col-sm-6.col-md-2
+        = form.input :summary_year, as: :select, collection: year_select_collection, label: false
+      .col-md-8
+        %p.form-control-static.js-apply-date{ data: { month_field: "booking_summary_month", year_field: "booking_summary_year" } }
+          -# kleiner Helper, siehe javascripts/admin/bookings/dateapplier.js.coffee
+          = t ".text.pre", default: ""
+          - { -1 => ".prev", 0 => ".curr", 1 => ".next" }.each do |offset, button_label|
+            - d = Date.current + offset.months
+            %button.js-btn.btn.btn-xs.btn-default{ type: :button, title: l(d, format: "%b. %Y"), data: { month: d.month, year: d.year } }
+              = t button_label
+          = t ".text.post", default: ""
+
+  = form.actions do
+    = form.action :submit, label: t(".save"), button_html: { class: 'btn btn-primary' }

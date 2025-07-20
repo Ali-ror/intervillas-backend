@@ -1,0 +1,9 @@
+- if md = current_domain.send("#{I18n.locale}_content_md").presence
+  %section.mt-4
+    .container
+      %h2.lined-heading
+        %span= t ".heading"
+
+      .dynamic-columns
+        - RenderKramdown.new(md).seo_sections.each do |sec|
+          %section= raw sec

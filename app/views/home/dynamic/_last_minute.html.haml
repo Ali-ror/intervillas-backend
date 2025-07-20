@@ -1,0 +1,13 @@
+%section.container.rooms
+  .row
+    .col-sm-12
+      %h2.lined-heading
+        %span= t('.last_minute')
+
+    .room-grid.container
+      = render partial: 'villas/villa', collection: last_minute_villas, locals: { special: special }
+
+  .row
+    .col-sm-4.col-sm-offset-4.mt-4
+      = link_to specials_path, class: 'btn btn-primary btn-block' do
+        = t('.all_specials')

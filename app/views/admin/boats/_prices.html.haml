@@ -1,0 +1,56 @@
+.prices
+  %h2 Preise
+
+  - if daily_prices.present?
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Tage (minimum)
+          %th Preis pro Tag
+          %th
+      %tbody
+        - daily_prices.sort_by(&:amount).each do |price|
+          %tr
+            %td= price.amount
+            %td= display_price price.value
+            %td
+              = link_to admin_boat_price_path(boat, price), method: :delete, title: "löschen" do
+                = fa :trash, :lg, class: "text-danger"
+
+  = semantic_form_for prices_form, url: admin_boat_prices_path(boat) do |form|
+    .row
+      .col-sm-6= form.input :amount, as: :number, min: 3, step: 1
+      .col-sm-6= form.input :value, as: :number, min: 0.01, step: 0.01
+    = form.actions do
+      = form.action :submit, label: "hinzufügen", button_html: { class: "btn btn-primary" }
+
+.holiday_discounts
+  %h2 Feiertage
+  - if holiday_discounts.present?
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th Feiertag
+          %th Prozent
+          %th Tage vorher
+          %th Tage danach
+          %th
+      %tbody
+        - holiday_discounts.each do |addition|
+          %tr
+            %td= t addition.description, scope: "tags.holidays"
+            %td= number_to_percentage addition.percent
+            %td= addition.days_before
+            %td= addition.days_after
+            %td
+              = link_to admin_boat_holiday_discount_path(boat, addition), method: :delete, title: "löschen" do
+                = fa :trash, :lg, class: "text-danger"
+
+  = semantic_form_for [:admin, boat, holiday_discounts_form] do |form|
+    .row
+      .col-sm-3= form.input :description, collection: %w[christmas easter].map{ [I18n.t(_1, scope: "tags.holidays"), _1] }
+      .col-sm-3= form.input :percent, as: :number, step: 0.01
+      .col-sm-3= form.input :days_before, as: :number, min: 0, step: 1
+      .col-sm-3= form.input :days_after, as: :number, min: 0, step: 1
+    = form.actions do
+      = form.action :submit, label: "hinzufügen", button_html: { class: "btn btn-primary" }

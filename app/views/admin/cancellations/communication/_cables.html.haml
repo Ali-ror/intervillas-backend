@@ -1,0 +1,18 @@
+%h2= t "admin.bookings.communication.cables.title"
+%p.text-muted= t "admin.bookings.communication.cables.description_html"
+
+= render partial: "admin/cables/cable", collection: inquiry.cables.select(&:persisted?)
+
+%h2.mt-5= t "admin.bookings.communication.cables.add"
+- crl = cable_recipient_list(cancellation)
+- if crl.empty?
+  %p.alert.alert-danger= t "admin.bookings.communication.cables.recipents_cant_login"
+- else
+  = semantic_form_for cable_form, url: [:admin, inquiry, cable_form, anchor: "communication"], html: { class: "form-horizontal" } do |form|
+    = form.inputs do
+      = form.input :text, as: :text
+      = form.input :contact_id, as: :select, collection: crl, required: true
+
+      .form-group
+        .col-sm-8.col-sm-offset-4
+          = form.action :submit, label: t("admin.bookings.communication.cables.create"), button_html: { class: 'btn btn-sm btn-warning', data: { disable_with: t("wait") } }

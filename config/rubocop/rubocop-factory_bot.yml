@@ -1,0 +1,40 @@
+## FactoryBot cops - https://docs.rubocop.org/rubocop-factory_bot/cops.html
+
+require:
+  - rubocop-factory_bot
+
+FactoryBot:
+  Enabled: true
+
+FactoryBot/AttributeDefinedStatically:
+  Enabled: true
+
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false # style really depends on context; also has false-positives leading to syntax errors
+
+FactoryBot/CreateList:
+  Enabled: true
+
+FactoryBot/FactoryClassName:
+  Enabled: true
+
+FactoryBot/FactoryNameStyle:
+  Enabled: true
+
+FactoryBot/SyntaxMethods:
+  Enabled: true
+
+FactoryBot/AssociationStyle: # new in 2.23
+  Enabled: true
+
+FactoryBot/FactoryAssociationWithStrategy: # new in 2.23
+  Enabled: true
+
+FactoryBot/RedundantFactoryOption: # new in 2.23
+  Enabled: true
+
+FactoryBot/IdSequence: # new in 2.24
+  Enabled: true
+
+FactoryBot/ExcessiveCreateList: # new in 2.25
+  Enabled: true

@@ -1,0 +1,16 @@
+%tr
+  %td= message.id
+  %td
+    = t message.template, scope: "messages.templates"
+    - if message.text? && (action = message.text.to_s.split("\x03", 2).second).present?
+      = surround "(", ")" do
+        %em.text-muted= action
+  %td= link_to "Vorschau", [:admin, message.inquiry, message], remote: true, class: "js-message-preview"
+  %td= link_to message.inquiry.number, [:edit, :admin, message.booking || message.inquiry, anchor: "communication"]
+  %td= message.recipient
+  %td= timestamp message, "P, p", convert_with: :created_at
+  %td
+    - if message.sent_at?
+      = precede "+" do
+        %abbr{ title: l(message.sent_at, format: "%d.%m.%Y, %H:%M:%S Uhr") }<
+          = number_to_human_duration(message.sent_at - message.created_at)

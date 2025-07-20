@@ -1,0 +1,48 @@
+.text-center
+  = will_paginate bookings, params: { anchor: (keep_anchor if defined?(keep_anchor)) }
+
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= t ".number"
+      %th
+        = Booking.human_attribute_name :start_date
+        %br
+        = Booking.human_attribute_name :end_date
+      %th= Booking.human_attribute_name :villa
+      %th= Booking.human_attribute_name :boat
+      - if can? :create, Booking
+        %th= Booking.human_attribute_name :name
+        %th= Booking.human_attribute_name :state
+      %th= Booking.human_attribute_name :created_at
+      %th
+  %tbody
+    - bookings.each do |booking|
+      %tr[booking]
+        %td= booking.number
+        %td
+          = l booking.start_date
+          %br
+          = l booking.end_date
+        %td= booking.villa.name if booking.villa.present?
+        %td
+          - if bi = booking.boat_inquiry.presence
+            = bi.boat.try(:admin_display_name)
+            .small #{l bi.start_date}–#{l bi.end_date}
+          - else
+            %em.text-muted= t ".none"
+        - if can? :create, Booking
+          %td= booking.name
+          - if can? :update, booking
+            %td{ class: 'state', data: { value: booking.state } }
+              = I18n.t(booking.state, scope: :states)
+          - else
+            %td= I18n.t(booking.state, scope: :states)
+        %td= booking.booked_on? ? l(booking.booked_on.to_date) : l(booking.created_at.to_date)
+        %td.text-nowrap
+          - if can? :show, booking.inquiry
+            = link_to admin_booking_path(booking), title: t(".show") do
+              = fa :eye, :x2
+          - if can? :edit, booking
+            = link_to edit_admin_booking_path(booking), title: t(".edit") do
+              = fa :pencil, :x2

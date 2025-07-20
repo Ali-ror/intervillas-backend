@@ -1,0 +1,256 @@
+%h2 AUFTRAGSBESTÄTIGUNG — RECHNUNG
+%p Herzlichen Dank für Ihre Buchung und Ihr Vertrauen.
+%p Nachstehend bestätigen wir Ihnen die Buchung wie folgt:
+
+= confirmation_subsection "Buchung # #{booking.number}" do
+  %p
+    = customer.title
+    = customer.name
+    %br
+    = customer.address
+    = customer.appnr
+    %br
+    = customer.postal_code
+    = customer.city
+    %br
+    = customer.country
+    %br
+    %br
+    Telefon: #{customer.phone}
+    %br
+    E-Mail: #{customer.email}
+  %p
+    = succeed(",") do
+      = link_to de_villa_url(villa) do
+        = villa.name
+    = [ villa.street, villa.locality, villa.region, villa.country ].compact.join ", "
+    - if villa.phone?
+      %br
+      Tel. #{villa.phone}
+  %p
+    = villa_inquiry.start_date
+    bis #{villa_inquiry.end_date}
+  %p
+    = villa_inquiry.nights
+    Nächte | #{villa_inquiry.persons} Personen | Mietbetrag:
+    %span.payment= display_price villa_clearing.total_rents
+
+  - if inquiry.with_boat?
+    %p
+      Das Boot #{boat.model} wurde für den Zeitraum
+      \#{boat_inquiry.start_date} bis #{boat_inquiry.end_date} gebucht.
+
+= confirmation_subsection "Preise" do
+  %table.table{ border: 0, cellpadding: 0, cellspacing: 0, width: (current_currency == Currency::EUR ? 400 : 400+100) }
+    %tbody
+      %tr
+        %th{ width: 300, style: "border-bottom: 1px solid #9D9D9D" }
+        %th{ width: 10, style: "border-bottom: 1px solid #9D9D9D" }
+        %th{ width: 300, style: "border-bottom: 1px solid #9D9D9D" }
+        %th{ align: "right", width: 100, style: "border-bottom: 1px solid #9D9D9D" }= booking.currency
+
+      - villa_clearing.rents.each do |rent_position|
+        - next if rent_position.total.zero?
+        %tr
+          %td
+            = l rent_position.start_date
+            \-
+            = l rent_position.end_date
+          %td= rent_position.amount
+          %td= rent_position.human_category
+          = display_price rent_position.total do |val|
+            %td{ align: "right" }= val
+
+      %tr
+        %td{ colspan: 3, style: "border-top: 1px solid #9D9D9D" }
+          %strong Mietpreis
+        = display_price villa_clearing.total_rents do |val|
+          %td{ align: "right", style: "border-top: 1px solid #9D9D9D" }
+            %strong= val
+
+      - clearing.other_clearing_items.each do |utility|
+        %tr
+          %td{ colspan: 3 }
+            = utility.human_category
+            - if note = utility.note.presence
+              = " (#{note})"
+          = display_price utility.total do |val|
+            %td{ align: "right" }=val
+
+      - if inquiry.boat_charged?
+        - boat_clearing.rents.each do |rent_position|
+          - next if rent_position.total.zero?
+          %tr
+            %td{ colspan: 3 }
+              = rent_position.human_category
+            = display_price rent_position.total do |val|
+              %td{ align: "right" }= val
+
+      %tr
+        %td{ colspan: 3, style: "border-top: 1px solid #9D9D9D" }
+          %strong Total
+        = display_price clearing.sub_total do |val|
+          %td{ align: "right", style: "border-top: 1px solid #9D9D9D" }
+            %strong=val
+
+  %p Im Mietpreis sind 6,5 % Sales Tax und 5 % Tourist Tax enthalten.
+
+= confirmation_subsection "Kaution" do
+  %table.table{ border: 0, cellpadding: 0, cellspacing: 0, width: (current_currency == Currency::EUR ? 400 : 400+100) }
+    %tbody
+      %tr
+        %th{ width: 300 }
+        %th{ align: "right", width: 100 }= booking.currency
+      %tr
+        %td{ style: "border-top: 1px solid #9D9D9D" } Haus-Kaution
+        = display_price villa_clearing.total_deposit do |val|
+          %td{ align: "right", style: "border-top: 1px solid #9D9D9D" }=val
+      - if inquiry.with_boat? && boat_clearing
+        %tr
+          %td{ style: "padding-bottom: 3px" } Boot-Kaution
+          = display_price boat_clearing.total_deposit do |val|
+            %td{ align: "right" }=val
+      %tr
+        %td{ style: "border-top: 1px solid #9D9D9D" }
+          %strong Kaution
+        = display_price clearing.total_deposit do |val|
+          %td{ align: "right", style: "border-top: 1px solid #9D9D9D" }
+            %strong= val
+
+= confirmation_subsection "Zahlungsbedingungen" do
+  - if booking.late?
+    %p
+      Kurzfristige Buchung - Gesamtbetrag bitte <u>sofort</u> bezahlen:
+      %strong.payment= display_price clearing.total
+  - else
+    %p
+      %strong Anzahlung
+      = number_to_percentage(100 * booking.downpayment_percentage, format: "%n %", precision: 0)
+      bis zum
+      %strong #{downpayment_deadline}:
+    %ul
+      %li
+        %span.payment= display_price downpayment
+    %p
+      %strong Restzahlung
+      bis zum
+      %strong #{payment_deadline}:
+    %ul
+      %li
+        %span.payment= display_price remainder
+
+  %p
+    Klicken Sie hier für Ihre individuelle Zahlungsübersicht und Kontodaten:
+    = mail_button_link_to payments_booking_url do
+      &gt;&gt; Zahlungsübersicht für #{booking.number} aufrufen
+
+
+= confirmation_subsection "Nebenkosten" do
+  = render "bookings/energy_costs", inquiry: inquiry
+
+= confirmation_subsection "Weitere Reiseteilnehmer" do
+  %ol
+    - booking.traveler_names.each do |traveler|
+      %li= traveler
+
+= confirmation_subsection "Reiseinformation" do
+  %p
+    Haben Sie ein Navigationsgerät im Auto? Die Adresse Ihrer
+    %strong= villa.name
+    lautet wie folgt:
+  %p
+    %strong
+      = succeed ", " do
+        = villa.street
+      = succeed ", " do
+        = villa.locality
+      = villa.region
+      = villa.postal_code
+  %p
+    Das Haus steht Ihnen ab 16 Uhr des Anreisetages zur Verfügung.
+    Check-Out bis 10 Uhr Vormittags.
+  %p
+    An der Villa angekommen, finden Sie beim Eingang einen Schlüsselsafe oder
+    einen Keypad. Den Code dafür erhalten Sie
+    %u 2 Wochen vor Mietbeginn
+    mit separatem Mail.
+  %p
+    In diesem Mail erhalten Sie gleichzeitig den Namen und die Telefon-Nummer
+    der zuständigen, deutschsprachigen Verwaltung.
+  %p
+    Mietwagen bereits gebucht? Hier geht es zu den besten Angeboten:
+    = link_to "https://www.intervillas-florida.com/mietwagen", "https://www.intervillas-florida.com/mietwagen"
+
+= confirmation_subsection "Einreise ESTA-Formular" do
+  %p
+    Ihr ESTA-Formular können Sie
+    = succeed "." do
+      = link_to "hier beantragen", "https://esta.cbp.dhs.gov/esta/"
+  %p
+    Um die Passanforderungen nachzulesen, klicken Sie bitte
+    = succeed "." do
+      = link_to "hier", "https://www.intervillas-florida.com/einreisebestimmungen"
+  %p
+    Zum Ausfüllen Ihres ESTA-Formulares benötigen Sie Informationen zur
+    US-Kontaktperson. Bitte füllen Sie die Angaben wie folgt aus:
+  %ul
+    %li
+      %strong Name:
+      = villa.name
+    %li
+      %strong Adresse:
+      = villa.street
+    %li
+      %strong Stadt:
+      Cape Coral
+    %li
+      %strong Telefonnummer:
+      = villa.phone
+  %p
+    Es ist nicht nötig, eine Kontaktperson anzugeben. Name der Örtlichkeit,
+    wo Sie sich aufhalten werden, reicht völlig aus. Im Notfall kann sogar
+    <em>UNKNOWN</em> angegeben werden.
+
+= confirmation_subsection "Diverses" do
+  %p
+    Wenn Sie Ihren Laptop dabeihaben, können Sie die vorhandene Wireless-Verbindung
+    selbstverständlich kostenlos nutzen. Sie benötigen kein Passwort - einfach
+    einloggen. Bei einer verschlüsselten Verbindung wird Ihnen das Passwort
+    bekanntgegeben.
+  %p
+    Sollten Sie noch zusätzliche Fragen an uns haben, können Sie uns jederzeit
+    per E-Mail kontaktieren:
+    %a{ href: "mailto:info@intervillas-florida.com" } info@intervillas-florida.com
+
+= confirmation_subsection "WICHTIG" do
+  %p In allen unseren Villen gelten folgende Regelungen:
+  %ol
+    %li
+      %strong Rauchen im Haus ist strikt verboten
+    %li
+      %strong Möbel- und Dekorationsgegenstände sollten nicht verstellt werden
+    %li
+      %strong
+        im Poolbereich, die über eine Screen (Mückenschutz) verfügen, sind
+        Ballsspiele nur mit aufblasbaren Bällen gestattet. Harte Bälle können
+        grosse Schäden an den Screens verursachen
+
+  %p
+    Unsere Häuser werden gemäss Vorgaben des
+    = link_to "CDC (Center for Disease, Control and Prevention)", "https://www.cdc.gov/"
+    gereinigt. Das Reinigungspersonal trägt während der Reinigung und
+    Desinfektion Einweg-Handschuhe sowie Einweg-Gesichtsmasken.
+
+= confirmation_subsection "Links" do
+  %p Hier können Sie die AGB, Reise Info und Cape Coral Info noch mal nachschauen:
+  %ul
+    %li= link_to "AGB",                   "https://www.intervillas-florida.com/agb"
+    %li= link_to "Einreisebestimmungen",  "https://www.intervillas-florida.com/einreisebestimmungen"
+    %li= link_to "Cape Coral Info",       "https://www.intervillas-florida.com/capecoral"
+
+%p
+  Wir wünschen Ihnen einen schönen, erholsamen Urlaub in der #{villa.name}
+  und alles Gute für die Reise!
+%p
+  Freundliche Grüsse,<br>
+  Ihr INTERVILLAS-Team

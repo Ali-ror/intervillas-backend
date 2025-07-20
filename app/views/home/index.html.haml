@@ -1,0 +1,18 @@
+- if current_domain.slides.any?
+  - content_for :head do
+    = preload_slide(current_domain.slides.active.first)
+
+  - pg = Page.joins(:route).on_domain(current_domain).find_by(routes: { name: "vacation_in_florida_boats" })
+  %florida-is-waiting-for-you{ data: { slides: hero_slides(current_domain), villas: villas_path, boats: (pg ? "/#{pg.route.path}" : false) } }
+    = render "placeholder", slide: current_domain.slides.active.first
+
+= render "home/search_form"
+
+- if (forecast = WeatherForecast.find(:cape_coral))
+  %aside.container.applet{ name: "Weather" }
+    %weather-forecast{ ":weather" => forecast["weather"].to_json }
+
+= render "home/info_banner"
+
+- current_domain.partials.each do |pt|
+  = render "home/dynamic/#{pt}"

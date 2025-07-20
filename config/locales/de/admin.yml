@@ -1,0 +1,805 @@
+de:
+  admin:
+    billings:
+      billing_form:
+        add_charge: weiteren Posten hinzufügen
+        charges: weitere Posten
+        submit: Abrechnung speichern
+      billing_table:
+        check_out: Abreise
+        number: IV-Nr.
+        rentable_objects: Miet-Objekte
+        tenant: Mieter
+        edit: bearbeiten
+        show: anzeigen
+      charge_fields:
+        remove_charge: diesen Posten löschen
+        text_hint: "(der Kunde erwartet Texte auf %{lang})"
+      communication:
+        messages:
+          title: Nachrichten
+        boat_form:
+          title: Abrechnung an Boot-Eigentümer versenden
+        tenant_form:
+          title: Nebenkostenabrechnung an Mieter versenden
+        titles:
+          forms: Abrechnungen versenden
+          message_list: Alle Nachrichten
+        villa_form:
+          title: Abrechnung an Haus-Eigentümer versenden
+      edit:
+        new_record: Abrechnung ist noch nicht gespeichert.
+        prices_in: Alle Preise in %{currency}.
+      form_boat:
+        add_charge: weiteren Posten hinzufügen
+        boat: Boot
+        charges: weitere Posten
+        submit: Abrechnung speichern
+      form_villa:
+        add_charge: weiteren Posten hinzufügen
+        charges: weitere Posten
+        submit: Abrechnung speichern
+        villa: Villa
+      invoicable:
+        info: >-
+          In dieser Liste sind alle Buchungen enthalten, dessen Abreisedatum in der Vergangenheit
+          liegt, für die noch keine Abrechnung erstellt wurde.
+      messages:
+        messages: Nachrichten
+      search_panel:
+        heading: Suche
+        number: IV-Nr.
+      sidebar:
+        overdue_payments:
+          heading: Offene Beträge – Bezahlung unvollständig
+      sidebar_left:
+        subheading: Abrechnung
+        canceled: storniert
+        back_index: zurück zur Übersicht
+        back_booking: zurück zur Buchung
+        villa: Villa
+        boat: Boot
+        billings: Abrechnungen
+        communication: Kommunikation
+        future_booking_warning: "Achtung: Buchung liegt in der Zukunft!"
+    bookings:
+      booking_table:
+        number: IV-Nr.
+        show: anzeigen
+        edit: bearbeiten
+        none: keins
+      communication:
+        titles:
+          boat_manager_notes: Bootverwaltung
+          boat_owner_message: Eigentümer (Boot)
+          cables_list: Int. Meldungen
+          message_list: Alle
+          owner_message: Eigentümer (Haus)
+          villa_manager_notes: Hausverwaltung
+        messages:
+          title: Nachrichten
+          no_messages: Bisher wurden keine Nachrichten verschickt.
+        boat_manager_form:
+          kind: an Bootsverwaltung
+          no_manager: "Notiz an Bootsverwaltung nicht möglich: Keine Bootsverwaltung eingetragen."
+        villa_manager_form:
+          kind: an Hausverwaltung
+          no_manager: "Notiz an Hausverwaltung nicht möglich: Keine Hausverwaltung eingetragen."
+        cables:
+          title: Meldungen
+          description_html: >-
+            Interne Nachrichten, die nur die Eigentümer oder Verwaltungen zu Gesicht bekommem,
+            wenn diese sich eingeloggt haben. Meldungen werden <em>nicht</em> per E-Mail versendet.
+          add: Neue Meldung
+          recipents_cant_login: >-
+            Keiner der Kontakte darf sich im System anmelden. Es kann daher keine
+            interne Meldung hinzugefügt werden.
+          create: Meldung hinzufügen
+      edit:
+        payments: Zahlungen
+        billing: Abrechnung
+        review: Bewertung
+        confirmation:
+          heading:
+            de: Bestätigungsmail (deutsch)
+            en: Bestätigungsmail (english)
+          preview: Vorschau
+          customer_page: Bestätigungsseite
+          resend_mail: Mail erneut senden
+        travel_mail:
+          heading: Reiseantrittsmail
+          already_sent: Die Reiseantrittsmail (2 Wochen vor Anreise) wurde am %{date} verschickt.
+          resend_mail: Mail erneut senden
+          planned: >-
+            Der Versand der Reiseantrittsmail (2 Wochen vor Anreise) ist für den %{date} geplant.
+            Die Mail wird nicht (oder verzögert) versandt, wenn die Zahlungseingänge nicht ausreichen.
+          send_mail: Mail jetzt senden
+        external_booking:
+          booking_pal:
+            heading: "Externe Buchung von %{channel} (BookingPal): %{reservation_id}"
+            warning: >-
+              Diese Buchung muss im System von BookingPal (bzw. dessen Channel) bearbeitet werden!
+              Die Werte hier dienen lediglich zur Kenntnisnahme bzw. werden für die Abrechnung verwendet.
+          heading: Externe Buchung!
+          warning: >-
+            Bei externen Buchungen werden keine automatisierten E-Mails versendet.
+      payments:
+        heading: Übersicht
+        add: Neue Zahlung eintragen
+        edit: Zahlung bearbeiten
+        send_receipt: Zahlungseingänge bestätigen
+        send_reminder: Zahlungserinnerung versenden
+        cc_transactions: Kreditkarten-Transaktionen
+        new_payment_form:
+          save: Speichern
+          cancel: Abbrechen
+        deadlines:
+          apply: übernehmen
+          edit: bearbeiten
+          delete: löschen
+          no_paypal_status: keine Informationen verfügbar
+          ack_payment:
+            desc: Die Anzahlung von %{sum} kann als ausreichende Sicherheit akzeptiert werden.
+            button: Sicherheit akzeptieren
+          remove_ack:
+            desc: Die Anzahlung von %{sum} wurde als ausreichende Sicherheit akzeptiert.
+            button: Markierung entfernen
+      misc:
+        heading: Sonstiges
+        billing: Abrechnung
+        billing_month: Abrechnungsmonat
+        curr: aktuellen
+        next: nächsten
+        prev: letzten
+        text:
+          post: Monat übernehmen
+          pre: ''
+        save: Speichern
+      show:
+        boat_data: Boot
+        boat_owner_message: Buchungsbestätigung an Boot-Eigentümer
+        booking_data: Buchungsdaten
+        booking_number: 'Buchung %{number}'
+        comment: Kommentar
+        customer_address: Adresse
+        customer_data: Kundendaten
+        customer_name: Kunde
+        dates: Zeiten
+        inquiry_number: 'Anfrage #%{number}'
+        notes: Notizen zur Buchung
+        note_date: Datum
+        note_subject: Betreff/Text
+        note_recipient: Empfänger
+        owner_message: Buchungsbestätigung an Eigentümer
+        payments: Zahlungseingänge
+        payment_date: Datum
+        payment_date_unknown: unbekannt
+        payment_scope: Typ
+        payment_sum: Betrag
+        payment_total: Total
+        rentables: Miet-Objekte
+        resend_confirmation_mail: Erneute Bestätigungsmail versenden
+        send_notes_to_manager: Notiz an Hausverwaltung versenden
+        state: Status
+        tenant: Mieter
+        to_index: zurück zur Übersicht
+        to_edit: bearbeiten
+        traveler_birthday: Geburtsdatum
+        traveler_list: Reiseteilnehmer
+        traveler_name: Name
+        traveler_unnamed: unbekannt
+        travelers: Anzahl Reisende
+      sidebar:
+        all: alle
+        search: Buchungen suchen
+        skipped_travel_mails:
+          heading: Übersprungene Reiseantrittsmails
+          none: Alle anstehenden Reiseantrittsmails versandt.
+          pending_html: >-
+            Bei folgenden Buchungen wurde die Reiseantrittsmail (2&nbsp;Wochen vor Mietbeginn)
+            <em>noch nicht</em> versandt, da nicht ausreichend Zahlungseingänge vorhanden sind:
+    cancellations:
+      index:
+        filter:
+          heading: Filter nach Haus
+          apply: Anwenden
+          info: Es werden nur Häuser zur Auswahl angeboten, für die mindestens eine Stornierung vorliegt.
+        search: Buchungen suchen
+      edit:
+        reason:
+          heading: Buchung storniert.
+          reason: Grund
+          no_reason: nicht angegeben
+      errors:
+        not_found: Anfrage existiert nicht oder nicht mehr
+        unknown: es ist ein unbekannter Fehler aufgetreten
+      uncancel:
+        heading: Stornierung zurücknehmen
+    clearings:
+      index:
+        invalid_date: Ungültiger Zeitraum.
+        no_clearings_found: Keine abgerechneten Buchungen für Währung %{curr} gefunden.
+      filter:
+        show: anzeigen
+      table:
+        owner: Eigentümer/Empfänger
+        rentables: Objekte/Buchungen
+        payout: Payout
+        payout_hint: >-
+          Summe über Netto-Payout bei Buchungen mit Haus oder Bootseigentümern, die Netto abgerechnet
+          werden sollen (kann beim Kontakt eingestellt werden), ansonsten Brutto-Payout
+        last_sent_at: zuletzt versandt
+        noname: ohne Namen
+        never: noch nie
+        send: versenden
+        resend: erneut versenden
+        since: seit %d.%m.%Y, %H:%M Uhr
+        status_sending: befindet sich noch im Versand
+        status_sending_short: im Versand
+        villas:
+          one: 1 Villa
+          other: "%{count} Villen"
+        boats:
+          one: 1 Boot
+          other: "%{count} Boote"
+        bookings:
+          one: 1 Buchung
+          other: "%{count} Buchungen"
+        toggle_details: anzeigen
+        details_hidden: Details ausgeblendet
+        total_sum: Total über alle Eigentümer
+    customers:
+      update:
+        success: Kundendaten erfolgreich gespeichert
+        failure: Kundendaten konnten nicht gespeichert werden
+    customer_searches:
+      filter:
+        heading: Suche nach Vor-, Nachnamen und E-Mail-Adresse
+        all_villas: alle Villen
+        all_boats: alle Boote
+        search: suchen
+        hint: Mindestens 3 Zeichen, Groß-/Kleinschreibung spielt keine Rolle.
+        results:
+          zero: Keine Ergebnisse
+          one: 1 Ergebnis
+          other: "%{count} Ergebnisse"
+      index:
+        heading: Kunden-Suche
+      results:
+        number: IV-Nr.
+        kind: Typ
+        villa: Villa
+        boat: Boot
+        customer: Kunde
+        status: Status
+        date: Eingangsdatum
+        kind_cancelation: Storno
+        kind_booking: Buchung
+        kind_inquiry: Anfrage
+        edit: bearbeiten
+        show: ansehen
+        destroy: löschen
+        billing: Abrechnung
+    devise:
+      sessions:
+        destroy:
+          impersonation_ended: Wieder zurück angemeldet als %{email}.
+    grid:
+      page:
+        one: ''
+        other: 'S. %{current}/%{count}'
+      sections:
+        boats: Boote
+        empty:
+          boats: Boote ohne Buchungen
+          villas: Villen ohne Buchungen
+        old_boats: Boote aus Bestandsbuchungen
+        villas: Villen
+      title: 'Belegungspläne %{start_date} bis %{end_date}'
+    high_seasons:
+      index:
+        none: Bisher keine Hochsaisons definiert.
+    inquiries:
+      cancel_destroy:
+        heading: Löschen/Stornieren
+        destroy: löschen
+        destroyable_hint: >-
+          Beim Löschen werden sämtliche Informationen zu dieser
+          Anfrage/Buchung unwiederbringlich gelöscht.
+        cancelable_hint: >-
+          Beim Stornieren bleiben die Buchungsinformationen erhalten
+          (z.B. für eine spätere Abrechnung von Stornogebühren). Die
+          Buchung verschwindet aber aus der Übersicht und die Mietobjekte
+          werden wieder freigegeben.
+        indestructable_hint: "Ein Löschen ist nicht mehr möglich:"
+        noncancelable_hint: "Ein Stornieren ist nicht mehr möglich:"
+      clearing:
+        boat:
+          boat_discount: Boot-Rabatt
+          boat_reversal: Boot-Stornogebühren
+          count: ''
+          daily: Miete
+          deposit: Boot-Kaution
+          human_name: Boot
+          price: Bootsmiete
+          price_christmas: + Weihnachten Boot
+          price_easter: + Ostern Boot
+          price_high_season: + Hochsaison
+          single_rate: pro Tag
+          sum: Summe
+          time_unit: Tage
+          training: Boot-Anlieferung
+        deposits: Kautionen
+        discount: Rabatt
+        discounted_price: Rabattierter Preis
+        generic:
+          agency_fee: Gebühren (agency_fee)
+          deposit: Kaution
+          discount: Rabatt
+          handling: Bearbeitungsgebühr
+          intervillas_discount: Intervilla-Rabatt
+          travel_agency_discount: Reisebüro-Provision
+          training: Boot-Anlieferung
+        prices: Preise
+        total_rent: Mietpreis
+        villa:
+          additional_adult: weitere Person(en)
+          additional_adult_christmas: + Weihnachten Erwachsene
+          additional_adult_easter: + Ostern Erwachsene
+          additional_adult_high_season: + Hochsaison Erwachsene
+          additional_adult_special: '- Last Minute Erwachsene'
+          adults: Erwachsene
+          adults_christmas: + Weihnachten
+          adults_easter: + Ostern
+          adults_high_season: + Hochsaison
+          adults_special: '- Last Minute'
+          base_rate: Grundpreis für %{count} Pers.
+          base_rate_booking_pal: Grundpreis für %{count} Pers. (BookingPal)
+          base_rate_christmas: + Weihnachten
+          base_rate_easter: + Ostern
+          base_rate_high_season: + Hochsaison
+          base_rate_special: '- Last Minute'
+          weekly_rate: Grundpreis
+          children_under_12: Kinder bis 12 J.
+          children_under_12_christmas: + Weihnachten Kind bis 12 J.
+          children_under_12_easter: + Ostern Kind bis 12 J.
+          children_under_12_high_season: + Hochsaison Kind bis 12 J.
+          children_under_12_special: '- Last Minute Kind bis 12 J.'
+          children_under_6: Kinder bis 6 J.
+          children_under_6_christmas: + Weihnachten Kind bis 6 J.
+          children_under_6_easter: + Ostern Kind bis 6 J.
+          children_under_6_high_season: + Hochsaison Kind bis 6 J.
+          children_under_6_special: '- Last Minute Kind bis 6 J.'
+          cleaning: Endreinigung
+          count: Anzahl
+          deposit: Haus-Kaution
+          discount: Haus-Rabatt
+          human_name: Haus
+          pet_fee: Haustiergebühr
+          early_checkin: Frühes Einchecken
+          late_checkout: Spätes Auschecken
+          repeater_discount: Repeater-Rabatt
+          reversal: Haus-Stornogebühren
+          single_rate: pro Nacht
+          sum: Summe
+          time_unit: Nächte
+      comm_cable_row:
+        cable: interne Meldung
+      comm_message_row:
+        email: E-Mail
+        preview: Anzeigen
+        status_error: Fehler beim Versand
+        status_bounced: E-Mail bounced
+        status_sent: E-Mail versandt
+        status_unknown: keine Versand-Informationen verfügbar
+      customer:
+        customer: Kundendaten
+        de: deutsch
+        en: englisch
+        mr: Herr
+        mrs: Frau
+      layout:
+        offer: Angebot
+      edit:
+        email_offer: Angebotsmail senden
+        finalize_booking: Buchung abschließen
+        not_available_anymore: Buchung nicht mehr möglich
+      header:
+        inquiries: Anfragen/Angebote
+        bookings: Buchungen
+        invoicable: Abrechenbar
+        billings: Abrechnungen
+        clearings: Abgerechnet
+        cancelations: Stornierungen
+        blockings: Blockierungen
+      index:
+        create: Angebot erstellen
+        search: Anfrage/Angebot suchen
+        all: alle
+      inquiries_table:
+        none: keins
+        show: anzeigen
+        delete: löschen
+        confirm: Wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden.
+        edit: bearbeiten
+      misc:
+        misc: Sonstiges
+      prices:
+        fees_and_discounts: Gebühren und Rabatte
+        prices: Preise
+      search_panel:
+        title: Suche
+        number: IV-Nr.
+        search: suchen
+      sidebar_left:
+        villa: Haus
+        boat: Boat
+        back: zurück zur Übersicht
+        details: Buchungsdaten
+        customer: Kunde
+        communication: Kommunikation
+        misc: Sonstiges
+        cancellation: STORNO
+      sidebar_right:
+        booking_data: Buchungsdaten
+        prices: Preise
+    main_nav:
+      items:
+        website: Webseite
+        contacts: Kontakte
+        objects: Objekte
+        bookings: Buchungen
+        misc: Sonstiges
+      contacts:
+        users: Benutzer-Zugänge
+        owners: Eigentümer und Verwaltungen
+      objects:
+        villas: Villen
+        boats: Boote
+        specials: Last Minute
+        tags: Tags
+        high_seasons: Hochsaison
+      bookings:
+        inquiries_admin: Anfragen/Offerten
+        inquiries_owner: Buchungen/Anfragen/Angebote
+        bookings: Buchungen
+        cancellations: Stornierungen
+        occupancies:
+          villas: Belegungspläne Villen
+          boats: Belegungspläne Boote
+        billings: Abrechnungen
+        summaries: Summaries
+      misc:
+        billings: Abrechnungen
+        comparisons: Belegungsstatistiken
+        domains: Domains/Startseiten
+        newsletter: CSV-Export Newsletter-Empfänger
+        overview: Übersicht
+        pages: Unterseiten
+        sales: Umsatzanalyse
+        settings: Einstellungen
+        snippets: Text-Schnipsel
+        stats: Objekt-Statistiken
+        seo: SEO
+      two_factor_settings: Zwei-Faktor-Authentifizierung
+    my_booking_pal:
+      products:
+        creating: >
+          Produkt für MyBookingPal wird erstellt. Es kann einen Moment dauern,
+          bevor alle Daten eingestellt wurden. Bitte daran denken, das Produkt
+          hinterher zu prüfen/validieren und zu aktivieren.
+        deleting: >
+          Das MyBookingPal-Produkt wird für %{villa} gleich gelöscht. Es kann
+          einen Moment dauern, bis alle Daten von deren Servern entfernt wurden.
+      update_progress:
+        steps:
+          start: Basisdaten
+          images: Bilder
+          fees_taxes: Gebühren und Steuern
+          los_prices: Preise
+    occupancies:
+      layout:
+        please_select:
+          boat: Bitte ein Boot auswählen.
+          villa: Bitte eine Villa auswählen.
+        monthly_plans: Monatspläne
+        yearly_plans: Jahrespläne
+        show: anzeigen
+        villas: Häuser
+        boats: Boote
+        calendar: Kalender
+        list: Liste
+        stats: Statistik
+      js_calendar:
+        info: >-
+          Um einen Termin zu blockieren, klicken Sie zuerst auf den ersten,
+          danach auf den letzten Tag des zu blockierenden Zeitraums.
+    overview:
+      index:
+        active: aktiv?
+        all_bookings: alle Buchungen
+        boats: Boote
+        cables:
+          description: >-
+            Hier werden die aktuellsten 20 Meldungen zu verschiedenen Buchungen
+            angezeigt.
+          none_found: Keine gefunden.
+          recent: Aktuelle Meldungen
+        current_bookings: 'Buchungen für das Jahr %{year}'
+        name: Name
+        none: >-
+          Keine Objekte referenziert. Wenn Sie hier Objekte erwartet haben, sind
+          Sie vielleicht nur mit dem falschen Account angemeldet.
+        occupancies: Belegungsübersicht
+        toggle_hidden:
+          btn: ein-/ausblenden
+          text:
+            one: Tabelle enthält ein inaktives Objekt
+            other: 'Tabelle enthählt %{count} inaktive Objekte'
+        utilization: Auslastung
+        villas: Häuser
+    pages:
+      index:
+        heading: Unterseiten
+        create: neue Seite erstellen
+      created: Unterseite gespeichert
+      updated: Unterseite aktualisert
+      destroyed: Unterseite gelöscht
+    password_expiry_banner:
+      expired: Ihr Password ist abgelaufen, bitte legen Sie ein neues fest.
+      warning: Ihr Passwort läuft in wenigen Tagen ab.
+    payments:
+      tabs:
+        index:
+          name:  Alle
+          title: Alle Zahlungen
+        unpaid:
+          name:  Offen
+          title: Offene Beträge
+        overdue:
+          name:  Überfällig
+          title: Überfällige Zahlungen
+        external:
+          name:  Extern
+          title: Externe Buchungen
+        balance:
+          name:  nach Jahr
+          title: Zahlungseingänge nach Jahr
+        balance_for:
+          name:  "nach Jahr (%{year})"
+          title: "Zahlungseingänge %{year}"
+        acked:
+          name:  Akzeptiert
+          title: Akzeptierte Anzahlungen
+        paypal:
+          name:  Paypal
+          title: Eingang Paypal
+        bsp1:
+          name:  PAYONE
+          title: Eingang PAYONE
+      payments_table:
+        booking: Buchung/Mieter
+        downpayment: Anzahlung
+        deficit: Fehlbetrag in Klammern
+        total_payment: Gesamtbetrag
+        payment_receipt: Zahlungseingang
+        total_sum: total
+        difference: Differenz
+        comment: Kommentar
+      payment:
+        last_minute: kurzfristig
+        payment_reminder: Zahlungserinnerung
+      balance:
+        info: Zahlungseingänge bis einschließlich %{to} für Buchungen ab %{year}.
+        show_payments: einzelne Zahlungen anzeigen
+      balance_table:
+        number: IV-Nr.
+        object: Objekt
+        start_date: von
+        end_date: bis
+        status: Status
+        sum: Summe
+      sidebar:
+        search:
+          heading: Suche
+          number: IV-Nr.
+          tenant: Mieter
+          search_booking: Buchung suchen
+          search_tenant: Mieter suchen
+        export:
+          heading: "Datenexport: %{kind}"
+          download_csv: CSV herunterladen
+          note: Der Export kann einen Moment in Anspruch nehmen.
+    bsp1_payment_processes:
+      payments_table:
+        booking: IV-Nr.
+        date: Datum
+        transaction_id: Vorgangsnummer
+        status: Status
+        sum: Summe
+        incl_fees: inkl. Gebühren
+        fees: Gebühren
+      payment_process:
+        copy: Vorgangsnummer kopieren
+        txmanager: zur Debitorenverwaltung
+        details: Details
+        restart: Zahlung erneut starten
+        restart_confirmation: >-
+          Achtung, dies ermöglicht dem Kunden das Kreditkarten-Formular
+          erneut auszufüllen. Dies sollte nur dann geschehen, wenn die
+          Transaktion in der Debitorenverwaltung von BS PAYONE als 'Fehler'
+          markiert ist.
+    paypal_transactions:
+      payments_table:
+        booking: IV-Nr.
+        date: Datum
+        transaction_id: Transaktions-ID
+        status: Status
+        sum: Summe
+        incl_fees: inkl. Gebühren
+        fees: Gebühren
+        expected_fees: erwartet
+        actual_fees: tatsächlich
+        fee_difference: Differenz
+        fee_percentage: "%-Satz"
+        effective_fees: effektiv
+      payment:
+        deficit: Kunde muss nachzahlen
+        surplus: Kunde bekommt gutgeschrieben
+        details: Details
+        unknown: unbekannt
+        pending: noch nicht abgeschlossen
+    reviews:
+      create:
+        success: Bewertung gespeichert.
+        failure: Bewertung konnte nicht erzeugt werden.
+      update:
+        success: Bewertung aktualisiert.
+        failure: Bewertung konnte nicht gespeichert werden.
+      filter:
+        complete: vollständig
+        incomplete: unvollständig
+        nostars: 'unvollständig (Text, aber keine Sterne)'
+        publishable: noch nicht veröffentlicht
+        archived: archiviert/gelöscht
+    routes:
+      edit:
+        heading: Route bearbeiten
+      i18n_field:
+        in_german: auf deutsch
+        in_english: auf englisch
+      item:
+        edit: bearbeiten
+        inactive: inaktiv
+      form:
+        belongs_to_resource: Route gehört zu
+    specials:
+      index:
+        add: Neues Special anlegen
+      edit:
+        heading: Last-Minute-Special bearbeiten
+      new:
+        heading: Neues Last-Minute-Special anlegen
+    summaries:
+      filter:
+        grouping:
+          summary_on: Abgrenzung nach Abrechnungsmonat
+          start_date: Abgrenzung nach Anreisedatum
+        whole_year: ganzes Jahr
+        show: anzeigen
+        download_csv: als CSV herunterladen
+    two_factor_settings:
+      required: Sie haben noch keine Zwei-Faktor-Authentifizierung eingerichtet. Dies ist Pflicht für Ihren Zugang.
+      created: Die Zwei-Faktor-Authentifizierung wurde erfolgreich eingerichtet. Bitte lesen Sie die nachfolgenden Hinweise gründlich.
+      deactivated: Die Zwei-Faktor-Authentifizierung wurde erfolgreich deaktiviert.
+      invalid_otp: Der eingegebene Code ist nicht gültig. Bitte versuchen Sie es erneut.
+      not_prepared: Bei der Einrichtung der Zwei-Faktor-Authentifizierung kam es zu einem unerwarteten Fehler. Bitte wenden Sie sich an den Support.
+    users:
+      active: Aktiv
+      inactive: Inaktiv
+
+      access_level:
+        detail:
+          admin: Benutzer hat uneingeschränkten Zugriff auf sämtliche Daten.
+          bookings: 'Wie "Objekte", Benutzer hat auch Lese-Zugriff auf Buchungsansichten.'
+          inquiries: 'Wie "Buchungen", Benutzer hat Lese-Zugriff auf Buchungsanfragen.'
+          none: >-
+            Benutzer kann sich nicht einloggen. Login-Versuche werden mit
+            "ungültige E-Mail-Adresse oder Passwort" quittiert.
+          rentables: >-
+            Der Benutzer kann sich mit seiner E-Mail-Adresse und Passwort
+            einloggen, und hat Zugriff auf die Belegungspläne der Villen und
+            Boote, denen er als Eigentümer oder Verwalter zugeordnet ist.
+        oneline:
+          admin: Admin (uneingeschränkter Zugriff)
+          bookings: Buchungen und Objekte
+          inquiries: 'Anfragen, Buchungen, Objekte'
+          none: kein Zugriff
+          rentables: nur Objekte
+        title:
+          admin: Admin
+          bookings: Buchungen
+          inquiries: Anfragen
+          none: kein Zugriff
+          rentables: Objekte
+      form:
+        bankverbindung: Bankverbindung
+        berechtigungen: Zugangsberechtigungen
+        billing: Abrechnung
+      signin:
+        impersonation_successful: >-
+          Erfolgreich als Benutzer %{email} angemeldet.
+          Um wieder Admin-Rechte zu erlangen, einfach abmelden.
+    villa_check:
+      success: OK
+      failure: Fehler
+      skipped: Nicht geprüft
+      checks:
+        people_prices:
+          title:       Villa hat Personen-Preise
+          description: Bitte Preise hinzufügen (Villa → Bearbeiten → Preise).
+        has_description:
+          title:       Villa hat eine Beschreibung
+          description: |
+            Wenigstens eine englischsprachige Beschreibung ist erforderlich (Villa → Bearbeiten
+            → Merkmale → Beschreibung).
+        clean_description:
+          title:       Beschreibung ist "sauber"
+          description: |
+            Die Beschreibungstexte dürfen keine Preise, Steuern, Reinigungskosten, Kaution, etc.
+            beschreiben (Villa → Bearbeiten → Merkmale → Beschreibung).
+        key_collection_placeholder:
+          title:       Safe-Code ist bei Schlüsselübergabe hinterlegt
+          description: |
+            Der Platzhaltertext ist noch in der Beschreibung enthalten (Villa → Bearbeiten → Weitere
+            Eigenschaften → Key collection → How should keys be collected?)
+        tags:
+          title:       Villa ist mit Merkmalen gekennzeichnet, die MyBookingPal bekannt sind.
+          description: |
+            Unter Villa → Bearbeiten → Merkmale müssen Merkmale ausgewählt sein, die mit
+            MyBookingPal verknüpft sind. Unter Objekte → Tags finden sich solche, die in der Spalte
+            "Amenty-IDs" einen Wert eingetragen haben.
+        has_bedroom:
+          title:       Villa hat wenigstens ein Badezimmer
+          description: Bitte Badezimmer hinzufügen (Villa → Bearbeiten → Merkmale → Badezimmer)
+        has_bathroom:
+          title:       Villa hat wenigstens ein Schlafzimmer
+          description: Bitte Schlafzimmer hinzufügen (Villa → Bearbeiten → Merkmale → Schlafzimmer)
+        has_image:
+          title:       Villa hat Bilder
+          description: Unter Villa → Bearbeiten → Fotos wenigstens ein aktives Bild hinzufügen.
+    villa_inquiries:
+      form:
+        add_traveler: Reisenden hinzufügen
+    villas:
+      index:
+        create: Neue Villa anlegen
+      index_owner_manager:
+        all_bookings: alle Buchungen
+        cables:
+          description: >-
+            Hier werden die aktuellsten 20 Meldungen zu verschiedenen Buchungen
+            angezeigt.
+          none_found: Keine gefunden.
+          recent: Aktuelle Meldungen
+        current_bookings: 'Buchungen für das Jahr %{year}'
+      item:
+        active_button: aktiv
+        boat_external: extern
+        boat_state:
+          inclusive: inklusive
+          none: keins
+          optional: optional
+      table:
+        actions: Aktionen
+        is_active: Aktiv?
+      villa:
+        statistics: Statistiken
+        seo_settings: SEO-Einstellungen
+        missing_pool_orientation: Lage fehlt
+        ical:
+          export: Buchungen als iCal exportieren
+          without_external_events: ohne externe Events
+          only_internal_bookings: nur eigene Buchungen/Blockierungen
+          with_external_events: mit externen Events
+          with_synced_bookings: enthält per iCal-Import synchronisierte Blockierungen

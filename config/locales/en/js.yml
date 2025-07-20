@@ -1,0 +1,470 @@
+# Wenn die Übersetzungen auch an das Frontend durchgereicht werden sollen,
+# dann muss der Key in die i18n.js.erb eingetragen werden
+en:
+  js:
+    generic:
+      add: add
+      delete: delete
+      remove: remove
+      save: save
+      cancel: cancel
+      please_select: Please select
+    boat_booking:
+      show_boats: Show boats
+      remove_boat: Remove boat
+      continue_without_boat: Continue without boat
+      no_boats_available: Sorry, there are currently no boats available.
+      modal:
+        select: Select boat
+        cancel: Cancel
+        prev_boat: Previous
+        next_boat: Next
+      details:
+        description: Description
+        hp: Horse power
+        hp_value: '%{ps} bhp'
+        video: Video
+        training: Delivery and training
+        deposit: Deposit
+        discount:
+          name_amount: '%{discount}: %{percent}% surcharge'
+          range: '(%{days_before} days ahead to %{days_after} days later)'
+        availability: Availability
+      availability:
+        full:
+          title: No limits
+          desc: This boat is available for booking.
+        limited:
+          title: Limited availability
+          desc: This boat is not available for the whole travel period.
+        none:
+          title: Currently not available
+          desc: Sorry, this boat is currently not available for booking.
+      prices:
+        title: Prices
+        period: Period
+        per_day: Price per day
+        total: Total
+        starting_from: starting from
+        days:
+          max:
+            one: 1 day and more
+            other: '%{count} days and more'
+          min:
+            one: 1 day (min. period)
+            other: '%{count} days (min. period)'
+          normal:
+            one: 1 day
+            other: '%{count} days'
+    bsp1_form:
+      cardpan: Card Number
+      downpayment: just downpayment (%{sum})
+      error: An error has occurred while processing your payment.
+      full_payment: both downpayment and remainder (%{sum})
+      pay_now: pay now
+      success: >-
+        Your payment is getting processed. You will receive an E-Mail, when we
+        have received your payment.
+      valid: valid until (mm/yyyy)
+    contact_form:
+      heading: Send a message
+      submit: send
+      created:
+        heading: Thank you for your inquiry!
+        body:  We will immediately take care of your concerns. You will receive a response from us as soon as possible.
+        closing: Sincerely
+      request:
+        email: Your email address
+        name: Your name
+        phone: Your phone number
+        text: Your message
+    drp:
+      btn:
+        change: change
+      caption:
+        high_season: high season
+        today: today's date
+      label:
+        arrival: Arrival
+        departure: Departure
+        please_select: Please select
+        range: Booking period
+        rental_period: Rental period
+      msg:
+        fill_in: The range %{start} until %{end} can only be booked en bloc.
+        min_range: The minimal booking period is %{min}&nbsp;%{type}.
+      boat:
+        boat_missing: please select a boat
+        aleady_booked: the boat is not available for the chosen dates
+        dates_missing: please select a date range
+    error_wrapper:
+      required: is required
+      required_selection: must be selected
+      must_not_be_occupied: already occupied
+      must_match_category: doesn't match price category
+    facets:
+      apply_filter: apply filter
+      hide_filters: hide filters
+      load_message: Loading filter, please wait.
+      more_filters: more filters
+      people: People
+      reset_filter: reset filter
+      result_summary: '%{start} until %{end}, %{people} ppl., %{rooms} r, %{tags}'
+      results:
+        one: Found one villa matching your search criteria
+        other: Found %{count} villas matching your search criteria
+        zero: Unfortunately, no villa matched your search criteria
+      rooms: Bedrooms
+      search: search
+      title: Find your dream villa
+    footer:
+      chat_with_us: Chat with us
+    header_search:
+      menu: Search by Villa name
+      placeholder: Search by Villa name
+    infinite_loading:
+      no_more: No more Reviews
+      no_results: No Reviews
+      error: There was an Error
+    inquiry_editor:
+      cancellation:
+        heading: Create cancellation for booking/inquiry
+        create: Create cancellation
+        error: Cancallation could not be saved.
+        unknown_error: Unknown error
+        success: Successfully cancelled booking/inquiry %{number}
+        goto:
+          index: Go back to list
+          cancellation: Show cancellation
+        reason: Cancellation reason
+        reason_hint: >-
+          Please provide a (short) reason for this cancellation. This reason
+          is forwarded to the owner and property manger of the villa (and boot,
+          if booked).
+      uncancellation:
+        heading: Undo cancellation
+        description: >-
+          We'll try to restore a booking from this cancellation, but it is
+          possible that the date range now collides with another booking.
+          If this happens, you need to resolve this conflict manually, either
+          by changing the date range or by selecting another villa/boat.
+        create: Restore booking
+        error: Failed to restore booking.
+        unknown_error: Unknown error
+        success: Successfully restored booking %{number}
+        goto:
+          index: Go back to list
+          booking: Show booking
+      note_mail:
+        heading: >-
+          Note: Some changes will trigger notification mails for property owners
+          and managers. These emails will be sent automatically:
+        skip: This time, skip sending notifications.
+        villa:
+          id: >-
+            Villa has changed. Owners/managers of the previously selected villa
+            will receive a cancellation, and owners/managers of newly selected
+            villa will reiceice a booking confirmation.
+          dates: Travel dates for the villa have changed.
+        boat:
+          added: >-
+            A new boat was added. Owners/managers will receive a booking
+            confirmation.
+          removed: >-
+            The boat was removed. Owners/managers will reiceive a cancellation.
+          id: >-
+            Boat has changed. Owners/managers of the previously selected boat
+            will receive a cancellation, and owners/managers of newly selected
+            boat will reiceice a booking confirmation.
+          dates: Lease term for the boat has changed.
+      inquiry:
+        objects: Objects
+        range: Dates
+        remote_data:
+          loading: Loading booking data…
+          load_error: Error loading booking data.
+        villa:
+          label: Villa
+          prices_info:
+            - EUR (+ USD) = prices defined in EUR, autom. conversion for USD
+            - EUR + USD = prices defined in EUR und USD
+            - USD-only = only USD prices available
+          villa_missing: please select a villa
+        boat:
+          label: Boat
+          loading:
+          inclusive: Boat is included, cannot be changed
+          add: Add Boat
+          remove: Remove Boat from booking
+          groups:
+            optional: Boats associated with villa
+            others: Other boats
+            inclusive: Included boat
+            hidden: Former boats from existing bookings
+          invalid: The boat is not available in the selected date range
+        incomplete: You need to select villa and date range, before you can add travelers.
+        no_enough_travelers: You need to add at least two adult travelers.
+        saving_failed: Saving failed
+        saving_not_possible: saving not possible
+        saving: Saving
+        save: Save
+      customer:
+        label: Customer
+        external: external booking
+        external_hint:
+          - Mark this as an external booking from a portal like airbnb or VRBO.
+          - For external bookings, we don't send automatic emails.
+        email: Email address
+        phone: Phone number
+        locale:
+          label: Language
+          de: German
+          en: English
+        currency: Currency
+        title:
+          label: Title
+          m: Mr.
+          f: Mrs.
+        first_name: Given name
+        last_name: Last name
+      traveler:
+        label: Travelers
+        add: Add traveler
+        keep: Undo
+        remove: Remove
+        first_name: Given name
+        last_name: Last name
+        category: Price category
+        born_on: Birthday
+        age_on_arrival: Age on arrival date
+        age: "%{n}yo"
+        categories:
+          adults: Adults
+          children_under_6: Children up to age 6
+          children_under_12: Children up to age 12
+        category_not_available:
+          abbr: n/a
+          title: "not available: villa uses weekly pricing"
+      sidebar:
+        label: Booking details
+        inquiry:
+          label: Inquiry/Offer
+          created_at: Created at
+          updated_at: Last changed at
+          booked_at: Booking confirmed at
+          cancelled_at: Cancelled at
+        traveler:
+          label: Travelers
+          unknown: unknown
+          born: born
+          birthday: birthday falls in travel period
+        travel_insurance:
+          label: Travel Insurance
+          unknown: unknown
+          insured: present
+          not_insured: not present
+        bookable:
+          villa: Villa
+          boat: Boat
+          dates: Dates
+          discounts: Discounts and surcharges
+        discounts:
+          label: Edit discount/surcharge
+          category: Category
+          dates: Date range
+          apply_booking_dates: Apply travel period
+          apply_dates: apply
+          discount: Surcharge
+          discount_hint: Negative values for discounts, positive values for surcharges, 0 to remove
+          reload_hint: After saving, the price table will reload automatically.
+          high_season_dates: Dates
+          high_season_loading: Loading…
+          high_season_not_found: No high season found for the given travel dates.
+          high_season_overlap: Overlap
+          high_season: High Season
+      checked_discounts: Villa or travel dates have changed. Discounts/surcharges are still correct.
+      common:
+        local_validation_failed: local validation failed
+        remote_validation_failed: server validation failed
+        saved_successfully: Booking data saved successfully
+        no_server_response: No response from server
+      energy_cost:
+        label: Energy Cost Calculation
+        options:
+          defer:    defer to billing
+          usage:    by usage
+          flat:     flat price
+          included: included in rent
+        preset: villa preset
+        override: override value
+        legacy: legacy booking
+    maps:
+      zoom_in: Zoom in
+      show_surrounding: Show surrounding
+      more: More information
+    newsletter:
+      signup_button:
+        title: Subscribe to our newsletter
+      signup_modal:
+        title: Subscribe to our newsletter
+      signup_form:
+        email:     Email address
+        firstname: First name
+        lastname:  Last name
+        subscribe: Subscribe
+    price_table:
+      apply_normal_price: "Apply normal price: %{price}"
+      add_clearing_item: Add clearing item
+      category: category
+      categories:
+        handling: Handling fee
+        discount: Villa discount
+        intervillas_discount: Intervilla discount
+        travel_agency_discount: Travel agency provision
+        repeater_discount: Repeater discount
+        boat_discount: Boot discount
+        reversal: Cancelation fee
+        boat_reversal: Boot cancelation fee
+        pet_fee: Pet fee
+        early_checkin: Early check-in
+        late_checkout: Late check-out
+      clearing_item:
+        add_note: add note
+        add_note_prompt: "Please add note:"
+        remove: remove
+        keep: keep
+      dates: dates
+      days:
+        one: day
+        other: days
+      has_normal_price: has normal price
+      heading: Prices
+      nights:
+        one: night
+        other: nights
+      num_people: "# pers."
+      price: price
+      rental_price: Rental price
+      rental_price_including: Rental price incl. deposit(s)
+      sub_total: Rental price (sub total)
+      total: total
+      traveler_categories:
+        adults: adults
+        base_rate: base rate for %{count} people
+        additional_adult: additional adult(s)
+        children_under_6: children up to age 6
+        children_under_12: children up to age 12
+      traveler_discounts:
+        easter: Easter surcharge
+        christmas: Christmas surcharge
+        high_season: Peak season surcharge
+        special: Last minute discount
+      invalid: Cannot compute prices.
+    reservation_form:
+      title: Reservation
+      labels:
+        adults: No. of adults
+        children_under_12: No. of children up to age 12
+        children_under_6: No. of children up to age 6
+      hints:
+        adults: the villa provides beds for up to %{count} people
+        children_under_12: children for whith the 12th birthday falls on the date of arrival (or later)
+        children_under_6: children for whith the 6th birthday falls on the date of arrival (or later)
+      beds_fully_occupied: all beds fully occupied
+      new_inquiry: start booking inquiry
+      clearing:
+        person_prices: Person prices
+        boat_prices: Boat
+        other_prices: Miscellaneous prices
+        total_rent: Total rent
+        plus_deposit: plus deposit
+        plus: plus
+        tax_included: incl. taxes
+        details:
+          more: breakdown price
+          less: show summary
+        surcharges:
+          high_season: "surcharge: high season"
+          christmas: "surcharge: christmas"
+          easter: "surcharge: easter"
+          special: "discount: last minute"
+      nights:
+        one: 1 night
+        other: "%{count} nights"
+      days:
+        one: 1 day
+        other: "%{count} days"
+    villa_booking:
+      customer_form:
+        first_name:  Given name
+        last_name:   Last name
+        address:     Street
+        appnr:       Number
+        postal_code: ZIP
+        city:        City
+        country:     Country
+        state_code:  State/Province
+    villa_editor:
+      save_btn: Save
+      cancel_btn: Discard changes
+      nav:
+        villa:            { label: "Villa Details", section_alias: "Details" }
+        tags:             { label: "Tags" }
+        additional_props: { label: "Additional Properties" }
+        prices:           { label: "Prices" }
+        images:           { label: "Pictures",  section_alias: "Media" }
+        tours:            { label: "Tours",     section_alias: "Media" }
+        pannellums:       { label: "Panoramas", section_alias: "Media" }
+        videos:           { label: "Videos" }
+        boats:            { label: "Boats" }
+        reviews:          { label: "Reviews" }
+        show:             { label: "Show Villa" }
+        index:            { label: "Back to Villa Listing" }
+      section_heading:
+        edit:   "Edit %{label}"
+        create: "Create %{label}"
+      details:
+        status: Status
+        active: active?
+        buyable: for sale?
+        routing:
+          label: Routing
+          desc: On which domains is this villa listed?
+        name: Name
+        area: Living area
+        pool_orientation: Pool orientation
+        build_year: Year of construction
+        last_renovation: Last remodeling
+        safe_code: Safe Code
+        safe_code_hint: >-
+          Safe Code and phone number will be included in the traval mail two weeks
+          prior to booking start. These input fields are not supposed to contain
+          arbitrary text snippets and WILL NOT be translated into the customer's
+          language.
+        phone: Phone number
+        manager: Property management
+        owner: Owner
+        calendars:
+          label: External calendars
+          url: URL
+          url_hint: "http:// or https:// URL to iCal files, for externally defined blockings"
+          name: Name
+          name_hint: Name or short comment (is included in emails)
+          empty: No external calendar found.
+          add: Add calendar
+          delete: delete
+          keep: keep
+        address:
+          label: Address
+          show_in_gmaps: show in Google-Maps
+          street: Street
+          city: City
+          pcode: Zip code
+          region: Region
+          country: Country
+          unexpected_country: "unexpected Coundry code (allowed values: %{allowed})"
+          search: Search addresse
+          search_btn: Search
+          cancel_btn: Cancel
+    villas_list:
+      error: An error occured whilst loading the villa data.

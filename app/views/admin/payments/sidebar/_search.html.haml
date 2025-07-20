@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading= local_assigns[:title].presence || t(".heading")
+  .panel-body
+    = form_tag search_admin_inquiries_path(anchor: "payments"), method: :get, class: 'search form-inline', id: 'search_by_id' do
+      .form-group
+        .input-group.input-group-sm
+          %label.input-group-addon{ for: "inquiry_id" }= t ".number"
+          = text_field_tag :id, nil, class: "form-control", id: "inquiry_id"
+          .input-group-btn
+            %button.btn.btn-primary{ type: :submit, title: t(".search_booking") }= fa :search
+
+  .panel-body
+    = form_tag [:search, :admin, :customers], method: :post, class: 'search form-inline' do
+      .form-group
+        .input-group.input-group-sm
+          %label.input-group-addon{ for: "customer_search_query" }= t ".tenant"
+          = text_field_tag "customer_search[query]", nil, class: "form-control"
+          .input-group-btn
+            %button.btn.btn-primary{ type: :submit, title: t(".search_tenant") }= fa :search

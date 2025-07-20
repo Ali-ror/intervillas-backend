@@ -1,0 +1,15 @@
+- now = Time.now
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Villa.model_name.human
+      %th{ colspan: 3 }= t "admin.villas.index_owner_manager.current_bookings", year: now.year
+      %th{ colspan: 3 }= t "admin.villas.index_owner_manager.current_bookings", year: now.year+1
+  %tbody
+    - boats.each do |boat|
+      %tr
+        %td= boat.admin_display_name
+        - [now, now + 1.year].each do |yearset|
+          %td= link_to t("helper.links.show"),         occupancies_admin_boat_path(boat, year: yearset.year, anchor: "list")
+          %td= link_to t("helper.links.print"),        occupancies_calendar_admin_boat_path(boat, year: yearset.year)
+          %td= link_to t("helper.links.csv_download"), occupancies_calendar_admin_boat_path(boat, year: yearset.year, format: :csv)

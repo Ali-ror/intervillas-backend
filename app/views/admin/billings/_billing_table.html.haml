@@ -1,0 +1,30 @@
+.text-center
+  = will_paginate inquiries
+
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= t ".booking_number"
+      %th= t ".rentable_objects"
+      %th= t ".tenant"
+      %th= t ".check_out"
+      %th
+  %tbody
+    - inquiries.each do |inquiry|
+      %tr
+        %td
+          = link_to [:edit, :admin, inquiry] do
+            = inquiry_number inquiry
+        %td
+          %ul.list-unstyled
+            - inquiry.rentable_inquiries.each do |inq|
+              %li= inq.rentable.admin_display_name
+        %td= inquiry.customer&.name || "(??)"
+        %td= l inquiry.end_date
+        %td.options
+          - if can? :edit, inquiry
+            = link_to edit_admin_billing_path(inquiry), title: t(".edit") do
+              = fa :pencil, :x2
+          - elsif !inquiry.cancelled? && can?(:view, inquiry)
+            = link_to admin_billing_path(inquiry), title: t(".show") do
+              = fa :eye, :x2

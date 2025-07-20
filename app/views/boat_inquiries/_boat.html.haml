@@ -1,0 +1,28 @@
+.card[boat]
+  .row
+    .col-md-6.applet{ name: "Gallery" }
+      = image_gallery boat.images.active, dots: true, fullscreen: false
+
+      %table.table.table-striped.table-condensed
+        %tr
+          %th= t ".horse_power"
+          %td= t ".horse_power_value", value: boat.horse_power
+        %tr
+          %th= t ".more_info"
+          %td{ style: "word-break:break-all" }= link_to_boat_url boat
+        %tr
+          %th= t ".training"
+          %td= display_price boat.training
+        %tr
+          %th= t ".deposit"
+          %td= display_price boat.deposit
+
+      %h4= t ".prices"
+      = render "boats/daily_prices", boat: boat
+
+    .col-md-6
+      %h3= boat.model
+      = simple_format boat.description
+
+      %button.btn.btn-success.btn-block{ data: { toggle: "boat-select", boat_id: boat.id } }
+        = t ".select"

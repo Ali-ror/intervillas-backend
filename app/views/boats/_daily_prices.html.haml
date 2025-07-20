@@ -1,0 +1,24 @@
+%table.table.table-striped.table-condensed
+  %tr
+    %th= t ".period"
+    %th.text-right= t ".per_day"
+    %th.text-right= t ".total"
+
+  - daily_prices = boat.daily_prices.to_a.reverse
+  - daily_prices.each do |(days, price)|
+    %tr
+      - is_max = days == daily_prices[-1][0]
+      - scope = is_max ? "max" : (days == boat.minimum_days ? "min" : "normal")
+
+      %td= t ".days.#{scope}", count: days
+      %td.text-right= display_price price
+      %td.text-right
+        = t ".starting_from" if is_max
+        = display_price(price * days)
+
+- boat.holiday_discounts.each do |discount|
+  %p
+    = t "discount.name_amount", discount: t(discount.description, scope: :discount), percent: discount.percent
+    %span.small
+      = surround " (", ")" do
+        = t "discount.range", days_before: discount.days_before, days_after: discount.days_after

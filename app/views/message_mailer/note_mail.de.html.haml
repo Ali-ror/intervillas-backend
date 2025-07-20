@@ -1,0 +1,23 @@
+%p= salute manager
+
+%p
+  Es wurde folgende Notiz zur Buchung #{inquiry.number} angelegt:
+%div{ style: "margin-left: 20px" }
+  - if @message_text.present?
+    = simple_format @message_text
+  - if inquiry.cancelled?
+    %p
+      Die Buchung wurde <strong style="color:#f00">storniert</strong>.
+  - elsif booking.late?
+    %p
+      Achtung, <strong style="color:#f00">kurzfristige</strong> Buchung,
+      bitte Belegungsplan überprüfen.
+
+- if [nil, "book", "dates"].include?(message_action)
+  %p Buchungsdetails:
+  = render "message_mailer/note_mail/details"
+
+- if !inquiry.cancelled? && manager.reload.has_access?
+  %p Die Notiz kann auch online eingesehen werden. Folgen Sie dazu diesem Link:
+  %p= link_to admin_booking_url, admin_booking_url
+  %p Sie müssen sich ggf. erst im System einloggen.

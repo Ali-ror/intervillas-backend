@@ -1,0 +1,37 @@
+%h2.lined-heading.mb-5
+  %span= t '.title'
+
+= form_for resource, url: villa_review_path(resource.villa_id, resource.token), html: { class: 'edit-review form-horizontal', data: { preview_url: preview_villa_review_path(resource.villa_id, resource.token) } } do |f|
+  .form-group
+    %label.control-label.col-sm-4= t '.object'
+    .col-sm-8
+      %p.form-control-static= resource.villa.name
+  .form-group
+    %label.control-label.col-sm-4= t '.period'
+    .col-sm-8
+      %p.form-control-static= [l(resource.booking.start_date.to_date), l(resource.booking.end_date.to_date)].join '–'
+  .form-group
+    = f.label :rating, class: 'control-label col-sm-4'
+    .col-sm-8
+      .rating.form-control-static><
+        = f.hidden_field :rating
+        - Review::RATING_RANGE.reverse_each do |i|
+          %i.star{ class: ('active' if i == resource.rating), data: { value: i } }>
+  .form-group
+    = f.label :name, class: 'control-label col-sm-4'
+    .col-sm-8
+      = f.text_field :name, class: 'form-control'
+      %span.help-block= t '.name_hint'
+  .form-group
+    = f.label :city, class: 'control-label col-sm-4'
+    .col-sm-8
+      = f.text_field :city, class: 'form-control'
+      %span.help-block= t '.city_hint'
+  .form-group
+    = f.label :text, class: 'control-label col-sm-4'
+    .col-sm-8
+      = f.text_area :text, class: 'form-control', rows: 6
+      %span.help-block= t '.message_hint'
+  .form-group
+    .col-sm-8.col-sm-offset-4
+      = f.submit t('.submit'), class: 'btn btn-primary'

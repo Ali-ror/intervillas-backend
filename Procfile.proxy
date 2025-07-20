@@ -1,0 +1,16 @@
+# configure reverse tunnel
+#
+# Apache is statically configured and proxies incoming HTTP requests on
+# ipnproxy.intervillas-florida.com:443 to localhost:9001 (on the same host),
+# and Websocket on ipnproxy.intervillas-florida.com:3435 to localhost:9002.
+#
+# The SSH tunnel below creates the localhost:9001 and :9002 sockets and proxies
+# traffic to localhost:3000 on the developer machine (where Puma serves the
+# Rails app), and to localhost:3435 (where Vite serves the JS/CSS bundle).
+ssh:      ssh -nNT4 -R 9001:localhost:3000 -R 9002:localhost:3435 root@intervillas-florida.com
+web:      VITE_RUBY_HOST=ipnproxy.intervillas-florida.com bundle exec rails s -b 0.0.0.0 -p 3000
+
+# the rest
+vite:     bundle exec vite dev
+jobs:     bundle exec sidekiq --environment development --config config/sidekiq.yml
+imgproxy: bin/imgproxy_docker

@@ -1,0 +1,24 @@
+// This is a (selected) backport of BS4 into BS3.
+//
+// To add another backport, go to [1]  and chose which part you want to
+// backport. Note: The order in [2] might be important.
+//
+// [1]: https://github.com/twbs/bootstrap/tree/v4.6.1/scss
+// [2]: https://github.com/twbs/bootstrap/blob/v4.6.1/scss/bootstrap.scss
+
+@import "./variables"; // does not contain all variables!
+
+// originally found in mixins/ subdirectory
+@import "./breakpoints";
+@import "./hover";
+@import "./background-variants";
+
+// originally found in utilities/ subdirectory
+@import "./backgrounds";
+@import "./spacing";
+@import "./displays";
+@import "./sizing";
+@import "./borders";
+@import "./flex";
+@import "./position";
+@import "./stretched-link";

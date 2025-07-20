@@ -1,0 +1,24 @@
+%h2.mt-5.pt-5#paypal
+  .pull-right= link_to_paypal_logo
+  = fa :paypal, :fw, text: t(".pay_paypal")
+
+= render "paypal_description"
+
+= render "deadlines", cc: charge_calculator(:paypal), fees: paypal_fees do |deadline, enabled, ppch|
+  - if enabled
+    - amount = inquiry.prices_include_cc_fee ? deadline.due_balance : ppch.gross.round(2)
+    = start_paypal_payment_button(inquiry, modus: deadline.name, amount: amount) do
+      = t("payments.deadlines.pay", price: display_price(amount))
+
+  - else
+    %button.btn.btn-primary.btn-block{ type: :button, class: "disabled", disabled: true }
+      = t("payments.deadlines.paid")
+
+- if (ppayment = inquiry.payments.paypal.in_progress.last&.paypal_payment.presence)
+  #app{ name: "PaypalPaymentProgress" }
+    %payment-progress{
+      provider:          "paypal",
+      "process-id"    => ppayment.id,
+      "inquiry-token" => params[:token],
+      redirect:          reservation.is_a?(Reservation) ? inquiry_processing_path : nil
+    }

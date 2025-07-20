@@ -1,0 +1,54 @@
+.row
+  .col-md-9
+    - { Villa => villas, Boat => boats }.each do |klass, collection|
+      %h2= t ".#{klass.model_name.plural}"
+
+      - if collection.none?
+        %p.alert.alert-info= t ".none"
+        - next
+
+      - hidden = 0
+      %table.table.table-striped.table-condensed.table-hover.js-toggle-hidden.js-sticky-header
+        %thead
+          %tr
+            %th= t ".name"
+            %th.text-center= t ".active"
+            %th{ colspan: 4 }= t ".current_bookings", year: current_year
+            %th{ colspan: 4 }= t ".current_bookings", year: current_year + 1
+        %tbody
+          - collection.each do |item|
+            - hidden += 1 unless item.active?
+            %tr{ class: ("hidden" unless item.active?), data: { hidden: !item.active? } }
+              %td= link_to item.admin_display_name, item
+              %td.text-center= fa :lg, (item.active? ? :check : :times), class: (item.active? ? "text-success" : "text-danger")
+              - [current_year, current_year + 1].each do |year|
+                %td.text-right{ title: t(".utilization") }
+                  = item_utilization(year, item)
+                %td
+                  = link_to [:occupancies_admin, item, year: year, anchor: "list"] do
+                    = fa :lg, :eye, text: t("helper.links.show")
+                %td
+                  = link_to [:occupancies_calendar_admin, item, year: year] do
+                    = fa :lg, :calendar, text: t("helper.links.print")
+                %td
+                  = link_to [:occupancies_calendar_admin, item, year: year, format: :csv] do
+                    = fa :lg, :table, text: t("helper.links.csv_download")
+        - if hidden > 0
+          %tfoot
+            %tr
+              %td.text-right.text-muted{ colspan: 2 + 2*4 }
+                = t ".toggle_hidden.text", count: hidden
+                %button.btn.btn-xs.btn-default{ type: :button, data: { toggle: :hidden } }
+                  = fa :eye
+                  = t ".toggle_hidden.btn"
+
+  .col-sm-3
+    %h3= t ".occupancies"
+
+    -# 9009 und 99 sind wichtig für die Vue-Komponente
+    %admin-grid-select{ "url-template" => admin_grid_path(month: "99", year: "9009") }
+
+    %h3= t ".cables.recent"
+    - current_user.recent_cables.each do |cable|
+      = render "admin/cables/cable", cable: cable
+    %p.small= t ".cables.description"

@@ -1,0 +1,4 @@
+%h1.page-header Satelliten-Seite <code>#{domain}</code> bearbeiten
+
+%admin-domain-editor{ endpoint: url_for(format: :json) }
+  %p.alert.alert-info= t :wait_data

@@ -1,0 +1,16 @@
+= form_tag admin_summaries_path, method: :get, class: "form-inline mt-3", enforce_utf8: false do
+  - pred, succ = current_month - 1.month, current_month + 1.month
+
+  %span.mr-md-3
+    = link_to "« #{l pred, format: "%B %Y"}", { month: pred.month, year: pred.year, currency: params[:currency] }, class: "btn btn-default"
+    = link_to "#{l succ, format: "%B %Y"} »", { month: succ.month, year: succ.year, currency: params[:currency] }, class: "btn btn-default"
+
+  %span.mr-md-3
+    %strong Summary
+    = select_tag :month, options_for_select((1..12).to_a.map { |i| [t("date.month_names")[i], i.to_s] } << [t(".whole_year"), ""], params.fetch(:month, current_month.month)), class: "form-control"
+    = select_tag :year,  options_for_select(current_user.booking_year_range, current_month.year), class: "form-control"
+    = select_tag :currency, options_for_select(Currency::CURRENCIES, currency_param), class: "form-control"
+    = select_tag :grouping, options_for_select(%w[summary_on start_date].map { |key| [t(".grouping.#{key}"), key] }, grouping_param), class: "form-control"
+    = submit_tag t(".show"), name: nil, class: "btn btn-success"
+
+  = link_to t(".download_csv"), { month: params.fetch(:month, current_month.month), year: current_month.year, currency: currency_param, grouping: grouping_param, format: :csv }, class: "btn btn-info"

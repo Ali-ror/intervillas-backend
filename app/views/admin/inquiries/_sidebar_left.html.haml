@@ -1,0 +1,41 @@
+%h1= @title = inquiry.persisted? ? inquiry.number : "Angebot erstellen"
+
+- if inquiry.persisted?
+  %dl
+    - if villa_name = villa_inquiry.villa_name.presence
+      %dt= t ".villa"
+      %dd= link_to villa_name, villa_inquiry.villa
+    - if boat_inquiry.present? && (boat_name = boat_inquiry.boat.admin_display_name)
+      %dt= t ".boat"
+      %dd= link_to boat_name, boat_inquiry.boat
+
+%ul.nav.nav-pills.nav-stacked.js-main-nav.hidden-print
+  %li{ role: "presentation" }
+    = link_to admin_bookings_path do
+      = fa :caret_left, text: t(".back")
+
+  %li.active{ role: "presentation" }
+    = link_to "#villa", data: { toggle: :pill } do
+      %strong= t ".details"
+
+  - if inquiry.persisted?
+    %li{ role: "presentation" }
+      = link_to "#customer", data: { toggle: :pill } do
+        %strong= t ".customer"
+        - if name = customer.name
+          (#{name})
+
+    %li{ role: "presentation" }
+      = link_to "#communication", data: { toggle: :pill } do
+        = t ".communication"
+
+  - if inquiry.persisted?
+    %li{ role: "presentation" }
+      = link_to "#misc", data: { toggle: :pill } do
+        = t ".misc"
+
+    = yield :sidebar_nav
+= yield :sidebar
+
+- if inquiry.persisted?
+  = render "cancel_destroy"

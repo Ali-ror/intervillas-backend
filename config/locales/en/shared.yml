@@ -1,0 +1,106 @@
+en:
+  shared:
+    admin_menu:
+      billings: Billings
+      bookings: Bookings
+      contacts: Contacts
+      invoicables: Invoicable
+      objects: Objects
+      payments: Payments
+      payments_counter: Total number of overdue payments
+      reviews: Reviews
+      reviews_counter: Number of unpublished reviews in the last fortnight
+      seo: SEO
+      specials: Specials
+      summaries: Summary
+      texts: Pages
+      translate: translate
+      website: Website
+    currencies:
+      switch_to:
+        EUR: display prices in Euro
+        USD: display prices in US Dollar
+    discount:
+      days_count:
+        one: 1 day
+        other: '%{count} days'
+      nights_count:
+        one: 1 night
+        other: '%{count} nights'
+      range: '%{start} until %{end}'
+      subjects:
+        christmas: Christmas
+        easter: Easter
+        high_season: High Season
+        special: Last Minute
+      types:
+        addition: '%{amount}% surcharge'
+        discount: '%{amount}% discount'
+      kinds:
+        addition:
+          add: add surcharge
+          edit: edit surcharge
+        discount:
+          add: add discount
+          edit: edit discount
+    footer:
+      agb: Terms
+      home: Home
+      impressum: Imprint
+      kontakt: Contact
+      social: Social Networks
+      villas: Villas
+    menu:
+      boats: Boats
+      cape_coral: Cape Coral
+      karte: Map
+      kontakt: Contact
+      more: More
+      rental_cars: Rental Cars
+      reviews: Reviews
+      skipper_insurance: Skipper Insurance
+      travel_cancellation_insurance: Travel Cancellation Insurance
+      specials: Last Minute
+      villas: Villas
+      login: Owner Login
+    opengraph:
+      villa: vacation home
+    panel:
+      addition: nights with a %{amount}% Surcharge
+      at_christmas: during Christmas
+      at_easter: during Easter
+      boat: boat
+      booked_on: booked on
+      booking_details: Booking details
+      born: ' (born %{date})'
+      cancelled_at: cancelled at
+      house: Residence
+      offer_from: Offer from
+      period: Entire Stay
+      title_boat: Boat
+      title_inquiry: Inquiry
+      title_villa: Villa
+      travelers: Travelers
+      updated_at: updated at
+    sidebar:
+      abreise: Departure
+      agb: Terms
+      anreise: Arrival
+      cape_coral: CAPE CORAL, FL.
+      esta: ESTA
+      impressum: Imprint
+      information: INFORMATION
+      preis: Price per person
+      reisezeitraum: Travel period
+      skipper_haftpflicht: Skipper Insurance
+      specials: Offers
+      submit_suchen: search
+      suchen: SEARCH
+      ubersichtskarte: Map
+      villas: VILLAS
+      zeitraum_auswaehlen: Select the desired period of your journey
+    ssl:
+      info: Your data is transferred encrypted.
+      secure: Secure
+    villas_menu:
+      index_link: overview

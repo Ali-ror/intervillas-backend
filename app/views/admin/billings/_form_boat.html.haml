@@ -1,0 +1,21 @@
+- if boat_billing.new_record?
+  %p.alert.alert-info= t "admin.billings.edit.new_record"
+
+%p= t "admin.billings.edit.prices_in", currency: boat_billing.booking.currency
+
+= semantic_form_for boat_billing_form, url: [:admin, boat_billing_form, anchor: "boat"], html: { class: "form-horizontal form-condensed" } do |form|
+  = form.hidden_field :type
+
+  = form.inputs name: t(".boat") do
+    = form.input :commission
+
+    = form.inputs name: t(".charges"), class: "js-add-association" do
+      %p= link_to_add_association t(".add_charge"), :charges, template: "boat-charges-template"
+      = form.semantic_fields_for :charges do |cf|
+        = render "charge_fields", form: cf
+
+  = form.action :submit, label: t(".submit"), button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary mt-3" }
+
+  %script#boat-charges-template{ type: "text/x-template" }
+    = form.semantic_fields_for :charges, ChargesForm.new, { child_index: "__new_id__" } do |f|
+      = render "charge_fields", form: f, dynamic: true

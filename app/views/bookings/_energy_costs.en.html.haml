@@ -1,0 +1,12 @@
+- if inquiry.villa_inquiry.energy_cost_calculation_included?
+  %p
+    Costs incurred for water, trash collection and electricity during the rental
+    term are included in the rental price. Possible costs for gas for the BBQ
+    grill are not included.
+- else
+  %p
+    Costs incurred for water and trash collection during the rental term are
+    included in the rental price. Not included are costs for electricity.
+    These costs will be billed at the local rate plus tax, and deducted from
+    the security deposit. Possible costs for gas for the BBQ grill are not
+    included either.

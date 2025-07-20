@@ -1,0 +1,11 @@
+!!!strict
+%html
+  %head
+    = vite_client_tag
+    = vite_stylesheet_tag "grid.sass", media: "all"
+    %title= @title
+
+  %body
+    %h1= @title
+
+    = yield

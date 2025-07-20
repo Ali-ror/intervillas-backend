@@ -1,0 +1,19 @@
+.row.mt-3
+  .col-md-9
+    = semantic_form_for [:admin, high_season], html: { class: "form-horizontal" } do |form|
+      %high-season-range-picker{ "start-date" => high_season.starts_on, "end-date" => high_season.ends_on }
+      = form.input :addition
+
+      .form-group.check_boxes
+        .form-label
+          -# empty
+        .form-wrapper
+          .checkbox
+            %label
+              = check_box_tag nil, nil, false, data: { select_all: "[name='high_season[villa_ids][]']" }
+              .text-muted alle auswählen
+      = form.input :villas, as: :check_boxes, collection: villas
+
+      = form.actions do
+        = form.action :submit,
+          button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary" }

@@ -1,0 +1,22 @@
+%h2 Verknüpfungen mit Häusern
+
+%dl.dl-horizontal
+  %dt exklusiv
+  - if v = resource.exclusive_for_villa
+    %dd= link_to v.admin_display_name, v
+  - else
+    %dd.text-muted= fa :times, text: "nein"
+
+  %dt optional
+  - if (opts = resource.optional_villas).empty?
+    %dd.text-muted= fa :times, text: "nein"
+  - else
+    - opts.each do |v|
+      %dd= link_to v.admin_display_name, v
+
+= semantic_form_for [:admin, boat] do |form|
+  = form.input :optional_villa_ids, as: :column_check_boxes,
+    hidden_fields: false, collection: Villa.active.with_optional_boats.order(:name)
+
+  = form.actions do
+    = form.action :submit, button_html: { class: 'btn btn-primary' }

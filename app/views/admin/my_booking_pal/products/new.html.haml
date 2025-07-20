@@ -1,0 +1,17 @@
+= render layout: "admin/my_booking_pal/layout" do
+  %h1 Setup Product for #{villa.name}
+
+  %h3 Pre-Flight Checks
+
+  - check = VillaCheck.new(villa)
+  %my-booking-pal-pre-flight-checks{ ":checks" => check.to_json }
+
+  .my-3
+    - if check.passed?
+      = button_to admin_my_booking_pal_products_path(villa_id: villa.id), class: "btn btn-primary" do
+        Setup Product
+    - else
+      %p
+        Please finish setting up the villa first.
+      = link_to [:edit, :admin, villa], class: "btn btn-default" do
+        Finish Villa

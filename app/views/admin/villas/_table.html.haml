@@ -1,0 +1,21 @@
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= Villa.human_attribute_name :name
+      %th
+        = Villa.human_attribute_name :locality
+        .small.text-muted
+          = Villa.human_attribute_name :pool_orientation
+      %th
+        = Villa.human_attribute_name :owner
+        .small.text-muted
+          = surround "(", ")" do
+            = Villa.human_attribute_name :manager
+      %th= Villa.human_attribute_name :domains
+      %th= Villa.human_attribute_name :boat_state
+      %th
+        %abbr{ title: "MyBookingPal Product" } MBP
+      %th{ colspan: 2 }= t ".actions"
+  %tbody
+    - villas.each do |v|
+      = render "villa", villa: v

@@ -1,0 +1,54 @@
+%p
+  Tags dienen dazu, einer Villa verschiedene Merkmale zuzuweisen. Sie sind in
+  Kategorien gruppiert und müssen in mehreren Sprachen verfügbar sein.
+%p
+  Die Tags werden von den Villen als Objekt-Highlights, Details und in der
+  Ausstattung verwendet.
+
+%h3 Amenity-ID
+%p
+  Diese ist für den Export von Häusern an MyBookingPal (und zur Weiterverteilung
+  an Channels wie Mariott o.ä.) gedacht. Hier stehen rund <a target="_blank"
+  href="https://channelconnector.com/opendoc#/ruby/models/enumerations/amenity-types-enum">600
+  vordefinierte Merkmale</a> zur Verfügung, die zum Teil zu unseren Merkmalen
+  passen. Merkmale ohne Amenity-ID werden nicht an MyBookingPal weitergegeben.
+
+%h3 Beschreibung vs. Lokalisierung
+%p
+  Die <em>Lokalisierung</em> wird benutzt, um bei der Anzeige die korrekte Anzahl
+  zu interpolieren. Die <em>Beschreibung</em> wird in der Villa-Bearbeiten-Ansicht
+  und der Filtersuche ausgegeben, um dort das Tag zu identifizieren. Die Beschreibung
+  sollte hinsichtlich einer Anzahl neutral sein, während die Lokalisierung explizit
+  dafür gedacht ist, mit einer Anzahl umzugehen.
+
+%h3 Kardinalität
+%p
+  Einige spezielle Tags sind <em>zählbar</em>, z.B. Sitzgelegenheiten. Um die
+  Anzeige auf der Webseite sinnvoll zu gestalten zu können, müssen diese beiden
+  Formen vorhanden sein:
+%ul
+  %li 1 / nur eines vorhanden
+  %li 2 oder mehr / viele vorhanden
+%p
+  Andere Tags geben nur an, ob ein Merkmal vorhanden ist oder nicht (z.B. das Thema
+  Golfurlaub). Diese sind also <em>binär</em>.
+%p
+  Bei Tags mit einer Kardinalität von 2+ kann für die Lokalisierung eine Variable
+  (<code>%{count}</code>) benutzt werden, um die tatsächliche Anzahl bei der
+  Ausgabe zu interpolieren. Aus <code>%{count} Einzelbetten</code> wird so z.B.
+  <code>3 Einzelbetten</code>.
+
+%h3 Filter?
+%p
+  Wenn der Haken in der Spalte «Filter?» gesetzt ist, steht das Tag dem Kunden in
+  der erweiterten Villensuche zur verfügung.
+
+%h3 Bearbeiten
+%p
+  Es ist davon auszugehen, dass <em>sämtliche</em> Tags wenigstens einer Villa
+  referenziert werden. Anpassungen der Anzeige/Übersetzung <strong>müssen</strong>
+  daher sinnerhaltend bleiben:
+%p
+  Wenn Fön in Helikopter umbenannt wird, hat das zur Folge, dass sämtliche Villen,
+  die das Ausstattungsmerkmal Fön referenziert hatten, nun mit einem Helikopter
+  beworben werden.

@@ -1,0 +1,35 @@
+= semantic_form_for [:admin, form], remote: true, html: { class: "js-remote-tag-form", autocomplete: "off" } do |f|
+  .cell.form-group-sm
+    = tag_input_form_field f, :category_id, as: :ui_select, collection: categories, include_blank: false
+  .cell.form-group-sm
+    = tag_input_form_field f, :amenity_ids, as: :ui_select, collection: MyBookingPal::Amenity.as_select_options, multiple: true
+
+  .cell.form-group-sm
+    = tag_input_form_field f, :de_description
+  .cell.form-group-sm
+    = tag_input_form_field f, :en_description
+
+  - if f.object.countable?
+    .cell.text-center.text-muted
+      %p.form-control-static <em>1</em>
+      %p.form-control-static <em>2+</em>
+    .cell.form-group-sm
+      = tag_input_form_field f, :de_name_one
+      = tag_input_form_field f, :de_name_other
+    .cell.form-group-sm
+      = tag_input_form_field f, :en_name_one
+      = tag_input_form_field f, :en_name_other
+  - else
+    .cell.text-center.text-muted
+      %p.form-control-static <em>bin.</em>
+    .cell.form-group-sm
+      = tag_input_form_field f, :de_name_other
+    .cell.form-group-sm
+      = tag_input_form_field f, :en_name_other
+
+  .cell.text-center.form-group-sm
+    %p.form-control-static
+      = f.check_box :filterable, id: "tag_#{f.object.id}_filterable"
+  .cell.text-right
+    %p.form-control-static
+      = f.submit "OK", class: "btn btn-default btn-xs"

@@ -1,0 +1,19 @@
+%p= salute customer
+%p
+  your vacation in the #{villa.name} now dates back a few days and we hope
+  you have had a safe return.
+%p
+  How would you review your holidays? Did it everything meet your expectations?
+%p
+  Please share your personal feedback, so we can improve our performance
+  even more:
+
+= mail_button_link_to review_edit_url do
+  &gt;&gt; Write feedback now
+
+%p
+  Thank you for your participation!
+%p
+  Have a good time!
+  %br
+  YOUR INTERVILLAS TEAM

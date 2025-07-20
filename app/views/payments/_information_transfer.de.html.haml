@@ -1,0 +1,15 @@
+- accounts = IntervillasBankAccount.for_currency(reservation.currency, type: inquiry.for_corporate? ? :corp : :gmbh)
+= render layout: "information_transfer_layout", locals: { accounts: accounts, title: "Zahlen per Überweisung" } do
+  %p
+    Bitte überweisen Sie die oben genannten Beträge ausschliesslich in Dollar und auf
+    - if accounts.size == 1
+      das folgende Bankkonto
+    - else
+      eines der folgenden Bankkonten
+    und erwähnen Sie Ihre Buchungsnummer (#{inquiry.number}).
+
+    %strong Hinweis:
+    Überweisungen auf frühere Konten in Deutschland und der Schweiz sind nicht mehr möglich.
+  %p
+    Beachten Sie bitte auch, dass die Banken bei internationalen Überweisungen
+    Transaktionsgebühren erheben können und dass diese zu Ihren Lasten gehen müssen.

@@ -1,0 +1,260 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=test%20villa%20street%0A&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 28 Nov 2018 14:54:37 GMT
+      Expires:
+      - Thu, 29 Nov 2018 14:54:37 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "1816",
+                       "short_name" : "1816",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "East Villa Street",
+                       "short_name" : "E Villa St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Mid Central",
+                       "short_name" : "Mid Central",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Pasadena",
+                       "short_name" : "Pasadena",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Los Angeles County",
+                       "short_name" : "Los Angeles County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "91107",
+                       "short_name" : "91107",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "1816 E Villa St, Pasadena, CA 91107, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 34.1541277,
+                       "lng" : -118.1129194
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 34.1554766802915,
+                          "lng" : -118.1115704197085
+                       },
+                       "southwest" : {
+                          "lat" : 34.1527787197085,
+                          "lng" : -118.1142683802915
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJfwj0KE3DwoARQc2O_hUrVvI",
+                 "plus_code" : {
+                    "compound_code" : "5V3P+MR Pasadena, California, United States",
+                    "global_code" : "85635V3P+MR"
+                 },
+                 "types" : [ "car_repair", "establishment", "point_of_interest" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 28 Nov 2018 14:54:37 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=1816%20E%20Villa%20St%0APasadena,%20CA%2091107%20US&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Dec 2019 17:03:49 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=374
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
+        ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
+        ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "1816",
+                       "short_name" : "1816",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "East Villa Street",
+                       "short_name" : "E Villa St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Casa Grande",
+                       "short_name" : "Casa Grande",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Pasadena",
+                       "short_name" : "Pasadena",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Los Angeles County",
+                       "short_name" : "Los Angeles County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "91107",
+                       "short_name" : "91107",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "2330",
+                       "short_name" : "2330",
+                       "types" : [ "postal_code_suffix" ]
+                    }
+                 ],
+                 "formatted_address" : "1816 E Villa St, Pasadena, CA 91107, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 34.154202,
+                          "lng" : -118.1128264
+                       },
+                       "southwest" : {
+                          "lat" : 34.154052,
+                          "lng" : -118.1130111
+                       }
+                    },
+                    "location" : {
+                       "lat" : 34.1541269,
+                       "lng" : -118.1129161
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 34.15547598029149,
+                          "lng" : -118.1115697697085
+                       },
+                       "southwest" : {
+                          "lat" : 34.1527780197085,
+                          "lng" : -118.1142677302915
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJeaRYKE3DwoARjf_k9iGqQuc",
+                 "types" : [ "premise" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Dec 2019 17:03:49 GMT
+recorded_with: VCR 4.0.0

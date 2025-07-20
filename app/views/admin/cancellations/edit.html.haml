@@ -1,0 +1,36 @@
+.row
+  %aside.col-md-2.sidebar-left.hidden-print
+    - content_for :sidebar_nav do
+      %li
+        = link_to "#payments", data: { toggle: :pill } do
+          = t "admin.bookings.edit.payments"
+      %li
+        = link_to edit_admin_billing_path(cancellation) do
+          = t "admin.bookings.edit.billing"
+
+    = render "sidebar_left"
+
+  .col-md-7
+    .alert.alert-info
+      %strong= t ".reason.heading"
+      = succeed ": " do
+        = t ".reason.reason"
+      - if cancellation.reason.blank?
+        %em= t ".reason.no_reason"
+      - else
+        = cancellation.reason
+
+    .tab-content.main-tab-content
+      #villa.tab-pane.active
+        = render "villa_inquiry", event_url: api_admin_bookings_path(villa: villa_inquiry.villa_id, format: :json)
+      #customer.tab-pane
+        = render "customer"
+      #misc.tab-pane
+        = render "misc"
+      #communication.tab-pane
+        = render "communication"
+      #payments.tab-pane
+        = render "payments"
+
+  %aside.col-md-3.sidebar-right
+    = render "sidebar_right"

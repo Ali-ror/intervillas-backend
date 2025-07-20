@@ -1,0 +1,46 @@
+= render layout: "admin/my_booking_pal/layout" do
+  %h1 Products
+
+  %table.table.table-striped.table-condensed.js-sticky-header
+    %thead
+      %tr
+        %th Name
+        %th Product ID
+        %th Update progress
+        %th Product Validation
+        %th= t "admin.villas.table.actions"
+    %tbody
+      - villas.partition { !!_1.booking_pal_product }.flatten.each do |v|
+        - pro = v.booking_pal_product
+        %tr
+          %td= v.name
+          %td
+            - if pro
+              %code= pro.foreign_id
+            - else
+              %em.text-muted n.a.
+          %td
+            - if update_progress.key?(v.id)
+              %my-booking-pal-update-progress-bar{ ":value" => update_progress[v.id].to_json }
+          %td
+            - case pro&.status
+            - when "inactive"
+              %em.text-muted= fa :circle_thin, text: "not yet"
+            - when "active"
+              %span.text-success= fa :check, text: "active"
+            - when "queued_validation", "waiting_validation", "queued_activation", "queued_deactivation"
+              = fa :hourglass_start, text: "pending"
+            - when "valid"
+              %span.text-success= fa :check, text: "validated"
+            - when "queue_error"
+              %span.text-danger= fa :times, text: "failed"
+            - else
+              %em.text-muted{ title: pro&.status }
+                n.a.
+          %td
+            - if pro
+              = link_to admin_my_booking_pal_product_path(pro), class: "btn btn-primary btn-xxs" do
+                Details
+            - else
+              = link_to new_admin_my_booking_pal_product_path(villa_id: v.id), class: "btn btn-default btn-xxs" do
+                Setup

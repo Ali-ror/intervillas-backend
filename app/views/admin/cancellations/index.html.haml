@@ -1,0 +1,24 @@
+.row
+  .col-sm-9
+    = render "header"
+    = render "cancellation_table"
+
+  %aside.col-sm-3
+    .panel.panel-default
+      .panel-heading
+        = t ".filter.heading"
+
+      .panel-body
+        = form_tag [:admin, :cancellations], method: :get, enforce_utf8: false do
+          .form-group
+            = select_tag :villa_id,
+            options_from_collection_for_select(Villa.select("villas.id, name").order(:name).having_cancellations, :id, :name, params["villa_id"]),
+            class: "form-control", include_blank: true
+
+          = submit_tag t(".filter.apply"), class: "btn btn-primary btn-block", name: nil
+
+      .panel-body
+        %p.text-muted
+          = t ".filter.info"
+
+    = render "search_panel", title: t(".search")

@@ -1,0 +1,17 @@
+.panel.panel-default
+  .panel-heading= t ".heading"
+
+  .panel-body
+    = semantic_form_for customer_search_form, url: [:search, :admin, :customers] do |f|
+      = f.input :query, label: false
+
+      = f.input :villa_id, as: :ui_select, label: false, collection: customer_search_form.rentables(:villas), input_html: { ":clearable" => "true", placeholder: t(".all_villas") }
+      = f.input :boat_id,  as: :ui_select, label: false, collection: customer_search_form.rentables(:boats),  input_html: { ":clearable" => "true", placeholder: t(".all_boats") }
+
+      -#= f.input :exact, as: :boolean
+      = f.action :submit, label: t(".search"), button_html: { class: "btn btn-primary btn-block" }
+
+    %p.mt-3.text-muted= t ".hint"
+    - if results
+      %p.text-right
+        = t ".results", count: results.count

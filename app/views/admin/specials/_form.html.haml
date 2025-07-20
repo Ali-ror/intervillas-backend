@@ -1,0 +1,6 @@
+= form.inputs do
+  = form.input :description
+  = form.input :percent
+  = form.input :start_date
+  = form.input :end_date
+  = form.input :villas, as: :column_check_boxes, collection: Villa.active.order(:name)

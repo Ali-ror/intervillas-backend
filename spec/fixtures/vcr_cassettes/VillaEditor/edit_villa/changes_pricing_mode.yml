@@ -1,0 +1,359 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=test%20villa%20street%0A&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 17 Jun 2022 11:19:01 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Goog-Maps-Metro-Area:
+      - San Jose, CA
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=91
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Villa Street",
+                       "short_name" : "Villa St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Mountain View",
+                       "short_name" : "Mountain View",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Santa Clara County",
+                       "short_name" : "Santa Clara County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Villa St, Mountain View, CA, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 37.4000507,
+                          "lng" : -122.0716713
+                       },
+                       "southwest" : {
+                          "lat" : 37.3891736,
+                          "lng" : -122.092976
+                       }
+                    },
+                    "location" : {
+                       "lat" : 37.3951502,
+                       "lng" : -122.0823304
+                    },
+                    "location_type" : "GEOMETRIC_CENTER",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 37.4000507,
+                          "lng" : -122.0716713
+                       },
+                       "southwest" : {
+                          "lat" : 37.3891736,
+                          "lng" : -122.092976
+                       }
+                    }
+                 },
+                 "partial_match" : true,
+                 "place_id" : "ChIJqS_1PTW3j4AR4WpwMGnOnSg",
+                 "types" : [ "route" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Fri, 17 Jun 2022 11:19:01 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=test%20villa%20street%0A&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 17 Jun 2022 11:22:33 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Goog-Maps-Metro-Area:
+      - San Jose, CA
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=40
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Villa Street",
+                       "short_name" : "Villa St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Mountain View",
+                       "short_name" : "Mountain View",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Santa Clara County",
+                       "short_name" : "Santa Clara County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Villa St, Mountain View, CA, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 37.4000507,
+                          "lng" : -122.0716713
+                       },
+                       "southwest" : {
+                          "lat" : 37.3891736,
+                          "lng" : -122.092976
+                       }
+                    },
+                    "location" : {
+                       "lat" : 37.3951502,
+                       "lng" : -122.0823304
+                    },
+                    "location_type" : "GEOMETRIC_CENTER",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 37.4000507,
+                          "lng" : -122.0716713
+                       },
+                       "southwest" : {
+                          "lat" : 37.3891736,
+                          "lng" : -122.092976
+                       }
+                    }
+                 },
+                 "partial_match" : true,
+                 "place_id" : "ChIJqS_1PTW3j4AR4WpwMGnOnSg",
+                 "types" : [ "route" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Fri, 17 Jun 2022 11:22:33 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Villa%20St%0AMountain%20View,%20CA%20US&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 17 Jun 2022 11:22:33 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Goog-Maps-Metro-Area:
+      - San Jose, CA
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=116
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Villa Street",
+                       "short_name" : "Villa St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Mountain View",
+                       "short_name" : "Mountain View",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Santa Clara County",
+                       "short_name" : "Santa Clara County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Villa St, Mountain View, CA, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 37.4000507,
+                          "lng" : -122.0716713
+                       },
+                       "southwest" : {
+                          "lat" : 37.3891736,
+                          "lng" : -122.092976
+                       }
+                    },
+                    "location" : {
+                       "lat" : 37.3951502,
+                       "lng" : -122.0823304
+                    },
+                    "location_type" : "GEOMETRIC_CENTER",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 37.4000507,
+                          "lng" : -122.0716713
+                       },
+                       "southwest" : {
+                          "lat" : 37.3891736,
+                          "lng" : -122.092976
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJqS_1PTW3j4AR4WpwMGnOnSg",
+                 "types" : [ "route" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Fri, 17 Jun 2022 11:22:33 GMT
+recorded_with: VCR 4.0.0

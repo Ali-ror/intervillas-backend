@@ -1,0 +1,12 @@
+%tr
+  %td{ colspan: 2, style: "padding-top:10px" }
+    %strong Tenant #{inquiry.customer.name}
+%tr
+  %td{ width: 120, style: "padding-left:15px" } No. of people
+  %td= inquiry.travelers.count
+%tr
+  %td{ width: 120, style: "padding-left:15px" } E-mail
+  %td= inquiry.customer.email.presence || "./."
+%tr
+  %td{ width: 120, style: "padding-left:15px" } Phone
+  %td= inquiry.customer.phone.presence || "./."

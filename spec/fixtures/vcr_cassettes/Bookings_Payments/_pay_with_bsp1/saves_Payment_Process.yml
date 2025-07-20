@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.pay1.de/post-gateway/
+    body:
+      encoding: UTF-8
+      string: aid=43559&amount=131775&api_version=3.11&clearingtype=cc&country=CU&currency=EUR&encoding=UTF-8&key=6593449aea0d44bd85c755bec9d2484c&lastname=Goyette&mid=43362&mode=test&portalid=2031373&pseudocardpan=9410010000181846692&reference=IV-5-1&request=authorization&successurl=https%3A%2F%2Fipnproxy.intervillas-florida.com%2Finquiries%2FRSAydWfWdoHbigKJVAlRoITEIz9u4WI1%2Fpayments
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 May 2019 13:58:15 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - PHPSESSID=ec7bbc2d7d7e47ce5142df4c63d01033; path=/; secure; HttpOnly
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '48'
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        status=APPROVED
+        txid=331754330
+        userid=164423956
+    http_version: 
+  recorded_at: Mon, 06 May 2019 13:58:17 GMT
+recorded_with: VCR 4.0.0

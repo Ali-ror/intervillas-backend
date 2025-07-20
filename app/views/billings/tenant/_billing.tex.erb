@@ -1,0 +1,51 @@
+\begin{tabbing}
+  % Empfängeradresse
+  \null$\qquad$\=\hspace{.5\linewidth}\=\hspace{.25\linewidth}\=\\\kill
+    \>\><%= escape tpl.recipient.title %>\\
+    \>\><%= escape tpl.recipient.first_name %> <%= escape tpl.recipient.last_name %>\\
+    \>\><%= escape tpl.recipient.address %> <%= escape tpl.recipient.appnr %>\\
+    \>\><%= escape tpl.recipient.country %>-<%= escape tpl.recipient.postal_code %> <%= escape tpl.recipient.city %>\\[3ex]
+
+    \>\>\textbf{<%= tpl.inquiry.for_corporate? ? "Cape Coral" : "Nürensdorf" %>, <%= l date.to_date %>}\\
+  \textbf{<%= t "billings.tenant.billing.booking" %> <%= number %>}\\[2ex]
+  \textbf{<%= t "billings.tenant.billing.subject" %>}
+    \>\>\>\currency{<%= booking.currency %>}\\[2ex]
+
+  \textbf{<%= t "billings.tenant.billing.deposit" %>} \\
+  <%- tpl.deposits.each do |rentable, pos| -%>
+    \><%= tpl.tp pos %> (<%= escape rentable %>)
+      \>\><%= tpl.format_currency pos.gross %>\\
+  <%- end -%>
+  \><%= t "billings.tenant.billing.total_deposit" %>
+    \>\>\textbf{<%= tpl.format_currency tpl.total_deposit %>}\\[1ex]
+
+  <%- if tpl.villa? -%>
+    \textbf{<%= t "billings.tenant.billing.electricity.title" %>} \\
+    <% if tpl.energy_pricing == "usage" -%>
+      \><%= t "billings.tenant.billing.electricity.meter_reading.begin" %>
+          \>\currency{<%= escape number_with_precision(tpl.meter_reading_begin, precision: 2) %>} kWh\\
+      \><%= t "billings.tenant.billing.electricity.meter_reading.end" %>
+          \>\currency{<%= escape number_with_precision(tpl.meter_reading_end, precision: 2) %>} kWh\\
+      \><%= tpl.t("billings.tenant.billing.electricity.usage").titlecase %>
+          \>\currency{<%= escape number_with_precision(tpl.meter_reading, precision: 2) %>} kWh\\
+    <%- end %>
+    \><%= t "billings.tenant.billing.electricity.cost" %> <% if tpl.energy_pricing == "usage" %>(<%= t "billings.tenant.billing.electricity.usage" %> $\times$ <%= booking.currency %>~<%= tpl.format_currency tpl.villa_billing.energy_price, false %> <%= t "billings.tenant.billing.electricity.per_kwh" %>)<% end %>
+      \>\>\textbf{<%= tpl.format_currency tpl.villa_billing.energy.gross %>}\\[1ex]
+  <%- end -%>
+
+  <%- if charges.any? -%>
+    \textbf{<%= t "billings.tenant.billing.charges.title" %>}\\
+    <%- charges.each do |c| -%>
+      \>\parbox[b]{.48\linewidth}{<%= escape c.text %>}
+        \><%= escape c.amount %> $\times$ <%= booking.currency %>~<%= tpl.format_currency c.value, false %>
+        \><%= tpl.format_currency c.sub_total %>\\
+    <%- end -%>
+    \><%= t "billings.tenant.billing.charges.total" %>
+      \>\>\currency{\textbf{<%= tpl.format_currency tpl.total_charges, false %>}}\\[1ex]
+  <%- end -%>
+
+  \vspace*{-1ex}\>\>\>\currency{\rule{7em}{0.1pt}}\\
+  \textbf{<%= t tpl.total > 0 ? 'back_payment' : 'additional_payment', scope: "billings.tenant.billing" %>}
+  (<%= t "billings.tenant.billing.sum" %>)
+    \>\>\><%= tpl.format_currency tpl.total.abs %>
+\end{tabbing}

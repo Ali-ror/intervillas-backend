@@ -1,0 +1,19 @@
+- @tracking_page = '/boat/inquiry/edit'
+= page_header do
+  = breadcrumb.add link_to t('shared.menu.villas'), '/villas'
+  = breadcrumb.add link_to villa.name, villa
+  = breadcrumb.render t('bookings.new.reservierungsanfrage')
+  %h1= t('bookings.new.reservierungsanfrage')
+
+.container.mt-5.applet{ name: "BoatBookingForm" }
+  = render 'shared/ssl'
+
+  %boat-booking.mt-5{
+    token:         params[:token],
+    currency:      inquiry.currency,
+    "arrival"   => inquiry.villa_inquiry.start_date,
+    "departure" => inquiry.villa_inquiry.end_date,
+  }
+    - %w[teaser listing].each do |tpl|
+      %template{ "v-slot:#{tpl}" => "scope" }
+        = render tpl

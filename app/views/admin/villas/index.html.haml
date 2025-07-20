@@ -1,0 +1,7 @@
+.mt-4
+  - if current_user.admin?
+    = link_to new_admin_villa_path, class: "btn btn-primary pull-right" do
+      = t ".create"
+    = render "index_admin"
+  - else
+    = render "index_owner_manager"

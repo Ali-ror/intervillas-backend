@@ -1,0 +1,43 @@
+@media screen and (min-width: 768px)
+  .formtastic.form-horizontal
+    .form-label
+      // @extend .control-label
+      text-align:             right
+      padding-top:            7px
+      margin-top:             0
+      margin-bottom:          0
+
+      // undo nested .control-label
+      .control-label
+        padding-top:          0
+
+      // @extend .col-sm-3
+      width:                  33.333333333%
+      float:                  left
+      position:               relative
+      min-height:             1px
+      padding-left:           15px
+      padding-right:          15px
+
+    .form-wrapper,
+    fieldset.form-actions
+      // @extend .col-sm-9
+      width:                  66.666666666%
+      float:                  left
+      position:               relative
+      min-height:             1px
+      padding-left:           15px
+      padding-right:          15px
+
+    .form-group.checkbox .form-wrapper,
+    fieldset.form-actions
+      // @extend .col-sm-offset-3
+      margin-left:            33.333333333%
+      margin-bottom:          15px
+
+    .form-group.checkbox .form-wrapper
+      padding-left:           20px
+
+.form-condensed
+  .form-group
+    margin-bottom:            5px // statt 15px

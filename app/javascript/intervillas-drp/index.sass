@@ -1,0 +1,41 @@
+// bevor diese Datei importiert wird, müssen die Bootstrap-Variablen
+// bereitstehen (siehe app/javascript/packs/theme-*.sass)
+
+$drp-blocked-bg:    $state-danger-bg    !default
+$drp-blocked-text:  $state-danger-text  !default
+$drp-selected-bg:   $brand-primary      !default
+$drp-cell-size:     32px                !default
+$drp-breakpoint:    $screen-sm-min
+$drp-text-color:    $text-color
+
+@import "@digineo/date-range-picker/index.sass"
+
+.date-range-picker
+  $high-season-shade:       #fff0d1
+
+  .full-days.date
+    &:not(.other-month, .blocked, .selected, .preselected, :hover)
+      --am:                 #{$high-season-shade}
+
+  .date.high-season
+    &:not(.other-month, .blocked, .selected, .preselected, :hover)
+      &:not(.blocked-am)
+        --am:               #{$high-season-shade}
+      &:not(.blocked-pm)
+        --pm:               #{$high-season-shade}
+
+    &.selected, &.preselected
+      &.start
+        --am:               #{$high-season-shade}
+      &.end
+        --pm:               #{$high-season-shade}
+
+  .date.today
+    border:                 1px dashed #333 !important
+
+  .form-inline button
+    padding:                5px
+
+    i
+      margin:               0
+      padding:              0

@@ -1,0 +1,43 @@
+---
+en:
+  category:
+    accessoires:            Beach accessories
+    bathrooms:              Bathroom
+    bedrooms:               Bedroom
+    boat:                   Boat
+    entertainment:          Entertainment
+    gym:                    Sports
+    highlights:             Villa Specials
+    kitchen:                Kitchen
+    lavatory:               Washroom
+    livingroom:             Living space
+    location:               Environment
+    outdoor:                Outdoor
+    theme:                  Topic
+  category_descriptions:
+    header:                 Header text
+    teaser:                 Teaser text
+    description:            Description
+  category_multiple_types:
+    duschbad:               Shower
+    dusche:                 Shower
+    einzimmerwohnung:       Studio
+    gaestewc:               Guest toilet
+    schlafzimmer:           Bedroom
+    sonstiges:              Other
+    vollbad:                Bath
+  area_tags:
+    badewanne:              Bath
+    doppelbett:             Double bed
+    dusche:                 Shower
+    einzelbett:             Single bed
+    franzoesischbettgross:  King size (double size)
+    franzoesischbettklein:  Queen size (normal size)
+    jacuzzi:                Jacuzzi
+    schlafsofa:             Sleeper sofa
+    wc:                     Toilet
+
+  tags:
+    holidays:
+      christmas: Christmas
+      easter:    Easter

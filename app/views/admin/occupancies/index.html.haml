@@ -1,0 +1,17 @@
+= render layout: "layout" do
+  .alert.alert-info.mt-4
+    = fa :arrow_left, text: t(".please_select.#{params[:type].singularize}")
+
+  - if can? :grid, Booking
+    %table.table.table-condensed.table-hover.occupancies
+      %thead
+        %th= t ".monthly_plans"
+        - (1..12).each do |mon|
+          %th.text-center{ style: "width: 8%" }= t("date.abbr_month_names")[mon]
+      %tbody
+        - current_user.booking_year_range.to_a.reverse.each do |year|
+          %tr{ class: (year == current_year ? "success" : year >= current_year && year <= current_year + 2 ? "active" : nil) }
+            %th= year
+            - (1..12).each do |mon|
+              %td.text-center{ class: ("active" if year == current_year && mon == current_month) }
+                = link_to t(".show"), admin_grid_path(month: mon, year: year), title: [t("date.month_names")[mon], year].join(" ")

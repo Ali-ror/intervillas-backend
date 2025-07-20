@@ -1,0 +1,24 @@
+- content_for :sidebar do
+  - if inquiry.still_available?
+    = link_to mail_admin_inquiry_path(inquiry), method: :post, class: "btn btn-info my-3 btn-block" do
+      = t ".email_offer"
+    = link_to new_booking_path(inquiry.token, locale: customer.locale), class: "btn btn-success my-3 btn-block" do
+      = t ".finalize_booking"
+  - else
+    .alert.alert-danger.mt-3
+      = t ".not_available_anymore"
+
+= render layout: "layout" do
+  .visible-print
+    - I18n.with_locale customer.locale do
+      %h1
+        = t ".offer"
+        = inquiry.number
+  #villa.tab-pane.active
+    = render "villa_inquiry", event_url: api_admin_bookings_path(villa: villa_inquiry.villa_id, format: :json)
+  #customer.tab-pane
+    = render "customer"
+  #misc.tab-pane
+    = render "misc"
+  #communication.tab-pane
+    = render "admin/bookings/communication/messages", booking: inquiry

@@ -1,0 +1,4 @@
+= form_for form_object, url: api_admin_payment_path(id: form_object.id), remote: true, html: { class: "js-acknowledge-downpayment" } do |f|
+  = f.hidden_field :ack_downpayment, value: true
+  %button.btn.btn-xxs.btn-danger{ type: :submit }
+    = fa :check, text: "OK"

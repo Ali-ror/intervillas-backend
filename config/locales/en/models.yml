@@ -1,0 +1,196 @@
+---
+en:
+  activemodel:
+    attributes:
+      payment_form:
+        additional_message_downpayment: message to tenant (optional)
+        additional_message_payment: message to tenant (optional)
+        downpayment_paid_on: downpayment paid on
+        downpayment_paid_sum: downpayment sum
+        paid_on: paid on
+        paid_sum: sum
+  activerecord:
+    attributes:
+      blocking:
+        comment: comment
+        created_at: created at
+        end_date: end
+        start_date: beginning
+        updated_at: updated at
+        villa: house
+      boat_inquiry:
+        boat_deposit: deposit (boat)
+        boat_end_date: end
+        boat_external: Boat is rented externally (relevant for owner billing)
+        boat_name: name
+        boat_start_date: beginning
+        boat_state: boat
+        boat_training: training
+      booking:
+        adults: Adults
+        boat_end_date: Boat start date
+        boat_start_date: Boat end date
+        booked_on: booked on
+        children_under_12: Children up to age 12
+        children_under_6: Children up to age 6
+        created_at: Date of receipt
+        currency: Currency
+        end_date: End date
+        nights: Nights
+        number: Booking no.
+        start_date: Start date
+        state: Status
+        updated_at: updated at
+        with_boat?: with boat?
+      cancellation:
+        adults: Adults
+        boat_end_date: Boat start date
+        boat_start_date: Boat end date
+        booked_on: booked on
+        cancelled_at: Date of cancellation
+        children_under_12: Children up to age 12
+        children_under_6: Children up to age 6
+        created_at: Date of receipt
+        end_date: Villa end date
+        nights: Nights
+        number: Booking no.
+        start_date: Villa start date
+        state: Status
+        updated_at: updated at
+        with_boat?: with boat?
+      charge:
+        amount: Amount
+        text: Text
+        value: Value
+      customer:
+        address: address
+        appnr: number
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Account holder
+        bank_code: IBAN
+        bank_name: bank name
+        city: city
+        country: country
+        state_code: state/province
+        email: email address
+        email_confirmation: Please confirm your email address
+        first_name: first name
+        last_name: last name
+        locale: language
+        name: Leaser
+        newsletter: I want to subscribe to the newsletter
+        phone: phone
+        postal_code: zip code
+        title: title
+        travel_insurance: Travel Insurance
+        travel_insurance/unknown: unknown
+        travel_insurance/insured: present
+        travel_insurance/not_insured: not present
+        us_bank_routing_number: Routing no.
+      high_season:
+        addition: Surcharge
+        ends_on: ends on
+        starts_on: starts on
+      inquiry:
+        cancelled_at: Cancelled at
+        comment: Comment
+        currency: Currency
+        created_at: Created at
+        discount: Rebate
+        end_date: End date
+        number: Booking no.
+        start_date: Start date
+        updated_at: Updated at
+      review:
+        city: Your city
+        name: Your name
+        rating: Rating
+        text: Your review
+      route:
+        html_title: HTML title
+        meta_description: Meta Description
+        obj_id: Property ID (optional)
+        path: Path
+      special:
+        description: Description
+        end_date: End date
+        percent: Discount in percent
+        start_date: Start date
+        villas: affected villas
+      traveler:
+        born_on: Date of birth
+        first_name: First name
+        last_name: Last name
+        title: Salutation
+      user:
+        additional_emails: add. Email adresses
+        address: Address
+        admin: Admin
+        bank_account_number: BIC
+        bank_account_owner: Account holder
+        bank_address: Address
+        bank_code: IBAN
+        bank_name: Bank name
+        bank_routing_number: Routing No.
+        city: Place
+        country: country
+        email: Email
+        first_name: First name
+        last_name: Last name
+        login: Login Name
+        password: Password
+        password_confirmation: Password confirmation
+        phone: Phone
+        state: Region
+        tax_id_number: TAX ID NUMBER
+        title: Salutation
+        villa_owner: villa owner
+        zip: Zip code
+      villa:
+        active: enabled?
+        boat_external: external
+        boat_state: Boat
+        buyable: for sale?
+        country: country
+        description: Description Text
+        header: Header Text
+        living_area: Living space
+        locality: Place
+        manager: Management
+        meta_description: HTML Meta Description
+        name: Name
+        owner: Owner
+        phone: Phone number
+        postal_code: Zip code
+        pool_orientation: Orientation of pool
+        region: Region
+        safe_code: Safe Code
+        street: Street
+        teaser: Intro Text
+        title: HTML Title
+      villa_inquiry:
+        adults: Number of adults
+        children_under_12: Number of children up to the age of 12
+        children_under_6: Number of children up to the age of 6
+        cleaning: Cleaning costs
+        end_date: Departure
+        house_deposit: Deposit (home)
+        nights: number of nights
+        price_people: Price per person
+        start_date: Getting there
+        villa: Object
+    models:
+      billing: Billing
+      booking: Booking
+      customer: Kunde
+      media/image: Property photos
+      owner: Owner
+      owner_billing: Billing for owner
+      review: Customer reviews
+      route: Resource
+      tenant_billing: Billing for tenants
+      traveler: Traveler
+      user: User
+      page: Sub-Page
+      boat: Boat
+      villa: Villa

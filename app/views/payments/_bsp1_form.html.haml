@@ -1,0 +1,16 @@
+%bsp1-hosted-iframe-form{
+  data: {
+    deadline:     deadline.name,
+    single_sum:   gross(inquiry, deadline.name),
+    full_sum:     gross(inquiry, "downpayment+remainder"),
+    request:      bsp1_params(
+      request:       "creditcardcheck",
+      responsetype:  "JSON",
+      encoding:      "UTF-8",
+      storecarddata: "yes",
+      language:      reservation.customer.locale,
+      currency:      inquiry.currency,
+    ).to_json,
+    redirect:     reservation.is_a?(Reservation) ? inquiry_processing_path : nil,
+  }
+}

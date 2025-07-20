@@ -1,0 +1,4 @@
+- if current_user.admin?
+  = render "index_admin"
+- else
+  = render "index_owner_manager"

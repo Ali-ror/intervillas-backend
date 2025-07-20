@@ -1,0 +1,429 @@
+@use "sass:math"
+@import "./keyframes"
+
+body
+  overflow-x: hidden
+
+html, html a
+  -webkit-font-smoothing: antialiased !important
+
+
+/* Headings */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+  font-family: $font-family-sans-serif
+  font-weight: 600
+  line-height: 1.1
+  color: #5e5e5e
+
+  i
+    padding-right: 15px
+
+.lined-heading
+  position: relative
+  margin-top: 0
+  margin-bottom: 50px
+  text-align: center
+  display: block
+
+  &:before
+    position: absolute
+    top: 50%
+    z-index: 1
+    display: block
+    width: 100%
+    height: 1px
+    border-top: 2px solid #ccc
+    content: ""
+
+  span
+    position: relative
+    z-index: 1
+    padding: 0 20px
+    background: #fff
+    display: inline-block
+
+/* Fonts */
+
+body
+  font-family: $font-family-sans-serif
+  font-size: $font-size-base
+
+a
+  text-decoration: none
+  transition: color 0.2s ease-in
+
+  &:hover,
+  &:focus
+    color: #000
+    text-decoration: none
+    transition: color 0.2s ease-in
+
+  &:focus
+    outline: thin dotted
+    outline: 5px auto -webkit-focus-ring-color
+    outline-offset: -2px
+
+  &:hover,
+  &:focus,
+  .box-icon &:hover,
+  .usp &:hover i
+    color: #5e5e5e
+
+/* Form */
+
+label
+  color: #5e5e5e
+
+.form-control
+  color: #bfbfbf
+
+  option
+    color: #5e5e5e
+
+    &:disabled
+      color: #bfbfbf
+
+  &:focus
+    border: 1px solid #cccccc
+    outline: 0
+    box-shadow: none
+
+  &:-moz-placeholder
+    color: #bfbfbf
+
+  &::-moz-placeholder
+    color: #bfbfbf
+    opacity: 1
+
+  &:-ms-input-placeholder
+    color: #bfbfbf
+
+  &::-webkit-input-placeholder
+    color: #bfbfbf
+
+
+/* Buttons */
+
+.btn
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 100%)
+  color: #fff
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3)
+  transition: all 0.1s ease-in
+  text-transform: uppercase
+  font-weight: bold
+
+.btn-default
+  text-shadow: 0 -1px 0 #fff
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.06) 100%)
+  background-color: #fff
+  border-color: #d2d2d2
+
+  &:hover, &:focus, &:active, &.active, .open &.dropdown-toggle
+    text-shadow: 0 -1px 0 #fff
+    background-color: #fff
+    border-color: #d2d2d2
+    box-shadow: inset 5px 5px 100px 100px #FFFFFF
+
+.btn-success
+  background-color: #7ec923
+  border-color: #09c817
+  text-shadow: 0 -1px 0 #408c1f
+
+  &:hover, &:focus, &:active, &.active, .open &.dropdown-toggle
+    background-color: #86E215
+    border-color: #75c529
+
+.btn-info
+  background-color: #057ad4
+  border-color: #057ad4
+  text-shadow: 0 -1px 0 #1f659a
+
+  &:hover, &:focus, &:active, &.active, .open &.dropdown-toggle
+    background-color: #36a6eb
+    border-color: #2a8de9
+
+.btn-warning
+  background-color: #dc7b13
+  border-color: #d48405
+  text-shadow: 0 -1px 0 #d29128
+
+  &:hover, &:focus, &:active, &.active, .open &.dropdown-toggle
+    background-color: #eab037
+    border-color: #d48405
+
+.btn-danger
+  background-color: #c20808
+  border-color: #ba3535
+  text-shadow: 0 -1px 0 #760202
+
+  &:hover, &:focus, &:active, &.active, .open &.dropdown-toggle
+    background-color: #e51f1f
+    border-color: #ba3535
+
+
+/* Items */
+
+.list-unstyled, .list-unstyled ul
+  min-width: 120px
+  color: #5e5e5e
+
+/* Reservation Form */
+
+#reservation-form
+  @media screen and (min-width: $screen-md-min)
+    body > &
+      margin-top: -130px
+      height: 130px
+      position: relative
+
+  @media screen and (max-width: $screen-sm-max)
+    margin-top: $grid-gutter-width
+
+  h2
+    margin-bottom: $font-size-base
+
+/* Error Message */
+
+.error_message
+  color: #F00
+
+/* Circle */
+
+.box-icon
+  .circle
+    border-radius:            50%
+    padding:                  25px
+    margin:                   0 auto
+    background-color:         #fff
+    transition:               all 0.3s ease-in-out
+    display:                  inline-block
+    position:                 relative
+    border:                   1px solid
+
+    i
+      $fa-fixed-width: math.div(18em, 14)
+      width:                  $fa-fixed-width
+      height:                 $fa-fixed-width
+      line-height:            $fa-fixed-width
+      text-align:             center
+      vertical-align:         middle
+      transition:             all 0.6s ease-in-out
+
+    &:hover
+      padding:  30px
+      margin:   -5px auto
+
+      i
+        color:                      #fff
+        animation-name:             swing
+        animation-duration:         1s
+        animation-iteration-count:  1
+        animation-timing-function:  ease-out
+        text-decoration:            none
+
+
+/* Headings */
+
+aside h3:first-of-type
+  margin-top: 0
+
+aside h3
+  padding: 0 0 10px 0
+  border-bottom: 1px solid
+
+/* Pages */
+
+
+/* 404 Error page*/
+
+.error-404
+  text-align: center
+
+.error-404 h2
+  color: #f5f5f5
+  text-align: center
+  font-size: 200px
+  padding: 30px 0 30px
+
+
+/* Bootstrap Components */
+
+
+/* Image styles */
+
+.img-thumbnail
+  border: 1px solid #ebebeb
+  border-radius: 5px 5px 5px 5px
+
+
+/* Nav Tabs */
+
+.nav-tabs
+  border-bottom: 1px solid #ebebeb
+
+.nav-tabs > li
+  float: left
+  margin-bottom: -1px
+
+.nav-tabs > li > a
+  margin-right: 2px
+  line-height: 1.428571429
+  border: 1px solid transparent
+  border-radius: 4px 4px 0 0
+  font-weight: 600
+  padding: 15px 20px
+  transition: all 0.2s ease
+
+.nav-tabs > li > a:hover
+  border: 1px solid #ebebeb
+  background: #fff
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
+  color: #555555
+  cursor: default
+  background-color: #fff
+  border: 1px solid #ebebeb
+  border-bottom-color: transparent
+
+.tab-content
+  padding: 20px
+
+
+/* Nav Pills */
+
+.nav-pills
+  margin-top: 30px
+
+.nav-pills > li > a
+  color: #5e5e5e
+  transition: all 0.2s ease
+
+/* Breadcrumb */
+
+.breadcrumb
+  padding: 0
+  margin: 30px 0 20px 0
+  list-style: none
+  background-color: transparent
+
+.breadcrumb > li + li:before
+  padding: 0 5px
+  color: #bdbdbd
+  content: "/\00a0"
+
+.breadcrumb > li a
+  color: #fff
+  padding: 3px 5px
+  text-decoration: underline
+
+.breadcrumb > .active
+  color: #fff
+
+
+/* Table */
+
+table
+  td > i, th > i
+    padding-right: 5px
+
+
+/* Pagination */
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover
+  z-index: 2
+  color: #fff
+  cursor: default
+  border-color: #ccc
+
+
+/* Badge */
+
+.badge
+  background: #ccc
+
+
+/* Blockquote */
+
+blockquote
+  margin: 30px 0
+
+blockquote span
+  color: #ccc
+
+
+/* Alerts */
+
+.alert-success
+  color: #408c1f
+  background-color: #f1ffe0
+  border-color: #c2e5b3
+
+.alert-info
+  color: #1f659a
+  background-color: #d0efff
+  border-color: #a4d3f6
+
+.alert-warning
+  color: #d29128
+  background-color: #fff4e0
+  border-color: #f3dfb6
+
+.alert-danger
+  color: #bd2323
+  background-color: #fadfdf
+  border-color: #f1b7c1
+
+/* Go-Top Button */
+
+#go-top
+  position:         fixed
+  left:             30px
+  bottom:           38px
+  z-index:          9999
+  cursor:           pointer
+  border-radius:    50%
+  padding:          10px
+  background-color: #fff
+  border:           1px solid
+  pointer-events:   none
+  box-shadow:       5px 5px 5px #3333
+
+  opacity:          0
+  transition:       opacity 0.3s ease-in-out
+  &.show
+    pointer-events: auto
+    opacity:        0.75
+
+  &:hover
+    border-color:   #fff
+    transition:     border-color 0.3s ease-in-out, background-color 0.3s ease-in-out
+
+    i
+      color:                     #fff
+      animation-name:            fadeOutUp
+      animation-duration:        1.5s
+      animation-iteration-count: infinite
+      animation-timing-function: ease-in-out
+
+  i
+    font-size:      33px
+    width:          36px
+    text-align:     center
+
+
+/* Gmap */
+
+.map
+  width: 100%
+  height: 450px
+  max-height: 90vh
+
+  img
+    max-width: none !important

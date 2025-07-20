@@ -1,0 +1,4 @@
+%strong= header.display_name
+- if (mnum = header.formatted_matriculation_number.presence)
+  %br
+  %small{ style: "white-space: nowrap" }= mnum

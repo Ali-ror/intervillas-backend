@@ -1,0 +1,44 @@
+.row
+  %aside.col-md-3.sidebar-left
+    %h1= inquiry_number paypal_payment.inquiry
+
+    .alert.alert-info.fa-alert
+      = fa :info_circle
+      Diese Ansicht ist hauptsächlich für die Problembehebung gedacht.
+
+    %ul.nav.nav-pills.nav-stacked.js-main-nav
+      %li
+        = link_to admin_paypal_transactions_path do
+          = fa :caret_left, text: "zurück zum Eingang Paypal"
+      %li
+        = link_to edit_admin_booking_path(paypal_payment.inquiry, anchor: "payments") do
+          = fa :caret_left, text: "zurück zur Buchung"
+
+  .col-md-9.mt-3
+    .panel-group#paypal-transaction
+      .panel.panel-primary
+        .panel-heading
+          %a.panel-title{ href: "#paypal-payment-#{paypal_payment.id}", data: { toggle: :collapse, parent: "#paypal-transaction" } }
+            = fa :caret_square_o_right
+            Transaktion ##{paypal_payment.id}
+            &bull;
+            = l paypal_payment.created_at.to_date
+
+        .panel-collapse.collapse.in{ id: "paypal-payment-#{paypal_payment.id}" }
+          .panel-body.small
+            = render_payment_gateway_tree paypal_payment.data
+
+      - paypal_payment.paypal_webhooks.each do |wh|
+        .panel.panel-default
+          .panel-heading
+            %a.panel-title{ href: "#paypal-webhool-#{wh.id}", data: { toggle: :collapse, parent: "#paypal-transaction" } }
+              = fa :caret_square_o_right
+              Webhook ##{wh.id}
+              &bull;
+              %em= wh.event_type.to_s.downcase
+              &bull;
+              = l wh.created_at.to_date
+
+          .panel-collapse.collapse{ id: "paypal-webhool-#{wh.id}" }
+            .panel-body.small
+              = render_payment_gateway_tree wh.data

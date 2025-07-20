@@ -1,0 +1,25 @@
+= form_tag admin_two_factor_settings_path, method: :delete, class: "form-horizontal" do
+  .panel.panel-default
+    .panel-heading Zwei-Faktor-Authentisierung
+    .panel-body
+      %h4 Status
+      %p
+        Die Zwei-Faktor-Authentisierung ist derzeit <strong>aktiv</strong>.
+        Sie werden bei jedem Login nach einem OTP gefragt.
+    .panel-body.border-top.border-light
+      %h4 Zwei-Faktor-Authentisierung deaktivieren
+      %p
+        Zum Deaktivieren geben Sie bitte einen OTP- oder Backup-Code ein
+
+      .form-group
+        = label_tag :otp_attempt, "Code zur Bestätigung", class: "control-label col-sm-4"
+        .col-sm-8
+          = text_field_tag :otp_attempt, nil,
+            required:     true,
+            minlength:    6,
+            autocomplete: "one-time-code",
+            pattern:      "\\d{6}|[0-9a-f]{#{User.otp_backup_code_length}}",
+            class:        "form-control"
+
+    .panel-footer.text-right
+      %button.btn.btn-warning{ type: :submit, data: { disable_with: t(:wait) } } Deaktivieren

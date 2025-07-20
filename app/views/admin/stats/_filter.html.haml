@@ -1,0 +1,5 @@
+%admin-stats-filter{
+  placeholder:   t("helpers.select.prompt"),
+  ":villas"   => villas.map { [admin_stats_path(type: "villas", id: _1.id), _1.admin_display_name] }.to_json,
+  ":boats"    => boats.map { [admin_stats_path(type: "boats", id: _1.id), _1.admin_display_name] }.to_json,
+}

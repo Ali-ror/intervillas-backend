@@ -1,0 +1,20 @@
+- self.title = "Bewertung #{villa.name} | Intervilla Florida"
+- self.meta_description = "Bewertung zu #{villa.name} in Cape Coral von intervillas-florida.com? Hier erfahren Sie mehr!"
+= page_header do
+  = render "villas/average_rating", villa: parent
+
+  - breadcrumb.add link_to t("shared.menu.villas"), "/villas"
+  - if parent.active
+    - breadcrumb.add link_to parent.name, parent
+  - else
+    - breadcrumb.add parent.name
+  = breadcrumb.render t("reviews.index.breadcrumb")
+
+  %h1= h1 || t("reviews.index.title", villa: parent.name)
+
+= yield
+
+.container.mt-5.text-center.well
+  = link_to parent, class: "btn btn-primary btn-lg" do
+    = t "reviews.index.link_back_to", villa: parent.name
+

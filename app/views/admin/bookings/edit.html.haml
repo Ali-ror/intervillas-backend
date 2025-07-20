@@ -1,0 +1,76 @@
+.row
+  %aside.col-md-2.sidebar-left.hidden-print
+    - content_for :sidebar_nav do
+      %li
+        = link_to "#payments", data: { toggle: :pill } do
+          = t ".payments"
+          - if booking.payment_deadlines.overdue?
+            = fa :exclamation_triangle, class: "pull-right"
+      %li
+        = link_to edit_admin_billing_path(booking) do
+          = t ".billing"
+      %li
+        = link_to "#review", data: { toggle: :pill } do
+          = t ".review"
+
+      - content_for :sidebar do
+        .mt-4
+          - unless inquiry.external
+            - locale = customer.try(:locale) || I18n.default_locale
+            = panel t(".confirmation.heading.#{locale}") do
+              %p
+                = link_to preview_admin_booking_path(booking, locale: locale), class: "btn btn-default btn-block btn-sm" do
+                  -# note: ".confirmation.preview" resolves to "shared.panel.confirmation.preview"
+                  = t "admin.bookings.edit.confirmation.preview"
+              %p
+                = link_to confirmation_booking_path(inquiry.token, locale: locale), class: "btn btn-default btn-block btn-sm" do
+                  = t "admin.bookings.edit.confirmation.customer_page"
+              %p
+                = link_to mail_admin_booking_path(booking), method: :post, class: "btn btn-primary btn-block btn-sm" do
+                  = t "admin.bookings.edit.confirmation.resend_mail"
+
+          = panel t(".travel_mail.heading") do
+            - if tm = booking.travel_mail.presence
+              %p= t "admin.bookings.edit.travel_mail.already_sent", date: l((tm.created_at || tm.sent_at).to_date)
+              %p
+                = link_to travel_mail_admin_booking_path(booking), method: :post, class: "btn btn-primary btn-block btn-sm" do
+                  = t "admin.bookings.edit.travel_mail.resend_mail"
+            - else
+              %p= t "admin.bookings.edit.travel_mail.planned", date: l(booking.villa_inquiry.start_date - 2.weeks)
+              %p
+                = link_to travel_mail_admin_booking_path(booking), method: :post, class: "btn btn-primary btn-block btn-sm" do
+                  = t "admin.bookings.edit.travel_mail.send_mail"
+
+    = render "sidebar_left"
+
+  .col-md-7
+    .tab-content.main-tab-content
+      - if (r = inquiry.booking_pal_reservations.last).present?
+        .alert.alert-warning
+          %p
+            %strong
+              = t ".external_booking.booking_pal.heading",
+                channel:        r.payload.channel_name,
+                reservation_id: r.reservation_id
+          %p= t ".external_booking.booking_pal.warning"
+      - elsif inquiry.external
+        .alert.alert-warning
+          %strong= t ".external_booking.heading"
+          %br
+          = t ".external_booking.warning"
+      #inconsistencies= render "inconsistencies"
+      #villa.tab-pane.active
+        = render "villa_inquiry", event_url: api_admin_bookings_path(villa: villa_inquiry.villa_id, format: :json)
+      #customer.tab-pane
+        = render "customer"
+      #misc.tab-pane
+        = render "misc"
+      #communication.tab-pane
+        = render "communication"
+      #payments.tab-pane
+        = render "payments"
+      #review.tab-pane
+        = render "review", booking: booking, review: booking.review
+
+  %aside.col-md-3.sidebar-right
+    = render "sidebar_right"

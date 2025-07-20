@@ -1,0 +1,30 @@
+%h2 Verlinkte Miet-Objekte
+
+%table.table.table-striped.table-condensed.table-hover.js-sticky-header
+  %thead
+    %tr
+      %th{ colspan: 2, rowspan: 2 } Objekt
+      %th{ rowspan: 2 }
+      %th{ colspan: 2 } Kontakt ist &hellip;?
+    %tr
+      %th Eigentümer
+      %th Verwaltung
+
+  %tbody
+    - contact.rentables.each do |r|
+      %tr
+        %td
+          = case r.rentable_type
+          - when "Villa" then "Villa"
+          - when "Boat"  then "Boot"
+        %td= r.name
+        %td
+          = case r.rentable_type
+          - when "Villa" then link_to fa(:x2, :pencil), edit_admin_villa_path(r.rentable_id)
+          - when "Boat"  then link_to fa(:x2, :pencil), edit_admin_boat_path(r.rentable_id)
+        %td
+          - if r.owner_id == contact.id
+            = fa :check, text: "ja", class: "text-success"
+        %td
+          - if r.manager_id == contact.id
+            = fa :check, text: "ja", class: "text-success"

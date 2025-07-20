@@ -1,0 +1,221 @@
+# conditions sourced from https://openweathermap.org/weather-conditions
+200:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm with light rain }
+  de:   { cat: Gewitter,     desc: Gewitter mit lechtem Regen }
+201:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm with rain }
+  de:   { cat: Gewitter,     desc: Gewitter mit Regen }
+202:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm with heavy rain }
+  de:   { cat: Gewitter,     desc: Gewitter mit starkem Regen }
+210:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: light thunderstorm }
+  de:   { cat: Gewitter,     desc: leichtes Gewitter }
+211:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm }
+  de:   { cat: Gewitter,     desc: Gewitter }
+212:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: heavy thunderstorm }
+  de:   { cat: Gewitter,     desc: starkes Gewitter }
+221:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: ragged thunderstorm }
+  de:   { cat: Gewitter,     desc: heftiges Gewitter }
+230:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm with light drizzle }
+  de:   { cat: Gewitter,     desc: Gewitter mit leichtem Nieselregen }
+231:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm with drizzle }
+  de:   { cat: Gewitter,     desc: Gewitter mit Nieselregen }
+232:
+  icon: 11d
+  en:   { cat: Thunderstorm, desc: thunderstorm with heavy drizzle }
+  de:   { cat: Gewitter,     desc: Gewitter mit starkem Nieselregen }
+300:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: light intensity drizzle }
+  de:   { cat: Nieselregen, desc: leichter Nieselregen }
+301:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: drizzle }
+  de:   { cat: Nieselregen, desc: Nieselregen }
+302:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: heavy intensity drizzle }
+  de:   { cat: Nieselregen, desc: starker Nieselregen }
+310:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: light intensity drizzle rain }
+  de:   { cat: Nieselregen, desc: leichter Nieselregen }
+311:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: drizzle rain }
+  de:   { cat: Nieselregen, desc: Nieselregen }
+312:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: heavy intensity drizzle rain }
+  de:   { cat: Nieselregen, desc: starker Nieselregen }
+313:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: shower rain and drizzle }
+  de:   { cat: Nieselregen, desc: Nieselregen und Regenschauer }
+314:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: heavy shower rain and drizzle }
+  de:   { cat: Nieselregen, desc: Nieselregen mit starkem Schauer }
+321:
+  icon: 09d
+  en:   { cat: Drizzle,     desc: shower drizzle }
+  de:   { cat: Nieselregen, desc: Regenschauer }
+500:
+  icon: 10d
+  en:   { cat: Rain,  desc: light rain }
+  de:   { cat: Regen, desc: leichter Regen }
+501:
+  icon: 10d
+  en:   { cat: Rain,  desc: moderate rain }
+  de:   { cat: Regen, desc: mäßiger Regen }
+502:
+  icon: 10d
+  en:   { cat: Rain,  desc: heavy intensity rain }
+  de:   { cat: Regen, desc: starker Regen }
+503:
+  icon: 10d
+  en:   { cat: Rain,  desc: very heavy rain }
+  de:   { cat: Regen, desc: sehr starker Regen }
+504:
+  icon: 10d
+  en:   { cat: Rain,  desc: extreme rain }
+  de:   { cat: Regen, desc: heftiger Regen }
+511:
+  icon: 13d
+  en:   { cat: Rain,  desc: freezing rain }
+  de:   { cat: Regen, desc: frierender Regen }
+520:
+  icon: 09d
+  en:   { cat: Rain,  desc: light intensity shower rain }
+  de:   { cat: Regen, desc: leichte Regenschauer }
+521:
+  icon: 09d
+  en:   { cat: Rain,  desc: shower rain }
+  de:   { cat: Regen, desc: Regenschauer }
+522:
+  icon: 09d
+  en:   { cat: Rain,  desc: heavy intensity shower rain }
+  de:   { cat: Regen, desc: starke Regenschauer }
+531:
+  icon: 09d
+  en:   { cat: Rain,  desc: ragged shower rain }
+  de:   { cat: Regen, desc: heftige Regenschauer  }
+600:
+  icon: 13d
+  en:   { cat: Snow,   desc: light snow }
+  de:   { cat: Schnee, desc: leichter Schnee }
+601:
+  icon: 13d
+  en:   { cat: Snow,   desc: snow }
+  de:   { cat: Schnee, desc: Schnee }
+602:
+  icon: 13d
+  en:   { cat: Snow,   desc: heavy snow }
+  de:   { cat: Schnee, desc: starker Schnee }
+611:
+  icon: 13d
+  en:   { cat: Snow,   desc: sleet }
+  de:   { cat: Schnee, desc: Schneeregen }
+612:
+  icon: 13d
+  en:   { cat: Snow,   desc: light shower sleet }
+  de:   { cat: Schnee, desc: leichte Schneeschauer }
+613:
+  icon: 13d
+  en:   { cat: Snow,   desc: shower sleet }
+  de:   { cat: Schnee, desc: Schneeschauer }
+615:
+  icon: 13d
+  en:   { cat: Snow,   desc: light rain and snow }
+  de:   { cat: Schnee, desc: leichter Regen und Schnee }
+616:
+  icon: 13d
+  en:   { cat: Snow,   desc: rain and snow }
+  de:   { cat: Schnee, desc: Regen und Schnee }
+620:
+  icon: 13d
+  en:   { cat: Snow,   desc: light shower snow }
+  de:   { cat: Schnee, desc: leichte Schneeschauer }
+621:
+  icon: 13d
+  en:   { cat: Snow,   desc: shower snow }
+  de:   { cat: Schnee, desc: Schneeschauer }
+622:
+  icon: 13d
+  en:   { cat: Snow,   desc: heavy shower snow }
+  de:   { cat: Schnee, desc: starke Schneeschauer }
+701:
+  icon: 50d
+  en:   { cat: Mist,  desc: mist }
+  de:   { cat: Nebel, desc: Nebel }
+711:
+  icon: 50d
+  en:   { cat: Smoke, desc: smoke }
+  de:   { cat: Rauch, desc: Rauch }
+721:
+  icon: 50d
+  en:   { cat: Haze,  desc: haze }
+  de:   { cat: Dunst, desc: getrübt }
+731:
+  icon: 50d
+  en:   { cat: Dust,  desc: sand/dust whirls }
+  de:   { cat: Dunst, desc: Sand-/Staubwirbel }
+741:
+  icon: 50d
+  en:   { cat: Fog,   desc: fog }
+  de:   { cat: Nebel, desc: Nebel }
+751:
+  icon: 50d
+  en:   { cat: Sand, desc: sand }
+  de:   { cat: Sand, desc: Sand }
+761:
+  icon: 50d
+  en:   { cat: Dust,  desc: dust }
+  de:   { cat: Dunst, desc: getrübt }
+762:
+  icon: 50d
+  en:   { cat: Ash,   desc: volcanic ash }
+  de:   { cat: Asche, desc: vulkanische Asche }
+771:
+  icon: 50d
+  en:   { cat: Squall, desc: squalls }
+  de:   { cat: Wind,   desc: Sturmböen }
+781:
+  icon: 50d
+  en:   { cat: Tornado, desc: tornado }
+  de:   { cat: Tornado, desc: Tornado }
+800:
+  icon: 01d
+  en:   { cat: Clear, desc: clear sky }
+  de:   { cat: Klar,  desc: klarer Himmel }
+801:
+  icon: 02d
+  en:   { cat: Clouds, desc: few clouds }
+  de:   { cat: Wolken, desc: wenige Wolken }
+802:
+  icon: 03d
+  en:   { cat: Clouds, desc: scattered clouds }
+  de:   { cat: Wolken, desc: aufgelockerte Bewölkung }
+803:
+  icon: 04d
+  en:   { cat: Clouds, desc: broken clouds }
+  de:   { cat: Wolken, desc: aufgelockert bewölkt }
+804:
+  icon: 04d
+  en:   { cat: Clouds, desc: overcast clouds }
+  de:   { cat: Wolken, desc: bedeckte Wolken }

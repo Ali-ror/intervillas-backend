@@ -1,0 +1,61 @@
+// Backport of BS4 variables, using BS3 variables whereever possible.
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $brand-primary,
+    // "secondary":  $brand-secondary,
+    "success":    $brand-success,
+    "info":       $brand-info,
+    "warning":    $brand-warning,
+    "danger":     $brand-danger,
+    "light":      $gray-lighter,
+    "dark":       $gray-darker
+  ),
+  $theme-colors
+);
+
+$border-width: 1px !default;
+$border-color: $gray;
+
+$border-radius:    $border-radius-base;
+$border-radius-lg: $border-radius-large;
+$border-radius-sm: $border-radius-small;
+$rounded-pill:     50rem !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min
+);
+
+$spacer: $font-size-base;
+$spacers: (
+  0: 0,
+  1: floor($spacer * .25),  // 3px
+  2: floor($spacer * .5),   // 6px
+  3: $spacer,               // 13px
+  4: ceil($spacer * 2),     // 26px
+  5: ceil($spacer * 4)      // 52px
+);
+
+$sizes: () !default;
+$sizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto
+  ),
+  $sizes
+);
+
+// new $zindex variables in BS4, others did not change
+$zindex-sticky:         1020;
+$zindex-fixed:          1030;
+$zindex-modal-backdrop: 1040;
+
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex;
+$positions: static, relative, absolute, fixed, sticky;

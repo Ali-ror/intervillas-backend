@@ -1,0 +1,18 @@
+.row
+  .col-sm-9
+    = render "header"
+
+    %p.mt-3
+      %payment-detail-toggle.pull-right
+        = t ".show_payments"
+
+      - y = params[:year].to_i
+      = t ".info", to: l(Date.new(y - 1, 12, 31)), year: y
+
+    - Currency::CURRENCIES.each do |cur|
+      - next if @balance[cur].blank?
+      %h4= cur
+      = render "balance_table", balance: @balance[cur]
+
+  %aside.col-sm-3
+    = render "sidebar"

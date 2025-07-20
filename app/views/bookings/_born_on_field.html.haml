@@ -1,0 +1,14 @@
+- err = traveler.object.errors[:born_on]
+.form-group{ class: ("has-error" if err.any?) }
+  .form-label
+    %label.control-label
+      = Traveler.human_attribute_name :born_on
+      = vite_image_tag "images/arrow_form.png"
+  .form-wrapper
+    %birthday-picker{
+      name:          format("%s[born_on]", traveler.object_name),
+      value:         traveler.object.born_on,
+      ":birthday" => [inquiry.villa_inquiry.start_date.to_date, inquiry.villa_inquiry.end_date.to_date].to_json
+    }
+    - if err.any?
+      %span.help-block= err.to_sentence

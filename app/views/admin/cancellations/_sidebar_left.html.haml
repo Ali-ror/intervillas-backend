@@ -1,0 +1,42 @@
+%h1
+  - @title = [t("admin.inquiries.sidebar_left.cancellation"), inquiry.number]
+  %s= inquiry.number
+  .small= t("admin.inquiries.sidebar_left.cancellation")
+
+%dl
+  - if villa_name = villa_inquiry.villa_name.presence
+    %dt= t "admin.inquiries.sidebar_left.villa"
+    %dd= link_to villa_name, villa_inquiry.villa
+  - if boat_inquiry.present? && (boat_name = boat_inquiry.boat.admin_display_name)
+    %dt= t "admin.inquiries.sidebar_left.boat"
+    %dd= link_to boat_name, boat_inquiry.boat
+
+%ul.nav.nav-pills.nav-stacked.js-main-nav.hidden-print.mb-3
+  %li{ role: "presentation" }
+    = link_to admin_cancellations_path do
+      = fa :caret_left, text: t("admin.inquiries.sidebar_left.back")
+
+  %li.active{ role: "presentation" }
+    = link_to "#villa", data: { toggle: :pill } do
+      %strong= t "admin.inquiries.sidebar_left.details"
+
+  - if inquiry.persisted?
+    %li{ role: "presentation" }
+      = link_to "#customer", data: { toggle: :pill } do
+        %strong= t "admin.inquiries.sidebar_left.customer"
+        - if name = customer.name
+          (#{name})
+
+    %li{ role: "presentation" }
+      = link_to "#communication", data: { toggle: :pill } do
+        = t "admin.inquiries.sidebar_left.communication"
+
+  - if inquiry.persisted?
+    %li{ role: "presentation" }
+      = link_to "#misc", data: { toggle: :pill } do
+        = t "admin.inquiries.sidebar_left.misc"
+
+    = yield :sidebar_nav
+= yield :sidebar
+
+= render "uncancel"

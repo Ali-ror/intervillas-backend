@@ -1,0 +1,6 @@
+= semantic_form_for misc_form, url: [:admin, misc_form, anchor: "misc"] do |form|
+  = form.inputs t(".misc") do
+    = form.input :comment, as: :text
+
+    = form.actions do
+      = form.action :submit, label: 'speichern', button_html: { class: 'btn btn-primary' }

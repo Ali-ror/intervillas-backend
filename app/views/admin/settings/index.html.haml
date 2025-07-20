@@ -1,0 +1,9 @@
+.row
+  .col-md-8.col-md-offset-2
+    %h1.page-header Einstellungen
+
+    - current_settings.in_groups_of(2, false).each do |g|
+      .row
+        - g.each do |name, value|
+          .col-sm-6
+            = render "setting", name: name, value: value

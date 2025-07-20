@@ -1,0 +1,15 @@
+%ul.nav.nav-tabs.mt-4
+  %li{ class: ("active" unless current_template || current_status) }
+    = link_to "alle Nachrichten", admin_messages_path
+
+  %li.dropdown{ class: ("active" if current_template) }
+    %a.dropdown-toggle{ href: "#", data: { toggle: :dropdown } }
+      - if current_template
+        Typ:
+        %em= t current_template, scope: "messages.templates"
+      - else
+        Nachrichten mit Typ
+      = fa :caret_down, :fw
+    %ul.dropdown-menu
+      - message_templates.each do |template, localized|
+        %li= link_to localized, admin_messages_path(template: template)

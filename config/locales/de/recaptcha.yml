@@ -1,0 +1,5 @@
+de:
+  recaptcha:
+    errors:
+      recaptcha_unreachable: Wir konnten den reCAPTCHA nicht verifizieren. Bitte versuchen Sie es erneut.
+      verification_failed: Die reCAPTCHA-Verifikation ist fehlgeschlagen. Bitte versuchen Sie es erneut.

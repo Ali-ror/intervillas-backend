@@ -1,0 +1,6 @@
+= succeed ", " do
+  = link_to rentable_inquiry.number, [:admin, rentable_inquiry]
+
+= rentable_inquiry.comment
+%br
+= [l(rentable_inquiry.start_date, format: '%d.%m.'), l(rentable_inquiry.end_date, format: '%d.%m.')].join('–')

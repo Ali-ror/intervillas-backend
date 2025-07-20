@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %meta{ charset: "UTF-8"}
+    %title #{villa.name} | Tour | Intervilla
+    %meta{ content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name: "viewport" }
+    = render "shared/favicons", theme_color: "#75c5cf", app_name: "Intervilla Florida"
+    = vite_client_tag
+    = vite_javascript_tag "pannellum"
+    = csrf_meta_tags
+
+  %body
+    #container{ data: { tour: tour_data } }
+      %noscript
+        .pnlm-info-box
+          %p
+            JavaScript is required to view this panorama.
+          %p
+            JavaScript wird benötigt, um dieses Panorama anzuzeigen.

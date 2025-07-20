@@ -1,0 +1,23 @@
+%table.table
+  %tr
+    %th{ align: "left", valign: "top" } Name:
+    %td= @request.name.presence
+  %tr
+    %th{ align: "left", valign: "top" } E-Mail:
+    %td= mail_to @request.email, @request.email
+  %tr
+    %th{ align: "left", valign: "top" } Telefon:
+    %td= @request.phone.presence || "—"
+  %tr
+    %th{ align: "left", valign: "top" } Seite:
+    %td
+      - if (page = @request.current_page).present?
+        = link_to page, page
+      - else
+        —
+  %tr
+    %th{ align: "left", valign: "top" } Villa:
+    %td= @request.villa&.admin_display_name || "—"
+  %tr
+    %th{ align: "left", valign: "top" } Nachricht:
+    %td= simple_format(@request.text.presence || "es wurde keine Nachricht hinterlassen")

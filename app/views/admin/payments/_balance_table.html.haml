@@ -1,0 +1,42 @@
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= t ".number"
+      %th= t ".object"
+      %th= t ".start_date"
+      %th= t ".end_date"
+      %th= t ".status"
+      %th.text-right= t ".sum"
+      %th
+
+  %tbody
+    - y = params[:year].to_i
+    - balance.each do |b|
+      %tr
+        %td= b.number
+        %td
+          %ul.list-unstyled
+            - balance.rentables(b).each do |rentable|
+              %li= rentable.admin_display_name
+        %td= l b.min_start_date
+        %td= l b.max_end_date
+        %td= t b.state, scope: 'states'
+        %td
+          %table.table.table-condensed{ style: "background: transparent" }
+            %tbody.payments.d-none.small.text-muted
+              - b.payments.where("paid_on is not null and extract('year' from paid_on) < ?", y).each do |payment|
+                %tr
+                  %td.pl-0= l payment.paid_on
+                  %td.text-right.pr-0= display_price payment.sum
+            %tbody
+              %tr
+                %td.text-right.px-0{ colspan: 2 }
+                  = display_price b.paid_total
+
+        %td.text-right
+          = link_to fa(:eye, :x2), edit_admin_booking_path(b, anchor: "payments")
+  %tfoot
+    %th.text-right{ colspan: 5 }= t ".sum"
+    %th.text-right
+      = display_price balance.sum
+    %th

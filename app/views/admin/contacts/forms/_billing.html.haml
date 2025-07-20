@@ -1,0 +1,20 @@
+.row
+  = semantic_form_for [:admin, billing_contact_form], html: { class: "form-horizontal col-sm-12 col-md-8" } do |f|
+    = f.hidden_field :form_id, id: nil, name: "form"
+
+    = f.inputs "Abrechnungsdetails" do
+      = f.input :tax_id_number
+      = f.input :commission
+      = f.input :agency_fee
+      = f.input :net, as: :boolean
+      = f.input :payout_reminder_days
+
+    = f.inputs "Empfänger für Abrechnungen" do
+      = f.input :email_addresses, as: :text
+      = f.input :locale, as: :select, collection: { t("locales.de") => "de", t("locales.en") => "en" }, include_blank: false
+      = f.input :wants_auto_booking_confirmation_mail, as: :boolean
+
+    .form-group
+      .form-label
+      .form-wrapper
+        = f.action :submit, label: "Speichern", button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary" }

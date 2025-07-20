@@ -1,0 +1,24 @@
+= render layout: "owner_booking_message_layout" do
+  %tr
+    %td
+      %strong Vacation rental
+    %td= villa.name
+  %tr
+    %td
+      %strong Rental period
+    %td
+      = villa_inquiry.start_date
+      to #{villa_inquiry.end_date}
+  %tr
+    %td
+      %strong Number of tenants
+    %td
+      = villa_inquiry.persons
+      people
+  %tr
+    %td
+      %strong Total rental price
+    %td
+      = display_price villa_rent_for_owner_message
+      - if booking.currency == Currency::USD
+        (daily exchange rate)

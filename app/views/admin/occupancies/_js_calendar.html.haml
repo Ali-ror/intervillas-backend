@@ -1,0 +1,22 @@
+- if can? :create, Blocking
+  .alert.alert-info= t ".info"
+.js-calendar{ data: calendar_data_attributes(rentable) }
+
+%ul.calendar-caption
+  %li
+    .calendar-caption-label.blocked
+    = %w[ blocked booked full_payment_received commission_received ].map{|s| t(s, scope: :states) }.join(", ")
+  %li
+    .calendar-caption-label.external
+    = t(:external, scope: :states)
+  %li
+    .calendar-caption-label.other_booked
+    = %w[ submitted admin_submitted other_booked ].map{|s| t(s, scope: :states) }.join(", ")
+
+  %li
+    .calendar-caption-label.fresh.blocked *
+    \/
+    .calendar-caption-label.fresh.external *
+    \/
+    .calendar-caption-label.fresh.other_booked *
+    = t 'calendar.recently_created'

@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=test%20villa%20street%0A&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 12 Jun 2019 10:25:12 GMT
+      Expires:
+      - Thu, 13 Jun 2019 10:25:12 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=428
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,44,43,39"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "1816",
+                       "short_name" : "1816",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "East Villa Street",
+                       "short_name" : "E Villa St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Mid Central",
+                       "short_name" : "Mid Central",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Pasadena",
+                       "short_name" : "Pasadena",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Los Angeles County",
+                       "short_name" : "Los Angeles County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "91107",
+                       "short_name" : "91107",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "1816 E Villa St, Pasadena, CA 91107, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 34.1541277,
+                       "lng" : -118.1129194
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 34.1554766802915,
+                          "lng" : -118.1115704197085
+                       },
+                       "southwest" : {
+                          "lat" : 34.1527787197085,
+                          "lng" : -118.1142683802915
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJfwj0KE3DwoARQc2O_hUrVvI",
+                 "plus_code" : {
+                    "compound_code" : "5V3P+MR Pasadena, California, United States",
+                    "global_code" : "85635V3P+MR"
+                 },
+                 "types" : [ "car_repair", "establishment", "point_of_interest" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 12 Jun 2019 10:25:12 GMT
+recorded_with: VCR 4.0.0

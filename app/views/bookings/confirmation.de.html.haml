@@ -1,0 +1,211 @@
+= page_header do
+  - page_title = t "bookings.layout.titles.confirmation"
+  = breadcrumb.add link_to t('shared.menu.villas'), '/villas'
+  = breadcrumb.add link_to villa.name, villa
+  = breadcrumb.add link_to booking.number, confirmation_booking_path(token: inquiry.token)
+  = breadcrumb.render page_title
+  %h1 #{page_title} # #{booking.number}
+
+= render layout: "layout" do
+  %h2#overview Vielen Dank für Ihre Buchung und Ihr Vertrauen!
+  %p
+    Nachstehend bestätigen wir Ihnen die Buchung wie folgt. Sie erhalten diese
+    Bestätigung in Kürze auch per E-Mail.
+
+  = confirmation_subsection "Mieter", id: "tenant" do
+    %dl.dl-horizontal
+      %dt Name
+      %dd #{customer.title} #{customer.name}
+      %dt Adresse
+      %dd #{customer.address} #{customer.appnr}
+      %dd #{customer.postal_code} #{customer.city}
+      %dd #{customer.country}
+
+      %dt Telefon
+      %dd #{customer.phone.presence || "./."}
+      %dt E-Mail
+      %dd #{customer.email}
+
+  = confirmation_subsection "Reiseteil&shy;nehmer".html_safe, id: "people" do
+    %dl.dl-horizontal
+      %dt #{villa_inquiry.travelers.count} Personen
+      - booking.traveler_names.each do |traveler|
+        %dd= traveler
+
+  = confirmation_subsection "Villa", id: "villa" do
+    %dl.dl-horizontal
+      %dt= villa.name
+      %dd #{villa.locality}, #{villa.region}, #{villa.country}
+      - if villa.phone?
+        %dt Telefon
+        %dd= villa.phone
+
+      %dt Zeitraum
+      %dd
+        = l villa_inquiry.start_date
+        bis
+        = l villa_inquiry.end_date
+      %dd #{villa_inquiry.nights} Nächte
+
+  - if inquiry.with_boat?
+    = confirmation_subsection "Boot", id: "boat" do
+      %dl.dl-horizontal
+        %dt Modell
+        %dd= boat.model
+        %dt Zeitraum
+        %dd
+          = l boat_inquiry.start_date
+          bis
+          = l boat_inquiry.end_date
+        - if !inquiry.boat_charged?
+          %dd.text-muted (im Mietpreis enthalten)
+
+  = confirmation_subsection "Mietbetrag", id: "rent" do
+    %p
+      %strong= display_price villa_clearing.total_rents
+    %p
+      Im Mietpreis sind 6,5% Sales Tax und 5% Tourist Tax enthalten.
+
+  = confirmation_subsection "Preis", id: "price" do
+    .applet{ name: "BookingPrices" }
+      = clearing_table_tag(inquiry)
+
+  = confirmation_subsection "Nebenkosten", id: "utilities" do
+    = render "bookings/energy_costs", inquiry: inquiry
+
+  = confirmation_subsection "Zahlungs&shy;bedingungen".html_safe, id: "payment" do
+    - if booking.late?
+      %p.alert.alert-danger
+        Kurzfristige Buchung - Gesamtbetrag bitte <u>sofort</u> bezahlen:
+        %strong= display_price clearing.total
+
+    - else
+      .row
+        .col-sm-6
+          .alert.alert-info
+            %h4
+              Anzahlung
+              = surround "(", ")" do
+                = number_to_percentage(100 * booking.downpayment_percentage, format: "%n %", precision: 0)
+            %p
+              %strong= display_price downpayment
+
+            %p
+              = fa :calendar
+              fällig zum #{l downpayment_deadline}
+
+        .col-sm-6
+          .alert.alert-info
+            %h4 Restzahlung
+            %p
+              %strong= display_price remainder
+
+            %p
+              = fa :calendar
+              fällig zum #{l payment_deadline}
+
+    %p.text-center
+      = link_to [:payments, token: inquiry.token], class: "btn btn-primary" do
+        Informationen zur Bezahlung
+
+  = confirmation_subsection "Reiseinforma&shy;tionen".html_safe, id: "travel-info" do
+    %p
+      Haben Sie ein Navigationsgerät im Auto? Die Adresse Ihrer
+      %strong #{villa.name}
+      lautet wie folgt:
+    %p
+      %strong
+        #{villa.street},
+        #{villa.locality},
+        #{villa.region}
+        #{villa.postal_code}
+      &gt; diese Adresse im Gerät eingeben und losfahren.
+    %p
+      Das Haus steht Ihnen ab 16 Uhr des Anreisetages zur Verfügung.
+      Check-Out bis 10 Uhr Vormittags.
+    %p
+      An der Villa angekommen, finden Sie beim Eingang einen Schlüsselsafe oder einen
+      Keypad. Den Code dafür erhalten Sie <u>2&nbsp;Wochen vor Mietbeginn</u> mit
+      separatem Mail.
+    %p
+      In diesem Mail erhalten Sie gleichzeitig den Namen und die Telefon-Nummer der
+      zuständigen, deutschsprachigen Verwaltung.
+
+  = confirmation_subsection "Einreise / ESTA-Formular", id: "esta" do
+    %p
+      Ihr ESTA-Formular können Sie
+      = succeed "." do
+        = link_to "hier beantragen", "https://esta.cbp.dhs.gov/esta/", target: :_blank, rel: "noopener noreferrer"
+    %p
+      Um die Passanforderungen nachzulesen, klicken Sie bitte
+      = succeed "." do
+        = link_to "hier", "https://www.intervillas-florida.com/einreisebestimmungen", target: :_blank
+    %p
+      Zum Ausfüllen Ihres ESTA-Formulares benötigen Sie Informationen zur
+      US-Kontaktperson. Bitte füllen Sie die Angaben wie folgt aus:
+    %ul
+      %li
+        %strong Name:
+        = villa.name
+      %li
+        %strong Adresse:
+        = villa.street
+      %li
+        %strong Stadt:
+        Cape Coral
+      %li
+        %strong Telefonnummer:
+        = villa.phone
+    %p
+      Es ist nicht nötig, eine Kontaktperson anzugeben. Name der Örtlichkeit,
+      wo Sie sich aufhalten werden, reicht völlig aus. Im Notfall kann sogar
+      <em>UNKNOWN</em> angegeben werden.
+
+  = confirmation_subsection "Diverses", id: "misc" do
+    %p
+      Wenn Sie Ihren Laptop dabeihaben, können Sie die vorhandene Wireless-Verbindung
+      selbstverständlich kostenlos nutzen. Sie benötigen kein Passwort - einfach
+      einloggen. Bei einer verschlüsselten Verbindung wird Ihnen das Passwort
+      bekanntgegeben.
+    %p
+      Sollten Sie noch zusätzliche Fragen an uns haben, können Sie uns jederzeit
+      per E-Mail kontaktieren:
+      %a{ href: "mailto:info@intervillas-florida.com" } info@intervillas-florida.com
+
+  = confirmation_subsection "WICHTIG", title_class: "text-danger", id: "important" do
+    %p
+      In allen unseren Villen gelten folgende Regelungen:
+
+    %ol
+      %li
+        %strong Rauchen im Haus ist strikt verboten
+      %li
+        %strong Möbel- und Dekorationsgegenstände sollten nicht verstellt werden
+      %li
+        %strong
+          im Poolbereich, die über eine Screen (Mückenschutz) verfügen, sind
+          Ballsspiele nur mit aufblasbaren Bällen gestattet. Harte Bälle können
+          grosse Schäden an den Screens verursachen
+
+    %p
+      Unsere Häuser werden gemäss Vorgaben des
+      = link_to "CDC (Center for Disease, Control and Prevention)", "https://www.cdc.gov/"
+      gereinigt. Das Reinigungspersonal trägt während der Reinigung und
+      Desinfektion Einweg-Handschuhe sowie Einweg-Gesichtsmasken.
+
+  = confirmation_subsection "Links", id: "links" do
+    %p
+      Hier können Sie die AGB, Reise Info und Cape Coral Info noch mal nachschauen:
+
+    %ul
+      %li <a href="http://www.intervillas-florida.com/agb">AGB</a>
+      %li <a href="http://www.intervillas-florida.com/reiseinfo">Reise Info</a>
+      %li <a href="http://www.intervillas-florida.com/capecoral">Cape Coral Info</a>
+
+  .well.mt-5
+    %p.lead
+      Wir wünschen Ihnen einen schönen, erholsamen Urlaub in der #{villa.name} und alles Gute für die Reise!
+    %p
+      Freundliche Grüsse
+      %br
+      Ihr INTERVILLAS-Team

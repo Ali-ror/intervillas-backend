@@ -1,0 +1,20 @@
+%section.banner-slider.visible-xs-block
+  .slider{ style: "width: 100%; height: 225px;"}
+    .items{ style: "position: relative;height: 100%;width: 100%;"}
+      .slider-item{ style: "z-index: 99;position: absolute;top: 0;left: 0;width: 100%;height: 100%;"}
+        .wrap{ style: "position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: #333;"}
+          %a{ href: href,  style: "background-image: url('#{vite_asset_path('images/' + img_path + '-225.jpg')}'); height: 100%;display: block;background-position: center;background-repeat: no-repeat;background-size: cover"}
+            %p{ style: "position: absolute;top: 50%;transform: translateY(-50%);width: 100%;text-align: center;"}
+              %strong.bigtext{ style: "display: block;color: #fff;text-shadow: 0 3px 15px #333;font-size: 32px;line-height: 1.3;text-transform: uppercase;padding: 6px 12px;"}
+                = h1
+%section.banner-slider.hidden-xs
+  .slider{ style: "width: 100%; height: 449px;"}
+    .items{ style: "position: relative;height: 100%;width: 100%;"}
+      .slider-item{ style: "z-index: 99;position: absolute;top: 0;left: 0;width: 100%;height: 100%;"}
+        .wrap{ style: "position: absolute;top: 0;left: 0;width: 100%;height: 100%;"}
+          %span{ style: "background-image: url('#{vite_asset_path('images/' + img_path + '.jpg')}');height: 449px;display: block;background-position: center;background-repeat: no-repeat;background-size: cover"}
+            %p{ style: "position: absolute;top: 50%;transform: translateY(-50%);width: 100%;text-align: center;"}
+              %strong.bigtext{ style: "display: block;color: #fff;text-shadow: 0 3px 15px #333;font-size: 45px;line-height: 1.3;text-transform: uppercase;padding: 6px 12px;"}
+                = h1
+              = link_to href, class: "btn btn-slider btn-lg hidden-xs" do
+                = link_text

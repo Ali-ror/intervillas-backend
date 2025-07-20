@@ -1,0 +1,29 @@
+.dynamic-columns
+  > section
+    break-inside:             avoid-column
+    margin-bottom:            20px
+
+    h2, h3
+      margin-top:             0
+
+  column-count:               1
+  column-gap:                 $grid-gutter-width
+
+  @media screen and (min-width: $screen-sm-min)
+    column-count:             2
+
+  &.dynamic-columns-3
+    @media screen and (min-width: $screen-lg-min)
+      column-count:           3
+
+  &.well-section
+    > section
+      @extend .well
+      background-color:       lighten($well-bg, 2%)
+      border-color:           lighten($well-border, 2%)
+
+      > :first-child
+        margin-top:           0 !important
+
+      > :last-child
+        margin-bottom:        0

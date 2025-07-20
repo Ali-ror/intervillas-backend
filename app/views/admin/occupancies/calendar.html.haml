@@ -1,0 +1,14 @@
+- @title = t "calendar.title", rentable: grid.rentable_name, year: grid.year,
+  utilization: grid.utilization
+%table.calendar.occupation
+  %thead
+    %tr
+      %th.invis
+      - grid.months.each do |month, _|
+        %th.invis= l month, format: "%B"
+  %tbody
+    - grid.each do |_, (ante, post)|
+      %tr= render "calendar_row", part: ante
+      %tr= render "calendar_row", part: post
+
+= render "admin/grid/caption"

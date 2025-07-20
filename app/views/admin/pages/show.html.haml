@@ -1,0 +1,7 @@
+- content_for :head do
+  - if page.modified_at || page.published_at
+    %script{ type: "application/ld+json" }
+      = raw page_metadata_json(page)
+
+= render partial: "content_page", layout: "static_page_header"
+

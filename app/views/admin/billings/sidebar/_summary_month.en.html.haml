@@ -1,0 +1,18 @@
+.panel.panel-primary
+  - if booking.summary_on?
+    .panel-heading Billing month: #{l booking.summary_on, format: "%b. %Y"}
+    .panel-footer
+      = link_to "Adjust", [:edit, :admin, booking, anchor: "misc"], class: "btn btn-default"
+  - else
+    .panel-heading Billing month
+    .panel-body
+      %p
+        No billing month configured, yet.
+      %p
+        After saving, we'll set the billing month to
+        = succeed "." do
+          %strong= l Date.current, format: "%b. %Y"
+      %p
+        You can change this setting (now, or later)
+        = succeed "." do
+          = link_to "here", [:edit, :admin, booking, anchor: "misc"]

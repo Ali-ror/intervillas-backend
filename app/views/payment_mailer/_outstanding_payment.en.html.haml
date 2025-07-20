@@ -1,0 +1,7 @@
+%p
+  Please ensure that the #{outstanding_payment.name} of
+  %strong= display_price outstanding_payment.sum
+  has been paid by
+  = succeed "." do
+    %strong= outstanding_payment.date
+

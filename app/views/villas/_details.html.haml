@@ -1,0 +1,98 @@
+#accordion.panel-group
+  = accordion_panel t('villas.show.highlights'), "0", class: 'in' do
+    %table.table.table-striped
+      %tbody
+        %tr
+          - if villa.build_year.present?
+            %td{ colspan: (2 unless villa.last_renovation.present?) }
+              = tag_icon :build_year
+              = succeed ":" do
+                = t('villas.show.build_year')
+              = villa.build_year
+          - if villa.last_renovation.present?
+            %td
+              = tag_icon :last_renovation
+              = succeed ":" do
+                = t('villas.show.last_renovation')
+              = villa.last_renovation
+        %tr
+          %td{ colspan: (2 unless villa.pool_orientation?) }
+            = tag_icon :living_area
+            = t('villas.show.wohnflaeche', living_area: villa.living_area)
+            m²
+          - if villa.pool_orientation?
+            %td
+              = succeed ": " do
+                = tag_icon :pool_orientation
+                = Villa.human_attribute_name(:pool_orientation)
+              = t villa.pool_orientation, scope: "villas.cardinal_directions"
+        %tr
+          %td{ colspan: 2 }
+            = tag_icon "schlafzimmer"
+            = t('villas.show.schlafzimmer', bedrooms_count: villa.bedrooms_count, beds_count: villa.beds_count)
+        %tr
+          %td{ colspan: 2 }
+            = tag_icon "badezimmer"
+            = t('villas.show.badezimmer', bathrooms_count: villa.bathrooms_count, wcs_count: villa.wcs_count)
+
+        - highlight_tags = villa.tags_of_category('highlights')
+        - highlight_tags.each_slice(2) do |slice|
+          %tr
+            - slice.each do |tag|
+              %td{ colspan: (2 if slice.size == 1) }
+                = tag_icon tag
+                = tag
+
+  = accordion_panel t(:bathrooms, scope: :category) do
+    %table.table.table-striped
+      %tbody
+        - villa.bathrooms.each_with_index do |bathroom, index|
+          %tr
+            %td
+              %i.fa.fa-check-circle
+              = t('villas.show.badezimmer_details', index: index + 1, tags: bathroom.tags.join(', '))
+
+    - if desc = villa.descriptions.get(:bathrooms).presence
+      .panel-body
+        = raw RenderKramdown.new(desc).to_html
+
+  = accordion_panel t(:bedrooms, scope: :category) do
+    %table.table.table-striped
+      %tbody
+        %tr
+          %td
+            %i.fa.fa-check-circle
+            = t('villas.show.schlafzimmer', bedrooms_count: villa.bedrooms_count, beds_count: villa.beds_count)
+
+        - villa.bedrooms.each_with_index do |bedroom, index|
+          %tr
+            %td
+              %i.fa.fa-check-circle
+              = t('villas.show.schlafzimmer_details', index: index + 1, tags: bedroom.tags.map{ |tag| tag.to_s(bedroom.amount_of_tag(tag))}.join(', '))
+
+    - if desc = villa.descriptions.get(:bedrooms).presence
+      .panel-body
+        = raw RenderKramdown.new(desc).to_html
+
+  - Category.all.reject{ |cat| %w{ bedrooms bathrooms highlights }.include? cat.name }.each do |category|
+    - if villa.tags_of_category(category).any?
+      = accordion_panel category.to_s do
+        %table.table.table-striped
+          %tbody
+            - villa.tags_of_category(category).each_slice(2) do |slice|
+              %tr
+                - slice.each_with_index do |tag, index|
+                  %td{ colspan: (slice.count == 1 ? 2 : 1) }
+                    %i.fa.fa-check-circle
+                    = tag
+
+            - villa.countable_tags_of_category(category).each_slice(2) do |slice|
+              %tr
+                - slice.each_with_index do |tag, index|
+                  %td{ colspan: (slice.count == 1 ? 2 : 1) }
+                    %i.fa.fa-check-circle
+                    = tag.to_s(villa.amount_of_tag(tag))
+
+        - if desc = villa.descriptions.get(category.name).presence
+          .panel-body
+            = raw RenderKramdown.new(desc).to_html

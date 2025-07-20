@@ -1,0 +1,29 @@
+%h2= salute customer
+%p
+  unfortunately, we did not receive your payment whithin the stipulated
+  period.
+%p
+  <strong>#{rentables}</strong>, Booking #{booking.number}
+%p
+  Therefore, we will take the liberty to inform you to balance the account with
+  = succeed "." do
+    %strong= display_price payment_deadlines.due_balances
+
+%p
+  If you have questions of any kind, don't hesitate to ask them, so we can take
+  care of it. Apart from that, we expect your payment within the next few days.
+%p
+  For wire transfer, you'll find our bank account/routing information on our
+  website. We've recently added the feature to pay with PayPal as well:
+
+= mail_button_link_to payments_booking_url do
+  &gt;&gt; Show payment overview for #{booking.number}
+
+%p
+  Thank you for your immediate execution.
+%p
+  Please disregard this notice it you have transferred the payment in the
+  meantime.
+%p
+  Sincerely, <br/>
+  your INTERVILLAS-Team

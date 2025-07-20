@@ -1,0 +1,11 @@
+- if villa_inquiry.persisted?
+  - has_reservations = inquiry.booking_pal_reservations.any?
+
+  %sidebar-details{ ":read-only" => has_reservations.to_s }
+
+  - if has_reservations
+    %my-booking-pal-reservations{
+      url:          admin_inquiry_booking_pal_reservations_path(inquiry),
+      title:        "BookingPal History",
+      ":compact" => "true",
+    }

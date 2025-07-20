@@ -1,0 +1,8 @@
+= render layout: "layout" do
+  %table.table.table-condensed.table-striped.js-sticky-header
+    %thead
+      %tr
+        %th ID
+        %th Titel
+        %th
+    = render partial: "snippet", collection: snippets

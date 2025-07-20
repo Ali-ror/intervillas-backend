@@ -1,0 +1,38 @@
+<%= t "billings.tenant.additional_payment.text" %>:
+
+<%
+  # TODO: `inquiry.for_corporate?` is only valid for bookings with `starts_on`
+  #       in 2025 or later. For :gmbh, we had multiple bank accounts which were
+  #       renderered side-by-side here. For :corp, we only have to deal with one
+  #       (US) bank account, so the following can be simplified a bit.
+  coldef   = "l"
+  accounts = IntervillasBankAccount.for_currency(tpl.currency, type: inquiry.for_corporate? ? :corp : :gmbh)
+  accounts = accounts.each_with_object(Hash.new { |h,k| h[k] = [] }) { |account, multi|
+    coldef << "l"
+
+    multi[:bank_name]     << "\\bfseries #{account.address[0]}"
+    multi[:bank_address]  << "\\small    #{account.address[1]}"
+    multi[:iban]          << "\\bfseries #{account.iban.first.presence || '---'}"
+    multi[:swift]         << "\\bfseries #{account.swift.first}"
+    multi[:code]          << (account.bank_identifier.first.presence || "---")
+    multi[:clearing]      << (account.clearing.first.presence        || "---")
+    multi[:number]        << account.account.first
+    multi[:routing]       << account.routing.first
+    multi[:owner]         << account.owner[0]
+    multi[:owner_address] << "\\small #{account.owner[1]}"
+  }
+%>
+
+\begin{tabular}{@{\qquad}<%= coldef %>@{}}
+  <%= t "billings.tenant.bank.name" %>     & <%= accounts[:bank_name    ].join(" & ") %> \\
+                                           & <%= accounts[:bank_address ].join(" & ") %> \\[1ex]
+  <%= t "billings.tenant.bank.iban" %>     & <%= accounts[:iban         ].join(" & ") %> \\
+  <%= t "billings.tenant.bank.swift" %>    & <%= accounts[:swift        ].join(" & ") %> \\
+  <%= t "billings.tenant.bank.code" %>     & <%= accounts[:code         ].join(" & ") %> \\
+  <%= t "billings.tenant.bank.clearing" %> & <%= accounts[:clearing     ].join(" & ") %> \\
+  <%= t "billings.tenant.bank.number" %>   & <%= accounts[:number       ].join(" & ") %> \\
+  <%= t "billings.tenant.bank.routing" %>  & <%= accounts[:routing      ].join(" & ") %> \\[1ex]
+  <%= t "billings.tenant.bank.owner" %>    & <%= accounts[:owner        ].join(" & ") %> \\
+                                           & <%= accounts[:owner_address].join(" & ") %> \\
+\end{tabular}
+\vspace*{1em}

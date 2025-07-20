@@ -1,0 +1,4 @@
+%section#reservation-form
+  .container
+    %villa-facet-search{ "data-config" => facet_search_configuration(facets: false).to_json }
+    %goto-search-results{ data: { url: villa_searches_path } }

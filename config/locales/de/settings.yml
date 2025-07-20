@@ -1,0 +1,47 @@
+---
+de:
+  settings:
+    description:
+      exchange_rate_usd: >-
+        Umrechungskurs von EUR zu USD. Sollte einen geringfügigen Puffer enthalten, um kurzzeitige/drastische Kursveränderungen
+        abfangen zu können.
+      paypal_fees_relative: >-
+        Variable Gebühren, die PayPal pro Transaktion verlangt. Hier ist von den grenzüberschreitenden Gebühren auszugehen;
+        zuviel gezahlte Gebühren werden mit den Nebenkosten verrechnet.
+      paypal_fees_absolute: Feste Gebühren, die PayPal pro Transaktion verlangt.
+      bsp1_fees_relative: >-
+        Variable Gebühren, die BS PAYONE pro Transaktion verlangt.
+      bsp1_fees_absolute: Feste Gebühren, die BS PAYONE pro Transaktion verlangt.
+      cc_fee_usd: Prozentsatz für Kreditkartengebühren für Buchungen in US-Dollar. Wird bereits bei der Preisanzeige im gleichen Schritt wie
+        die Währungsumrechnung aufgeschlagen.
+      energy_price_eur: Energiekosten pro kWh, in Euro.
+      energy_price_usd: Energiekosten pro kWh, in US Dollar.
+    extra_links:
+      exchange_rate_usd:
+      - text: Euro-Referenzdatum der EZB
+        href: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html
+      paypal_fees_absolute:
+      - text: PayPal Fees Policy, §1.3.2. Fixed Fee
+        href: https://www.paypal.com/ch/webapps/mpp/ua/feespolicy-full
+      paypal_fees_relative:
+      - text: PayPal Fees Policy, §3.4. Receiving Cross-Border Transactions
+        href: https://www.paypal.com/ch/webapps/mpp/ua/feespolicy-full
+    further_information: Weitere Informationen
+    title:
+      exchange_rate_usd: Dollar-Kurs
+      paypal_fees_relative: PayPal-Gebühren
+      paypal_fees_absolute: PayPal-Festgebühren
+      bsp1_fees_relative: BS PAYONE-Gebühren
+      bsp1_fees_absolute: BS PAYONE-Festgebühren
+      cc_fee_usd: Kreditkartengebühr für Buchungen in USD
+      energy_price_eur: Energiekosten
+      energy_price_usd: Energiekosten
+    value_labels:
+      exchange_rate_usd: "1 EUR ="
+      paypal_fees_relative: Prozentsatz
+      paypal_fees_absolute: EUR
+      bsp1_fees_relative: Prozentsatz
+      bsp1_fees_absolute: EUR
+      cc_fee_usd: Prozentsatz
+      energy_price_eur: EUR
+      energy_price_usd: USD

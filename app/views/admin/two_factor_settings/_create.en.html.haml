@@ -1,0 +1,62 @@
+.panel.panel-default
+  .panel-heading
+    Two Factor Authentication
+  .panel-body
+    %h4 Status
+    %p
+      Currently, you <strong>don't</strong> have setup two factor authentication.
+
+  .panel-body.border-top.border-light
+    %h4 Setup Two Factor Authentication
+
+    %p
+      As a first step, you need to install an authenticator app onto your smartphone.
+      We recommend on of the following apps:
+
+    %table.table
+      %tr
+        %th= external_link_to "https://2fas.com", "2FAS"
+        %td.text-center
+          = link_to_play_store "https://play.google.com/store/apps/details?id=com.twofasapp"
+        %td.text-center
+          = link_to_app_store "https://apps.apple.com/us/app/2fas-auth/id1217793794"
+
+      %tr
+        %th
+          = external_link_to "https://authy.com", "Authy"
+          .small requires account
+        %td.text-center
+          = link_to_play_store "https://play.google.com/store/apps/details?id=com.authy.authy"
+        %td.text-center
+          = link_to_app_store "https://itunes.apple.com/us/app/authy/id494168017"
+
+      %tr
+        %th Google Authenticator
+        %td.text-center
+          = link_to_play_store "https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2"
+        %td.text-center
+          = link_to_app_store "https://apps.apple.com/us/app/google-authenticator/id388497605"
+
+      %tr
+        %th= external_link_to "https://support.microsoft.com/en-us/account-billing/download-microsoft-authenticator-351498fc-850a-45da-b7b6-27e523b8702a", "Microsoft Authenticator"
+        %td.text-center
+          = link_to_play_store "https://play.google.com/store/apps/details?id=com.azure.authenticator"
+        %td.text-center
+          = link_to_app_store "https://apps.apple.com/us/app/microsoft-authenticator/id983156458"
+
+  .panel-body.border-top.border-light
+    %h4 Further Information
+    %p
+      The second authentication factor is implemented as a 6-digit, time-based one-time
+      password (TOTP), which will be derived from a private token and the current time.
+    %p
+      These TOTPs are valid only for a short period (30s), and need to be regenerated
+      continuously. This is what the authenticator app does for you.
+
+  .panel-footer
+    %p
+      When you have installed one of the authenticator apps, click on «Continue».
+
+    .d-flex.justify-content-end
+      = form_tag admin_two_factor_settings_path, method: :post do
+        %button.btn.btn-primary{ type: :submit, data: { disable_with: t(:wait) } } Continue

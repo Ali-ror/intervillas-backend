@@ -1,0 +1,28 @@
+= link_to rentable_inquiry.number, [:admin, rentable_inquiry.inquiry.booking]
+%br
+= succeed ", " do
+  = rentable_inquiry.inquiry.customer.name
+%br
+= succeed ", " do
+  %strong= rentable_inquiry.inquiry.customer.country
+= succeed ", " do
+  %strong= currency_symbol rentable_inquiry.inquiry.currency
+%br
+
+= succeed ", " do
+  = [l(rentable_inquiry.start_date, format: '%d.%m.'), l(rentable_inquiry.end_date, format: '%d.%m.')].join('–')
+- if [rentable_inquiry.adults, rentable_inquiry.children_under_6, rentable_inquiry.children_under_12].any?{|n| n > 0 }
+  = t 'calendar.persons',
+    adults:             rentable_inquiry.adults,
+    children_under_6:   rentable_inquiry.children_under_6 || 0,
+    children_under_12:  rentable_inquiry.children_under_12 || 0
+
+- if rentable_inquiry.inquiry.with_boat? # rentable_inquiry.with_boat? erzeugt neuen Query!
+  - if show_other
+    %br
+    = t 'calendar.boat',
+      name:       rentable_inquiry.inquiry.boat.display_name.titlecase,
+      start_date: l(rentable_inquiry.inquiry.boat_inquiry.start_date, format: '%d.%m.'),
+      end_date:   l(rentable_inquiry.inquiry.boat_inquiry.end_date, format: '%d.%m.')
+  - else
+    (+&nbsp;Boot)

@@ -1,0 +1,21 @@
+- case type
+- when "dl"
+  - if intervilla_corp?
+    %dl.dl-horizontal
+      %dt Intervilla Corp.
+      %dd 4929 SW 26th Ave
+      %dd Cape Coral, FL 33914, USA
+  - else
+    %dl.dl-horizontal
+      %dt Intervilla GmbH
+      %dd Rebenstrasse 34
+      %dd CH-8309 Nürensdorf
+- when "breaks"
+  - if intervilla_corp?
+    Intervilla Corp.<br>
+    4929 SW 26th Ave<br>
+    Cape Coral, FL 33914, USA
+  - else
+    Intervilla GmbH<br>
+    Rebenstrasse 34<br>
+    CH-8309 Nürensdorf

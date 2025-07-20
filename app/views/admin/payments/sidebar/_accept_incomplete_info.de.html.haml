@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading unvollständige Anzahlung akzeptieren
+  .panel-body
+    %p
+      Unvollständige, überfällige Anzahlungen können als Sicherheit für die
+      Buchung (manuell) akzeptiert werden, sofern:
+    %ul
+      %li
+        = surround "mindestens ", ", oder" do
+          = number_to_currency DownpaymentSecurity::ABS_THRESHOLD
+      %li
+        = surround "mindestens ", " des Anzahlungsbetrages" do
+          = number_to_percentage DownpaymentSecurity::REL_THRESHOLD * 100, precision: 0
+    %p
+      eingezahlt wurden. In diesem Fall erscheint ein
+      = succeed "-Button " do
+        %a.btn.btn-danger.btn-xxs.disabled{ href: "#" }
+          = fa :check, text: "OK"
+      neben dem Fehlbetrag.

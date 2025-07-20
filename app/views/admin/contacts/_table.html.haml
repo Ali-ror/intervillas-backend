@@ -1,0 +1,22 @@
+%table.table.table-condensed.table-striped.table-hover.js-sticky-header.js-action-row{ data: { action_row_url: edit_admin_contact_url(":id") } }
+  %thead
+    %tr
+      %th{ rowspan: 2 } Firma
+      %th{ rowspan: 2 } Name
+      %th{ rowspan: 2, colspan: 2 } Abrechnungs-Empfänger
+      %th{ rowspan: 2 }
+        %abbr{ title: "automatische Buchungsbestätigungen an Abrechnungsempfänger" }
+          = fa :envelope_o, text: "autom. Buch.-Best."
+      %th{ rowspan: 2 }= fa :link, text: "Benutzer"
+      %th.text-center{ colspan: 2 } # Häuser
+      %th{ rowspan: 2 }
+      %th.text-center{ colspan: 2 } # Boote
+      %th{ rowspan: 2 }
+    %tr
+      %th.text-center Eigentum
+      %th.text-center Verwaltung
+      %th.text-center Eigentum
+      %th.text-center Verwaltung
+
+  %tbody
+    = render partial: "contact", collection: contacts

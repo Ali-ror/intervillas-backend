@@ -1,0 +1,50 @@
+.container.mt-5
+  = render 'shared/ssl'
+
+  .row
+    %aside.col-md-3.hidden-print.hidden-sm.hidden-xs
+      %nav#confirmation-nav
+        %ul.nav.nav-pills.nav-stacked
+          - if controller_action == "bookings#confirmation"
+            %li.active
+              = link_to t(".titles.confirmation"),              "#top"
+
+              %ul.nav.nav-pills.nav-stacked
+                %li= link_to t(".nav.confirmation.overview"),   "#overview"
+                %li= link_to t(".nav.confirmation.tenant"),     "#tenant"
+                %li= link_to t(".nav.confirmation.people"),     "#people"
+                %li= link_to t(".nav.confirmation.villa"),      "#villa"
+                - if inquiry.with_boat?
+                  %li= link_to t(".nav.confirmation.boat"),     "#boat"
+                %li= link_to t(".nav.confirmation.rent"),       "#rent"
+                %li= link_to t(".nav.confirmation.prices"),     "#prices"
+                %li= link_to t(".nav.confirmation.utilities"),  "#utilities"
+                %li= link_to t(".nav.confirmation.payment"),    "#payment"
+                %li= link_to t(".nav.confirmation.travel_info"),"#travel-info"
+                %li= link_to t(".nav.confirmation.esta"),       "#esta"
+                %li= link_to t(".nav.confirmation.misc"),       "#misc"
+                %li= link_to t(".nav.confirmation.important"),  "#important"
+                %li= link_to t(".nav.confirmation.links"),      "#links"
+          - else
+            %li
+              = link_to confirmation_booking_path(token: inquiry.token) do
+                = t ".titles.confirmation"
+
+          - if controller_action == "payments#index"
+            %li.active
+              = link_to t(".titles.payments"),                  "#top"
+
+              %ul.nav.nav-pills.nav-stacked
+                %li= link_to t(".nav.payments.overview"),       "#overview"
+                - if inquiry.currency != Currency::USD
+                  %li= link_to t(".nav.payments.transfer"),     "#transfer"
+                %li= link_to t(".nav.payments.bsp1"),           "#bsp1"
+                %li= link_to t(".nav.payments.paypal"),         "#paypal"
+          - else
+            %li
+              = link_to payments_path(token: inquiry.token) do
+                = t ".titles.payments"
+
+
+    .col-md-9
+      = yield

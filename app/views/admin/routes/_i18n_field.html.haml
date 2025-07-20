@@ -1,0 +1,12 @@
+.form-group
+  %label.control-label.col-sm-4= Route.human_attribute_name(field)
+  .col-sm-4
+    %label.control-label{for: "de_#{field}"}
+      %span.fi.fi-de
+      = t ".in_german"
+    = form.send type, :"de_#{field}", class: "form-control", placeholder: Route.human_attribute_name(field)
+  .col-sm-4
+    %label.control-label{for: "en_#{field}"}
+      %span.fi.fi-us
+      = t ".in_english"
+    = form.send type, :"en_#{field}", class: "form-control", placeholder: Route.human_attribute_name(field)

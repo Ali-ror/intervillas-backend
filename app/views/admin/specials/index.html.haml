@@ -1,0 +1,22 @@
+
+.text-center
+  = will_paginate collection
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= Special.human_attribute_name :description
+      %th= Special.human_attribute_name :percent
+      %th= Special.human_attribute_name :start_date
+      %th= Special.human_attribute_name :end_date
+      %th= Special.human_attribute_name :villas
+      %th
+
+  %tbody
+    - collection.each do |item|
+      = render "item", item: item
+
+.text-center
+  = will_paginate collection
+
+%p= link_to t(".add"), new_resource_path, class: "btn btn-success"

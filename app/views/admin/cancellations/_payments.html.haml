@@ -1,0 +1,24 @@
+%fieldset
+  %legend= t "admin.bookings.payments.heading"
+  = render "admin/inquiries/payments/deadlines", deadlines: cancellation.payment_deadlines
+
+%fieldset
+  %legend
+    - if payment_form.persisted?
+      = t "admin.bookings.payments.edit"
+    - else
+      = t "admin.bookings.payments.add"
+  = render "admin/inquiries/payments/new_payment_form"
+
+- if inquiry.payment_deadlines.payments?
+  %fieldset
+    %legend= t "admin.bookings.payments.send_receipt"
+    = embed_message_form [:admin, inquiry, payment_mail_form]
+
+-# skip payment_reminder_form, mail contains link to booking confirmation,
+-# but booking does not exist anymore for this cancellation
+
+- if (payment_processes = inquiry.bsp1_payment_processes).present?
+  %fieldset
+    %legend= t "admin.bookings.payments.cc_transactions"
+    = render "/admin/bsp1_payment_processes/payments_table", payment_processes: payment_processes.paginate(per_page: 20, page: (params[:page] || 1))

@@ -1,0 +1,11 @@
+- part.each_with_index do |cell, i|
+  - next unless cell
+  - if cell.blank?
+    %td.blank{ rowspan: cell.span }
+  - elsif cell.empty?
+    %td{ rowspan: cell.span, class: ("day" if i == 0) }= cell
+  - else
+    %td{ rowspan: cell.span, class: cell.css_classes }
+      - if cell.overlap?
+        %p <strong>## DB ##</strong>
+      = render "admin/grid/#{cell.type}", rentable_inquiry: cell, show_other: cell.span != 1

@@ -1,0 +1,23 @@
+.text-center
+  = will_paginate payment_processes
+
+%table.table.table-hover.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= t ".booking"
+      %th= t ".date"
+      %th= t ".transaction_id"
+      %th= t ".status"
+      %th.text-right
+        = t ".sum"
+        .small.text-muted
+          = surround "(", ")" do
+            = t ".incl_fees"
+      %th.text-right= t ".fees"
+      %th
+
+  %tbody
+    = render partial: "/admin/bsp1_payment_processes/payment_process", collection: payment_processes
+
+.text-center
+  = will_paginate payment_processes

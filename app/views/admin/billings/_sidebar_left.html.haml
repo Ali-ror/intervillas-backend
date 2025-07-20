@@ -1,0 +1,70 @@
+%h1
+  - if inquiry.cancelled?
+    - @title = [t("admin.inquiries.sidebar_left.cancellation"), inquiry.number, t(".subheading")]
+    %s= inquiry.number
+    .small
+      = t("admin.inquiries.sidebar_left.cancellation")
+      = t(".subheading")
+  - else
+    - @title = [inquiry.number, t(".subheading")]
+    = inquiry.number
+    .small= t(".subheading")
+
+%ul.nav.nav-pills.nav-stacked.js-main-nav
+  %li
+    = link_to admin_billings_path do
+      = fa :caret_left, text: t(".back_index")
+
+  %li
+    = link_to [:edit, :admin, inquiry] do
+      = fa :caret_left, text: t(".back_booking")
+
+  - if action_name == "edit"
+    - if villa_billing_form
+      %li.active
+        = link_to '#villa', data: { toggle: :pill } do
+          %strong= t ".villa"
+          = surround '(', ')' do
+            = villa_billing_form.villa.admin_display_name
+          - if villa_billing.new_record?
+            %span.badge= fa :exclamation_triangle
+
+    - if boat_billing_form
+      %li{ role: "presentation", class: ("active" unless villa_billing_form) }
+        = link_to '#boat', data: { toggle: :pill } do
+          %strong= t ".boat"
+          = surround '(', ')' do
+            = boat_billing_form.boat.admin_display_name
+          - if boat_billing.new_record?
+            %span.badge= fa :exclamation_triangle
+
+  %li{ class: ("active" if action_name == "show") }
+    = link_to '#billings', data: { toggle: :pill } do
+      = t ".billings"
+
+  %li
+    = link_to '#communication', data: { toggle: :pill } do
+      = t ".communication"
+
+- if inquiry.end_date > Date.current
+  .panel.panel-danger
+    .panel-heading
+      = fa :exclamation_triangle, class: "text-danger"
+      = t ".future_booking_warning"
+    .panel-body
+      %ul
+        %li
+          = t "shared.sidebar.anreise"
+          = l(inquiry.start_date)
+        %li
+          = t "shared.sidebar.abreise"
+          = l(inquiry.end_date)
+
+- if !inquiry.cancelled? && (booking = inquiry.booking)
+  %hr
+  - if booking.payment_deadlines.overdue?
+    = render "admin/billings/sidebar/overdue_payments", deadlines: booking.payment_deadlines
+  = render "admin/billings/sidebar/summary_month", booking: booking
+
+- unless paypal_surplus.zero?
+  = render "admin/billings/sidebar/paypal_surplus"

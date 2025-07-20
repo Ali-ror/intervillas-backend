@@ -1,0 +1,37 @@
+.facet-filter
+  .facet-filter-item
+    cursor:                   pointer
+    color:                    $gray-dark
+    > i.fa
+      @extend .fa-square-o
+      @extend .fa-lg
+
+    &.active
+      font-weight:            bold
+
+      > i.fa
+        @extend .fa-check-square
+
+    &.disabled
+      color:                  $gray
+      text-decoration:        line-through
+
+    &:hover
+      &:not(.disabled)
+        color:                $brand-primary
+        > i.fa
+          @extend .fa-check-square-o
+      &.active
+        > i.fa
+          @extend .fa-minus-square
+
+  .facet-filter-itemcount
+    @extend .small
+    @extend .text-muted
+
+    font-weight:              normal
+
+    &:before
+      content:                '('
+    &:after
+      content:                ')'

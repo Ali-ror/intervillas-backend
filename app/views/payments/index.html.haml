@@ -1,0 +1,25 @@
+- @tracking_page = '/booking/payments'
+
+= page_header do
+  - page_title = t "bookings.layout.titles.payments"
+  = breadcrumb.add link_to t('shared.menu.villas'), '/villas'
+  = breadcrumb.add link_to villa.name, villa
+  = breadcrumb.add link_to reservation.number, confirmation_booking_path(token: inquiry.token) if inquiry.booked?
+  = breadcrumb.render page_title
+  %h1 #{page_title} # #{inquiry.number}
+
+= render layout: "bookings/layout" do
+  = render "payments"
+
+  - if deadlines.difference > 0
+    - if inquiry.for_corporate? || (intervilla_corp? && inquiry.reservation)
+      -# for Corp prefer PayPal over bank transfer
+      = render "information_paypal"
+      = render "information_transfer"
+    - else
+      -# for GmbH and payments in EUR prefer bank transfer over PayOne
+      = render "information_transfer" if inquiry.currency != Currency::USD
+      = render "information_bsp1"
+      = render "information_transfer" if inquiry.currency == Currency::USD
+  - else
+    %p.lead= t ".complete"

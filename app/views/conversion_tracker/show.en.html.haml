@@ -1,0 +1,23 @@
+- @tracking_page = '/booking/confirmation'
+
+= page_header do
+  = breadcrumb.add link_to t('shared.menu.villas'), '/villas'
+  = breadcrumb.add link_to villa.name, villa
+  = breadcrumb.render "Booking # #{inquiry.id}"
+  %h1 Booking # #{inquiry.id}
+
+.container.mt-5
+  = render 'shared/ssl'
+
+  .row
+    .col-md-8.col-md-offset-2
+      %h2 Thank you for choosing Intervilla for your Florida vacation.
+
+      %p
+        Your booking is now complete. You should receive the booking
+        confirmation soon per Email. Click here to view the booking details in
+        your web browser:
+
+      %p
+        = link_to confirmation_booking_path(token: inquiry.token), class: "btn btn-primary" do
+          = fa :fw, :check, text: "Booking confirmation"

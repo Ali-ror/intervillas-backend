@@ -1,0 +1,9 @@
+%section.rooms.mt-5
+  .container
+    .row
+      .col-sm-12
+        %h2.lined-heading
+          %span= t('.other_villas')
+
+      .room-grid.container
+        = render partial: "villa", collection: other_villas

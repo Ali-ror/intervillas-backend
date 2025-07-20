@@ -1,0 +1,36 @@
+%h2= salute customer
+%p
+  wir möchten Sie auf ein demnächst anstehendes Zahlungsziel
+  aufmerksam machen:
+%p
+  <strong>#{rentables}</strong>, Buchung #{booking.number}
+
+%p
+  - if last_payment_date
+    Wir haben bis zum #{last_payment_date} Zahlungen in Höhe von
+    insgesamt #{display_price payments.sum(&:sum)} vermerkt.
+  - else
+    Wir haben bisher keine Zahlungseingänge vermerkt.
+
+= render "payment_table"
+= render "outstanding_payment"
+
+%p
+  Bitte überweisen Sie die oben genannten Beträge auf eines unserer Bankkonten
+  und erwähnen Sie Ihre Buchungsnummer (IV-&hellip;), oder zahlen Sie via
+  PayPal z.B. mit Kreditkarte.
+%p
+  Alle unsere Bank-Konten, sowie die Möglichkeit per Kreditkarte
+  zu zahlen, finden Sie auf unserer Webseite:
+
+= mail_button_link_to payments_booking_url do
+  &gt;&gt; Zahlungsübersicht für #{booking.number} aufrufen
+
+%p
+  Besten Dank für die prompte Erledigung.
+%p
+  Sollten Sie den ausstehenden Betrag bereits angewiesen haben, betrachten Sie
+  dieses Schreiben als gegenstandslos.
+%p
+  Mit freundlichen Grüssen <br/>
+  Ihr INTERVILLAS-Team

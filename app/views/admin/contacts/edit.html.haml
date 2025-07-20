@@ -1,0 +1,29 @@
+.row
+  .col-md-3
+    %h2 Kontakt bearbeiten
+
+    %ul.nav.nav-pills.nav-stacked.js-main-nav.hidden-print
+      %li= link_to fa(:caret_left, text: "zurück zur Übersicht"), admin_contacts_path
+
+      %li.active
+        = link_to "Anschrift", "#basics", data: { toggle: :pill }
+
+      - if contact.persisted?
+        %li= link_to "Abrechnungen",  "#billings",      data: { toggle: :pill }
+        %li= link_to "Bank-Konten",    "#bank-account", data: { toggle: :pill }
+        %li= link_to "Miet-Objekte",  "#rentables",     data: { toggle: :pill }
+
+  .col-md-9
+    .tab-content.main-tab-content
+      .tab-pane.active#basics
+        = render "admin/contacts/forms/basics"
+
+      - if contact.persisted?
+        .tab-pane#billings
+          = render "admin/contacts/forms/billing"
+
+        .tab-pane#bank-account
+          = render "admin/contacts/forms/bank_account"
+
+        .tab-pane#rentables
+          = render "rentables"

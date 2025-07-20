@@ -1,0 +1,9 @@
+.row
+  .col-sm-9
+    = render "admin/inquiries/header"
+    = render "billing_table", inquiries: invoicables
+
+  %aside.col-sm-3
+    = render "search_panel"
+
+    = fa :info_circle, :x2, :border, class: "pull-left text-success", text: t(".info")

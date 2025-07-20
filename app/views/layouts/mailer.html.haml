@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
+    %title
+  %body
+    :css
+      html, body, p, table, td, th { font-family: Helvetica,Arial,sans-serif; font-size: 12px; }
+      h2 { font-size: 16px; }
+      h3 { font-size: 14px; margin-top: 40px }
+      .bold { font-weight: bold; }
+      table { margin: 10px 0; border-collapse: collapse; }
+      tr { margin: 2px 0 2px 0; }
+      td, th { padding: 0 5px 0 0; }
+      table.table td, table.table th { padding: 2px 4px 2px 4px; vertical-align: bottom; }
+      a, a:visited { color: #50878e }
+    %table{ border: 0, cellpadding: 5, cellspacing: 0, width: 600, style: "margin:0" }
+      %tr
+        %td{ height: 80 }
+          %img{ alt: "Intervilla Florida", border: "0", src: "https://www.intervillas-florida.com/assets/logo.png?2021" }
+      %tr
+        %td{ style: "padding:5px 0" }= yield
+      %tr
+        %td
+          %div{ style: "border-top: 2px solid #50878e; height: 2px; margin: 8px 0" }
+          = render "layouts/mailer/signature"

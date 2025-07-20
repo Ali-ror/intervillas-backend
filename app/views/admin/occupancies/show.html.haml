@@ -1,0 +1,24 @@
+= render layout: "layout" do
+  %ul.nav.nav-tabs.mt-4.js-main-nav
+    %li.active{ role: "presentation" }
+      = link_to t(".calendar"), "#calendar-pane", data: { toggle: :tab }
+    %li{ role: "presentation" }
+      = link_to t(".list"), "#list", data: { toggle: :tab }
+  .tab-content
+    #calendar-pane.tab-pane.active{ role: "tabpanel" }
+      = render "js_calendar"
+    #list.tab-pane{ role: "tabpanel" }
+      = render 'admin/bookings/booking_table', keep_anchor: "list"
+
+  - content_for :sidebar_right do
+    %h4= t ".yearly_plans"
+    - current_user.booking_year_range.each do |year|
+      .mt-3
+        .btn-group.btn-group-xs
+          - klass = ["btn", (year == current_year ? "btn-primary" : "btn-default")]
+          = link_to year, occupancies_calendar_path(rentable, year: year), class: klass
+          = link_to "CSV", occupancies_calendar_path(rentable, year: year, format: :csv), class: klass
+    - if current_user.admin?
+      .mt-3
+        = link_to admin_stats_path(rentable.class.model_name.plural, rentable.id), class: "btn btn-xs btn-default" do
+          = t ".stats"

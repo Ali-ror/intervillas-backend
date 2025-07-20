@@ -1,0 +1,17 @@
+%ul.nav.nav-tabs.nav-tabs-tight{ role: :tablist }
+  %li.active{ role: :presentation }
+    %a{ href: "#messages", data: { toggle: :tab } }
+      = t "admin.bookings.communication.titles.message_list"
+      %span.badge= cancellation.messages.count
+
+  %li{ role: :presentation }
+    %a{ href: "#cables", data: { toggle: :tab } }
+      = t "admin.bookings.communication..titles.cables_list"
+      %span.badge= inquiry.cables.count
+
+.tab-content
+  .tab-pane.message.active#messages{ role: :tabpanel }
+    = render "admin/cancellations/communication/messages"
+
+  .tab-pane.message#cables{ role: :tabpanel }
+    = render "admin/cancellations/communication/cables"

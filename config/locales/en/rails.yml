@@ -1,0 +1,208 @@
+---
+en:
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    - Sun
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%m/%d/%Y"
+      long: "%B %d, %Y"
+      only_day: "% E"
+      really_short: "% D.% m"
+      short: "%b %d"
+      timespan: "%e. %B"
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+        zero: less than 1 minute
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+        zero: less than 1 second
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors:
+    full_messages:
+      format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      after_start: must occur after the arrival
+      already_booked: selected period is already in use
+      already_cancelled: is already cancelled
+      already_confirmed: was already confirmed, please try signing in
+      associated: still has associated objects
+      blank: can't be blank
+      confirmation: doesn't match confirmation
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
+      conflicting_minimum_people: not possible for villas with modified minimum number of people
+      domain: isn't included in %{domains}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      expired: has expired, please request a new one
+      future: must be in the future
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      has_child_prices: not possible while child prices are present
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      min_boat_length: the minimum boat booking lenght is %{count} days
+      min_length: the minimum length of stay is %{count} nights
+      missing_bedrooms: no bedrooms available
+      missing_description: description text is blank
+      missing_images: no images attached
+      missing_prices: prices are missing
+      not_a_number: is not a number
+      not_cancellable: cannot be cancelled anymore
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      odd: must be odd
+      overlaps_with_end_date: not bookable on the of departure
+      overlaps_with_start_date: not bookable on the day of arrival
+      previously_used: was used previously
+      price_category_missmatch: must match age category
+      record_invalid: 'Validation failed: %{errors}'
+      taken: has already been taken
+      too_long: is too long (maximum is %{count} characters)
+      too_short: is too short (minimum is %{count} characters)
+      victim_is_target: target and source user must be different
+      wrong_length: is the wrong length (should be %{count} characters)
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u %n"
+        precision: 2
+        separator: "."
+        unit: "€"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+    human:
+      format:
+        delimiter: ''
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      sentence_connector: and
+      skip_last_comma: false
+      two_words_connector: ", "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      print: "%A, %d %B %Y / %l:%M %P"
+      short: "%d %b %H:%M"
+      time: "%H:%M"
+    pm: pm

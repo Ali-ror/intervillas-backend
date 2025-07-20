@@ -1,0 +1,22 @@
+.row
+  .col-sm-9
+    %h1.page-header Bewertungen
+
+    .text-center
+      = will_paginate reviews
+
+    %table.table.table-striped.table-condensed.js-sticky-header
+      %thead
+        %tr
+          %th Buchungs-Nr.
+          %th Objekt/Zeitraum
+          %th öffentlich?
+          %th archiviert?
+          %th{ style: 'width:60%' } Bewertung
+          %th
+
+      %tbody
+        = render partial: "review", collection: reviews
+
+  %aside.col-sm-3.mt-5
+    = render "filter"

@@ -1,0 +1,23 @@
+.panel.panel-default
+  .panel-heading
+    Filter/Suche
+
+  .panel-body
+    = semantic_form_for review_filter_form, url: [:admin, review_filter_form], method: :get do |form|
+      .form-group
+        .input-group.input-group-sm
+          %label.input-group-addon{ for: "review_villa_id" } Villa
+          = form.input :villa_id, as: :ui_select, collection: Villa.active.map { [_1.name, _1.id] }, include_blank: "alle", label: false, input_html: { ":append-to-body" => "true" }
+
+      .form-group
+        .input-group.input-group-sm
+          %label.input-group-addon{ for: "review_inquiry_id" } Nummer
+          = form.text_field :inquiry_id, class: "form-control"
+
+      .form-group
+        .input-group.input-group-sm
+          %label.input-group-addon{ for: "review_filter" } Filter
+          = form.select :filter, Search::Review::FILTER.map { [t(".#{_1}"), _1] }, { include_blank: "alle" }, class: "form-control"
+
+      = form.action :submit, label: "Suchen", button_html: { class: "btn btn-primary" }
+      = link_to "alle anzeigen", admin_reviews_path, class: "btn btn-default"

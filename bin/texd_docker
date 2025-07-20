@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Starts and runs a imgproxy docker container.
+#
+# Please use docker compose should this needs to become more involved.
+
+bind_addr=127.0.0.1:2201
+container_name="iv-texd"
+root="$(cd $(dirname $0)/..; pwd)"
+
+mkdir -p tmp/texd/work tmp/texd/refs
+
+stop_texd() {
+  docker container stop "$container_name" || true
+}
+
+trap stop_texd INT TERM
+
+set -x
+
+docker run --rm -it --name "$container_name" \
+  -p "${bind_addr}:2201" \
+  -v "${root}/tmp/work:/texd" \
+  -v "${root}/tmp/work:/refs" \
+  -u $(id -u):$(id -g) \
+  ghcr.io/digineo/texd:latest \
+    --reference-store dir:///refs \
+    --retention-policy purge-on-start \
+    --keep-jobs on-failure

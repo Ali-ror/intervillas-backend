@@ -1,0 +1,13 @@
+%tr
+  %td{ colspan: 2, style: "padding-top:10px" }
+    %strong #{villa.name}
+%tr
+  %td{ width: 120, style: "padding-left:15px" } Arrival
+  %td= l villa_inquiry.start_date
+%tr
+  %td{ width: 120, style: "padding-left:15px" } Departure
+  %td= l villa_inquiry.end_date
+%tr
+  %td{ width: 120, style: "padding-left:15px" } Address
+  %td
+    = [villa.street, villa.locality, "#{villa.region} #{villa.postal_code}"].join(", ")

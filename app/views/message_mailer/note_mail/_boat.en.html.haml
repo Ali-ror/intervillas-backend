@@ -1,0 +1,9 @@
+%tr
+  %td{ colspan: 2, style: "padding-top:10px" }
+    %strong Boat #{boat.display_name}
+%tr
+  %td{ width: 120, style: "padding-left:15px" } From
+  %td= l boat_inquiry.start_date
+%tr
+  %td{ width: 120, style: "padding-left:15px" } Until
+  %td= l boat_inquiry.end_date

@@ -1,0 +1,13 @@
+%h4 Hinweise zu den Berechtigungen
+
+%p
+  Um einem Benutzer Zugriff auf den Admin-Bereich zu geben, muss dieser über
+  eine E-Mail-Adresse verfügen. Es wird dann eine E-Mail an diese Adresse
+  geschickt, mit der Aufforderung ein Passwort zu setzen.
+
+%h4 Berechtigungsstufen
+- User::ACCESS_LEVEL.keys.reverse_each.with_index do |level, i|
+  %p
+    = succeed " – " do
+      %strong= access_level_label(level)
+    = t level, scope: "admin.users.access_level.detail"

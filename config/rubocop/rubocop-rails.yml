@@ -1,0 +1,211 @@
+## Rails cops - https://docs.rubocop.org/rubocop-rails/cops.html
+
+plugins:
+  - rubocop-rails
+
+Rails/AddColumnIndex:
+  Enabled: true
+
+Rails/EagerEvaluationLogMessage:
+  Enabled: true
+
+Rails/ExpandedDateRange:
+  Enabled: true
+
+Rails/I18nLocaleAssignment:
+  Enabled: true
+
+Rails/TimeZoneAssignment:
+  Enabled: true
+
+Rails/UnusedIgnoredColumns:
+  Enabled: true
+
+Rails/RedundantTravelBack: # new in 2.12
+  Enabled: true
+
+Rails/UnknownEnv:
+  Enabled: true
+  Environments:
+  - development
+  - test
+  - production
+  - staging
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: slashes
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true
+
+Rails/AfterCommitOverride:
+  Enabled: true
+
+Rails/AttributeDefaultBlockValue:
+  Enabled: true
+
+Rails/FindById:
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  # There's nothing wrong with HABTM. The style guide only mentions
+  # the ability to define extra columns when using `has_many :through`,
+  # which is true, but sometimes just not necessary.
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false # we're using DB constraints
+
+Rails/Inquiry:
+  Enabled: true
+
+Rails/MailerName:
+  Enabled: true
+
+Rails/MatchRoute:
+  Enabled: true
+
+Rails/NegateInclude:
+  Enabled: true
+
+Rails/Pluck:
+  Enabled: true
+
+Rails/PluckInWhere:
+  Enabled: true
+
+Rails/RenderInline:
+  Enabled: true
+
+Rails/RenderPlainText:
+  Enabled: true
+
+Rails/ResponseParsedBody: # new in 2.18
+  Enabled: true # tentative, might produce too many false positives
+
+Rails/ShortI18n:
+  Enabled: true
+
+Rails/SquishedSQLHeredocs:
+  Enabled: true
+
+Rails/WhereEquals:
+  Enabled: true
+
+Rails/WhereExists:
+  Enabled: true
+
+Rails/WhereNot:
+  Enabled: true
+
+Rails/ActionControllerTestCase: # new in 2.14
+  Enabled: true
+
+Rails/CompactBlank: # new in 2.13
+  Enabled: true
+
+Rails/DeprecatedActiveModelErrorsMethods: # new in 2.14
+  Enabled: true
+
+Rails/DuplicateAssociation: # new in 2.14
+  Enabled: true
+
+Rails/DuplicateScope: # new in 2.14
+  Enabled: true
+
+Rails/DurationArithmetic: # new in 2.13
+  Enabled: true
+
+Rails/I18nLazyLookup: # new in 2.14
+  Enabled: false # this makes search/replace difficult
+
+Rails/I18nLocaleTexts: # new in 2.14
+  Enabled: true
+
+Rails/MigrationClassName: # new in 2.14
+  Enabled: true
+
+Rails/RedundantPresenceValidationOnBelongsTo: # new in 2.13
+  Enabled: true
+
+Rails/RootJoinChain: # new in 2.13
+  Enabled: true
+
+Rails/TransactionExitStatement: # new in 2.14
+  Enabled: true
+
+Rails/DotSeparatedKeys: # new in 2.15
+  Enabled: true
+
+Rails/RootPublicPath: # new in 2.15
+  Enabled: true
+
+Rails/StripHeredoc: # new in 2.15
+  Enabled: true
+
+Rails/ToFormattedS: # new in 2.15
+  Enabled: true
+  EnforcedStyle: to_formatted_s
+
+Rails/ActionControllerFlashBeforeRender: # new in 2.16
+  Enabled: false
+
+Rails/ActionOrder: # new in 2.17
+  Enabled: true
+
+Rails/ActiveSupportOnLoad: # new in 2.16
+  Enabled: true
+
+Rails/FreezeTime: # new in 2.16
+  Enabled: true
+
+Rails/IgnoredColumnsAssignment: # new in 2.17
+  Enabled: true
+
+Rails/RootPathnameMethods: # new in 2.16
+  Enabled: true
+
+Rails/ToSWithArgument: # new in 2.16
+  Enabled: true
+
+Rails/TopLevelHashWithIndifferentAccess: # new in 2.16
+  Enabled: true
+
+Rails/WhereMissing: # new in 2.16
+  Enabled: true
+
+Rails/WhereNotWithMultipleConditions: # new in 2.17
+  Enabled: true
+
+Rails/ThreeStateBooleanColumn: # new in 2.19
+  Enabled: true
+
+Rails/DangerousColumnNames: # new in 2.21
+  Enabled: true
+
+Rails/RedundantActiveRecordAllMethod: # new in 2.21
+  Enabled: true
+
+Rails/SelectMap: # new in 2.21
+  Enabled: true
+
+Rails/UnusedRenderContent: # new in 2.21
+  Enabled: true
+
+Rails/EnvLocal: # new in 2.22
+  Enabled: true
+
+Rails/WhereRange: # new in 2.25
+  Enabled: true
+
+Rails/EnumSyntax: # new in 2.26
+  Enabled: true
+
+Rails/MultipleRoutePaths: # new in 2.29
+  Enabled: true
+
+Rails/StrongParametersExpect: # new in 2.29
+  Enabled: true

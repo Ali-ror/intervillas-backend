@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading Approve incomplete downpayments
+  .panel-body
+    %p
+      You may (manually) acknowledge incomplete downpayments as
+      sufficient collaterals, providing that you have received:
+    %ul
+      %li
+        = surround "at least ", ", or" do
+          = number_to_currency DownpaymentSecurity::ABS_THRESHOLD
+      %li
+        = surround "at least ", " of the downpayment sum." do
+          = number_to_percentage DownpaymentSecurity::REL_THRESHOLD * 100, precision: 0
+    %p
+      If these preconditions are met, you can click on the
+      %a.btn.btn-danger.btn-xxs.disabled{ href: "#" }
+        = fa :check, text: "OK"
+      button next to the deficit.

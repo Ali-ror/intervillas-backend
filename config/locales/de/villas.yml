@@ -1,0 +1,104 @@
+---
+de:
+  villas:
+    boats:
+      heading: folgende Boote können gemietet werden
+    cardinal_directions:
+      e: Ost
+      n: Nord
+      ne: Nord-Ost
+      nw: Nord-West
+      s: Süden
+      se: Süd-Ost
+      sw: Süd-West
+      w: West
+    gone:
+      message: >-
+        Diese Villa steht leider nicht mehr zur Miete zur Verfügung. Wir haben Ihnen daher ein paar Alternativen herausgesucht.
+        Sollten Sie nicht fündig werden, nutzen Sie gerne auch unsere Suche.
+    index:
+      h1: Ihr Ferienhaus in Cape Coral / Florida
+      special: Last Minute
+    tile:
+      price_from: ab
+      price_time_unit:
+        weekly: für bis zu %{count} Personen / pro Woche
+        nightly: inklusive %{count} Personen / pro Woche
+      boat_inclusive: Boot inklusive
+      special_discount: "%{discount} %% Rabatt"
+      living_area: "%{area} m² Fläche"
+      bathrooms:
+        zero:  "Kein Bade\u00ADzimmer"
+        one:   "1 Bade\u00ADzimmer"
+        other: "%{count} Bade\u00ADzimmer"
+      bedrooms:
+        zero:  "Kein Schlaf\u00ADzimmer"
+        one:   "1 Schlaf\u00ADzimmer"
+        other: "%{count} Schlaf\u00ADzimmer"
+      pool_orientation:
+        e:  Pool Osten
+        n:  Pool Norden
+        ne: Pool Nord-Osten
+        nw: Pool Nord-Westen
+        s:  Pool Süden
+        se: Pool Süd-Osten
+        sw: Pool Süd-Westen
+        w:  Pool Westen
+
+    other_villas:
+      other_villas: Andere Villen
+    prices:
+      base_price: "Grundpreis (inkl. %{minimum_people} Personen)"
+      additional_person: "weitere Person"
+      weekly_price: "Wochenpreis (für bis zu %{bed_count} Personen)"
+      additional_night: "jede weitere Übernachtung"
+    show:
+      abreise: Abreise
+      anreise: Anreise
+      aufschlag: Aufschlag
+      ausstattung: Ausstattung
+      badezimmer: "%{bathrooms_count} Badezimmer, %{wcs_count} WC/Toiletten"
+      badezimmer_details: Badezimmer %{index} - %{tags}
+      bilder_im_vollbild_anzeigen: Bilder im Vollbild anzeigen
+      bootsbeschreibung: Bootsbeschreibung
+      build_year: Baujahr
+      child: Kinder bis %{age} J.
+      datei: Datei
+      dateien_zu_diesem_boot: Dateien zu diesem Boot
+      discount: "%{discount}: %{percent}% Aufschlag"
+      ergaenzung: Ergänzung
+      fotogalerie_von: Fotogalerie von %{name}
+      fotos: Fotos
+      high_season: Hochsaison
+      highlights: Highlights
+      incl_taxes: inkl. 5 % Tourist-Tax und 6 % Sales-Tax
+      incl_taxes_2019: inkl. 5% Tourist-Tax und 6,5% Sales-Tax
+      jetzt_anfragen: Jetzt anfragen
+      kinder_bis_zum_vollendeten: 'Kinder bis zum vollendeten %{max_age}. Lebensjahr:'
+      last_renovation: Zuletzt renoviert
+      map: Übersichtskarte
+      mehr_infos_zu_diesem_boot: 'Mehr Infos zu diesem Boot: '
+      mietpreis: Mietpreis
+      overview: Übersicht
+      panorama_bilder: Virtueller Rundgang
+      preise: Preise
+      preise_pro_person: pro Person / pro Nacht
+      rabatt: Rabatt
+      ratings: Feedbacks
+      ratings_all: Hier finden Sie alle Kundenmeinungen.
+      ratings_text: >-
+        Wir haben sehr viele positive Kundenfeedbacks erhalten und möchten diese ab Januar 2015 nun auch öffentlich weitergeben.
+        Dieser Service wird Ihnen bei der Wahl der richtigen Villa sicher von Vorteil sein!
+      read_more:
+        tags: Alle Ausstattungsmerkmale ansehen
+        description: Weiterlesen
+      schlafzimmer: "%{bedrooms_count} Schlafzimmer, Schlafmöglichkeiten für %{beds_count} Personen"
+      schlafzimmer_details: Schlafzimmer %{index} - %{tags}
+      tabs:
+        boat: Boot
+        description: Beschreibung
+      wohnflaeche: 'Wohnfläche: %{living_area}'
+      wohnflaeche_details: Wohnfläche
+      zeitraum_belegt: Zeitraum belegt
+      zeitraum_verfuegbar: Zeitraum verfügbar
+      zurueck_zu: zurück zu %{name}

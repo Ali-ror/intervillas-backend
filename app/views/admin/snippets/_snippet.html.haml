@@ -1,0 +1,10 @@
+%tr[snippet]
+  %td
+    %code= snippet.key
+  %td= snippet.title
+  %td.text-right
+    .btn-group
+      = link_to edit_admin_snippet_path(snippet), class: "btn btn-default btn-xxs" do
+        = fa :fw, :pencil, text: "bearbeiten"
+      = link_to admin_snippet_path(snippet), class: "btn btn-danger btn-xxs", method: :delete do
+        = fa :fw, :trash, text: "löschen"

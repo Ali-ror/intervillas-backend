@@ -1,0 +1,18 @@
+= page_header do
+  - breadcrumb.add link_to t("shared.menu.villas"), "/villas"
+  = breadcrumb.render @villa.name
+  %h1= h1 || @villa.name
+
+.container
+  %villa-facet-search.px-sm-0{ "data-config" => facet_search_configuration(facets: false).to_json }
+    .text-center= fa :x2, :spinner, :pulse, text: t(:wait_data)
+
+.container.mt-5
+  .lead.well.fa-alert
+    = fa :exclamation_triangle
+    = t ".message"
+
+%section.mt-3
+  %goto-search-results.container{ data: { url: villa_searches_path } }
+
+= render "other_villas"

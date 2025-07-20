@@ -1,0 +1,38 @@
+%table.caption
+  %thead
+    %tr
+      %th{ colspan: 2 } Legende
+  %tbody
+    %tr
+      %th.field Pers.: x/y/z
+      %td Anzahl Personen, x = Erwachsene, y = Kinder 7-12., z = Kinder unter 0-6.
+    %tr
+      %th.field * IV-xxx *
+      %td Buchung in den letzten 2 Wochen erstellt
+    %tr
+      %th.field ## DB ##
+      %td Doppelbuchung/Terminüberschneidung
+    %tr
+      %td.caption
+        .blocked
+          %strong IV
+      %td Termin blockiert
+    %tr
+      %td.caption
+        .booked
+          %strong IV
+      %td verbindlich gebucht
+    %tr
+      %td.caption
+        .external
+          %strong IV
+      %td Externe Buchung
+    %tr
+      %td.caption
+        .blocked.my-booking-pal
+          %strong IV
+      %td Ext. Buchung (MyBookingPal)
+  %tfoot
+    %tr
+      %th Stand
+      %td= l DateTime.now

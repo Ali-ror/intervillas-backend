@@ -1,0 +1,8 @@
+- content_for :title do
+  = t "devise.passwords.forgot_password"
+
+= render layout: "admin/devise/panel" do
+  = semantic_form_for resource, url: password_path(resource_name) do |f|
+    = f.input :email, required: true, input_html: { autofocus: true }
+
+    = f.action :submit, label: t("devise.passwords.request_instructions"), button_html: { class: "btn btn-default", data: { disable_with: t(:wait) } }

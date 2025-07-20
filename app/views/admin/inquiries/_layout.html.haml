@@ -1,0 +1,11 @@
+.row
+  %aside.col-md-2.sidebar-left.hidden-print
+    = render "sidebar_left"
+
+  .col-md-7
+    .tab-content.main-tab-content
+      #inconsistencies= render "inconsistencies"
+      = yield
+
+  %aside.col-md-3.sidebar-right
+    = render "sidebar_right"

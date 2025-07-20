@@ -1,0 +1,11 @@
+-# USP's - Unique Selling Proposition
+%section.container.usp.text-center
+  %h2.lined-heading
+    %span= t('.usp')
+  .row
+    - usps.each do |usp|
+      .col-sm-3
+        .box-icon
+          .circle= fa :x2, usp['icon'].to_sym
+        %h3= usp["heading"]
+        %p= usp["text"]

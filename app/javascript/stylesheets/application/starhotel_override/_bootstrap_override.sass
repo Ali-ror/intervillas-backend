@@ -1,0 +1,103 @@
+@use "sass:math"
+
+//
+// Anpassungen die primär auf Bootstrap angewendet werden, und
+// so erstmal nichts mit dem Starhotel-Theme zu tun haben.
+//
+
+html
+  scroll-behavior: smooth
+
+.panel-heading
+  a
+    display:            block
+    margin:             -10px -15px
+    padding:            10px 15px
+
+.alert > :last-child
+  margin-bottom:        0
+
+.fa-alert
+  padding-left: math.div(18em, 14) + 1em
+
+  > i.fa:first-child
+    @extend .fa-fw
+    @extend .pull-left
+    margin-left:        math.div(-18em, 14) - 0.25em
+    margin-right:       0
+    line-height:        inherit
+
+.btn-xxs
+  text-transform:       none
+  font-weight:          normal
+
+  // @extend .btn-xs
+  padding:              1px 5px
+  font-size:            12px
+  line-height:          1.5
+  border-radius:        3px
+
+  &.btn-default
+    color:              darken($brand-primary, 10%)
+
+span.badge
+  li &
+    float:              right
+    margin-left:        1ex
+  .dropdown-menu li.active &
+    background:         #fff
+    color:              #428BCA
+
+dl dd
+  ul, ol
+    padding-left:     25px
+
+.table-striped > tbody > tr:nth-of-type(even)
+  background-color:     #fff
+
+.table-transparent
+  &, th, td
+    background-color:   transparent !important
+
+.table-condensed.small // Padding bei kompakten Tabellen weiter reduzieren
+  > thead, > tbody, > tfoot
+    > tr
+      > th, > td
+        padding:        floor(math.div($table-condensed-cell-padding, 2))+1px
+
+th .small
+  font-weight:          normal
+
+.well.well-light
+  $well-light-bg:       lighten($gray-lighter, 5%)
+  $well-light-border:   $gray-lighter
+
+  background-color:     $well-light-bg
+  border-color:         $well-light-border
+
+  .lined-heading span
+    background-color:   $well-light-bg
+
+.well.well-primary
+  $well-primary-border:   lighten($brand-primary, 20%)
+  $well-primary-bg:       lighten($well-primary-border, 5%)
+
+  background-color:     $well-primary-bg
+  border-color:         $well-primary-border
+
+
+.affix
+  .nav-pills
+    margin-top:         0
+
+#confirmation-nav .nav-pills .nav-pills > li.active > a
+  color:                $text-color
+  background-color:     $nav-link-hover-bg
+
+abbr[title],
+abbr[data-original-title]
+  border-bottom:        none
+
+.tab-content.tab-content-no-hpad
+  padding-left: 0
+  padding-right: 0

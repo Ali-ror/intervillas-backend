@@ -1,0 +1,18 @@
+%tr[item]
+  %td
+    - case item.resource
+    - when Villa, Boat
+      %code= url_for item.resource
+    - else
+      %code /#{item.path}
+  - if item.resource
+    %td
+      = item.resource.class.model_name.human
+      - if item.resource.respond_to?(:active?) && !item.resource.active?
+        %small.text-muted (#{t ".inactive"})
+    %td= link_to item.resource.to_s, [:edit, :admin, item.resource]
+  - else
+    %td{ colspan: 2 }
+  %td= item.de_html_title.presence || "–"
+  %td.text-right
+    = link_to fa(:pencil, text: t(".edit")), edit_admin_route_path(item), class: "btn btn-default btn-xxs"

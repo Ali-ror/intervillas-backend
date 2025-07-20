@@ -1,0 +1,38 @@
+%tr{ data: { action_row_id: contact.id } }
+  %td= contact.company_name
+  %td= [contact.last_name, contact.first_name].compact.join ", "
+
+  - if contact.email_addresses.empty?
+    %td{ colspan: 2 }
+  - else
+    %td
+      %span.fi{ class: "fi-#{contact.locale == 'de' ? 'de' : 'us'}" }
+    %td
+      %ul.list-unstyled
+        - contact.email_addresses.each do |email|
+          %li= email
+  %td
+    - if contact.wants_auto_booking_confirmation_mail?
+      = fa :check, class: "text-success", text: "ja"
+    - else
+      = fa :times, class: "text-danger", text: "nein"
+
+  %td
+    %ul.list-unstyled
+      - contact.users.each do |user|
+        %li= user.email
+
+  %td.text-center= object_count[:villa_owner][contact.id]
+  %td.text-center= object_count[:villa_manager][contact.id]
+  %td
+  %td.text-center= object_count[:boat_owner][contact.id]
+  %td.text-center= object_count[:boat_manager][contact.id]
+
+  %td.text-right
+    = link_to fa(:fw, :x2, :pencil), edit_admin_contact_path(contact)
+    - if count_rentables[contact.id] == 0
+      = link_to admin_contact_path(contact), method: :delete, data: { confirm: "Wirklich löschen?" } do
+        = fa(:fw, :x2, :trash, class: "text-danger")
+    - else
+      = fa :fw, :x2
+

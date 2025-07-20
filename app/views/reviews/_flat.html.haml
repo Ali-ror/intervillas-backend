@@ -1,0 +1,11 @@
+- self.title = "Bewertungen | Intervilla Florida"
+- self.meta_description = "Bewertung zu Ferienhäusern in Cape Coral von intervillas-florida.com? Hier erfahren Sie mehr!"
+
+= page_header do
+  - breadcrumb.add link_to t("shared.menu.villas"), "/villas"
+  = breadcrumb.render t("reviews.index.breadcrumb")
+
+  %h1= h1 || t("reviews.index.title")
+
+= yield
+

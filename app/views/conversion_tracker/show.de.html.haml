@@ -1,0 +1,21 @@
+- @tracking_page = '/booking/confirmation'
+
+= page_header do
+  = breadcrumb.add link_to t('shared.menu.villas'), '/villas'
+  = breadcrumb.add link_to villa.name, villa
+  = breadcrumb.render "Buchung # #{inquiry.id}"
+  %h1 Buchung # #{inquiry.id}
+
+.container.mt-5
+  = render 'shared/ssl'
+
+  .row
+    .col-md-8.col-md-offset-2
+      %h2 Vielen Dank für Ihre Buchung und Ihr Vertrauen!
+      %p
+        Wir haben Ihnen eine Buchungsbestätigung per E-Mail zugesandt. Klicken
+        Sie hier, um sich diese schon im Browser anzusehen:
+
+      %p
+        = link_to confirmation_booking_path(token: inquiry.token), class: "btn btn-primary" do
+          = fa :fw, :check, text: "zur Buchungsbestätigung"

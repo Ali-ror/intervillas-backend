@@ -1,0 +1,36 @@
+// this is the colored banner between main menu and contant on most public
+// pages, containing breadcrumbs and a headline. It's background images
+// formerly came with a parallax effect (which we dropped for performance
+//  reasons)
+.page-heading
+  border-bottom:          1px solid $brand-primary
+
+  &, h1, h2, h3, h4, h5, h6
+    color:                #fff
+    text-shadow:          0 0 5px #0008
+
+  > div, .color-overlay
+    position:             relative
+    height:               100%
+
+  .page-heading-bg
+    background-color:     $brand-primary
+    background-position:  center
+    background-repeat:    no-repeat
+    background-size:      cover
+
+    // known background images, keep in sync with PAGE_HEADER_CHOICES
+    // in `app/helpers/starhotel_helper.rb`.
+    &.dock
+      background-image:   url("@/images/page-header/dock.jpg")
+    &.pool
+      background-image:   url("@/images/page-header/pool.jpg")
+    &.sundeck
+      background-image:     url("@/images/page-header/sundeck.jpg")
+      background-position:  bottom center
+
+  .color-overlay
+    background-color:     rgba(darken($brand-primary, 25%), 0.75)
+    padding:              45px 0
+    border-bottom:        1px solid #fff
+    text-shadow:          none

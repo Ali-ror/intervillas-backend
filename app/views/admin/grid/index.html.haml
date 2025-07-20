@@ -1,0 +1,41 @@
+- @title = t "admin.grid.title", start_date: l(start_date), end_date: l(end_date)
+- grids.each do |section, grid|
+  - next if grid.empty?
+
+  - if section != :old_boats && grid.empty_rentables.any?
+    %h2= t section.to_s, scope: "admin.grid.sections.empty"
+    %ul
+      - grid.empty_rentables.each do |row|
+        %li
+          - if Boat === row && (m = row.formatted_matriculation_number.presence)
+            = succeed ': ' do
+              = m
+          %strong= row.display_name
+
+  - pages = grid.rows.to_a.in_groups_of(10, false)
+  - pages.each_with_index do |page, i|
+    %h2= t section.to_s, scope: "admin.grid.sections"
+    %table.calendar.grid
+      %thead
+        %tr
+          %th.pagination{ colspan: 5 }
+            = t("admin.grid.page", current: i + 1, count: pages.size)
+
+          - grid.header.each do |cell|
+            %th{ colspan: cell.span / 2 }= cell
+            %th.invis{ colspan: cell.span / 2 }
+      %tbody
+        - page.each do |_rentable_id, row|
+          %tr
+            %td{ colspan: 5 }
+              = render "#{row.header.type}_header", header: row.header
+            - row.each do |cell|
+              - if cell.empty?
+                %td{ colspan: cell.span }= cell
+              - else
+                %td{ colspan: cell.span, class: cell.css_classes }
+                  - if cell.overlap?
+                    %p <strong>## DB ##</strong>
+                  = render cell.type.to_s, rentable_inquiry: cell, show_other: cell.span != 1
+
+= render "caption"

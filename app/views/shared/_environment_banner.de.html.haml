@@ -1,0 +1,6 @@
+.environment-banner.environment-banner-right{ class: "environment-banner-#{Rails.env}" }
+  %strong #{Rails.env.capitalize}-Umgebung
+  - if Rails.env.staging?
+    Abgesehen von Passwort-Reset-Mails werden <em>keine</em> E-Mails versandt.
+    Generell gehen E-Mails nur in die Versand-Vorbereitung, werden dort aber
+    nicht abgearbeitet (d.h. die E-Mail-Vorschau funktioniert).

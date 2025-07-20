@@ -1,0 +1,17 @@
+.text-center
+  = will_paginate collection
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= Route.human_attribute_name :path
+      %th{ colspan: 2 }
+        = Route.human_attribute_name :resource
+      %th= Route.human_attribute_name :html_title
+      %th
+  %tbody
+    - collection.each do |item|
+      = render "item", item: item
+
+.text-center
+  = will_paginate collection

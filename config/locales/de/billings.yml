@@ -1,0 +1,46 @@
+---
+de:
+  billings:
+    header:
+      partner: Ihr Partner für Ferienhäuser in Florida Cape Coral
+      top_service: Top Vermietungs- und Immobilienservice
+    tenant:
+      additional_payment:
+        text: Bitte überweisen Sie den Restbetrag auf eines unserer Konten
+      back_payment:
+        text: Die Rückzahlung des Restguthabens erfolgt gemäss Ihren Instruktionen auf
+        credit_card: Die Kaution wird auf Ihre Kredikarte zurück erstattet.
+      bank:
+        clearing: Bankenclearing
+        code: BLZ
+        iban: IBAN
+        name: Name der Bank
+        number: Konto-Nr.
+        owner: Konto-Inhaber
+        address: Adresse
+        swift: BIC (SWIFT)
+        routing: Routing-Nr.
+      billing:
+        additional_payment: Nachzahlung
+        back_payment: Rückzahlung
+        booking: Buchung
+        charges:
+          title: Sonstige Kosten
+          total: Total
+        deposit: Kaution
+        electricity:
+          cost: Energiekosten
+          meter_reading:
+            begin: Zählerstand Beginn
+            end: Zählerstand Ende
+          per_kwh: pro kWh
+          title: Stromkosten
+          usage: Verbrauch
+        subject: ABRECHNUNG – KAUTION – NEBENKOSTEN
+        sum: Kaution – Kosten
+        total_deposit: Kaution Total
+      footer:
+        signature: Freundliche Grüße
+        thanks: >-
+          Wir bedanken uns herzlich für Ihr Vertrauen und freuen uns,
+          Sie weiterhin zu unseren treuen Kunden zählen zu dürfen.

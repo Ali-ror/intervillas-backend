@@ -1,0 +1,47 @@
+= render layout: "admin/boats/layout" do
+  .page-header
+    - if boat.no_villa?
+      .alert.alert-warning
+        = link_to [:admin, boat], method: :delete, class: "btn btn-warning btn-xs pull-right" do
+          = fa :trash, text: "ausblenden"
+        %p
+          Dieses Boot wird von keiner Villa (mehr) referenziert. Es wird aus
+          Gründen der Übersichtlichkeit empfohlen, dieses Boot auszublenden.
+    - else
+      = link_to [:admin, boat], method: :delete, title: "ausblenden", class: "pull-right" do
+        = fa :trash, :x2
+
+    %h1 Boot bearbeiten
+
+  %ul.nav.nav-tabs.js-main-nav
+    %li.active{ role: "presentation" }
+      = link_to "#data", data: { toggle: :tab } do
+        Stammdaten
+
+    %li{ role: "presentation" }
+      = link_to "#prices", data: { toggle: :tab } do
+        Preise
+
+    %li{ role: "presentation" }
+      = link_to "#images", data: { toggle: :tab } do
+        Bilder
+
+    %li{ role: "presentation" }
+      = link_to "#villas", data: { toggle: :tab } do
+        Häuser
+
+  .tab-content.tab-content-no-hpad
+    #data.tab-pane.active{ role: "tabpanel" }
+      = semantic_form_for [:admin, resource], html: { multipart: true } do |form|
+        = render "admin/boats/form", form: form
+        = form.actions do
+          = form.action :submit, button_html: { class: "btn btn-primary" }
+
+    #images.tab-pane{ role: "tabpanel" }
+      %admin-media-gallery.images{ admin_media_gallery_config(resource, :images) }
+
+    #prices.tab-pane{ role: "tabpanel" }
+      %boat-price-editor{ endpoint: api_admin_boat_price_path(boat) }
+
+    #villas.tab-pane{ role: "tabpanel" }
+      = render "admin/boats/villas"

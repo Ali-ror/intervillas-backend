@@ -1,0 +1,13 @@
+%tr[item]
+  %td= item.description
+  %td= item.percent
+  %td= l item.start_date
+  %td= l item.end_date
+  %td
+    %ul.villas.list-unstyled
+      - item.villas.each do |v|
+        %li[v]= v
+
+  %td.text-right
+    = link_to fa(:pencil, :x2), edit_admin_special_path(item), title: "bearbeiten"
+    = link_to fa(:trash, :x2, class: "text-danger"), admin_special_path(item), title: "bearbeiten", method: :delete

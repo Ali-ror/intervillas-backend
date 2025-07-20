@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.pay1.de/post-gateway/
+    body:
+      encoding: UTF-8
+      string: aid=43559&amount=166027&api_version=3.11&backurl=https%3A%2F%2Fipnproxy.intervillas-florida.com%2Fapi%2Fbsp1%2Ftransactions%2FbUQ0TXlkeXBlZ1lRZXZadQ%3D%3D%2Fcallback%3Fresult%3Dcancel&clearingtype=cc&country=DE&currency=USD&encoding=UTF-8&errorurl=https%3A%2F%2Fipnproxy.intervillas-florida.com%2Fapi%2Fbsp1%2Ftransactions%2FbUQ0TXlkeXBlZ1lRZXZadQ%3D%3D%2Fcallback%3Fresult%3Derror&key=6593449aea0d44bd85c755bec9d2484c&language=de&lastname=Schwirkschlies&mid=43362&mode=test&portalid=2031373&pseudocardpan=9410010000183255710&reference=mD4MydypegYQevZu&request=authorization&successurl=https%3A%2F%2Fipnproxy.intervillas-florida.com%2Fapi%2Fbsp1%2Ftransactions%2FbUQ0TXlkeXBlZ1lRZXZadQ%3D%3D%2Fcallback%3Fresult%3Dsuccess
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 05 Feb 2021 10:05:37 GMT
+      Server:
+      - Apache
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '48'
+      Content-Type:
+      - text/plain; charset=UTF-8
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        status=APPROVED
+        txid=493251665
+        userid=271832009
+    http_version: 
+  recorded_at: Fri, 05 Feb 2021 10:05:38 GMT
+recorded_with: VCR 4.0.0

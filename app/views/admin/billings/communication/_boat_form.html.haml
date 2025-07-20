@@ -1,0 +1,5 @@
+%h2
+  = t ".title"
+  .small= boat_billing_form.boat.admin_display_name
+
+= embed_message_form [:admin, billing, boat_owner_message_form], :boat, preview: false

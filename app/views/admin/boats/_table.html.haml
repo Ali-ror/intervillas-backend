@@ -1,0 +1,28 @@
+%table.table.table-striped.table-condensed.js-sticky-header.js-action-row{ data: { action_row_url: edit_admin_boat_url(":id") } }
+  %thead
+    %tr
+      %th ID
+      %th Modell
+      %th Matrikel-Nr.
+      %th Domains
+      %th{ colspan: 2 }
+  %tbody
+    - boats.reorder(id: :asc).each do |boat|
+      %tr{ data: { action_row_id: boat.id } }
+        %td= boat.id
+        %td= boat.model
+        - if boat.matriculation_number.present?
+          %td= boat.formatted_matriculation_number
+        - else
+          %td.text-danger{ title: "fehlt" }
+            = fa :exclamation_triangle, class: "text-danger", text: "FL-???"
+        %td
+          %ul.small.list-unstyled
+            - boat.domains.each do |dom|
+              %li= dom
+        %td
+          = link_to edit_admin_boat_path(boat), title: t('helper.links.edit') do
+            = fa :pencil, :x2, class: 'text-warning', title: t('helper.links.edit')
+        %td
+          = link_to admin_stats_path("boats", boat.id), title: "Statistiken" do
+            = fa :line_chart, :x2, title: "Statistiken"

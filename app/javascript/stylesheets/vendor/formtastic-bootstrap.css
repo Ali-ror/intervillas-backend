@@ -1,0 +1,15 @@
+.hidden {
+	display: none;
+}
+
+.alert.alert-error > ul.error-list {
+  margin-bottom: 0px;
+}
+
+.form-horizontal .form-wrapper > .control-label {
+  text-align: left;
+}
+
+.form-group.checkbox > .form-wrapper > .help-block {
+  padding-left: 20px;
+}

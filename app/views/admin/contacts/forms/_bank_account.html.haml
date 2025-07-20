@@ -1,0 +1,25 @@
+.row
+  = semantic_form_for [:admin, bank_account_form], html: { class: "form-horizontal col-sm-12 col-md-8" } do |f|
+    = f.hidden_field :form_id, id: nil, name: "form"
+
+    = f.inputs "Bank-Konto Euro" do
+      = f.input :bank_account_owner
+      = f.input :bank_code           # IBAN
+      = f.input :bank_account_number # BIC
+      = f.input :bank_routing_number
+      = f.input :bank_name
+      = f.input :bank_address
+
+    = f.inputs "Bank-Konto US-Dollar" do
+      = f.input :usd_bank_account_owner
+      = f.input :usd_bank_code           # IBAN
+      = f.input :usd_bank_account_number # BIC
+      = f.input :usd_bank_routing_number
+      = f.input :usd_bank_name
+      = f.input :usd_bank_address
+
+
+    .form-group
+      .form-label
+      .form-wrapper
+        = f.action :submit, label: "Speichern", button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary" }

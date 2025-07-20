@@ -1,0 +1,76 @@
+#!/bin/sh
+
+cd "$(dirname $0)/.."
+
+gen_view() {
+  local title="Intervilla ERD"
+  local filename="$2"
+  local exclude="$3"
+
+  [ -n "$1" ] && title="${title}: $1"
+
+  echo
+  echo "Generiere '${title}'..."
+  echo
+  rake erd                      \
+    title="${title}"            \
+    filename="tmp/${filename}"  \
+    exclude="${exclude}"        \
+    indirect=false              \
+    inheritance=false           \
+    orientation=horizontal      \
+    attributes="foreign_keys,content"
+}
+
+gen_overview() {
+  local title="Intervilla: Übersicht"
+
+  echo
+  echo "Generiere '${title}'..."
+  echo
+  rake erd                      \
+    title="${title}"            \
+    filename="tmp/erd"          \
+    indirect=true               \
+    inheritance=true            \
+    attributes=false            \
+    orientation=horizontal
+}
+
+# nach Concern gruppiert
+m_media="Medium,Media::Tour,Media::Image,Media::Pannellum"
+m_tagging="Area,Category,Tag,Tagging"
+m_geo="Geocode,Geocoding"
+m_payment="Payment,PaypalPayment,PaypalWebhook"
+m_prices="Price,Fee,Special,Discount,ChildDiscount,HolidayDiscount"
+m_tenant="Customer,Traveler"
+
+# stört nur
+m_translation="Boat::Translation,Description::Translation,Medium::Translation,Route::Translation,Page::Translation,Snippet::Translation,Domain::Translation"
+m_views="Grid::View,InquiryUnion,Payment::View"
+m_uploads="ActiveStorage::Blob,ActiveStorage::Attachment"
+
+m_new_billing="Billing,BoatBilling,VillaBilling"
+m_old_billing="OwnerBilling,BoatOwnerBilling,TenantBilling"
+m_billing="Charge,${m_old_billing},${m_new_billing}"
+m_booking="Booking,Blocking,Inquiry,VillaInquiry,BoatInquiry,Cancellation"
+
+
+# die eigentlichen Views
+
+# gen_overview
+
+# gen_view "Abrechnungen (alt)" "erd-abrechnung-old" \
+#   "Route,Page,Description,Review,Blocking,${m_translation},${m_tagging},${m_media},${m_prices},${m_payment},${m_geo},${m_new_billing}"
+
+# gen_view "Abrechnungen (neu)" "erd-abrechnung-neu" \
+#   "Route,Page,Description,Review,Blocking,${m_translation},${m_tagging},${m_media},${m_prices},${m_payment},${m_geo},${m_old_billing}"
+
+# gen_view "Zahlungen" "erd-zahlungen" \
+#   "Route,Page,Description,Review,Blocking,${m_translation},${m_tagging},${m_media},${m_prices},${m_geo},${m_billing}"
+
+# gen_view "User" "erd-user" \
+#   "Route,Page,Description,Review,${m_translation},${m_tagging},${m_media},${m_prices},${m_payment},${m_geo},${m_billing},${m_tenant},${m_booking},${m_views}"
+
+gen_view "Villas" "erd-villa" \
+  "User,Contact,Boat,ContactRentable,Message,Medium,Cable,ClearingReport,Route,Page,Snippet,Domain,Special,HighSeason,Discount,Fee,Setting,Route::Translation,Page::Translation,Snippet::Translation,Domain::Translation,Medium::Translation,Boat::Translation,Review,${m_geo},${m_booking},${m_billing},${m_views},${m_payment},${m_tenant},${m_uploads}"

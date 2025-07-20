@@ -1,0 +1,327 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=5608%20SW%209th%20Ave,%2033914,%20Cape%20Coral,%20FL&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 16 Dec 2019 14:54:58 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=41
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
+        ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
+        ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "5608",
+                       "short_name" : "5608",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Southwest 9th Avenue",
+                       "short_name" : "SW 9th Ave",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Pelican",
+                       "short_name" : "Pelican",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Cape Coral",
+                       "short_name" : "Cape Coral",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Lee County",
+                       "short_name" : "Lee County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Florida",
+                       "short_name" : "FL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "33914",
+                       "short_name" : "33914",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "7209",
+                       "short_name" : "7209",
+                       "types" : [ "postal_code_suffix" ]
+                    }
+                 ],
+                 "formatted_address" : "5608 SW 9th Ave, Cape Coral, FL 33914, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 26.54718,
+                          "lng" : -81.99387919999999
+                       },
+                       "southwest" : {
+                          "lat" : 26.5469275,
+                          "lng" : -81.9941644
+                       }
+                    },
+                    "location" : {
+                       "lat" : 26.5470673,
+                       "lng" : -81.9940227
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 26.5484027302915,
+                          "lng" : -81.99267281970849
+                       },
+                       "southwest" : {
+                          "lat" : 26.5457047697085,
+                          "lng" : -81.99537078029149
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ1cEE3PQ424gR_iXEFHwIIVk",
+                 "types" : [ "premise" ]
+              }
+           ],
+           "status" : "OK"
+        }
+  recorded_at: Mon, 16 Dec 2019 14:54:58 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=5608%20SW%209th%20Ave%0ACape%20Coral,%20FL%2033914%20US&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 16 Dec 2019 14:54:58 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=31
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
+        ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
+        ma=2592000
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "5608",
+                       "short_name" : "5608",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Southwest 9th Avenue",
+                       "short_name" : "SW 9th Ave",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Pelican",
+                       "short_name" : "Pelican",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Cape Coral",
+                       "short_name" : "Cape Coral",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Lee County",
+                       "short_name" : "Lee County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Florida",
+                       "short_name" : "FL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "33914",
+                       "short_name" : "33914",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "7209",
+                       "short_name" : "7209",
+                       "types" : [ "postal_code_suffix" ]
+                    }
+                 ],
+                 "formatted_address" : "5608 SW 9th Ave, Cape Coral, FL 33914, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 26.54718,
+                          "lng" : -81.99387919999999
+                       },
+                       "southwest" : {
+                          "lat" : 26.5469275,
+                          "lng" : -81.9941644
+                       }
+                    },
+                    "location" : {
+                       "lat" : 26.5470673,
+                       "lng" : -81.9940227
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 26.5484027302915,
+                          "lng" : -81.99267281970849
+                       },
+                       "southwest" : {
+                          "lat" : 26.5457047697085,
+                          "lng" : -81.99537078029149
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ1cEE3PQ424gR_iXEFHwIIVk",
+                 "types" : [ "premise" ]
+              }
+           ],
+           "status" : "OK"
+        }
+  recorded_at: Mon, 16 Dec 2019 14:54:58 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=test%20villa%20street%0A&key=AIzaSyCG40e8L79gzDISFTnwNt3jdQtOJAR-Qos&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Graticule; http://graticule.rubyforge.org)
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 08 Jan 2024 10:35:01 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Vary:
+      - Accept-Language
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '51'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=71
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+  recorded_at: Mon, 08 Jan 2024 10:35:01 GMT
+recorded_with: VCR 6.2.0

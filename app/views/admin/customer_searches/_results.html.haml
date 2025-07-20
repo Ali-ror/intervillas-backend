@@ -1,0 +1,55 @@
+%table.table.table-striped.table-condensed.customer-search-results.js-sticky-header
+  %thead
+    %tr
+      %th
+        = t ".number"
+        .small= t ".kind"
+      %th= t ".villa"
+      %th= t ".boat"
+      %th= t ".customer"
+      - if can? :create, Inquiry
+        %th= t ".status"
+      %th= t ".date"
+      %th{ colspan: 3 }
+  %tbody
+    - results.each do |inq|
+      %tr{ class: (inq.cancelled? ? "cancelled" : (inq.booked? ? "booking" : "inquiry")) }
+        %td
+          = inquiry_number(inq)
+          .small= inq.cancelled? ? t(".kind_cancelation") : t(inq.booked? ? ".booking" : ".inquiry")
+        %td
+          - if vi = inq.villa_inquiry
+            = vi.villa.display_name
+            .small #{l vi.start_date}–#{l vi.end_date}
+        %td
+          - if bi = inq.boat_inquiry
+            = bi.boat.display_name
+            .small #{l bi.start_date}–#{l bi.end_date}
+
+        - if can? :create, Inquiry
+          %td
+            = highlight inq.customer.name, customer_search_form.query
+            %br
+            = highlight inq.customer.email, customer_search_form.query
+          %td.small= t inq.state, scope: :states
+        - else
+          %td
+            = highlight inq.customer.name, customer_search_form.query
+
+        %td= l inq.created_at.to_date
+        %td
+          - iob = inquiry_or_booking(inq)
+          - if can? :update, inq
+            = link_to [:edit, :admin, iob], title: t(".edit") do
+              = fa :pencil, :x2
+          - elsif can? :show, iob
+            = link_to [:admin, iob], title: t(".show") do
+              = fa :eye, :x2
+        %td
+          - if can?(:destroy, inq) && !inq.booked?
+            = link_to admin_inquiry_path(inq), title: t(".destroy"), method: :delete, data: { confirm: "Wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden." } do
+              = fa :trash, :x2
+        %td
+          - if can?(:update, inq) && inq.booked?
+            = link_to edit_admin_billing_path(inq), title: t(".billing") do
+              = fa :briefcase, :x2

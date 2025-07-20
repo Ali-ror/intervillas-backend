@@ -1,0 +1,68 @@
+- @tracking_page = "/booking/new"
+
+= page_header do
+  = breadcrumb.add link_to_rentables
+  = breadcrumb.add link_to_rentable(rentable)
+  = breadcrumb.render t(".title")
+  %h1= t(".title")
+
+.container.mt-5
+  = render "shared/ssl"
+
+  - if reservation_conflict?(inquiry)
+    .alert.alert-warning
+      = t(".reserved")
+  .row
+    .col-md-8.clearfix
+      = semantic_form_for [@villa, booking_form], url: villa_bookings_path(token: inquiry.token), html: { class: "form-horizontal" } do |form|
+        = form.semantic_fields_for :customer do |customer_form|
+          = customer_form.inputs t("bookings.edit.hauptbucher"), class: "applet" do
+            %customer-form-main-tenant{
+              **{
+                "first-name"  => customer_form.object.first_name,
+                "last-name"   => customer_form.object.last_name,
+                "address"     => customer_form.object.address,
+                "appnr"       => customer_form.object.appnr,
+                "postal-code" => customer_form.object.postal_code,
+                "city"        => customer_form.object.city,
+                "country"     => customer_form.object.country,
+                "state-code"  => customer_form.object.state_code,
+                ":errors"     => customer_form.object.errors.to_json,
+              }.compact_blank
+            }
+
+          = customer_form.inputs t("bookings.edit.bankverbindung") do
+            %p
+              %em= t "bookings.edit.bankverbindung_eu_only"
+            %p= t "bookings.edit.bankverbindung_intro"
+            = customer_form.input :bank_account_owner
+            = customer_form.input :bank_account_number
+            = customer_form.input :bank_name
+            = customer_form.input :bank_code
+
+        - if booking_form.any_travelers?
+          = form.inputs t("bookings.edit.weitere_reisende"), class: "applet" do
+            = form.semantic_fields_for :travelers do |traveler|
+              .panel.form-panel-compact{ class: (traveler.object.errors.any? ? "panel-danger" : "panel-default") }
+                .panel-body
+                  .form-group
+                    %strong.form-label Preiskategorie
+                    %span.form-wrapper.lh32= t traveler.object.model.price_category, scope: "activerecord.attributes.booking"
+                  = traveler.input :first_name
+                  = traveler.input :last_name
+                  = render "born_on_field", traveler: traveler
+
+        = form.inputs t(".agb") do
+          = form.input :agb, as: :boolean, label: t("bookings.edit.agb_label"), hint: t("bookings.edit.agb_show", link: link_to(t(".agb"), "/agb", target: :_blank)).html_safe
+
+          = form.semantic_fields_for :customer do |customer_form|
+            = customer_form.input :travel_insurance, as: :radio, collection: %w[insured not_insured].map { [t(_1, scope: "bookings.new.travel_insurance").html_safe, _1] }
+
+          %p.border.border-light.p-4.my-3
+            = t "bookings.edit.agb_hint"
+            = t "bookings.edit.agb_hint2" if inquiry.immediate_payment_required?(current_user)
+        = form.actions do
+          = form.action :submit, label: book_button_label(inquiry), button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary mt-3", disabled: reservation_conflict?(inquiry) }
+
+    %aside.col-md-4
+      = render "edit_sidebar"

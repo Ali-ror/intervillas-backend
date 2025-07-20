@@ -1,0 +1,93 @@
+!!!
+%html
+  %head
+    %meta{content: "width=device-width", name: "viewport"}/
+    :css
+      html, body, iframe {
+        height: 100%;
+      }
+
+      body {
+        margin: 0 10px;
+      }
+
+      header {
+        width: 100%;
+        padding: 10px 0 0 0;
+        margin: 0;
+        background: white;
+        font: 12px "Lucida Grande", sans-serif;
+        border-bottom: 1px solid #dedede;
+        overflow: hidden;
+      }
+
+      dl {
+        margin: 0 0 10px 0;
+        padding: 0;
+      }
+
+      dt {
+        width: 80px;
+        padding: 1px;
+        float: left;
+        clear: left;
+        text-align: right;
+        color: #7f7f7f;
+      }
+
+      dd {
+        margin-left: 90px; /* 80px + 10px */
+        padding: 1px;
+      }
+
+      dd:empty:before {
+        content: "\00a0"; // &nbsp;
+      }
+
+      iframe {
+        border: 0;
+        width: 100%;
+      }
+  %body
+    %header
+      %dl
+        - if email.respond_to?(:smtp_envelope_from) && Array(email.from) != Array(email.smtp_envelope_from)
+          %dt SMTP-From:
+          %dd= email.smtp_envelope_from
+        - if email.respond_to?(:smtp_envelope_to) && email.to != email.smtp_envelope_to
+          %dt SMTP-To:
+          %dd= email.smtp_envelope_to
+        %dt From:
+        %dd= email.header['from']
+        - if email.reply_to
+          %dt Reply-To:
+          %dd= email.header['reply-to']
+        %dt To:
+        %dd= email.header['to']
+        - if email.cc
+          %dt CC:
+          %dd= email.header['cc']
+        %dt Date:
+        %dd= Time.current.rfc2822
+        %dt Subject:
+        %dd
+          %strong= email.subject
+        - if email.attachments.present?
+          %dt Attachments:
+          %dd
+            = email.attachments.map { |a| a.respond_to?(:original_filename) ? a.original_filename : a.filename }.join(', ')
+
+    - if @part && @part.mime_type
+      %div
+        = raw @part.body.decoded
+
+    - else
+      %p
+        You are trying to preview an email that does not have any content.
+        This is probably because the
+        %em mail
+        method has not been called in
+        = succeed "." do
+          %em
+            = params[:mailer_class]
+            \##{params[:mailer_action]}

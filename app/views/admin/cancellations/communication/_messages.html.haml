@@ -1,0 +1,8 @@
+%h2= t "admin.bookings.communication.messages.title"
+
+- messages = cancellation.messages.order(created_at: :desc).select(&:persisted?)
+
+- if messages.empty?
+  %p= t "admin.bookings.communication.messages.no_messages"
+- else
+  = render "messages/table", messages: messages

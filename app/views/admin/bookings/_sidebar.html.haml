@@ -1,0 +1,33 @@
+- villas = current_user.villas.active.includes(:route)
+
+= render "search_panel", title: t(".search")
+
+- if can? :create, Booking
+  .list-group
+    = link_to t(".all"), admin_bookings_path, class: "list-group-item #{params[:state].blank? ? 'active' : nil}"
+    - (current_user.allowed_booking_states).each do |state|
+      = link_to I18n.t(state, scope: :states), admin_bookings_path(state: state),
+        class: "list-group-item #{params[:state] == state ? 'active' : nil }"
+
+- if current_user.admin?
+  - if skipped_travel_mails.any?
+    .panel.panel-warning
+      .panel-heading= t ".skipped_travel_mails.heading"
+      .panel-body
+        %p= t ".skipped_travel_mails.pending_html"
+      %table.table.table-condensed
+        %thead
+          %tr
+            %th= t "admin.bookings.booking_table.number"
+            %th= Booking.human_attribute_name :start_date
+        %tbody
+          - skipped_travel_mails.sort_by(&:start_date).each do |b|
+            %tr
+              %td= link_to b.number, edit_admin_booking_path(b, anchor: "payments")
+              %td= l b.start_date
+
+  - else
+    .panel.panel-default
+      .panel-heading= t ".skipped_travel_mails.heading"
+      .panel-body
+        %p= t ".skipped_travel_mails.none"

@@ -1,0 +1,31 @@
+%h3= t "bookings.edit.villa"
+%p= link_to inquiry.villa, inquiry.villa, target: :_blank
+
+%table.table.table-condensed.table-striped
+  %tr
+    %th= t "bookings.edit.ankunft"
+    %td= l inquiry.villa_inquiry.start_date
+  %tr
+    %th= t "bookings.edit.abfahrt"
+    %td= l inquiry.villa_inquiry.end_date
+
+- if inquiry.with_boat?
+  %h3= t "bookings.edit.boot"
+  %p
+    = link_to inquiry.boat.display_name, inquiry.boat, target: :_blank
+    - if !inquiry.boat_state.charged?
+      %br
+      %span.text-muted= t "bookings.edit_sidebar.boot_im_mietpreis_enthalten"
+  %table.table.table-condensed.table-striped
+    %tr
+      %th= t "bookings.edit_sidebar.uebernahme"
+      %td= l inquiry.boat_inquiry.start_date
+    %tr
+      %th= t "bookings.edit_sidebar.rueckgabe"
+      %td= l inquiry.boat_inquiry.end_date
+
+.mb-5
+  %price-table-standalone
+
+= render "shared/sidebar_fineprint"
+

@@ -1,0 +1,42 @@
+.panel.panel-warning.hidden-print
+  .panel-heading
+    %strong Wichtig: Backup-Codes
+  .panel-body
+    %p
+      Sollten Sie den Zugriff auf Ihre Authenticator-App verlieren (z.B. durch
+      Verlust oder Diebstahl des Smartphones), können Sie Sie sich mit einem der
+      nachfolgenden Backup-Codes anmelden.
+    %p
+      Diese Backup-Codes können als alternative Einmalpasswörter verstanden werden.
+    %p
+      Notieren Sie sich diese Codes <strong>jetzt</strong>, und verwahren Sie die
+      Notiz sicher. Die Backup-Codes werden Ihnen nur einmal angezeigt und können
+      nicht wiederhergestellt werden.
+
+    .justify-content-around.align-items-baseline.my-3.gap-3{ style: "display: grid; grid-template-columns: 1fr 1fr; font-size: 1.8rem" }
+      - backup_codes.each do |code|
+        %code.text-center.p-2= code
+    %p
+      Beachten Sie bitte, dass auch diese Backup-Codes nur jeweils einmal
+      verwendet werden können.
+
+  .panel-footer.text-right
+    = link_to "OK", edit_admin_two_factor_settings_path, class: "btn btn-default"
+
+.visible-print-block.mt-n5
+  %h1.mt-n5 Zwei-Faktor-Authentisierung
+  %p.lead Backup-Codes für https://www.intervilla-florida.com/admin/
+
+  %p
+    Sollten Sie den Zugriff auf Ihre Authenticator-App verlieren (z.B. durch
+    Verlust oder Diebstahl des Smartphones), können Sie Sie sich mit einem der
+    nachfolgenden Backup-Codes anmelden.
+  %p
+    Diese Backup-Codes können als alternative Einmalpasswörter verstanden werden.
+  %ul
+    - backup_codes.each do |code|
+      %li.my-3
+        %tt= code
+  %p
+    Beachten Sie bitte, dass auch diese Backup-Codes nur jeweils einmal
+    verwendet werden können.

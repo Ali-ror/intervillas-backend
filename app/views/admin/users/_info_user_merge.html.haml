@@ -1,0 +1,26 @@
+%h4 Informationen zum Zusammenführen von Benutzern
+
+%p
+  Benutzer, die sich bisher mit verschiedenen E-Mail-Adressen im System
+  anmelden mussten, weil sie z.B. für Boote und Häuser unterschiedliche
+  Provisionssätze hinterlegt hatten, können hier zusammengeführt werden.
+%p
+  Dabei werden alle Berechtigungen und referenzierte Objekte eines
+  <em>«Quell-Nutzers»</em> in einen <em>«Ziel-Nutzer»</em> verschoben, und der
+  Quell-Nutzer hinterher gelöscht.
+%p
+  Konkret werden folgende Aktionen ausgeführt:
+%ol
+  %li
+    Die Berechtigungen des Ziel-Nutzers werden erweitert, nicht eingeschränkt.
+    %ul
+      %li Wenn die Quelle vorher mehr Rechte besitzt als das Ziel, hat hinterher das Ziel dieselben Rechte wie die Quelle.
+      %li Wenn die Quelle vorher weniger Rechte besitzt als das Ziel, hat hinterher das Ziel dieselben Rechte wie vorher.
+  %li
+    Die Nachrichten und internen Meldungen, die als Empfänger die Quelle haben,
+    werden zum Ziel verschoben.
+  %li
+    Gleiches gilt für Kontakte: das Ziel erlangt damit Zugriff auf die Häuser
+    und Boote, die der Quelle zugeordnet waren.
+  %li
+    Der Zugang der Quelle wird deaktiviert und der dazugehörige Benutzer gelöscht.

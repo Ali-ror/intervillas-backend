@@ -1,0 +1,27 @@
+generic: &generic
+  adapter:    postgresql
+  encoding:   unicode
+  reconnect:  true
+  username: dustin
+  password: password
+  host: 127.0.0.1
+  port: 5432
+
+development: &development
+  <<: *generic
+  database:     intervillas_development
+  min_messages: notice # reduce log spam
+  pool:         5
+
+test:
+  <<: *development
+  database: intervillas_test
+
+production: &production
+  <<: *generic
+  database: intervillas
+  pool:     25 # account for Sidekiq!
+
+staging:
+  <<: *development
+  database: intervillas_staging

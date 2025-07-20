@@ -1,0 +1,25 @@
+## RSpec/Rails cops - https://docs.rubocop.org/rubocop-rspec_rails/cops_rspec.html
+
+require:
+  - rubocop-rspec_rails
+
+RSpecRails:
+  Enabled: true
+
+RSpecRails/AvoidSetupHook:
+  Enabled: true
+
+RSpecRails/HaveHttpStatus: # new in 2.12
+  Enabled: true
+
+RSpecRails/InferredSpecType: # new in 2.14
+  Enabled: true
+
+RSpecRails/MinitestAssertions: # new in 2.17
+  Enabled: true
+
+RSpecRails/TravelAround:
+  Enabled: false # highly dependent on situation
+
+RSpecRails/NegationBeValid: # new in 2.23
+  Enabled: true

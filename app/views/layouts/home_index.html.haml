@@ -1,0 +1,47 @@
+!!!
+%html{ "xmlns:og" => "http://opengraphprotocol.org/schema/" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ "http-equiv" => "X-UA-Compatible", content: "IE=edge" }
+    %meta{ content: meta_description || t("meta_description"), name: "Description" }
+    - if noindex?
+      %meta{ name: "robots", content: "noindex" }
+    = seo_spam_links
+    %title= title || t("title")
+    %meta{ content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name: "viewport" }
+    %link{ rel: "preload", href: vite_asset_path("fonts/fontawesome-webfont.woff2"), as: "font", type: "font/woff2", crossorigin: true }
+    %link{ rel: "preload", href: vite_asset_path("fonts/Objective-Regular.woff2"), as: "font", type: "font/woff2", crossorigin: true }
+    %link{ rel: "preload", href: vite_asset_path("fonts/Objective-Bold.woff2"), as: "font", type: "font/woff2", crossorigin: true }
+    = render "shared/google_tag_manager"
+
+    = vite_client_tag
+    = render "shared/favicons"
+    - case current_domain.theme
+    - when "intervillas"
+      = vite_stylesheet_tag "home-index-intervillas.sass"
+      -# seosupport hat darum gebeten
+      %meta{ name: "facebook-domain-verification", content: "p293cl3dy2d4xn3w2q2xf0oa1u7uxo" }
+    - when "satellite"
+      = vite_stylesheet_tag "home-index-capecoral.sass"
+    = sentry_integration_tag
+    = vite_javascript_tag "sentry", "home_index"
+    = render_opengraph_metadata
+    = csrf_meta_tags
+    = content_for :head
+
+  %body.home{ lang: I18n.locale, data: { page: @tracking_page, domain: current_domain.name, ua: current_domain.tracking_code, currency: Currency.current } }
+    %header.hidden-print.navbar.navbar-default.navbar-transparent
+      = render "shared/header"
+
+    = schema_org :main do
+      = yield
+
+    = render "shared/contact_nav"
+    = render "shared/footer"
+
+    %a#go-top{ href: "#top" }
+      %i.fa.fa-angle-up
+
+    = render "shared/localization"
+    = render "shared/fbpixel" if Rails.env.production?
+

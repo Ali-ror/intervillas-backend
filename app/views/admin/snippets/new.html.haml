@@ -1,0 +1,3 @@
+= render "layout", title: "Text-Schnipsel anlegen" do
+  %admin-snippet-editor{ endpoint: url_for(format: :json) }
+    %p.alert.alert-info= t :wait_data

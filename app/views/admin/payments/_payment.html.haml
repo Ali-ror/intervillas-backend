@@ -1,0 +1,55 @@
+%tr{ class: ("overdue" if payment.overdue?), title: "Zahlungseingänge bearbeiten", data: { action_row_id: payment.inquiry_id } }
+  %td
+    = payment.inquiry.number
+    %br
+    = payment.customer
+
+  - if payment.late?
+    %td.text-muted.text-center{ colspan: 2 }
+      %em — #{t ".last_minute"} —
+  - elsif payment.downpayment_overdue?
+    - if payment.ack_downpayment?
+      %td.text-right
+        = display_price payment.downpayment_sum
+        .text-muted (#{display_price payment.downpayment_due_balance})
+      %td
+        = l payment.downpayment_date
+    - else
+      %td.text-right.danger
+        = display_price payment.downpayment_sum
+        .text-danger (#{display_price payment.downpayment_due_balance})
+      %td.danger
+        = l payment.downpayment_date
+        - if payment.acceptable_downpayment_security?
+          = render "acknowledge_downpayment", form_object: ack_payment_forms(payment)
+  - else
+    %td.text-right
+      = display_price payment.downpayment_sum
+    %td
+      = l payment.downpayment_date
+
+  - if payment.remainder_overdue?
+    %td.text-right.danger
+      = display_price payment.remainder_sum
+      .text-danger (#{display_price payment.remainder_due_balance})
+    %td.danger
+      = l payment.remainder_date
+  - else
+    %td.text-right
+      = display_price payment.remainder_sum
+    %td
+      = l payment.remainder_date
+
+  %td.text-right
+    = display_price payment.total_payments
+  %td.text-right
+    = display_price payment.diff
+
+  %td.small{ style: "width: 300px" }
+    - if payment.inquiry.comment?
+      %p= payment.inquiry.comment
+    - if payment.messages.any?
+      = t ".payment_reminder"
+      %ul
+        - payment.messages.each do |m|
+          %li= l (m.sent_at || m.created_at).to_date

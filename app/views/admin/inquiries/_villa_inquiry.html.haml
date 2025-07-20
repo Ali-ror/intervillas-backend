@@ -1,0 +1,20 @@
+- readonly = inquiry.booking_pal_reservations.any?
+
+- if inquiry.cancelled?
+  %admin-cancellation-editor{ "v-bind:inquiry-id" => inquiry.id, ":read-only" => readonly.to_s }
+    %p.alert.alert-info= t :wait_data
+
+- elsif inquiry.booked?
+  %admin-booking-editor{ "v-bind:inquiry-id" => inquiry.id, ":read-only" => readonly.to_s }
+    %p.alert.alert-info= t :wait_data
+
+- elsif inquiry.persisted?
+  %admin-inquiry-editor{ "v-bind:inquiry-id" => inquiry.id, ":read-only" => readonly.to_s }
+    %p.alert.alert-info= t :wait_data
+
+- else
+  %admin-inquiry-editor{ ":read-only" => readonly.to_s }
+    %p.alert.alert-info= t :wait_data
+
+- if event_url && !inquiry.cancelled?
+  .js-calendar.mt-5.hidden-print{ data: { event_url: event_url, to_highlight: inquiry.id } }

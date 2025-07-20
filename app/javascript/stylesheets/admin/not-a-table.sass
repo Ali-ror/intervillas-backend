@@ -1,0 +1,59 @@
+// Manchmal braucht man ein Tabellen-Layout mit einem Formular pro tr
+// (tr hat aber Einschränkungen, was gültige Kind-Elemente sein dürfen).
+//
+// Diese Struktur sollte helfen:
+//
+//    div.not-a-table         ← display: table
+//      div.header            ← display: table-row
+//        div.cell            ← display: table-cell
+//        div.cell
+//      form                  ← display: table-row
+//        div.cell
+//          input
+//        div.cell
+//          input
+//
+// Die .not-a-table
+
+
+.not-a-table
+  display:                    table
+  width:                      100%
+
+  .header, .footer, form, .not-a-row
+    display:                  table-row
+
+  .header
+    background:               $body-bg
+    .cell
+      padding-bottom:         $table-condensed-cell-padding
+      margin-bottom:          $table-condensed-cell-padding
+      border-bottom:          2px solid $table-border-color
+      font-weight:            bold
+      vertical-align:         bottom
+      small, .small
+        font-weight:          normal
+
+  .footer
+    margin-top:               $table-condensed-cell-padding
+    border-top:               2px solid $table-border-color
+    .cell
+      font-weight:            bold
+      vertical-align:         top
+
+  form
+    &:nth-child(even)
+      background-color:       $table-bg-accent
+    &:hover
+      background-color:       $table-bg-hover
+    .cell
+      vertical-align:         top
+
+  .cell
+    display:                  table-cell
+    padding:                  0 $table-condensed-cell-padding
+    line-height:              $line-height-base
+
+    .form-control-static
+      padding-left:           0
+      padding-right:          0

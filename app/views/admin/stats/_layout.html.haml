@@ -1,0 +1,54 @@
+.row
+  .col-sm-6
+    %h1 Statistiken
+  .col-sm-6.mt-3
+    = render "filter"
+
+- if rentable
+  = yield
+
+- else
+  .alert.alert-warning.mt-3 Bitte Objekt auswählen.
+
+  %table.table.table-striped.table-sm
+    %thead
+      %tr
+        %th{ colspan: 2 }
+        - current_user.booking_year_range.each do |y|
+          %th.text-center{ class: ("active" if y == current_year) }
+            = y
+            .small.text-muted
+              = surround "(", ")" do
+                %abbr{ title: "Anzahl Buchungen" }= Booking.in_year(y).count
+    %tbody
+      %tr
+        %th{ colspan: 2 } Nationalität des Hauptmieters
+        - current_user.booking_year_range.each do |y|
+          %td
+
+      - BookingNationalityStats.nationalities.each do |nat|
+        %tr
+          - if (country = nat.country.presence)
+            %td.text-right
+              - if ["DE", "AT", "CH", "US", "CA", "GB"].include?(country)
+                = flag_icon(country.downcase)
+              - else
+                %em.small.text-muted= country
+            %th= t(nat.country, scope: :countries)
+          - else
+            %td.text-right
+              %em.small.text-muted ??
+            %th Unbekannt
+
+          - current_user.booking_year_range.each do |y|
+            %td.text-center{ class: ("active" if y == current_year) }
+              - val = nat.share_in_year(y) * 100
+              - case
+              - when val > 30
+                %strong= number_to_percentage(val)
+              - when val > 5
+                = number_to_percentage(val)
+              - when val > 0.01
+                %span.text-muted= number_to_percentage(val)
+              - else
+                %span.text-muted &mdash;

@@ -1,0 +1,21 @@
+.row.blocking.owner_manager
+  .col-sm-3.col-sm-offset-3
+    %h3 Zeiten
+    %dl
+      = dt_dd_for blocking, :start_date, :l
+      = dt_dd_for blocking, :end_date, :l
+
+  .col-sm-3
+    %h3 Objekt
+    %dl
+      = dt_dd_for blocking, :villa
+
+.row.blocking.owner_manager
+  .col-sm-3.col-sm-offset-3
+    %h3 Kommentar
+    = simple_format blocking.comment
+
+  .col-sm-3
+    %dl
+      = dt_dd_for blocking, :created_at, :l
+      = dt_dd_for blocking, :updated_at, :l

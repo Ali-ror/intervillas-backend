@@ -1,0 +1,8 @@
+- content_for :title do
+  = t "devise.unlocks.request_instructions"
+
+= render layout: "admin/devise/panel" do
+  = semantic_form_for resource, url: unlock_path(resource_name) do |f|
+    = f.input :email, required: true, input_html: { autofocus: true }
+
+    = f.action :submit, label: t("devise.unlocks.request_instructions"), button_html: { class: "btn btn-primary", data: { disable_with: t(:wait) } }

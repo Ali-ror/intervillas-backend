@@ -1,0 +1,16 @@
+%h1 MyBookingPal
+
+%p.h6.border-bottom.border-light.pb-1.mb-1 Data View
+%ul.nav.nav-pills.nav-stacked.js-main-nav.mt-0
+  = list_link_to "Channel Connector",       admin_my_booking_pal_channel_path
+  = list_link_to "Products (Villas)",       admin_my_booking_pal_products_path, active: controller.class == Admin::MyBookingPal::ProductsController
+  = list_link_to "Reservations (Bookings)", admin_my_booking_pal_reservations_path
+
+%p.h6.border-bottom.border-light.pb-1.mb-1 Settings
+%ul.nav.nav-pills.nav-stacked.js-main-nav.mt-0
+  = list_link_to "PM Account",              admin_my_booking_pal_manager_path
+  = list_link_to "Push Notifications",      admin_my_booking_pal_push_notification_path
+
+%p.h6.border-bottom.border-light.pb-1.mb-1 Debug Information
+%ul.nav.nav-pills.nav-stacked.js-main-nav.mt-0
+  = list_link_to "Request Logs",            admin_my_booking_pal_request_logs_path

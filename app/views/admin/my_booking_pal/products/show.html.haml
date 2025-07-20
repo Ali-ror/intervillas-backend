@@ -1,0 +1,9 @@
+= render layout: "admin/my_booking_pal/layout" do
+  %h1= product.villa.name
+
+  %my-booking-pal-product-dashboard{
+    ":villa-id"  => product.id,
+    "foreign-id" => product.foreign_id,
+    url:            admin_my_booking_pal_product_path(product),
+    ":checks"    => VillaCheck.new(product.villa).to_json,
+  }

@@ -1,0 +1,30 @@
+%tr[domain]
+  %td.text-muted= domain.id
+  %td
+    %code= domain.name
+  %td
+    %strong= domain.brand_name
+  %td
+    - if domain.interlink?
+      = fa :check, text: "ja", class: "text-success"
+    - else
+      = fa :times, text: "nein", class: "text-danger"
+  %td
+    - if domain.multilingual?
+      = fa :check, text: "ja", class: "text-success"
+    - else
+      = fa :times, text: "nein", class: "text-danger"
+  %td
+    %em= domain.theme
+  %td.text-right
+    .btn-group
+      = link_to preview_admin_domain_path(domain), class: "btn btn-default btn-xxs" do
+        = fa :fw, :eye, text: "Vorschau"
+      = link_to edit_admin_domain_path(domain), class: "btn btn-default btn-xxs" do
+        = fa :fw, :pencil, text: "bearbeiten"
+    - if domain.default?
+      %button.btn.btn-danger.btn-xxs.disabled{ type: :button, title: "Default-Domain kann nicht gelöscht werden" }
+        = fa :fw, :trash, text: "löschen"
+    - else
+      = link_to admin_domain_path(domain), class: "btn btn-danger btn-xxs", method: :delete do
+        = fa :fw, :trash, text: "löschen"

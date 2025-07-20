@@ -1,0 +1,29 @@
+.row
+  .col-sm-8.col-sm-push-2
+    %h1.page-header Termin Blockieren
+
+    - readonly = action_name == "new"
+    = semantic_form_for [:admin, blocking_form], html: { class: "form-horizontal form-condensed" } do |form|
+      = form.input rentable_id_key, as: :select, collection: rentables.map { |r| [r.admin_display_name, r.id]}, input_html: { readonly: }
+      = form.input :start_date, input_html: { readonly: }
+      = form.input :end_date, input_html: { readonly: }
+      = form.input :comment, as: :text
+
+      = form.actions do
+        - if action_name == "edit" && blocking.calendar_id.present?
+          .alert.alert-info
+            = link_to "Ignorieren", [:ignore, :admin, blocking], class: "btn btn-warning btn-sm pull-right ml10", method: :post
+            %p
+              Dieser Termin wurde aus einem externen Kalender importiert (#{blocking.calendar.name}).
+              Wenn in unserer Datenbank der gleiche Termin bereits vorhanden ist, kann dieser ignoriert werden.
+            %p
+              Im Gegensatz zum "Termin freigeben" wird der ignorierte Termin bei einem zukünftigen Import nicht erneut erstellt.
+            .clearfix
+
+        = form.action :submit, label: "Termin blockieren", button_html: { class: "btn btn-primary" }
+        = form.object.destroy_button(self)
+
+- if action_name == "edit"
+  .row.mt-4
+    .col-sm-8.col-sm-push-2
+      .js-calendar.mt-5{ data: calendar_blocking_data_attributes(blocking) }

@@ -1,0 +1,25 @@
+%tr{ data: { action_row_id: user.id } }
+  %td= user.email
+  %td
+    %ul.list-unstyled
+      - user.contacts.each do |contact|
+        %li= contact.name
+  %td
+    %ul.list-unstyled
+      - user.contacts.each do |contact|
+        %li= contact.company_name
+
+  %td= access_level_label user.access_level
+
+  %td.text-right
+    = link_to edit_admin_user_path(user), title: "bearbeiten" do
+      = fa :fw, :x2, :pencil
+    = link_to admin_user_path(user), title: "löschen", method: :delete, data: { confirm: "Wirklich löschen?" } do
+      = fa :fw, :x2, :trash, class: "text-danger"
+
+    - if user.has_access? && current_user.admin?
+      = link_to [:signin, :admin, user], title: "anmelden", method: :post do
+        = fa :fw, :x2, :sign_in
+    - else
+      %a.disabled
+        = fa :fw, :x2 # hidden

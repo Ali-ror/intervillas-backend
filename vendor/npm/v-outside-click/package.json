@@ -1,0 +1,6 @@
+{
+  "name": "@digineo/date-range-picker",
+  "version": "1.0.0",
+  "private": true,
+  "module": "index.js"
+}

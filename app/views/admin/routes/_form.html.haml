@@ -1,0 +1,22 @@
+= form.inputs do
+  - case (r = form.object.resource)
+  - when Page, Villa, Boat
+    .form-group
+      %label.control-label.col-sm-4= t ".belongs_to_resource"
+      .col-sm-8
+        %p.form-control-static
+          = r
+          - if r.respond_to?(:active?) && !r.active?
+            &bull;
+            %small.text-muted (#{t "admin.routes.item.inactive"})
+          - unless r.is_a?(Page)
+            &bull;
+            = link_to "Frontend", r
+          &bull;
+          = link_to "Backend", [:edit, :admin, r]
+
+  = form.input :path
+
+  = render "i18n_field", form: form, type: :text_field, field: :html_title
+  = render "i18n_field", form: form, type: :text_area,  field: :meta_description
+  = render "i18n_field", form: form, type: :text_field, field: :h1

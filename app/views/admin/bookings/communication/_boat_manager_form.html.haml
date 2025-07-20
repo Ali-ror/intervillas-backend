@@ -1,0 +1,10 @@
+%h2
+  = t "admin.bookings.show.notes"
+  %small= t ".kind"
+
+.message
+  - if boat.manager.present?
+    = embed_message_form [:admin, booking, boat_manager_message_form], :boat_manager
+
+  - else
+    %p.alert.alert-info= t ".no_manager"

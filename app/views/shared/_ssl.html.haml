@@ -1,0 +1,9 @@
+.url-bar.hidden-print><
+  %span.info<= t ".info"
+  %span.https-badge><
+    = fa :lock
+    = t ".secure"
+  %span.https> https:
+  \//
+  %span.domain><= request.host
+  \/&hellip;

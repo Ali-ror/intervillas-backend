@@ -1,0 +1,46 @@
+---
+en:
+  billings:
+    header:
+      partner: Your Partner for Vacation Homes in Cape Coral, Florida
+      top_service: Top Service for Tenancy and Real Estate
+    tenant:
+      additional_payment:
+        text: Please pay the outstanding amount to our bank
+      back_payment:
+        text: The payment will be made according to your bank information
+        credit_card: Security deposit will be refunded to your credit card.
+      bank:
+        clearing: Clearing no.
+        code: BLZ
+        iban: IBAN
+        name: Name of the bank
+        number: Account no.
+        owner: Beneficiary
+        address: Address
+        swift: BIC (SWIFT)
+        routing: Routing no.
+      billing:
+        additional_payment: Balance due
+        back_payment: Refund
+        booking: Booking
+        charges:
+          title: Other Charges
+          total: Total
+        deposit: Deposit
+        electricity:
+          cost: Electricity costs
+          meter_reading:
+            begin: Meter reading (begin)
+            end: Meter reading (end)
+          per_kwh: per kWh
+          title: Electricity Charges
+          usage: usage
+        subject: STATEMENT – DEPOSIT – CHARGES
+        sum: deposit minus charges
+        total_deposit: Total deposit
+      footer:
+        signature: Kind Regards
+        thanks: >-
+          We sincerely thank you for choosing Intervilla and look forward
+          to accommodating you again in the near future!

@@ -1,0 +1,61 @@
+de:
+  billing_mailer:
+    clearing_report:
+      subject: "Intervilla - Abrechnungen für %{date}"
+    owner_billing:
+      subject: "%{inquiry_number}: Abrechnung - Intervilla"
+    tenant_billing:
+      subject: "%{inquiry_number}: Nebenkosten/Kautionsabrechnung - Intervilla"
+  booking_mailer:
+    confirmation_mail:
+      subject: "%{inquiry_number}: Auftragsbestätigung - Intervilla"
+    review:
+      subject: "%{inquiry_number}: Ihr Urlaub mit Intervilla Florida"
+    travel_mail:
+      boat_manager: "%{first_name} %{last_name}, Telefon: %{phone}"
+      subject: "%{inquiry_number}: 2 Wochen vor Reisebeginn - Intervilla"
+      villa_manager: "%{first_name} %{last_name}, Telefon: %{phone}, e-Mail: %{email}"
+  contact_mailer:
+    contact_mail:
+      subject: Intervilla Kontaktformular Anfrage
+  inquiry_mailer:
+    reminder_mail:
+      subject: "(Erinnerung) Ihre Anfrage %{inquiry_number} %{villa_name}"
+    submission_mail:
+      subject: "Ihre Anfrage %{inquiry_number} %{villa_name}"
+  layouts:
+    mailer:
+      signature:
+        email: E-Mail
+        homepage_url: "https://www.intervillas-florida.com"
+        telephone: Telefon
+  message_mailer:
+    boat_owner_booking_message:
+      subject: "%{inquiry_number}: Buchungs-Informationen - Intervilla"
+    note_mail:
+      subject: "%{inquiry_number}: Buchungsnotiz - Intervilla"
+      text:
+        villa:
+          book:   Villa %{name} wurde neu gebucht.
+          cancel: Villa %{name} wurde storniert.
+          dates:  An- oder Abreisedatum wurde geändert.
+        boat:
+          book:   Boot %{name} wurde hinzugefügt.
+          cancel: Boot %{name} wurde entfernt.
+          dates:  Liefer- oder Rücknahmedatum des Boots wurde geändert.
+    owner_booking_message:
+      subject: "%{inquiry_number}: Buchungs-Informationen - Intervilla"
+  payment_mailer:
+    payment_mail_reloaded:
+      subject: "%{inquiry_number}: Bestätigung Zahlungseingang - Intervilla"
+    payment_prenotification:
+      subject: "%{inquiry_number}: Hinweis auf anstehendes Zahlungsziel - Intervilla"
+    payment_reminder:
+      subject: "%{inquiry_number}: Zahlungshinweis - Intervilla"
+  my_booking_pal:
+    reservation_mailer:
+      notification:
+        subjects:
+          create: "%{inquiry_number}: Neue Reservierung (MyBookingPal)"
+          update: "%{inquiry_number}: Reservierung aktualisiert (MyBookingPal)"
+          cancel: "%{inquiry_number}: Reservierung storniert (MyBookingPal)"

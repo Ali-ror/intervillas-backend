@@ -1,0 +1,7 @@
+- if inconsistencies.any?
+  .alert.alert-warning
+    = fa :exclamation_triangle
+    Inkonsistenzen zwischen Villa- und Boot-Buchung festgestellt!
+    %ul
+      - inconsistencies.each do |i|
+        %li= t i, scope: "inquiries.inconsistencies"

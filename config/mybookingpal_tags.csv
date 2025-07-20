@@ -1,0 +1,737 @@
+Purpose,Name,Description,Beschreibung
+amenities,ACC5,Beach,Strand
+amenities,ACC14,Church,Kirche
+amenities,ACC24,Hospital,Krankenhaus
+amenities,ACC25,Lake,See
+amenities,ACC27,Library,Bücherei
+amenities,ACC28,Marina,Jachthafen
+amenities,ACC29,Market,Markt
+amenities,ACC31,Mountain,Berg
+amenities,ACC32,Museum,Museum
+amenities,ACC33,Ocean,Ozean
+amenities,ACC39,Recreation center,Erholungszentrum
+amenities,ACC40,Resort,Urlaubsort
+amenities,ACC41,Restaurant,Restaurant
+amenities,ACC42,River,Fluss
+amenities,ACC45,Ski area,Ski-Bereich
+amenities,ACC47,Store,Laden
+amenities,ACC50,Movie Theater,Kino
+amenities,ACC54,Water park,Wasserpark
+amenities,ACC55,Waterfront,Kai
+amenities,ACC56,Winery,Kellerei
+amenities,ACC57,Zoo,Zoo
+amenities,ACC59,Festival,Festival
+amenities,ACC73,Bar,Bar
+amenities,ACC74,Bay,Bucht
+amenities,ACC82,Synagogue,Synagoge
+amenities,ACC90,Botanical garden,Botanischer Garten
+amenities,ACC95,Natural attraction,natürliche Attraktion
+amenities,ACC111,Arboretum,Baumgarten
+amenities,ACC112,Autumn foliage,Herbstlaub
+amenities,ACC113,Cave,Höhle
+amenities,ACC114,Duty Free,zollfrei
+amenities,ACC115,Nude beach,FKK
+amenities,ACC116,Rain forest,Regenwald
+amenities,ACC117,Reef,Riff
+amenities,ACC118,Ruins,Ruinen
+amenities,ACC119,Outdoor lanai gazebo covered,Pavillon (überdacht)
+amenities,ACC120,Volcano,Vulkan
+amenities,ACC123,Rural,ländlich
+amenities,HAC1,24 Hour Reception Desk,Rezeption 24-Stunden
+amenities,HAC5,Air conditioning,Klimaanlage
+amenities,HAC7,ATM/Cash machine,Geldautomat
+amenities,HAC8,Baby sitting,Babysitter
+amenities,HAC9,BBQ/Picnic area,Grill-/Picknickbereich
+amenities,HAC14,Business library,Geschäftsbibliothek
+amenities,HAC15,Car rental desk,Autovermietung
+amenities,HAC16,Casino,Kasino
+amenities,HAC21,Coin operated laundry,Münzwäscherei
+amenities,HAC22,Concierge desk,Concierge-Schalter
+amenities,HAC25,Courtyard,Hof
+amenities,HAC26,Currency exchange,Geldwechsel
+amenities,HAC29,Door man,Türsteher
+amenities,HAC32,Duty free shop,zollfreies Einkaufen
+amenities,HAC33,Elevators,Aufzüge
+amenities,HAC34,Executive floor,Chefetage
+amenities,HAC36,Express check-in,Express-Check-in
+amenities,HAC37,Express check-out,Express-Check-out
+amenities,HAC41,Free airport shuttle,kostenfreies Flughafen-Shuttle
+amenities,HAC42,Free parking,kostenfreies Parken
+amenities,HAC44,Game room,Spielzimmer
+amenities,HAC45,Gift/News stand,Geschenk-/Zeitungsstand
+amenities,HAC49,Heated pool,beheizter Pool
+amenities,HAC50,Housekeeping - daily,Reinigung (täglich)
+amenities,HAC51,Housekeeping - weekly,Reinigung (wöchentlich)
+amenities,HAC53,Indoor parking,Innenparkplatz
+amenities,HAC54,Indoor pool,Innen-Pool
+amenities,HAC55,Jacuzzi,Jacuzzi
+amenities,HAC60,Live entertainment,Live-Unterhaltung
+amenities,HAC61,Massage services,Massage
+amenities,HAC62,Nightclub,Nachtklub
+amenities,HAC66,Outdoor pool,Außen-Pool
+amenities,HAC71,Pool,Pool
+amenities,HAC76,Restaurant,Restaurant
+amenities,HAC77,Room service,Zimmer
+amenities,HAC78,Safe deposit box,Schließfach
+amenities,HAC79,Sauna,Sauna
+amenities,HAC81,Shoe shine stand,Schuhputzständer
+amenities,HAC83,Solarium,Solarium
+amenities,HAC86,Steam bath,Dampfbad
+amenities,HAC91,Tour/sightseeing desk,Touren-/Besichtigungsschalter
+amenities,HAC94,Truck parking,Truck-Parkplatz
+amenities,HAC96,Dry cleaning,Trockenreinigung
+amenities,HAC97,Valet parking,Parkservice
+amenities,HAC98,Vending machines,Verkaufsautomaten
+amenities,HAC101,Wheelchair access,barrierefrei
+amenities,HAC116,Accessible parking,barrierefreies Parken
+amenities,HAC122,Shops and commercial services,Gewerbe
+amenities,HAC149,Grocery shopping service available,Einkaufsläden
+amenities,HAC154,Medical Facilities Service,medizinische Versorgung
+amenities,HAC156,All-inclusive meal plan,All-Inclusive Speiseplan
+amenities,HAC157,Buffet breakfast,Frühstücksbuffet
+amenities,HAC159,Continental breakfast,kleines Frühstück
+amenities,HAC160,Full meal plan,kompletter Speiseplan
+amenities,HAC165,Lounges/bars,Lounge/Bar
+amenities,HAC168,Onsite laundry,Wäscherei vor Ort
+amenities,HAC173,Breakfast served in restaurant,Frühstück im Restaurant
+amenities,HAC176,Full service housekeeping,Reinigungsservice
+amenities,HAC186,Street side parking,Parken am Straßenrand
+amenities,HAC193,Children's play area,Kinderspielplatz
+amenities,HAC195,Disco,Diskothek
+amenities,HAC196,Early check-in,frühes Einchecken
+amenities,HAC197,Locker room,Umkleideraum
+amenities,HAC198,Non-smoking rooms (generic),rauchfreie Räume
+amenities,HAC202,Bicycle rentals,Fahrradvermietung
+amenities,HAC204,Late check-out available,spätes Einchecken möglich
+amenities,HAC226,Catering services,Catering-Service
+amenities,HAC228,Business center,Geschäftszentrum
+amenities,HAC230,Secured parking,überwachter Parkplatz
+amenities,HAC231,Racquetball,Racquetball
+amenities,HAC232,Snow sports,Wintersport
+amenities,HAC233,Tennis court,Tennisplatz
+amenities,HAC234,Water sports,Wassersport
+amenities,HAC236,Golf,Golf
+amenities,HAC237,Horseback riding,Reiten
+amenities,HAC238,Oceanfront,direkt am Meer
+amenities,HAC239,Beachfront,direkt am Strand
+amenities,HAC241,Ironing board,Bügelbrett
+amenities,HAC242,Heated guest rooms,beheizte Gästezimmer
+amenities,HAC246,Thalassotherapy,Thalassotherapie
+amenities,HAC254,Connecting rooms,durchgehende Zimmer
+amenities,HAC262,Kitchenette,Kochnische
+amenities,HAC265,Welcome drink,Willkommensgetränk
+amenities,HAC269,Meeting rooms,Besprechungszimmer
+amenities,HAC272,Snow skiing,Skifahren im Schnee
+amenities,HAC273,Water skiing,Wasserski
+amenities,HAC280,Grocery store,Lebensmittelgeschäft
+amenities,HAC282,Airport shuttle service,Flughafen-Shuttle-Service
+amenities,HAC283,Luggage service,Gepäckservice
+amenities,HAC292,Newspaper,Zeitung
+amenities,HAC301,Food and beverage discount,Rabatt auf Speisen und Getränke
+amenities,HAC309,Welcome gift,Willkommensgeschenk
+amenities,HAC310,Hypoallergenic rooms,allergikerfreundliche Zimmer
+amenities,HAC312,Smoke-free property,Nichtraucherunterkunft
+amenities,HAC316,Electric car charging stations,Ladestationen für Elektroautos
+amenities,HAC327,Events ticket service,Ticketservice für Veranstaltungen
+amenities,HAC334,Summer terrace,Sommerterrasse
+amenities,HAC342,Snack bar,Imbissbude
+amenities,HAC345,Fitness center,Fitness-Center
+amenities,HAC348,Health and beauty services,Gesundheits- und Schönheitsdienstleistungen
+amenities,HAC5033,Ski Storage,Unterbringungsmöglichkeit für Ski
+amenities,HAC6002,Chef Services,Kochdienstleistung
+amenities,HAC6008,Ski rental,Ski-Ausleihe
+amenities,HAC6010,Child toddler seat,Kindersitz
+amenities,HAC6013,Photographer,Fotograph
+amenities,HAC6014,Chauffeur/cars,Chauffer
+amenities,HAC6019,Soap/Shampoo,Seife/Shampoo
+amenities,HAC6020,Boat,Boot
+amenities,HAC6024,Self checkin,Selbst-Check-In
+amenities,HAC6025,pack-n-play,Pack'n'Play
+amenities,HAC6026,Other services staff,sonst. Servicepersonal
+amenities,HAC6027,Games,Spiele
+amenities,HAC6028,Petanque,Petanque
+amenities,HAC6029,Car necessary,Auto erforderlich
+amenities,HAC6030,Car not necessary,Auto nicht erforderlich
+amenities,HAC6031,Car recommended,Auto empfohlen
+amenities,HAC6032,Synagogues,Synagogen
+amenities,HAC6033,EV charger,Ladestation für elektr. Fahrzeuge
+amenities,HAC6034,Long term stays allowed,Langzeitaufenthalt möglich
+amenities,HAC6035,Cleaning before checkout,Reinigung vor Check-Out
+amenities,HAC6036,Beach essentials,Grundausstattung Strand
+amenities,HAC6037,Wide hallway clearance,großer Flurabstand
+amenities,HAC6038,Home step free access,stufenloser Zugang
+amenities,HAC6039,Path to entrance lit at night,Eingang nachts beleuchtet
+amenities,HAC6040,Home wide doorway,breite Eingangstür
+amenities,HAC6041,Flat smooth pathway to front door,flacher Weg zur Eingangstür
+amenities,HAC6042,Disabled parking spot,Behindertenparkplatz
+amenities,HAC6043,HAC6043,HAC6043
+amenities,HAC6044,Cycling Trips,Radtouren
+amenities,HAC6045,Included housekeeping,Reinigung inklusive
+amenities,HAC6046,Staffed Property,besetztes Anwesen
+amenities,HAC6047,Near a train/subway station,in Bahnhofsnähe
+amenities,HAC6048,Nearby local nightlife,lokale Nachleben in der Nähe
+amenities,HAC6049,Shared residential building,geteiltes Wohngebäude
+amenities,HAC6050,24/7 Support,24/7-Unterstützung
+amenities,HAC6051,Butler,Butler
+amenities,HAC6052,Concierge Services,Concierge-Dienstleistung
+amenities,HAC6053,In-person Check-in,persönlicher Check-In
+amenities,HAC6054,Carbon Monoxide Detector + Smoke Detector,CO- und Rauchmelder
+amenities,HAC6055,Professionally Cleaned,professionelle Reinigung
+amenities,HAC6056,Accessible Parking: Indoor,barrierefreies Parken: Innen
+amenities,HAC6057,Accessible Parking: Indoor (1 spot),barrierefreies Parken: Innen (1 Platz)
+amenities,HAC6058,Accessible Parking: Indoor (2 spots),barrierefreies Parken: Innen (2 Plätze)
+amenities,HAC6059,Accessible Parking: Outdoor,barrierefreies Parken: Außen
+amenities,HAC6060,Accessible Parking: Outdoor (1 spot),barrierefreies Parken: Außen (1 Platz)
+amenities,HAC6061,Accessible Parking: Outdoor (2 spots),barrierefreies Parken: Außen (2 Plätze)
+amenities,HAC6062,Beach Access,Zugang zum Strand
+amenities,HAC6063,Business Facilities,Geschäftseinrichtungen
+amenities,HAC6064,Courtyard: Shared,geteilter Hof
+amenities,HAC6065,Courtyard: Private Use,privater Hof
+amenities,HAC6066,Fire Pit,Feuerstelle
+amenities,HAC6067,Fitness Center: Access to community facilities,Fitness-Center (öffentlich)
+amenities,HAC6068,Fitness Center: Private,Fitness-Center (privat)
+amenities,HAC6069,Heli-pad,Hubschrauberlandeplatz
+amenities,HAC6070,Home Theatre System,Heim-Kino
+amenities,HAC6072,Lakefront,direkt am Ufer
+amenities,HAC6073,Laundry Facilities,Waschmöglichkeiten
+amenities,HAC6074,Outdoor Dining Area: Private,Essbereich im Freien (privat)
+amenities,HAC6075,Outdoor Dining Area: Shared,Essbereich im Freien (geteilt)
+amenities,HAC6076,Outdoor Dining Area: Screened-in,Essbereich im Freien (abgeschirmt)
+amenities,HAC6077,Outdoor Dining Area: Seats 10,Essbereich im Freien: 10 Sitze
+amenities,HAC6078,Outdoor Dining Area: Seats 12,Essbereich im Freien: 12 Sitze
+amenities,HAC6079,Outdoor Dining Area: Seats 20+,Essbereich im Freien: 20+ Sitze
+amenities,HAC6080,Outdoor Furniture Area,Gartenmöbel
+amenities,HAC6081,Outdoor Furniture Area: Sun Loungers,Gartenmöbel: Liegestühle
+amenities,HAC6082,Outdoor Furniture Area: Dining Area,Gartenmöbel: Essbereich
+amenities,HAC6084,Pool: Infinity Edge,Pool: Infinity-Edge
+amenities,HAC6085,Pool: Saltwater,Salzwasser-Pool
+amenities,HAC6086,Pool: Community Access,geteilter Pool
+amenities,HAC6087,Riverfront,direkt am Fluss
+amenities,HAC6088,Sauna: Private,Sauna (privat)
+amenities,HAC6089,Sauna: Shared,Sauna (geteilt)
+amenities,HAC6090,Sauna: En-suite,Sauna (en suite)
+amenities,HAC6091,Seafront,direkt am Meer
+amenities,HAC6092,Ski rental: Available for additional fee,Ski-Leihe (gegen Aufpreis)
+amenities,HAC6093,Ski rental: Rental cost included with stay,Ski-Leihe (inklusive)
+amenities,HAC6095,Steam room,Dampfraum
+amenities,HAC6096,Bathroom Amenities: Robe included,Badezimmer: Bademantel inklusive
+amenities,HAC6097,Children’s play area: Indoor,Kinderspielplatz innen
+amenities,HAC6098,Children’s play area: Outdoor,Kinderspielplatz außen
+amenities,HAC6099,High Chair,Hochstuhl
+amenities,HAC6100,Table Tennis: Indoor,Tischtennis innen
+amenities,HAC6101,Table Tennis: Outdoor,Tischtennis außen
+amenities,HAC6102,Television: Plasma,Plasma-TV
+amenities,HAC6103,Television: Flat screen,Flatscreen-TV
+amenities,HAC6104,Television: Smart,Smart-TV
+amenities,HAC6105,Water Sports: Available for rent,Wassersport (zur Miete)
+amenities,HAC6106,Water Sports: Available for additional fee,Wassersport (gegen Aufpreis)
+amenities,HAC6107,Baby Sitting: On request,Babysitter (auf Anfrage)
+amenities,HAC6108,Baby Sitting: Available for additional fee,Babysitter (gegen Aufpreis)
+amenities,HAC6109,Bartender,Barkellner
+amenities,HAC6110,Bartender: On request,Barkellner (auf Anfrage)
+amenities,HAC6111,Bartender: Available for additional fee,Barkellner (gegen Aufpreis)
+amenities,HAC6113,Butler: On request,Butler (auf Anfrage)
+amenities,HAC6114,Butler: Available for additional fee,Butler (gegen Aufpreis)
+amenities,HAC6115,Chef Services: Included,Kochdienstleistung (included)
+amenities,HAC6116,Chef Services: Available for additional fee,Kochdienstleistung (gegen Aufpreis)
+amenities,HAC6117,Chef Services: Working schedule,Kochdienstleistung (Arbeitsplan)
+amenities,HAC6118,Concierge Services: AM only,Concierge (nur vormittags)
+amenities,HAC6119,Concierge Services: PM only,Concierge (nur nachmittags)
+amenities,HAC6120,Concierge Services: Weekends only,Concierge (nur am Wochenende)
+amenities,HAC6121,Dry Cleaning: On request,Trockenreinigung (auf Anfrage)
+amenities,HAC6122,Dry Cleaning: Available for additional fee,Trockenreinigung (gegen Aufpreis)
+amenities,HAC6123,Gardener,Gärtner
+amenities,HAC6124,Grocery shopping service available: On request,Lebensmitteleinkaufsservice (auf Anfrage)
+amenities,HAC6125,Grocery shopping service available: Available for additional fee,Lebensmitteleinkaufsservice (gegen Aufpreis)
+amenities,HAC6126,Housekeeping: 2x Daily,Reinigung (2x täglich)
+amenities,HAC6127,Housekeeping: Additional Services,weitere Reinigungsdienste
+amenities,HAC6128,Housekeeping: Additional services available on request,weitere Reinigungsdienste (auf Anfrage)
+amenities,HAC6129,Housekeeping: Additional services available for extra fee,weitere Reinigungsdienste (gegen Aufpreis)
+amenities,HAC6130,House Manager,Hausverwalter
+amenities,HAC6131,In-person Welcome,persönliche Begrüßung
+amenities,HAC6132,Laundry Services,Wäschedienstleistungen
+amenities,HAC6133,Laundry Services: Availabe for additional fee,Wäschedienstleistungen (gegen Aufpreis)
+amenities,HAC6134,Meal Included: Breakfast,Frühstück inclusive
+amenities,HAC6135,Meal Included: 3 meals/ day,3 Mahlzeiten/Tag
+amenities,HAC6136,Meal Included: Available for additional fee,Mahlzeiten verfügbar (gegen Aufpreis)
+amenities,HAC6137,Valet Parking: On request,Parkservice (auf Anfrage)
+amenities,HAC6138,Valet Parking: Available for additional fee,Parkservice (gegen Aufpreis)
+amenities,RMA1,Adjoining rooms,Nebenräume
+amenities,RMA2,Air conditioning,Klimaanlage
+amenities,RMA3,Alarm clock,Wecker
+amenities,RMA5,AM/FM radio,Radio AM/FM
+amenities,RMA6,Baby listening device,Babyphon
+amenities,RMA7,Balcony/Lanai/Terrace,Balkon/Veranda/Terasse
+amenities,RMA8,Barbeque grills,BBQ-Grill
+amenities,RMA9,Bath tub with spray jets,Badewanne mit Düse
+amenities,RMA10,Bathrobe,Bademantel
+amenities,RMA11,Bathroom amenities,Badezimmerzubehör
+amenities,RMA13,Bathtub,Badewanne
+amenities,RMA14,Bathtub only,nur Badewanne
+amenities,RMA15,Bathtub or Shower,Badewanne oder Dusche
+amenities,RMA16,Bidet,Bidet
+amenities,RMA18,Cable television,Kabelanschluss
+amenities,RMA19,Coffee/Tea maker,Kaffee-/Teemaschine
+amenities,RMA20,Color television,Farbfernsehen
+amenities,RMA21,Computer,Computer
+amenities,RMA22,Connecting rooms,durchgehende Zimmer
+amenities,RMA25,Cordless phone,kabelloses Telefon
+amenities,RMA26,Cribs,Krippen
+amenities,RMA28,Desk,Schreibtisch
+amenities,RMA29,Desk with lamp,Schreibtisch mit Lampe
+amenities,RMA32,Dishwasher,Geschirrspüler
+amenities,RMA33,Double bed,Doppelbett
+amenities,RMA38,Fax machine,Fax
+amenities,RMA41,Fireplace,Kamin
+amenities,RMA45,Free local calls,kostenlose Ortsgespräche
+amenities,RMA46,Free movies/video,kostenlose Filme
+amenities,RMA47,Full kitchen,vollst. Küche
+amenities,RMA49,Grecian tub,griechische Wanne
+amenities,RMA50,Hairdryer,Haartrockner
+amenities,RMA55,Iron,Bügeleisen
+amenities,RMA56,Ironing board,Bügelbrett
+amenities,RMA57,Whirpool,Whirlpool
+amenities,RMA58,King bed,Kingsize-Bett
+amenities,RMA59,Kitchen,Küche
+amenities,RMA63,Laptop,Laptop
+amenities,RMA64,Large desk,Schreibtisch (groß)
+amenities,RMA67,Loft,Loft
+amenities,RMA68,Microwave,Mikrowelle
+amenities,RMA69,Minibar,Mini-Bar
+amenities,RMA72,Multi-line phone,Telefon (mehrere Leitungen)
+amenities,RMA77,Oven,Ofen
+amenities,RMA78,Pay per view movies on TV,Pay-per-View-TV
+amenities,RMA80,Phone in bathroom,Telefon im Badezimmer
+amenities,RMA81,Plates and bowls,Teller und Schüsseln
+amenities,RMA85,Private bathroom,Badezimmer (privat)
+amenities,RMA86,Queen bed,Queensize-Bett
+amenities,RMA88,Refrigerator,Kühlschrank
+amenities,RMA89,Refrigerator with ice maker,Kühlschrank mit Eismaschine
+amenities,RMA91,Rollaway bed,Rollbett
+amenities,RMA92,Safe,Safe
+amenities,RMA94,Separate closet,sep. Schrank
+amenities,RMA97,Shower only,nur Dusche
+amenities,RMA98,Silverware/utensils,Besteck/Utensilien
+amenities,RMA99,Sitting area,Sitzbereich
+amenities,RMA61,Kitchenette,Küchennische
+amenities,RMA60,Kitchen supplies,Küchenzubehör
+amenities,RMA100,Smoke detectors,Rauchmelder
+amenities,RMA102,Sofa bed,Schlafsofa
+amenities,RMA103,Speaker phone,Freisprecheinrichtung
+amenities,RMA104,Stereo,Stereo-Anlage
+amenities,RMA105,Stove,Herd
+amenities,RMA107,Telephone,Telefon
+amenities,RMA108,Telephone for hearing impaired,Telefon für Hörgeschädigte
+amenities,RMA111,Trouser/Pant press,Hosenbügler
+amenities,RMA113,Twin bed,Doppelbett
+amenities,RMA115,VCR movies,Filme auf Videokassette
+amenities,RMA117,Video games,Videospiele
+amenities,RMA119,Wake-up calls,Wachrufe
+amenities,RMA126,Air conditioning individually controlled in room,raumgesteuerte Klimaanlage
+amenities,RMA127,Bathtub &whirlpool separate,separate Badewanne und Whirlpool
+amenities,RMA129,CD player,CD-Spieler
+amenities,RMA133,Desk with electrical outlet,Schreibtisch mit Stromanschluss
+amenities,RMA135,Foam pillows,Schaumkissen
+amenities,RMA138,Marble bathroom,Marmorbad
+amenities,RMA139,List of movie channels available,Liste verfügbarer Filmkanäle
+amenities,RMA141,Oversized bathtub,große Badewanne
+amenities,RMA142,Shower,Dusche
+amenities,RMA143,Sink in-room,Waschbecken im Zimmer
+amenities,RMA144,Soundproofed room,schallisoliertes Zimmer
+amenities,RMA146,Tables and chairs,Tische und Stühle
+amenities,RMA147,Two-line phone,Telefon (zwei Leitungen)
+amenities,RMA149,Washer/dryer,Waschmaschine/Trockner
+amenities,RMA151,Welcome gift,Willkommensgeschenk
+amenities,RMA155,Separate tub and shower,separate Dusche/Wanne
+amenities,RMA157,Ceiling fan,Deckenventilator
+amenities,RMA158,CNN available,CNN verfügbar
+amenities,RMA161,Accessible room,barrierefreie Zimmer
+amenities,RMA162,Closets in room,Klosett im Zimmer
+amenities,RMA163,DVD player,DVD-Spieler
+amenities,RMA164,Mini-refrigerator,Mini-Kühlschrank
+amenities,RMA166,Heating,Heizung
+amenities,RMA167,Toaster,Toaster
+amenities,RMA170,International calls,internationale Telefongespräche
+amenities,RMA175,Long distance calls,Ferngespräche
+amenities,RMA186,Hypoallergenic bed,allergikerfreundliches Bett
+amenities,RMA190,Meal included - continental breakfast,kleines Frühstück inklusive
+amenities,RMA191,Meal included - dinner,Abendessen inklusive
+amenities,RMA192,Meal included - lunch,Mittagessen inklusive
+amenities,RMA193,Shared bathroom,geteiltes Badezimmer
+amenities,RMA194,Telephone TDD/Textphone,Telefon-TDD/Texttelefon
+amenities,RMA195,Water bed,Wasserbett
+amenities,RMA200,Futon,Futon
+amenities,RMA201,Murphy bed,Schrankbett
+amenities,RMA203,Single bed,Einzelbett
+amenities,RMA204,Annex room,Nebenraum
+amenities,RMA205,Free newspaper,Zeitung (kostenlos)
+amenities,RMA207,Complimentary high speed internet in room,High-Speed-Internet (kostenlos)
+amenities,RMA210,Satellite television,Satelliten-TV
+amenities,RMA214,iPod docking station,Docking-Station für iPdd
+amenities,RMA217,Satellite radio,Satelliten-Radio
+amenities,RMA218,Video on demand,Video-on-Demand
+amenities,RMA220,Gulf view,Blick auf den Golf
+amenities,RMA223,Mountain view,Blick auf die Berge
+amenities,RMA224,Ocean view,Blick auf die See
+amenities,RMA227,Premium movie channels,Premium-Film-Kanäle
+amenities,RMA228,Slippers,Hausschufe
+amenities,RMA230,Chair provided with desk,Schreibtisch mit Stuhl
+amenities,RMA231,Pillow top mattress,Pillow-Top-Matratze
+amenities,RMA234,Luxury linen type,lux. Bettwäsche
+amenities,RMA242,Instant hot water,sofort heißes Wasser
+amenities,RMA245,RMA245,RMA245
+amenities,RMA246,High Definition (HD) Flat Panel Television - 32 inches or greater,HD-TV - 32 Zoll oder größer
+amenities,RMA251,TV,TV
+amenities,RMA254,Video game player:,Spielkonsole:
+amenities,RMA256,Dining room seats,Esszimmersitze
+amenities,RMA258,Mobile/cellular phones,Mobiletelefone
+amenities,RMA259,Movies,Filme
+amenities,RMA260,Multiple closets,mehrere Schränke
+amenities,RMA262,Safe large enough to accommodate a laptop,Safe mit Platz für ein Laptop
+amenities,RMA265,Bluray player,Bluray-Spieler
+amenities,RMA268,Non-allergenic room,Zimmer für Allergiker
+amenities,RMA269,Pillow type,Kissentyp
+amenities,RMA270,Seating area with sofa/chair,Sitzbereich mit Sofa/Sessel
+amenities,RMA271,Separate toilet area,separater Toilettenbereich
+amenities,RMA273,Widescreen TV,Breitbild-TV
+amenities,RMA276,Separate tub or shower,separate Dusche/Wanne
+amenities,RMA279,Children's playpen,Kinderlaufstall
+amenities,RMA280,Plunge pool,Tauchbecken
+amenities,RMA5005,Bath,Bad
+amenities,RMA5020,Spa Bath,Spa
+amenities,RMA5085,Dining Area,Essbereich
+amenities,RMA5086,Electric Kettle,elek. Teekocher
+amenities,RMA5091,Towels/Linens At Surcharge,Handtücher/Bettwäsche gegen Aufpreis
+amenities,RMA5126,Dining Table,Esstisch
+amenities,RMA5145,Baby safety gates,Babyschutzgitter
+amenities,RMA6001,Towels available,Handtücher verfügbar
+amenities,RMA6003,Cats allowed,Katzen erlaubt
+amenities,RMA6004,Dogs allowed,Hunde erlaubt
+amenities,RMA6005,CD library,CD-Sammlung
+amenities,RMA6010,Separate entrance,separater Eingang
+amenities,RMA6012,Beach view,Sicht auf Strand
+amenities,RMA6013,Pool view,Sicht auf Pool
+amenities,RMA6017,Water view,Sicht auf Wasser
+amenities,RMA6018,Electronic room key,elek. Zimmerschlüssel
+amenities,RMA6021,Fire extinguishers,Feuerlöscher
+amenities,RMA6027,Golf view,Sicht auf Golfplatz
+amenities,RMA6028,Ground floor,Erdgeschoss
+amenities,RMA6029,Lake view,Sicht auf See
+amenities,RMA6030,City view,Sicht auf Stadt
+amenities,RMA6031,Harbor view,Sicht auf Hafen
+amenities,RMA6032,Bunk bed,Etagenbett
+amenities,RMA6033,Washer,Waschmaschine
+amenities,RMA6034,Dryer,Trockner
+amenities,RMA6035,Hangers,Kleiderbügel
+amenities,RMA6036,Laptop Friendly Workspace,Notebook-Arbeitsplatz
+amenities,RMA6037,Essentials,Grundausstattung
+amenities,RMA6038,Extra bed,Extra-Bett
+amenities,RMA6039,Patio,Patio
+amenities,RMA6040,iPad,iPad
+amenities,RMA6042,Living room,Wohnzimmer
+amenities,RMA6045,Outdoor furniture,Gartenmöbel
+amenities,RMA6046,Outdoor dinning area,Essbereich im Freien
+amenities,RMA6051,Garden view,Sicht auf Garten
+amenities,RMA6052,River view,Sicht auf Fluss
+amenities,RMA6053,Park view,Sicht auf Park
+amenities,RMA6054,Game Console - Xbox 360,Spielkonsole - XBox 360
+amenities,RMA6055,Game Console - PS2,Spielkonsole - PS2
+amenities,RMA6056,Game Console - PS3,Spielkonsole - PS3
+amenities,RMA6057,Game Console - Nintendo Wii,Spielkonsole - Nintendo Wii
+amenities,RMA6058,Linen,Bettwäsche
+amenities,RMA6059,Carpeted floor,Teppich
+amenities,RMA6060,Tiled floor,Fliesen
+amenities,RMA6061,Parquet Floor,Parkett
+amenities,RMA6062,Upper Floor Reachable By Stairs Only,obere Etagen nur via Treppenaufgang zu erreichen
+amenities,RMA6063,Semi-Detached,Doppenhaushälfte
+amenities,RMA6064,Detached,freistehend
+amenities,RMA6065,Mosquito Net,Mosquito-Netz
+amenities,RMA6066,Cleaning Included,Reinigung inklusive
+amenities,RMA6067,Carbon monoxide detector,CO-Sensor
+amenities,RMA6068,First aid kit,Erste-Hilfe-Kasten
+amenities,RMA6071,Buzzer/wireless intercom,Summer/kabellose Gegensprechanlage
+amenities,RMA6072,Safety card,Sicherheitskarte
+amenities,RMA6073,Lock on bedroom door,abschließbares Schlafzimmer
+amenities,RMA6074,Smart lock,intell. Schloss
+amenities,RMA6075,Private entrance,private Eingang
+amenities,RMA6076,Outlet covers,Abdeckung über Steckdosen
+amenities,RMA6077,Baby bath,Baby-Bad
+amenities,RMA6078,Stair gates,Treppentore
+amenities,RMA6079,Window guards,Fensterschutz
+amenities,RMA6080,Table corner guards,Tischeckenschutz
+amenities,RMA6081,Fireplace guards,Kaminwächter
+amenities,RMA6082,Room darkening shades,verdunkelnde Rollos
+amenities,RMA6083,Childrens dinnerware,Kinderbesteck
+amenities,RMA6084,Children’s books and toys,Kinderbücher und Spielzeug
+amenities,RMA6085,Breakfast not available,Frühstück nicht verfürgbar
+amenities,RMA6086,Dinner booking possible,Abendessen kann gebucht werden
+amenities,RMA6087,Dinner not available,Abendessen nicht verfügbar
+amenities,RMA6088,House cleaning optional,Haus-Reinigung optional
+amenities,RMA6089,Lunch booking possible,Mittagessen kann gebucht werden
+amenities,RMA6090,Lunch not available,Mittagessen nicht verfügbar
+amenities,RMA6091,Wood stove,Holzofen
+amenities,RMA6092,Dining Highchair,Esszimmer-Hochstuhl
+amenities,RMA6093,Dining Raclette,Raclette
+amenities,RMA6094,Dining room,Esszimmer
+amenities,RMA6095,Dining spices,Gewürze
+amenities,RMA6096,Meals guests furnish own,Eigenversorgung
+amenities,RMA6097,Limited accessibility,eingeschränkte Zugänglichkeit
+amenities,RMA6098,Wheelchair inaccessible,unzugänglich für Rollstühle
+amenities,RMA6099,Breakfast booking possible,Frühstück kann gebucht werden
+amenities,RMA6100,Extra pillows and blankets,Extra Kissen und Decken
+amenities,RMA6101,Ethernet connection,Ethernet-Anschluss
+amenities,RMA6102,Pocket wifi,Pocket-WiFi
+amenities,RMA6103,Cooking basics,Basis-Kochausstattung
+amenities,RMA6104,Changing table,Wickeltisch
+amenities,RMA6105,Bedroom step free access,Schlafzimmer ebenerdig
+amenities,RMA6106,Wide clearance to bed,Bett freistehend
+amenities,RMA6107,Bedroom wide doorway,breiter Flur zum Schlafzimmer
+amenities,RMA6108,Accessible height bed,Bett in barrierefreier Höhe
+amenities,RMA6109,Bathroom step free access,Badezimmer ebenerdig
+amenities,RMA6110,Grab rails in shower and toilet,Haltegriffe in Dusche und an Toilette
+amenities,RMA6111,Accessible height toilet,Toilette in barrierefreier Höhe
+amenities,RMA6112,Rollin shower with bench,rollstuhlgerechte Dusche mit Sitzbank
+amenities,RMA6113,Bathroom wide doorway,breiter Flur zum Badezimmer
+amenities,RMA6114,Tub with shower bench,Badewanne mit Duschbank
+amenities,RMA6115,Wide clearance to shower and toilet,viel Platz um Dusche und Toilette
+amenities,RMA6116,Handheld shower hear,Handbrause
+amenities,RMA6117,Single level home,einstöckige Anlage
+amenities,RMA6118,Couch,Couch
+amenities,RMA6119,Air mattress,Luftmatratze
+amenities,RMA6120,Floor mattress,Bodenmatratze
+amenities,RMA6121,Toddler bed,Kinderbett
+amenities,RMA6122,Hammock,Hängematte
+amenities,RMA6123,Freezer,Gefrierschrank
+amenities,RMA6124,Private yard,privater Hof
+amenities,RMA6125,Ensuite,en suite
+amenities,RMA6126,High-Speed Wifi,High-Speed WLAN
+amenities,RMA6127,Patio/Balcony,Terasse/Balkon
+amenities,RMA6128,Balcony: Garden View,Balkon: Sicht auf Garten
+amenities,RMA6129,Balcony: City View,Balkon: Sicht auf Stadt
+amenities,RMA6130,Balcony: Ocean View,Balkon: Sicht auf Meer
+amenities,RMA6131,Balcony: Mountain View,Balkon: Sicht auf Berge
+amenities,RMA6132,Fireplace: Wood burning,Kamin: holzbefeuert
+amenities,RMA6133,Fireplace: Gas,Kamin: gasbefeuert
+amenities,RMA6134,Fireplace: Electric,Kamin: elektrisch
+amenities,RMA6135,Pizza Oven,Pizza-Ofen
+amenities,RMA6136,Air Conditioning: Central,zentrale Klimaanlage
+amenities,RMA6137,Air Conditioning: Partial,teilw. Klimaanlage
+amenities,RMA6138,RMA6138 Air Conditioning: In rooms,Klimaanlage im Zimmer
+amenities,RMA6139,Baby Crib,Baby-Krippe
+amenities,RMA6140,Barbeque Grill: Gas,Gasgrill
+amenities,RMA6141,Barbeque Grill: Propane,Propan-Grill
+amenities,RMA6142,Barbeque Grill: Charcoal,Holzkohle-Grill
+amenities,RMA6144,Premium Linens & Towels,Premium Bettwäsche und Handtücher
+amenities,RMA6145,Kitchen Essentials,Grundausstattung Küche
+amenities,RMA6146,In-unit Washer,Waschmaschine in der Wohneinheit
+amenities,RMA6147,Self-controlled heating/cooling system,selbstbestimmte Heizung/Kühlung
+amenities,RMA6148,Private living room,privates Wohnzimmer
+amenities,RMA6149,Amenity toilet,Komfortoilette
+amenities,RMA6150,Amenity combo tub shower,Komfort-Dusche/Bad
+amenities,RMA6151,Amenity outdoor shower,Komfort-Außendusche
+amenities,RMA6154,Entertainment Books,Unterhaltung: Bücher
+amenities,RMA6155,Entertainment Toys,Unterhaltung: Spielzeug
+amenities,RMA6156,Security System,Alarmanlage
+amenities,RMA6157,Private Dock,privater Anleger
+amenities,RMA6158,Indoor Fireplace,Kamin
+amenities,RST4,Basketball court,Basketballplatz
+amenities,RST7,Boating,Bootfahren
+amenities,RST9,Bowling alley,Bowling
+amenities,RST13,Cross country skiing,Skilanglauf
+amenities,RST14,Dart board,Dart-Scheibe
+amenities,RST20,Fishing,Angeln
+amenities,RST25,Fly fishing,Fliegenfischen
+amenities,RST34,Golf,Golf
+amenities,RST35,Gym,Fitnessstudio
+amenities,RST60,Hiking trail,Wanderweg
+amenities,RST63,Jet-ski,Jet-Ski
+amenities,RST65,Kayaking,Kajak
+amenities,RST67,Miniature golf,Mini-Golf
+amenities,RST68,Mountain biking trail,Mountainbike-Strecke
+amenities,RST71,Outdoor tennis courts,Tennisplatz (außen)
+amenities,RST73,Parasailing,Parasailing
+amenities,RST74,Playground,Spielplatz
+amenities,RST79,River rafting,Fluss-Rafting
+amenities,RST80,Sailing,Segeln
+amenities,RST82,Scuba diving,Gerätetauchen (Scuba)
+amenities,RST86,Snorkeling,Schnocheln
+amenities,RST87,Snow boarding,Snow-Boarden
+amenities,RST92,Squash court,Squash-Platz
+amenities,RST96,Tubing,Tubing
+amenities,RST101,Windsurfing,Windsegeln
+amenities,RST104,Hot tub,Hot Tub
+amenities,RST105,Hunting,Jagen
+amenities,RST108,Mountain climbing,Bergsteigen
+amenities,RST111,Billiards,Billiard
+amenities,RST112,Rock climbing,Klettern
+amenities,RST116,Surfing,Surfen
+amenities,RST117,Table tennis,Tischtennis
+amenities,RST120,Snow mobiling,Schneemobil
+amenities,RST123,Outdoor pool,Außenpool
+amenities,RST127,Bird watching,Vögel beobachten
+amenities,RST129,Children's pool,Kinderpool
+amenities,RST133,Gambling,Glücksspiel
+amenities,RST134,Garden,Garten
+amenities,RST137,Ice skating,Eislaufen
+amenities,RST149,Canoeing,Kanu
+amenities,RST151,Outlet shopping,Outlet-Shopping
+amenities,RST156,Ski in/out facilities,Ski
+amenities,RST157,Tennis professional,prof. Tennis
+amenities,RST160,Diving,Tauchen
+amenities,RST161,Walking track,Wanderstrecke
+amenities,RST169,Bikes Available (Free),Fahrräder verfügbar (kostenlos)
+amenities,RST170,Away from it all,Fernab von allem
+amenities,RST171,Budget,Budget
+amenities,RST172,Farm holidays,Urlaub auf dem Bauernhof
+amenities,RST173,Historic,historisch
+amenities,RST174,Holiday complex,Ferienanlage
+amenities,RST175,Romantic,romantisch
+amenities,RST176,Tourist attractions,Touristenattraktion
+amenities,RST177,Eco tourism,Öko-Tourismus
+amenities,RST178,Luaus,Luaus
+amenities,RST179,Paddle boating,Tretboot
+amenities,RST180,Sledding,Schlitten
+amenities,RST181,Thermalisme,Therme
+amenities,RST182,Whale watching,Wale beobachten
+amenities,RST183,Hot air ballooning,Heißliftballonfahren
+amenities,RST184,Shelling,Muscheln sammeln
+amenities,RST185,Adventure,Abenteuer
+amenities,RST186,Rural countryside retreats,Rückzugsort auf dem Land
+amenities,RST187,Trampoline,Trampolin
+amenities,RST5028,Ski-to-door access,direkt an der Skipiste
+images,1,Shower,Dusche
+images,2,Toilet,Bad
+images,3,Property building,Gebäude
+images,4,patio,Patio
+images,5,Nearby landmark,Wahrzeichen in der Nähe
+images,6,Staff,Personal
+images,7,Restaurant/places to eat,Restaurant/Essmöglichkeit
+images,8,Communal lounge/ TV room,Wohnzimmer/TV-Zimmer
+images,10,Facade/entrance,Fassade/Eingang
+images,43,People,Personen
+images,11,Spring,Frühling
+images,13,Bed,Bett
+images,14,Off site,außerhalb des Grundstücks
+images,37,Food close-up,Nahaufnahme Essen
+images,41,Day,Tag
+images,42,Night,Nacht
+images,50,Property logo or sign,Logo oder Beschilderung
+images,55,Neighbourhood,Nachbarschaft
+images,61,Natural landscape,natürliche Landschaft
+images,70,Activities,Aktivitäten
+images,74,Bird's eye view,Vogelperspektive
+images,81,Winter,Winter
+images,82,Summer,Sommer
+images,87,BBQ facilities,Grill
+images,89,Billiard,Billiard
+images,90,Bowling,Bowling
+images,94,Casino,Glücksspiel
+images,95,Place of worship,Andachtsort
+images,96,Children play ground,Kinderspielplatz
+images,97,Darts,Dart
+images,100,Fishing,Angeln
+images,102,Game Room,Spielzimmer
+images,103,Garden,Garten
+images,104,Golf course,Golfkurs
+images,106,Horse-riding,Pferdereiten
+images,107,Hot Spring Bath,Baden mit heißer Quelle
+images,141,Table tennis,Tischtennis
+images,108,Hot Tub,Hottub
+images,112,Karaoke,Karaoke
+images,113,Library,Bücherei
+images,114,Massage,Massage
+images,115,Minigolf,Mini-Golf
+images,116,Nightclub / DJ,Nachtclub
+images,124,Sauna,Sauna
+images,125,On-site shops,Einkaufen
+images,128,Ski School,Ski-Schule
+images,131,Skiing,Skilaufen
+images,137,Squash,Squash
+images,133,Snorkeling,Schnorcheln
+images,134,Solarium,Solarium
+images,143,Steam room,Dampfraum
+images,153,Bathroom,Badezimmer
+images,154,TV and multimedia,TV und Multimedia
+images,155,Coffee/tea facilities,Kaffee-/Tee-Ecke
+images,156,View (from property/room),Aussicht vom Grundstück
+images,157,Balcony/Terrace,Balkon/Terasse
+images,158,Kitchen or kitchenette,Küche
+images,159,Living room,Wohnzimmer
+images,160,Lobby or reception,Lobby/Rezeption
+images,161,Lounge or bar,Lounge oder Bar
+images,164,Spa and wellness centre/facili,Spa-/Wellnesseinrichtung
+images,165,Fitness centre/facilities,Gymnasium
+images,167,Food and drinks,Essen und Trinken
+images,172,Other,Sonstiges
+images,173,Photo of the whole room,gesamter Raum ist Abgebildet
+images,177,Business facilities,Büroeinrichtung
+images,178,Banquet/Function facilities,Bankett/Einrichtungen zur Amtsausübung
+images,179,Decorative detail,dekoratives Detail
+images,182,Seating area,Sitzgruppe
+images,183,Floor plan,Grundriss
+images,184,Dining area,Essbereich
+images,185,Beach,Strand
+images,186,Aqua park,Aqua-Park
+images,187,Tennis court,Tennisplatz
+images,188,Windsurfing,Wind-Surfen
+images,189,Canoeing,Kanufahren
+images,190,Hiking,Wandern
+images,191,Cycling,Radfahren
+images,192,Diving,Tauchen
+images,193,Kids's club,Kinderclub
+images,194,Evening entertainment,Abendunterhaltung
+images,197,Logo/Certificate/Sign,Logo/Zertifikat/Schild
+images,198,Animals,Tiere
+images,199,Bedroom,Schlafzimmer
+images,204,Communal kitchen,Gemeinschaftsküche
+images,205,Autumn,Herbst
+images,240,On site,auf dem Grundstück
+images,241,Meeting/conference room,Meeting-/Konferenzzimmer
+images,242,Food,Essen
+images,245,Text overlay,überlagerter Text
+images,246,Pets,Haustiere
+images,247,Guests,Gäste
+images,248,City view,Blick auf Stadt
+images,249,Garden view,Blick in Garten
+images,250,Lake view,Blick auf Teich
+images,251,Landmark view,Blick auf Wahrzeichen
+images,252,Mountain view,Blick auf Berge
+images,253,Pool view,Blick auf Pool
+images,254,River view,Blick auf Fluss
+images,255,Sea view,Blick auf See
+images,256,Street view,Blick auf Straße
+images,257,Area and facilities,Umgebung/Einrichtungen
+images,258,Supermarket/grocery shop,Supermarkt
+images,259,Shopping Area,Einkaufsbereich
+images,260,Swimming pool,Schwimmbad
+images,261,Sports,Sport
+images,262,Entertainment,Unterhaltung
+images,263,Meals,Mahlzeiten
+images,264,Breakfast,Frühstück
+images,265,Continental breakfast,kleines Frühstück
+images,266,Buffet breakfast,Frühstücksbuffet
+images,267,Asian breakfast,Frühstück (asiatisch)
+images,268,Italian breakfast,Frühstück (ital.)
+images,269,English/Irish breakfast,Frühstück (engl./irisch)
+images,270,American breakfast,Frühstück (amerikanisch)
+images,271,Lunch,Mittagessen
+images,272,Dinner,Abendessen
+images,273,Drinks,Getränke
+images,274,Alcoholic drinks,alkoholische Getränke
+images,275,Non alcoholic drinks,alkoholfreie Getränke
+images,276,Seasons,Jahreszeiten
+images,277,Time of day,Tagszeit
+images,278,Location,Standort
+images,279,Sunrise,Sonnenaufgang
+images,280,Sunset,Sonnenuntergang
+images,281,children,Kinder
+images,282,young children,kleine Kinder
+images,283,older children,Heranwanchsende
+images,284,group of guests,Gäste
+images,285,cot,Kinderbett
+images,286,bunk bed,Etagenbett
+images,287,Certificate/Award,Zertifikat/Auszeichnung
+images,288,ADAM,ADAM
+images,289,Open Air Bath,Freiluftbad
+images,290,Public Bath,öffentliches Bad
+images,291,Family,Familie

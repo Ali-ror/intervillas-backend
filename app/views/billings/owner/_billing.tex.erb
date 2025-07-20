@@ -1,0 +1,82 @@
+\begin{tabbing}
+  % Empfängeradresse
+  \null\hspace{.2\linewidth}\=\hspace{.35\linewidth}\=\hspace{.225\linewidth}\=\hspace{.225em}\\\kill
+  <%- if tpl.owner.company_name.present? -%>
+    \>\> <%= escape tpl.owner.company_name %>\\
+  <%- end -%>
+  <%- if tpl.owner.first_name.present? || tpl.owner.last_name.present? -%>
+    \>\> <%= escape tpl.owner.first_name %> <%= escape tpl.owner.last_name %>\\
+  <%- end -%>
+  \>\> <%= escape tpl.owner.address %>\\
+  \>\> <%= escape tpl.owner.zip %> <%= escape tpl.owner.city %>\\[10pt]
+
+  \textbf{STATEMENT}
+    \> \textbf{<%= escape number %>}
+    \> <%= tpl.inquiry.for_corporate? ? "Cape Coral" : "Nürensdorf" %>, <%= l date %>\\[30pt]
+
+  <%- if tpl.villa? -%>
+    \textbf{Property}         \> <%= escape tpl.villa_address %>\\
+  <%- elsif tpl.boat? -%>
+    \textbf{Boat}             \> <%= escape tpl.boat_name %>\\
+  <%- end -%>
+  \textbf{Tenant}             \> <%= escape customer.first_name %> <%= escape customer.last_name %>\\
+  \textbf{Rental Period}      \> <%= l tpl.start_date %> - <%= l tpl.end_date %>\\
+  <%- if tpl.villa? -%>
+    \textbf{Number of people} \> <%= escape booking.persons %>\\
+    \textbf{Number of nights} \> <%= escape tpl.period %>\\[10pt]
+  <%- elsif tpl.boat? -%>
+    \textbf{Number of days}   \> <%= escape tpl.period %>\\[10pt]
+  <%- end -%>
+
+  \textbf{Accounting for U.S. tax authority}
+  \>\>\currency{<%= booking.summary_currency %>}
+    \>\currency{<%= booking.summary_currency %>}\\
+  \>\>\currency{\small (gross)}
+    \>\currency{\small (net)}\\[5pt]
+
+    <%- billables.each do |billable| -%>
+      <%- billable.positions.each do |pos| -%>
+        \> <%= tp pos %>
+        \> <%= format_currency pos.gross %>
+        \> <%= format_currency pos.net %>\\
+      <%- end -%>
+
+      \> \textbf{<%= tp billable.total %>}
+      \> \textbf{<%= format_currency billable.total.gross %>}
+      \> \textbf{<%= format_currency billable.total.net %>}\\
+
+      <%- billable.total.proportions.each do |key, val| -%>
+        \>$\qquad$ <%= escape t "templates.billing.tax.#{key}" %>
+        \>\> <%= format_currency val %>\\
+      <%- end -%>[5pt]
+    <%- end -%>
+
+  \textbf{Accounting}
+    \> \textbf{Total excluding taxes}
+    \>\> \textbf{<%= format_currency billing.accounting %>}\\[5pt]
+
+  <%- charges.each do |c| -%>
+    \> <%= escape c.text %> <%= "(#{c.amount}x #{format_currency c.value})" if c.amount > 1 %>
+    \>\> <%= format_currency c.sub_total %>\\
+  <%- end -%>
+
+  <%- unless billing.agency_fee.zero? -%>
+  \> Admin Agency fee
+  \>\> <%= format_currency billing.agency_fee %>\\
+  <%- end -%>
+
+  <%- unless billing.repeater_discount.zero? %>
+  \> Repeater Discount
+  \>\> <%= format_currency -billing.repeater_discount %>\\
+  <%- end %>
+
+  \> Agency Commission (<%= tpl.main_billing.commission %>\%)
+  \>\> <%= format_currency billing.agency_commission %>\\[5pt]
+
+  \> \textbf{Payout}
+  \> \textbf{<%= format_currency billing.payout + billing.taxes %>}
+  \> \textbf{<%= format_currency billing.payout %>}\\
+
+  \> Taxes total
+  \>\> <%= format_currency billing.taxes %>\\
+\end{tabbing}

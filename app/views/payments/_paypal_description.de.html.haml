@@ -1,0 +1,11 @@
+%p
+  %strong Bequem und sicher mit PayPal bezahlen.
+  Sie möchten mit Kreditkarte oder per Bankeinzug zahlen? Dies ist
+  mit PayPal auch ohne Anmeldung möglich.
+
+- unless inquiry.prices_include_cc_fee
+  %p
+    Bei Bezahlung per PayPal erklären Sie sich damit einverstanden, die
+    PayPal-Gebühren in Höhe von #{paypal_fees} zu
+    tragen. Die absoluten Gebühren entnehmen Sie bitte der nachfolgenden
+    Tabelle.

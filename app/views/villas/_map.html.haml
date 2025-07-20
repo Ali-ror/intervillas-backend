@@ -1,0 +1,12 @@
+- lat, lng = @villa.geocode.try(:latitude), @villa.geocode.try(:longitude)
+- if lat && lng
+  %section.container.mt-5
+    %h4.h2.lined-heading
+      %span= t "villas.show.map"
+
+    %div{ itemprop: "geo", itemscope: "itemscope", itemtype: "http://schema.org/GeoCoordinates" }
+      %meta{ itemprop: "latitude", content: lat }
+      %meta{ itemprop: "longitude", content: lng }
+
+    %lazy-applet
+      %villa-map{ ":lat" => lat, ":lng" => lng }

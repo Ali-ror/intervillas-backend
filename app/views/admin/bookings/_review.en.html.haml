@@ -1,0 +1,46 @@
+%fieldset
+  %legend Customer review
+
+- if review.present?
+  - if review.deleted_at?
+    .alert.alert-danger.fa-alert
+      = fa :trash, class: "text-danger"
+      This review was deleted or archived on #{l review.deleted_at.to_date},
+      and will not be shown on the villa page.
+
+  = render "admin/reviews/form",
+      review_form: ReviewForms::Admin.from_review(review),
+      return_to: edit_admin_booking_url(booking, anchor: "review")
+
+- else
+  %p
+    %strong.text-danger No review present, yet.
+  - if booking.end_date < Date.parse('2014-12-01')
+    %p
+      This booking is too old for reviews. The customer will only be
+      notified for bookings created after 12/01/2014.
+  - if booking.end_date > 5.days.ago.to_date
+    %p
+      Five days after the departure date (#{l booking.end_date + 5.days}),
+      we'll automatically send a request for review to
+      <code>#{booking.customer.email}</code>.
+
+  %hr
+
+  = form_tag [:admin, :reviews], method: :post do
+    .row
+      %p.col-md-5.col-lg-3
+        = hidden_field_tag "review[inquiry_id]", booking.inquiry_id, id: nil
+        = hidden_field_tag "review[deliver_review_mail]", "1"
+        = submit_tag "Prepare", class: "btn btn-warning btn-xs"
+      %p.col-md-7.col-lg-9
+        Send a request for review to the customer now.
+
+  = form_tag [:admin, :reviews], method: :post do
+    .row
+      %p.col-md-5.col-lg-3
+        = hidden_field_tag "review[inquiry_id]", booking.inquiry_id, id: nil
+        = submit_tag "Create manually", class: "btn btn-default btn-xs"
+      %p.col-md-7.col-lg-9
+        Create a review for this booking <strong>without</strong> notifying
+        the customer.

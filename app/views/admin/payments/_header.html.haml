@@ -1,0 +1,21 @@
+%ul.nav.nav-tabs
+  %li.disabled
+    %a.border-0.border-bottom.px-3{ href: "#" } Zahlungen
+  = li_payment_tab :index,    admin_payments_path
+  = li_payment_tab :overdue,  overdue_admin_payments_path
+  = li_payment_tab :external, external_admin_payments_path
+  = li_payment_tab :unpaid,   unpaid_admin_payments_path
+  = li_payment_tab :acked,    acked_admin_payments_path
+
+  %li.disabled.ml-5
+    %a.border-0.border-bottom.px-3{ href: "#" } Eingänge
+  = li_payment_tab :paypal,   admin_paypal_transactions_path,    controller: "paypal_transactions"
+  = li_payment_tab :bsp1,     admin_bsp1_payment_processes_path, controller: "bsp1_payment_processes"
+
+  %li.dropdown{ class: ("active" if controller_action == "payments#balance") }
+    %a.dropdown-toggle.px-3{ href: "#", data: { toggle: :dropdown }, title: payment_tab_title("balance") }
+      = payment_tab_name("balance")
+      = fa :caret_down
+    %ul.dropdown-menu.pull-right
+      - current_user.booking_year_range.each do |year|
+        %li= link_to year, balance_admin_payments_path(year: year)

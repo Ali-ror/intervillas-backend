@@ -1,0 +1,23 @@
+%p= salute manager
+
+%p
+  Booking #{inquiry.number} was updated with the following note:
+%div{ style: "margin-left: 20px" }
+  - if @message_text.present?
+    = simple_format @message_text
+  - if inquiry.cancelled?
+    %p
+      Booking has been <strong style="color:#f00">cancelled</strong>.
+  - elsif booking.late?
+    %p
+      Attention, <strong style="color:#f00">late booking</strong>,
+      please check booking plan/calendars.
+
+- if [nil, "book", "dates"].include?(message_action)
+  %p Details:
+  = render "message_mailer/note_mail/details"
+
+- if !inquiry.cancelled? && manager.reload.has_access?
+  %p This note is available online, please follow this link:
+  %p= link_to admin_booking_url, admin_booking_url
+  %p You may need to login first.

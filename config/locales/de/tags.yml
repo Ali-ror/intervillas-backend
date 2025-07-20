@@ -1,0 +1,43 @@
+---
+de:
+  category:
+    accessoires:            Strandzubehör
+    bathrooms:              Badezimmer
+    bedrooms:               Schlafzimmer
+    boat:                   Boot
+    entertainment:          Unterhaltung
+    gym:                    Sportmöglichkeiten
+    highlights:             Villa Specials
+    kitchen:                Küche
+    lavatory:               Waschraum
+    livingroom:             Wohnraum
+    location:               Umgebung
+    outdoor:                Außenbereich
+    theme:                  Thema
+  category_descriptions:
+    header:                 Kopf-Text
+    teaser:                 Teaser-Text
+    description:            Beschreibung
+  category_multiple_types:
+    duschbad:               Duschbad
+    dusche:                 Dusche
+    einzimmerwohnung:       Einzimmerwohnung
+    gaestewc:               Gäste-WC
+    schlafzimmer:           Schlafzimmer
+    sonstiges:              Sonstiges
+    vollbad:                Vollbad
+  area_tags:
+    badewanne:              Badewanne
+    doppelbett:             Doppelbett
+    dusche:                 Dusche
+    einzelbett:             Einzelbett
+    franzoesischbettgross:  Kingsize (Doppelbett gross)
+    franzoesischbettklein:  Queensize (Doppelbett normal)
+    jacuzzi:                Jacuzzi
+    schlafsofa:             Schlafsofa
+    wc:                     WC
+
+  tags:
+    holidays:
+      christmas:      Weihnachten
+      easter:         Ostern

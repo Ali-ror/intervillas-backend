@@ -1,0 +1,18 @@
+%h2= salute customer
+%p
+  You have inquired about one of our wonderful vacation homes in Cape
+  Coral, Florida.
+%p
+  Your inquiry is still pending. Do you have any questions, or would like
+  to secure your vacation through the following link?
+%p
+  If you're not interested in this offer anymore, we would appreciate
+  a short feedback per email from you.
+
+= mail_button_link_to new_booking_url do
+  &gt;&gt; Book now
+
+%p
+  Sincerely,
+  %br/
+  Your INTERVILLAS-Team

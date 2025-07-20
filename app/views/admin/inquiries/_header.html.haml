@@ -1,0 +1,25 @@
+%ul.nav.nav-tabs
+  - if can? :read, Inquiry
+    %li{ class: ("active" if controller_action == "inquiries#index") }
+      = link_to t(".inquiries"), admin_inquiries_path
+
+  - if can? :read, Booking
+    %li{ class: ("active" if controller_action == "bookings#index") }
+      = link_to t(".bookings"), admin_bookings_path
+
+  - if current_user.admin?
+    %li{ class: ("active" if controller_action == "billings#invoicable") }
+      = link_to t(".invoicable"), invoicable_admin_billings_path
+
+    %li{ class: ("active" if controller_action == "billings#index") }
+      = link_to t(".billings"), admin_billings_path
+
+    %li{ class: ("active" if controller_action == "clearings#index") }
+      = link_to t(".clearings"), admin_clearings_path
+
+    %li{ class: ("active" if controller_action == "cancellations#index")  }
+      = link_to t(".cancelations"), admin_cancellations_path
+
+  - if false && can?(:read, Blocking)
+    %li{ class: ("active" if controller_action == "blockings#index") }
+      = link_to t(".blockings"), admin_blockings_path

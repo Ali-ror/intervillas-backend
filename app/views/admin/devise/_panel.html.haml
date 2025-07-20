@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    %strong= yield :title
+  .panel-body
+    = yield
+  - if content_for?(:footer)
+    .panel-footer
+      = yield :footer
+  - elsif !user_signed_in?
+    .panel-footer
+      = render "admin/devise/links"

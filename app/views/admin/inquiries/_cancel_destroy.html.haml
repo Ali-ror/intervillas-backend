@@ -1,0 +1,21 @@
+.panel.panel-danger
+  .panel-heading= t ".heading"
+
+  - if inquiry.destroyable?
+    .panel-body
+      %p= t ".destroyable_hint"
+    .panel-footer.d-flex.justify-content-end
+      = button_to t(".destroy"), [:admin, inquiry], method: :delete, class: "btn btn-danger btn-sm"
+
+  - elsif inquiry.cancelable?
+    .panel-body
+      %p= t ".cancelable_hint"
+    .panel-footer.d-flex.justify-content-end
+      %cancel-inquiry-modal{ url: api_admin_cancellations_path, "index-url" => admin_bookings_url, ":id" => inquiry.id }
+
+  - else
+    .panel-body.text-danger
+      %p= t ".indestructable_hint"
+      %ul
+        - inquiry.indestructable_reasons.each do |reason|
+          %li= t reason, scope: "inquiries.indestructable_reasons"

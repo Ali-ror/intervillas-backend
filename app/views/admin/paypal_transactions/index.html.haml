@@ -1,0 +1,9 @@
+.row
+  .col-sm-10.col-md-9
+    = render "admin/payments/header"
+    = render "payments_table"
+
+  %aside.col-sm-2.col-md-3
+    = render "admin/payments/sidebar/search"
+    -# = render "admin/payments/sidebar/export"
+    = render "admin/paypal_transactions/sidebar/fees"

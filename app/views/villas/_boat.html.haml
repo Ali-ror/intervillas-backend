@@ -1,0 +1,16 @@
+%h3
+  = t('villas.show.bootsbeschreibung')
+
+= simple_format boat.description
+
+- if boat.url && !boat.url.blank?
+  %p.link
+    %strong
+      = t('villas.show.mehr_infos_zu_diesem_boot')
+    %br/
+    = link_to boat.url, boat.url, target: "_blank"
+
+.images
+  - boat.images.each do |image|
+    = link_to image.file.url(:full), rel: 'prettyPhoto[boat]', title: image.name do
+      = image_tag(image.file.url(:thumb), alt: image.name)

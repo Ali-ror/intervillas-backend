@@ -1,0 +1,67 @@
+%tr[villa]
+  %td= villa.name
+  %td
+    = villa.locality
+    - if (loc = villa.pool_orientation.presence)
+      .small.text-muted= t loc, scope: "villas.cardinal_directions"
+    - else
+      .small.text-danger= t ".missing_pool_orientation"
+  %td
+    - if villa.owner_id?
+      = villa.owner
+    - if villa.manager_id?
+      .small.text-muted
+        = surround "(", ")" do
+          = villa.manager
+  %td
+    %ul.small.list-unstyled
+      - villa.domains.each do |dom|
+        %li= dom
+  %td= t "admin.villas.item.boat_state.#{villa.boat_inclusion}"
+
+  %td
+    - if villa.booking_pal_product
+      = link_to "Details", admin_my_booking_pal_product_path(villa.booking_pal_product), class: "btn btn-xxs btn-primary"
+    - else
+      = link_to "Setup", new_admin_my_booking_pal_product_path(villa_id: villa.id), class: "btn btn-xxs btn-default"
+
+  %td
+    %ul.list-inline
+      %li
+        = link_to admin_stats_path("villas", villa.id), title: t(".statistics") do
+          = fa :line_chart, :x2, title: t(".statistics")
+
+      %li.dropdown
+        %a{ href: "#", data: { toggle: :dropdown }, title: t(".ical.export") }
+          = fa :calendar, :x2, class: "text-info"
+          = fa :caret_down
+
+        %ul.dropdown-menu.pull-right
+          %li
+            = link_to ical_export_url(villa, include_external: false) do
+              = t ".ical.without_external_events"
+              .small.text-muted
+                = t ".ical.only_internal_bookings"
+          %li
+            = link_to ical_export_url(villa) do
+              = t ".ical.with_external_events"
+              .small.text-muted
+                = t ".ical.with_synced_bookings"
+
+        %li
+          - if (r = villa.route.presence)
+            = link_to edit_admin_route_path(r), title: t(".seo_settings") do
+              = fa :cogs, :x2
+          - else
+            %li= fa :cogs, :x2, class: "text-muted"
+
+  %td
+    %ul.list-inline
+      - if can? :show, villa
+        %li
+          = link_to villa_path(villa), title: t("helper.links.show") do
+            = fa :eye, :x2, title: t("helper.links.show")
+      - if can? :edit, villa
+        %li
+          = link_to edit_admin_villa_path(villa), title: t("helper.links.edit") do
+            = fa :pencil, :x2, class: "text-warning", title: t("helper.links.edit")

@@ -1,0 +1,26 @@
+%table.table{ border: 0, cellpadding: 0, cellspacing: 0 }
+  %tbody
+    %tr
+      %td{ width: 200 }
+        %h3 Booking Message
+      %td
+        %h3= inquiry.number
+    %tr
+      %td
+        %strong Name
+      %td= customer.name
+
+    = yield
+
+%hr/
+- if imessage.text.present?
+  %p= imessage.text
+%p
+  The confirmation is in accordance with the terms of rental conditions
+  and is legally binding.
+%p
+  We wish you a nice day!
+  %br
+  Kind Regards,
+  %br
+  YOUR INTERVILLAS TEAM

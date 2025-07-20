@@ -1,0 +1,24 @@
+%ul.nav.nav-tabs{ role: :tablist }
+  %li.active{ role: :presentation }
+    %a{ href: "#send-billings", data: { toggle: :tab } }
+      = t ".titles.forms"
+
+  %li{ role: :presentation }
+    %a{ href: "#messages", data: { toggle: :tab } }
+      = t ".titles.message_list"
+      %span.badge= messages.count
+
+.tab-content
+  .tab-pane.active#send-billings{ role: :tabpanel }
+    - if villa_billing_form
+      .owner-communication-form
+        = render "admin/billings/communication/villa_form"
+
+    - if boat_billing_form
+      = render "admin/billings/communication/boat_form"
+
+    .tenant-communication-form
+      = render "admin/billings/communication/tenant_form"
+
+  .tab-pane#messages{ role: :tabpanel }
+    = render "admin/billings/communication/messages"

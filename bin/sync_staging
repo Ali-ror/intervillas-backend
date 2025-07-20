@@ -1,0 +1,33 @@
+#!/bin/bash -e
+
+current_host="$(hostname)"
+current_user="$(id -un)"
+
+db_production="intervillas"
+db_staging="intervillas_staging"
+db_dump="/home/staging/iv.sql.gz"
+
+if [ "$current_host" != "intervillas-florida.com" ]; then
+  echo >&2 "unexpected host: ${current_host}, expected intervillas-florida.com"
+  exit 1
+fi
+
+if [ "$current_user" != "staging" ]; then
+  echo >&2 "unexpected user: ${current_user}, expected staging"
+  exit 1
+fi
+
+echo "cloning data directory"
+sudo /home/staging/clone-production-data.sh
+
+echo "dumping database"
+pg_dump --clean --no-owner -Z1 "$db_production" > "$db_dump"
+
+echo "restoring database"
+echo 'DROP SCHEMA public CASCADE; CREATE SCHEMA public;' | psql -wqd "$db_staging" >/dev/null 2>&1
+zcat "$db_dump" | psql -wqd "$db_staging" >/dev/null 2>&1
+
+echo "clearing MBP product IDs"
+echo 'UPDATE booking_pal_products SET foreign_id = NULL;' | psql -wqd "$db_staging" >/dev/null 2>&1
+
+rm "$db_dump"

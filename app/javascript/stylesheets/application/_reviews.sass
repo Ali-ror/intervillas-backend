@@ -1,0 +1,26 @@
+.review
+  break-inside:               avoid
+
+  &:target .text-balloon
+    border-color:             $brand-danger
+    box-shadow:               0 3px 0 0 rgba($brand-danger, 0.12)
+
+.text-balloon
+  display:                    block
+  border:                     1px solid $gray-lighter
+  padding:                    $padding-small-vertical $padding-small-horizontal
+  border-radius:              $border-radius-base
+  box-shadow:                 0 3px 0 0 rgba(#000, 0.12)
+  margin:                     0 0 0.5*$grid-gutter-width
+
+  @media screen and (min-width: $screen-sm-min)
+    padding:                  $padding-base-vertical $padding-base-horizontal
+
+  &:before, &:after
+    display:                  none
+    content:                  ''
+
+  p.small
+    display:                  block
+    padding-top:              5px
+    margin:                   0

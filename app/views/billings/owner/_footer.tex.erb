@@ -1,0 +1,13 @@
+<%- if tpl.villa? -%>
+\textbf{All income from rentals is taxable. Please note that Intervilla is required to collect and remit the taxes.}\\[5mm]
+<%- end -%>
+Payment is made according to your bank instructions as follows:
+
+<%- n = tpl.bank_account.length; tpl.bank_account.each.with_index do |(_, (val, text)), i| -%>
+  <%= text %> <%= val %><%= ',' if i+1 < n %>
+<%- end -%>
+
+\null\hspace{.55\linewidth}\parbox{.3\linewidth}{
+  Kind regards,\\[15mm]
+  <% if inquiry.for_corporate? %>Intervilla Corp.<% else %>INTERVILLA GMBH<% end %>
+}

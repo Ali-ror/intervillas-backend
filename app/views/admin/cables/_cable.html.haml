@@ -1,0 +1,10 @@
+.well.well-sm
+  %p
+    - if current_user.admin?
+      = link_to "löschen", [:admin, cable.inquiry, cable], method: :delete, class: "btn btn-xs btn-danger pull-right"
+      %strong= cable.contact.name
+    - else
+      %strong= link_to cable.inquiry_number, admin_booking_path(cable.inquiry_id)
+    &bull;
+    %span.text-muted= timestamp cable.updated_at, "P, p"
+  = simple_format cable.text

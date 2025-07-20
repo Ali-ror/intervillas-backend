@@ -1,0 +1,466 @@
+# Auto-generated with `Category.export_fixtures`. DO NOT EDIT!
+# Date: 2019-11-28 13:46:33 UTC
+accessoires:
+  tags:
+    kuehlbox:
+    - Kühlbox
+    - Kühlbox
+    - Coolbox
+    - Coolbox
+    liegestuehle:
+    - Liegestühle
+    - Liegestühle
+    - Deck chairs
+    - Deck chairs
+    strandstuehle:
+    - Strandstühle
+    - Strandstühle
+    - Beach chairs
+    - Beach chairs
+    strandtuecher:
+    - Strandtücher
+    - Strandtücher
+    - Beach towels
+    - Beach towels
+bathrooms:
+  multiple_types:
+  - vollbad
+  - gaestewc
+  - duschbad
+  tags:
+    badewanne:
+    - Badewanne
+    - Badewanne
+    - Bath
+    - Bath
+    dusche:
+    - Dusche
+    - Dusche
+    - Shower
+    - Shower
+    foen:
+    - Föhn
+    - Föhn
+    - Hairdryer
+    - Hairdryer
+    handtuecher:
+    - Handtücher
+    - Handtücher
+    - Towels
+    - Towels
+    jacuzzi:
+    - Jacuzzi
+    - Jacuzzi
+    - Jacuzzi
+    - Jacuzzi
+    wc:
+    - WC
+    - WC
+    - WC
+    - WC
+bedrooms:
+  multiple_types:
+  - schlafzimmer
+  - einzimmerwohnung
+  - sonstiges
+  tags:
+    doppelbett:
+    - Doppelbetten
+    - Doppelbett
+    - "%{count} Doppelbetten"
+    - Double bed
+    - Double bed
+    - "%{count} Double bed"
+    einzelbett:
+    - Einzelbetten
+    - Einzelbett
+    - "%{count} Einzelbetten"
+    - Single beds
+    - Single bed
+    - "%{count} Single beds"
+    franzoesischbettgross:
+    - Kingsize (Doppelbett gross)
+    - Kingsize (Doppelbett gross)
+    - "%{count} Kingsize (Doppelbett gross)"
+    - King-size
+    - King-size
+    - "%{count} King-size"
+    franzoesischbettklein:
+    - Queensize (Doppelbett normal)
+    - Queensize (Doppelbett normal)
+    - "%{count} Queensize (Doppelbett normal)"
+    - Queen-size
+    - Queen-size
+    - "%{count} Queen-size"
+    schlafsofa:
+    - Schlafsofas
+    - Schlafsofa
+    - "%{count} Schlafsofas"
+    - Sleeper Sofas
+    - Sleeper Sofa
+    - "%{count} Sleeper Sofas"
+boat:
+  tags:
+    bootsanlegestelle:
+    - Bootsanlegestelle
+    - Bootsanlegestelle
+    - Boat Dock
+    - Boat Dock
+    bootslift:
+    - Bootslift
+    - Bootslift
+    - Boat lift
+    - Boat lift
+    motorboot:
+    - Motorboot
+    - Motorboot
+    - Motorboat
+    - Motorboat
+entertainment:
+  tags:
+    appletv:
+    - Apple-TV
+    - Apple-TV
+    - Apple TV
+    - Apple TV
+    billardtisch:
+    - Billardtisch
+    - Billardtisch
+    - Pool table
+    - Pool table
+    cdplayer:
+    - CD-Player
+    - CD-Player
+    - CD player
+    - CD player
+    fernseher:
+    - Fernseher
+    - 1 Fernseher
+    - "%{count} Fernseher"
+    - TV
+    - 1 TV
+    - "%{count} TV"
+    highspeedwlan:
+    - Highspeed WLAN
+    - Highspeed WLAN
+    - Highspeed WLAN
+    - Highspeed WLAN
+    netflix:
+    - Netflix
+    - Netflix
+    - Netflix
+    - Netflix
+    satkabeltv:
+    - Kabel-TV
+    - Kabel-TV
+    - Satellite
+    - Satellite
+    sonos:
+    - Sonos-Sound-System
+    - Sonos-Sound-System
+    - Sonos sound system
+    - Sonos sound system
+    spielkonsole:
+    - Spielkonsole
+    - Spielkonsole
+    - Game Console
+    - Game Console
+    stereoanlage:
+    - Stereoanlage
+    - Stereoanlage
+    - Stereo
+    - Stereo
+gym:
+  tags:
+    bicycles:
+    - Fahrräder
+    - Fahrrad
+    - "%{count} Fahrräder"
+    - Bicycles
+    - Bicycle
+    - "%{count} bicycles"
+    gym:
+    - Gym
+    - Gym
+    - Gym
+    - Gym
+highlights:
+  tags:
+    boot:
+    - Boot
+    - Boot
+    - Boat
+    - Boat
+    deutschsprprogramme:
+    - Deutschspr. Programme
+    - Deutschspr. Programme
+    - German Programs
+    - German Programs
+    espressomachine:
+    - Nespresso-Kaffeemaschine
+    - Nespresso-Kaffeemaschine
+    - Nespresso coffee machine
+    - Nespresso coffee machine
+    fahrrad:
+    - Fahrrad
+    - Fahrrad
+    - Bike
+    - Bike
+    grill:
+    - Outdoorküche
+    - Outdoorküche
+    - Barbecue Outdoor Kitchen
+    - Barbecue Outdoor Kitchen
+    heatedpool:
+    - elektrisch beheizbarer Pool
+    - elektrisch beheizbarer Pool
+    - Heatable Pool (electrical)
+    - Heatable Pool (electrical)
+    kajak:
+    - Kajak
+    - Kajak
+    - Kayak
+    - Kayak
+    pooltable:
+    - Billard-Tisch
+    - Billard-Tisch
+    - Pool table
+    - Pool table
+    saltwaterpool:
+    - Salzwasserpool
+    - Salzwasserpool
+    - Salt water pool
+    - Salt water pool
+    solarheating:
+    - Solar-Heizung für Pool
+    - Solar-Heizung für Pool
+    - Solar heating for the pool
+    - Solar heating for the pool
+    spa:
+    - Aussenwhirlpool/Spa
+    - Aussenwhirlpool/Spa
+    - Outdoor Whirlpool/Spa
+    - Outdoor Whirlpool/Spa
+    tikihut:
+    - Tiki-Hut/Dock
+    - Tiki-Hut/Dock
+    - Tiki-Hut/Dock
+    - Tiki-Hut/Dock
+kitchen:
+  tags:
+    besteck:
+    - Geschirr, Besteck, Gläser
+    - Geschirr, Besteck, Gläser
+    - Cutlery & Glasses
+    - Cutlery & Glasses
+    eiswuerfel:
+    - Eiswürfelzubereiter
+    - Eiswürfelzubereiter
+    - Ice maker
+    - Ice maker
+    fruehstuecksraum:
+    - Frühstücksraum
+    - Frühstücksraum
+    - Breakfast nook
+    - Breakfast nook
+    gefrierfach:
+    - Gefrierfach
+    - Gefrierfach
+    - Freezer
+    - Freezer
+    geschirrspueler:
+    - Geschirrspülmaschine
+    - Geschirrspülmaschine
+    - Dishwasher
+    - Dishwasher
+    grill:
+    - Grill
+    - Grill
+    - Barbecue
+    - Barbecue
+    kaffeemaschine:
+    - Filterkaffeemaschine
+    - Filterkaffeemaschine
+    - Coffee machine
+    - Coffee machine
+    kaltwasserspender:
+    - Kaltwasserspender
+    - Kaltwasserspender
+    - Cold water dispenser
+    - Cold water dispenser
+    kinderhochstuhl:
+    - Kinderhochstuhl
+    - Kinderhochstuhl
+    - High Chair
+    - High Chair
+    kochfeld:
+    - Ceran/Keramikkochfeld
+    - Ceran/Keramikkochfeld
+    - Ceramic / ceramic hob
+    - Ceramic / ceramic hob
+    kuechenbar:
+    - Küchenbar
+    - Küchenbar
+    - Kitchen bar
+    - Kitchen bar
+    kuehlschrank:
+    - Kühlschrank
+    - Kühlschrank
+    - Refrigerator
+    - Refrigerator
+    mikrowelle:
+    - Mikrowelle
+    - Mikrowelle
+    - Microwave
+    - Microwave
+    mixer:
+    - Mixer
+    - Mixer
+    - Mixer
+    - Mixer
+    ofen:
+    - Backofen
+    - Backofen
+    - Oven
+    - Oven
+    toaster:
+    - Toaster
+    - Toaster
+    - Toaster
+    - Toaster
+lavatory:
+  tags:
+    flatiron:
+    - Bügeleisen
+    - Bügeleisen
+    - Flat iron
+    - Flat iron
+    ironingboard:
+    - Bügelbrett
+    - Bügelbrett
+    - Ironing board
+    - Ironing board
+    trockner:
+    - Wäschetrockner
+    - Wäschetrockner
+    - Clothes dryer
+    - Clothes dryer
+    waschmaschine:
+    - Waschmaschine
+    - Waschmaschine
+    - Washing Machine
+    - Washing Machine
+livingroom:
+  tags:
+    deckenventilatoren:
+    - Deckenventilatoren
+    - Deckenventilatoren
+    - Ceiling fans
+    - Ceiling fans
+    klimaanlage:
+    - Klimaanlage
+    - Klimaanlage
+    - Air conditioning
+    - Air conditioning
+    schlafsofa:
+    - Schlafsofa
+    - Schlafsofa
+    - Sofa bed
+    - Sofa bed
+location:
+  tags:
+    amstrand:
+    - am Strand
+    - am Strand
+    - at the beach
+    - at the beach
+    amwasser:
+    - am Wasser (Fluss/See)
+    - am Wasser (Fluss/See)
+    - at the water (river / lake)
+    - at the water (river / lake)
+outdoor:
+  tags:
+    fahrraeder:
+    - Fahrräder
+    - 1 Fahrräder
+    - "%{count} Fahrräder"
+    - Bicycles
+    - 1 Bicycles
+    - "%{count} Bicycles"
+    garage:
+    - Garage
+    - Garage
+    - Garage
+    - Garage
+    garten:
+    - Garten
+    - Garten
+    - Garden
+    - Garden
+    gartenstuehle:
+    - Gartenstühle
+    - 1 Gartenstühle
+    - "%{count} Gartenstühle"
+    - Garden-Chairs
+    - 1 Garden-Chairs
+    - "%{count} Garden-Chairs"
+    gasgrill:
+    - Gasgrill im Freien
+    - Gasgrill im Freien
+    - Gas Grill outside
+    - Gas Grill outside
+    kayak:
+    - Kajak
+    - Kajak
+    - Kayak
+    - Kayak
+    liegen:
+    - Liegen
+    - 1 Liegen
+    - "%{count} Liegen"
+    - Deck-Chair
+    - 1 Deck-Chair
+    - "%{count} Deck-Chair"
+    parkmoeglichkeit:
+    - Parkmöglichkeit
+    - Parkmöglichkeit
+    - Parking
+    - Parking
+    swimmingpool:
+    - Swimming-Pool
+    - Swimming-Pool
+    - Swimming Pool
+    - Swimming Pool
+    tikihut:
+    - Tiki-Hut
+    - Tiki-Hut
+    - Tiki Hut
+    - Tiki Hut
+    towels:
+    - Badetücher
+    - Badetücher
+    - Bath towels
+    - Bath towels
+    ueberdachtersitzbereich:
+    - Überdachter Sitzbereich
+    - Überdachter Sitzbereich
+    - Covered seating area
+    - Covered seating area
+    whirlpool:
+    - Whirlpool
+    - Whirlpool
+    - Whirlpool
+    - Whirlpool
+theme:
+  tags:
+    golfurlaub:
+    - Golfurlaub
+    - Golfurlaub
+    - Golf
+    - Golf
+    luxusdomizile:
+    - Luxusdomizile
+    - Luxusdomizile
+    - Luxury Homes
+    - Luxury Homes

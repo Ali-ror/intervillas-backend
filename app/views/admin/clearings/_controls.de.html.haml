@@ -1,0 +1,39 @@
+= form_tag deliver_admin_clearings_path, method: :post, class: "panel panel-primary" do
+  = hidden_field_tag :month, clearing_date.month
+  = hidden_field_tag :year, clearing_date.year
+
+  .panel-heading
+    Monatsübersicht an alle Eigentümer versenden
+
+  .panel-body
+    .checkbox
+      = label_tag do
+        = check_box_tag :ignore_already_sent, 1, checked: true
+        erneuten Versand verhindern?
+      %span.help-block
+        Wenn der Haken gesetzt ist, und ein Eigentümer bereits eine Monatsübersicht
+        = l clearing_date, format: "%B %Y"
+        bekommen hat, wird diesem keine erneute Übersicht zugestellt.
+
+  .panel-footer
+    %p
+      Der Versand erfolgt asynchron und kann etwas Zeit in Anspruch nehmen (abhängig von der Anzahl
+      neu zu generierender PDF-Dateien).
+    %p
+      = submit_tag "an alle versenden", name: nil, class: "btn btn-sm btn-primary btn-block", data: { disable_with: t(:wait) }
+
+.panel.panel-default
+  .panel-heading
+    Sammel-PDF herunterladen
+
+  .panel-body
+    Hier können alle PDF-Dateien gesammelt heruntergeladen werden, z.B. für die
+    Weitergabe an eine externe Buchhaltung oder zur Archivierung.
+
+  .panel-footer
+    %p
+      Der Download kann ggf. sehr lange dauern (abhängig von der Anzahl neu zu generierender
+      Statements).
+    %p
+      = link_to url_for(month: clearing_date.month, year: clearing_date.year, format: :pdf), class: "btn btn-sm btn-primary btn-block" do
+        Sammel-PDF herunterladen

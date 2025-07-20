@@ -1,0 +1,23 @@
+- i = 0
+- @specials.each do |special|
+  - villas = special.villas.on_domain(current_domain).available
+  - if villas.any?
+    %a{ name: dom_id(special) }
+    = page_header do
+      = breadcrumb.render t("shared.menu.specials")
+      %h1
+        = special.description
+        = surround "(", ")" do
+          = [special.start_date, special.end_date].map(&method(:l)).join("–")
+
+    %section.mt-3.mb-5
+      .container
+        .room-grid
+          - villas.sort_by{ rand }.each do |villa|
+            - i += 1
+            = render partial: "/villas/villa", object: villa, locals: { special: special }
+
+- if i == 0
+  %section.my-5.pt-5
+    .container
+      %p.lead= t ".none_found"

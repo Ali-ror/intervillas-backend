@@ -1,0 +1,199 @@
+%h2.page-header Eigentümer-Abrechnung
+
+- billing.owner_billings.each do |ob|
+  - owner = ob.owner
+  .row.billing.owner-billing
+    .col-sm-3
+      %h3 Eigentümer
+      %address.small
+        - if owner.company_name.present?
+          #{owner.company_name}<br>
+        - if owner.first_name.present? || owner.last_name.present?
+          #{owner.first_name} #{owner.last_name}<br>
+        #{owner.address}<br>
+        #{owner.zip} #{owner.city}
+
+      %p
+        = link_to owner_admin_billing_path(billing, owner.id, format: :pdf), class: "btn btn-warning btn-sm" do
+          = fa :file_pdf_o, text: "PDF herunterladen"
+
+
+    .col-sm-9
+      %table.table.table-condensed.billing-table
+        %thead
+          %tr
+            %th Statement
+            %th.num gross
+            %th.num net
+        - ob.billables.each do |billable|
+          - billable.positions.each do |pos|
+            %tr
+              %td= t "templates.billing.#{pos.context}.#{pos.subject}"
+              %td.num= display_price pos.gross
+              %td.num= display_price pos.net
+          %tr
+            %td
+              %strong= t "templates.billing.#{billable.total.context}.#{billable.total.subject}"
+            %td.num
+              %strong= display_price billable.total.gross
+            %td.num
+              %strong= display_price billable.total.net
+
+          - billable.total.proportions.each do |key, val|
+            %tr
+              %td
+                &emsp;
+                = t "templates.billing.tax.#{key}"
+              %td
+              %td.num= display_price val
+
+      %table.table.table-condensed.billing-table
+        %thead
+          %tr
+            %th Accounting
+            %th.num gross
+            %th.num net
+        %tr
+          %td
+            %strong Total excluding taxes
+          %td
+          %td.num
+            %strong= display_price ob.accounting
+
+        - ob.charges.each do |c|
+          %tr
+            %td
+              = c.text
+              = " (#{c.amount} × #{display_price c.value})" if c.amount > 1
+            %td
+            %td.num= display_price c.sub_total
+        - unless ob.repeater_discount.zero?
+          %tr
+            %td Repeater Discount
+            %td
+            %td.num= display_price -ob.repeater_discount
+        - unless ob.agency_fee.zero?
+          %tr
+            %td Admin Agency Fee
+            %td
+            %td.num= display_price ob.agency_fee
+        %tr
+          %td Admin Commission
+          %td
+          %td.num= display_price ob.agency_commission
+        %tr
+          %td
+            %strong Payout
+          %td.num
+            %strong= display_price ob.payout + ob.taxes
+          %td.num
+            %strong= display_price ob.payout
+        %tr
+          %td Taxes total
+          %td
+          %td.num= display_price ob.taxes
+
+
+- inquiry = billing.inquiry
+%h2.page-header
+  Nebenkosten-Abrechnung
+
+.row.billing.tenant-billing
+  .col-sm-3
+    %h3 Mieter
+    %address.small
+      - c = billing.customer
+      #{c.title}<br>
+      #{c.first_name} #{c.last_name}<br>
+      #{c.address} #{c.appnr}<br>
+      #{c.country}-#{c.postal_code} #{c.city}
+
+    %p
+      = link_to tenant_admin_billing_path(billing, format: :pdf), class: "btn btn-warning btn-sm" do
+        = fa :file_pdf_o, text: "PDF herunterladen"
+
+  .col-sm-9
+    - tb = billing.tenant_billing
+    %table.table.table-condensed.billing-table
+      %thead
+        %tr
+          %th Kaution
+          %th.num gross
+          %th.num
+      - tb.deposits.each do |rentable,pos|
+        %tr
+          %td
+            = t "templates.billing.#{pos.context}.#{pos.subject}"
+            (#{rentable})
+          %td.num= display_price pos.gross
+          %td
+      %tr
+        %td Total Kaution
+        %td.num= display_price tb.total_deposit
+        %td
+
+    - if vb = tb.billables.find{|b| VillaBilling === b }
+      %table.table.table-condensed.billing-table
+        %thead
+          %tr
+            %th Stromkosten
+            %th
+            %th.num gross
+            %th.num
+        - if vb.energy_pricing == "usage"
+          %tr
+            %td Zählerstand Beginn
+            %td.num
+              = vb.meter_reading_begin.round(2)
+              kWh
+            %td
+            %td
+          %tr
+            %td Zählerstand Ende
+            %td.num
+              = vb.meter_reading_end.round(2)
+              kWh
+            %td
+            %td
+          %tr
+            %td Verbrauch
+            %td.num
+              = vb.meter_reading.round(2)
+              kWh
+            %td
+            %td
+        %tr
+          %td{ colspan: 2 }
+            Energiekosten
+            - if vb.energy_pricing == "usage"
+              (Verbrauch × #{display_price vb.energy_price} pro kWh)
+          %td.num
+            = display_price vb.energy.gross
+          %td
+
+    - if tb.charges.any?
+      %table.table.table-condensed.billing-table
+        %thead
+          %tr
+            %th{ colspan: 2 } Sonstige Kosten
+            %th.num gross
+            %th.num
+        - tb.charges.each do |c|
+          %tr
+            %td= c.text
+            %td.num #{c.amount} × #{display_price c.value}
+            %td.num= display_price c.sub_total
+            %td
+        %tr
+          %td{ colspan: 2 } Total
+          %td.num= display_price tb.total_charges
+          %td
+
+    %table.table.table-condensed.billing-table
+      %tr
+        %td
+          %strong
+            = tb.total > 0 ? "Rückzahlung" : "Nachzahlung"
+          (Kaution &ndash; Kosten)
+        %td.num= display_price tb.total.abs
+        %td.num

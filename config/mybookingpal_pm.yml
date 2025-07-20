@@ -1,0 +1,62 @@
+# Payload for new PM accounts. These will be created once per environment.
+# https://developerstesting.channelconnector.com/documentation#/rest/api-endpoints/property-managers/create-new-property-manager
+shared:
+  isCompany: true
+  companyDetails:
+    accountId: Intervillas/<%= Rails.env %> # max 40 chars
+    companyName: Intervilla Corp.
+    language: en
+    fullName: API Client
+    companyAddress:
+      country: US
+      state: FL
+      streetAddress: 4929 SW 26th Ave
+      city: Cape Coral
+      zip: "33914"
+    website: http://localhost:3000/
+    email: <%= MyBookingPal::Client::CONFIG.fetch(:manager).fetch(:username) %>
+    phone:
+      countryCode: "+1"
+      number: "239 544 8733"
+    password: <%= MyBookingPal::Client::CONFIG.fetch(:manager).fetch(:password) %>
+    currency: USD
+  policies:
+    paymentPolicy:
+      type: SPLIT
+      splitPayment:
+        depositType: PERCENTAGE
+        value: 35
+        secondPaymentDays: 30
+    cancellationPolicy:
+      type: NON_REFUNDABLE
+    feeTaxMandatory:
+      isFeeMandatory: true
+      isTaxMandatory: true
+    terms: https://www.intervillas-florida.com/agb
+    checkInTime: "16:00:00"
+    checkOutTime: "10:00:00"
+    leadTime: 1
+  payment:
+    paymentType: CREDIT_CARD
+    creditCard:
+      creditCardType: TRANSMIT
+      paymentGateways:
+        paymentGatewaysType: PAYPAL
+        user: <%= Rails.application.credentials.paypal.client_id %>
+        secret: <%= Rails.application.credentials.paypal.client_secret %>
+      creditCardList:
+        - MASTER_CARD
+        - VISA
+        #- AMERICAN_EXPRESS
+        - DINERS_CLUB
+        #- DISCOVER
+
+production:
+  companyDetails:
+    website: https://en.intervillas-florida.com
+  policies:
+    terms: https://en.intervillas-florida.com/agb
+
+staging:
+  companyDetails:
+    website: https://www.staging.intervillas-florida.com

@@ -1,0 +1,28 @@
+.split-text
+  .split-text-post
+    display: none
+
+  a.split-text-expand
+    float: right
+
+    table.index &
+      font-weight: bold
+      color: #276eac
+
+  &.split-text-more
+    span.split-text-post
+      display: inline
+    p.split-text-post
+      display: block
+    span.split-text-cont,
+    a.split-text-expand
+      display: none
+
+  .text-balloon &
+    .btn-link
+      $brand-primary: #75c5cf !default
+      color: $brand-primary
+
+    span.split-text-pre,
+    span.split-text-post
+      color: #000 !important

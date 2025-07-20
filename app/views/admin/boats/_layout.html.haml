@@ -1,0 +1,5 @@
+.row
+  .col-sm-2
+    %admin-boat-listing.mt-4{ admin_boat_list_config(boats, boat&.id) }
+  .col-sm-10
+    = yield

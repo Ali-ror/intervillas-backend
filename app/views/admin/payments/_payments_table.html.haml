@@ -1,0 +1,30 @@
+.text-center
+  = will_paginate payments
+
+%table.table.table-hover.table-condensed.js-action-row.js-sticky-header{ data: { action_row_url: edit_admin_booking_url(":id", anchor: "payments") } }
+  %thead
+    %tr
+      %th= t ".booking"
+      %th.text-center{ colspan: 2 }
+        = t ".downpayment"
+        .small.text-muted
+          = surround "(", ")" do
+            = t ".deficit"
+      %th.text-center{ colspan: 2 }
+        = t ".total_payment"
+        .small.text-muted
+          = surround "(", ")" do
+            = t ".deficit"
+      %th.text-right
+        = t ".payment_receipt"
+        .small.text-muted
+          = surround "(", ")" do
+            = t ".total_sum"
+      %th.text-right= t ".difference"
+      %th= t ".comment"
+
+  %tbody
+    = render partial: "payment", collection: payments
+
+.text-center
+  = will_paginate payments

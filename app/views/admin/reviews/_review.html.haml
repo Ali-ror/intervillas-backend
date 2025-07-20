@@ -1,0 +1,36 @@
+%tr
+  %td
+    = link_to review.inquiry.number, edit_admin_inquiry_path(review.inquiry, anchor: "review")
+    %br
+    = review.villa.name
+  %td
+    = l review.inquiry.start_date
+    bis<br>
+    = l review.inquiry.end_date
+  %td= toggle_review_state(:publish, review)
+  %td= toggle_review_state(:archive, review)
+  %td{ class: ("text-muted" if review.deleted_at?) }
+    - if review.deleted_at?
+      .alert.alert-danger.fa-alert
+        = fa :trash, class: "text-danger"
+        Diese Bewertung wurde am #{l review.deleted_at.to_date} gelöscht/archiviert.
+        Sie wird nicht mehr in der Villa angezeigt.
+
+    - if review.incomplete?
+      = fa :times, :lg, text: "Unvollständig:", class: "text-danger"
+
+    - if review.rating?
+      %p.rating
+        - Review::RATING_RANGE.reverse_each do |i|
+          %i.star{ class: ('active' if i == review.rating) }<>
+    - else
+      %em.text-muted (keine Bewertung)
+
+    - if review.text.present?
+      = format_review review, 50, link_to('mehr', '#', class: 'btn btn-xs btn-primary split-text-expand')
+    - else
+      %em.text-muted (kein Text)
+
+  %td.text-right
+    = link_to edit_admin_inquiry_path(review.inquiry, anchor: "review"), title: t('helper.links.edit') do
+      = fa :pencil, :x2

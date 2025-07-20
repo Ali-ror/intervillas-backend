@@ -1,0 +1,19 @@
+
+.pull-right.mt-3
+  = link_to new_admin_domain_path, class: "btn btn-primary" do
+    = fa :plus, text: "neue Satelliten-Seite anlegen"
+
+%h1.page-header Satelliten-Seiten
+
+
+%table.table.table-condensed.table-striped.js-sticky-header
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th Branding
+      %th Ökosystem?
+      %th mehrsprachig?
+      %th Farb-Schema
+      %th
+  = render partial: "domain", collection: domains

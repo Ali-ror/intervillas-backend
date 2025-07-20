@@ -1,0 +1,29 @@
+%table.caption
+  %thead
+    %tr
+      %th{ colspan: 2 } Caption
+  %tbody
+    %tr
+      %td.caption
+        .blocked
+          %strong IV
+      %td date blocked
+    %tr
+      %td.caption
+        .booked
+          %strong IV
+      %td binding booked
+    %tr
+      %td.caption
+        .external
+          %strong IV
+      %td external booking
+    %tr
+      %td.caption
+        .blocked.my-booking-pal
+          %strong IV
+      %td via MyBookingPal
+  %tfoot
+    %tr
+      %th updated at
+      %td= l DateTime.now

@@ -1,0 +1,794 @@
+en:
+  admin:
+    billings:
+      billing_form:
+        add_charge: add charge
+        charges: additional charges
+        submit: save
+      billing_table:
+        check_out: Check out
+        number: IV-No.
+        rentable_objects: Rentable Objects
+        tenant: Tenant
+        edit: edit
+        show: show
+      charge_fields:
+        remove_charge: remove charge
+        text_hint: "(customer expects email in %{lang})"
+      communication:
+        messages:
+          title: Messages
+        boat_form:
+          title: Send billing statement to boat owner
+        tenant_form:
+          title: Send billing to tenant
+        titles:
+          forms: Send billings
+          message_list: All messages
+        villa_form:
+          title: Send billing statement to villa owner
+      edit:
+        new_record: Billing is not saved yet.
+        prices_in: All prices in %{currency}.
+      form_boat:
+        add_charge: add charge
+        boat: Boat
+        charges: additional charges
+        submit: save
+      form_villa:
+        add_charge: add charge
+        charges: Additional charges
+        submit: save
+        villa: Villa
+      invoicable:
+        info: >-
+          This list contains bookings with departure date in the past, for which
+          no billing was created yet.
+      messages:
+        messages: Messages
+      search_panel:
+        heading: Search
+        number: IV-No.
+      sidebar:
+        overdue_payments:
+          heading: Overdue payments – Payment incomplete
+          sum: Invoice amount (incl. deposit)
+      sidebar_left:
+        subheading: Billing
+        canceled: canceled
+        back_index: go back to list
+        back_booking: go back to booking
+        villa: Villa
+        boat: Boat
+        billings: Billings
+        communication: Correspondence
+        future_booking_warning: "Attention: Booking is in the future!"
+    bookings:
+      booking_table:
+        number: IV-No.
+        show: show
+        edit: edit
+        none: none
+      communication:
+        titles:
+          boat_manager_notes: Notes (Boat)
+          boat_owner_message: Owner (Boat)
+          cables_list: Internal cables
+          message_list: All messages
+          owner_message: Owner (Villa)
+          villa_manager_notes: Notes (Villa)
+        messages:
+          title: Message
+          no_messages: No messages sent, yet.
+        boat_manager_form:
+          kind: to boat management
+          no_manager: No boat management defined, can't notify.
+        villa_manager_form:
+          kind: to property management
+          no_manager: No property management defined, can't notify.
+        cables:
+          title: Cables
+          description_html: >-
+            Cables are internal messages. They are presented to either the owner or property
+            manager, when they log into the site. Cables are <em>not</em> sent via email.
+          add: New cable
+          recipents_cant_login: >-
+            None of the contacts are able to login (missing permission to do so).
+          create: add cable
+      edit:
+        payments: Payments
+        billing: Billing
+        review: Review
+        confirmation:
+          heading:
+            de: Confirmation mail (German)
+            en: Confirmation mail (English)
+          preview: Preview
+          customer_page: Customer page
+          resend_mail: Resent mail
+        travel_mail:
+          heading: Travel mail
+          already_sent: The travel mail (2 weeks prior to arrival) was sent at %{date}.
+          resend_mail: Resent mail
+          planned: >-
+            The travel mail (2 weeks prior to arrival) is scheduled for delivery on %{date}.
+            However, this mail is going to be delayed until the payment is incomplete.
+          send_mail: Send mail now
+        external_booking:
+          booking_pal:
+            heading: "External booking from %{channel} (BookingPal): %{reservation_id}"
+            warning: >-
+              This booking can only be edited in the BookingPal system (or the system of it's channel)!
+              The values here are only for your information and will be used when creating the owner billing.
+          heading: External booking!
+          warning: >-
+            For external bookings, we don't send automatic emails.
+      payments:
+        heading: Overview
+        add: Add new payment
+        edit: Edit payment
+        send_receipt: Send payment receipt
+        send_reminder: Send payment reminder
+        cc_transactions: Credit card transactions
+        new_payment_form:
+          save: Save
+          cancel: Cancel
+        deadlines:
+          apply: apply
+          edit: edit
+          delete: delete
+          no_paypal_status: no further information available
+          ack_payment:
+            desc: The downpayment of %{sum} can be acknowledged as sufficient collateral.
+            button: Acknowledge collateral
+          remove_ack:
+            desc: The downpayment of %{sum} was acknowledged as sufficient collateral.
+            button: Remove acknowledge
+      misc:
+        heading: Miscellaneous
+        billing: Billing
+        billing_month: Billing month
+        curr: current
+        next: next
+        prev: previous
+        text:
+          post: month
+          pre: apply
+        save: Save
+      show:
+        boat_data: Boat
+        boat_owner_message: Message to boat-owner
+        booking_data: Booking data
+        booking_number: 'Booking %{number}'
+        comment: Comments
+        customer_address: Address
+        customer_data: Customer data
+        customer_name: Customer
+        dates: Dates
+        inquiry_number: 'Inquiry #%{number}'
+        notes: Notes
+        note_date: Date
+        note_subject: Subject/Text
+        note_recipient: Recipient
+        owner_message: Message to owner
+        payments: Payments
+        payment_date: Date
+        payment_date_unknown: unknown
+        payment_scope: Type
+        payment_sum: Sum
+        payment_total: Total sum
+        rentables: Rentables
+        resend_confirmation_mail: Re-send confirmation mail
+        send_notes_to_manager: Send note to property management
+        state: State
+        tenant: Tenant
+        to_index: back to list
+        to_edit: edit
+        traveler_birthday: Birthday
+        traveler_list: List of travelers
+        traveler_name: Name
+        traveler_unnamed: unknown
+        travelers: travelers
+      sidebar:
+        all: all
+        search: Search by IV-No.
+        skipped_travel_mails:
+          heading: Skipped travel mails
+          none: All pending travel mails were sent.
+          pending_html: >-
+            The travel mail (2&nbps;weeks prior to arrival) for the following bookings
+            <em>were skipped</em> because of incomplete payments:
+    cancellations:
+      index:
+        filter:
+          heading: Filter by villa
+          apply: Apply
+          info: The list contains only those villas, for which at least one cancelation exist.
+        search: Search booking
+      edit:
+        reason:
+          heading: Booking cancelled.
+          reason: Reason
+          no_reason: not provided
+      errors:
+        not_found: Inquiry not found, mayby already cancelled?
+        unknown: Unknown error
+      uncancel:
+        heading: Restore booking
+    clearings:
+      index:
+        invalid_date: Invalid date.
+        no_clearings_found: No clearings found for currency %{curr}.
+      filter:
+        show: show
+      table:
+        owner: Owner/Recipient
+        rentables: Rentables/Bookings
+        payout: Payout
+        payout_hint: >-
+          Sum of net payout for bookings with villa, or for owners with net-billed boats
+          (as configured in the contacts), otherwise gross payout.
+        last_sent_at: last sent at
+        noname: without name
+        never: never
+        send: send
+        resend: resend
+        since: since %m/%d/%Y, %I:%M %p
+        status_sending: still sending
+        status_sending_short: sending
+        villas:
+          one: 1 villa
+          other: "%{count} villas"
+        boats:
+          one: 1 boat
+          other: "%{count} boats"
+        bookings:
+          one: 1 booking
+          other: "%{count} bookings"
+        toggle_details: toggle_details
+        details_hidden: details hidden
+        total_sum: Grand total (all owners)
+    customers:
+      update:
+        success: Customer data updated successfully
+        failure: Customer data could not be saved
+    customer_searches:
+      filter:
+        heading: Search by first/last name or email address
+        all_villas: all villas
+        all_boats: all boats
+        search: search
+        hint: Use at least 3 characters, search is case-insensitive.
+        results:
+          zero: No results
+          one: 1 result
+          other: "%{count} results"
+      index:
+        heading: Customer Search
+      results:
+        number: IV-No.
+        kind: kind
+        villa: Villa
+        boat: Boat
+        customer: Customer
+        status: Status
+        date: Date of receipt
+        kind_cancelation: Cancelation
+        kind_booking: Booking
+        kind_inquiry: Inquiry
+        edit: edit
+        show: show
+        destroy: remove/cancel
+        billing: billing
+    grid:
+      page:
+        one: ''
+        other: 'p. %{current}/%{count}'
+      sections:
+        boats: Boats
+        empty:
+          boats: Boats without bookings
+          villas: Villas without bookings
+        old_boats: Boats from old bookings
+        villas: Villas
+      title: 'Booking schedule from %{start_date} to %{end_date}'
+    devise:
+      sessions:
+        destroy:
+          impersonation_ended: You are now %{email} again.
+    high_seasons:
+      index:
+        none: No high season periods found yet.
+    inquiries:
+      cancel_destroy:
+        heading: Cancelation
+        destroy: remove
+        destroyable_hint: >-
+          When removing an inquiry or a booking, all data is
+          deleted irretrievably.
+        cancelable_hint: >-
+          When canceling, the booking details will be preserved (this
+          enables deducting cancelation fees at a later point in time).
+          The booking is removed from the overview and the reservations
+          are made void.
+        indestructable_hint: "Removing is not possible anymore:"
+        noncancelable_hint: "Cancelation is not possible anymore:"
+      clearing:
+        boat:
+          boat_discount: boot discount
+          boat_reversal: boot reversal fee
+          count: ''
+          daily: rent
+          deposit: deposit boat
+          human_name: boat
+          price: boat rent
+          price_christmas: christmas addition boat
+          price_easter: + easter boat
+          price_high_season: + high season
+          single_rate: per day
+          sum: sum
+          time_unit: days
+          training: boat delivery fee
+        deposits: deposits
+        discount: discount
+        discounted_price: discounted price
+        generic:
+          agency_fee: agency fee
+          deposit: deposit
+          discount: discount
+          handling: handling
+          intervillas_discount: Intervilla discount
+          travel_agency_discount: travel agency provision
+          training: boat delivery fee
+        prices: prices
+        total_rent: total rent
+        villa:
+          additional_adult: additional person(s)
+          additional_adult_christmas: + christmas adult
+          additional_adult_easter: + easter adult
+          additional_adult_high_season: + high season adult
+          additional_adult_special: '- last minute adult'
+          adults: adults
+          adults_christmas: + christmas
+          adults_easter: + easter
+          adults_high_season: + high season
+          adults_special: '- last minute'
+          base_rate: base rate for %{count} people
+          base_rate_booking_pal: base for %{count} people (BookingPal)
+          base_rate_christmas: + christmas
+          base_rate_easter: + easter
+          base_rate_high_season: + high season
+          base_rate_special: '- last minute'
+          weekly_rate: base rate
+          children_under_12: child(ren) up to age 12
+          children_under_12_christmas: + christmas child 12yo
+          children_under_12_easter: + easter child 12yo
+          children_under_12_high_season: + high season child 12yo
+          children_under_12_special: '- last minute child 12yo'
+          children_under_6: children upto age 6
+          children_under_6_christmas: + christmas child 6yo
+          children_under_6_easter: + easter child 6yo
+          children_under_6_high_season: + high season child 6yo
+          children_under_6_special: '- last minute child 6yo'
+          cleaning: cleaning
+          count: count
+          deposit: deposit house
+          discount: house discount
+          human_name: house
+          pet_fee: pet fee
+          early_checkin: early check-in
+          late_checkout: late check-out
+          repeater_discount: repeater discount
+          reversal: house reversal fee
+          single_rate: per night
+          sum: sum
+          time_unit: nights
+      comm_cable_row:
+        cable: int. cable
+      comm_message_row:
+        email: via email
+        preview: show
+        status_error: submission failed
+        status_bounced: email bounced
+        status_sent: email sent successfully
+        status_unknown: no delivery information available
+      customer:
+        customer: Customer data
+        de: German
+        en: English
+        mr: Mr.
+        mrs: Mrs.
+      layout:
+        offer: Offer
+      edit:
+        email_offer: Send via Email
+        finalize_booking: Finalize booking
+        not_available_anymore: Booking can't be finalized anymore.
+      header:
+        inquiries: Inquiries/Offers
+        bookings: Bookings
+        invoicable: Billable
+        billings: Billings
+        clearings: Clearings
+        cancelations: Cancelations
+        blockings: Blockings
+      index:
+        create: Create offer
+        search: Search inquiries/offers
+        all: all
+      inquiries_table:
+        none: none
+        show: show
+        delete: delete
+        confirm: Please confirm deletion of this record. This process can't be undone.
+        edit: edit
+      misc:
+        misc: Miscellaneous
+      prices:
+        fees_and_discounts: Fees and discounts
+        prices: Prices
+      search_panel:
+        title: Search
+        number: IV-No.
+        search: search
+      sidebar_left:
+        villa: Villa
+        boat: Boat
+        back: go back to list
+        details: Booking details
+        customer: Customer
+        communication: Correspondence
+        misc: Miscellaneous
+        cancellation: CANCELLED
+      sidebar_right:
+        booking_data: Booking Dates
+        prices: Prices
+    main_nav:
+      items:
+        website: Website
+        contacts: Contacts
+        objects: Objects
+        bookings: Bookings
+        misc: Miscellaneous
+      contacts:
+        users: User accounts
+        owners: Owners and Management
+      objects:
+        villas: Villas
+        boats: Boats
+        specials: Specials
+        tags: Tags
+        high_seasons: High Seasons
+      bookings:
+        inquiries_admin: Inquiries
+        inquiries_owner: Bookings/Inquiries
+        bookings: Bookings
+        cancelations: Cancelations
+        occupancies:
+          villas: Villa occupancy
+          boats: Boot occupancy
+        billings: Billings
+        summaries: Summaries
+      misc:
+        comparisons: Occupancy comparisons
+        domains: Domains and Satellites
+        newsletter: CSV export of newsletter recipients
+        overview: Overview
+        pages: Page content
+        sales: Sales
+        seo: SEO
+        settings: Settings
+        snippets: Text Snippets
+        stats: Statistics
+      two_factor_settings: Two Factor Authentication
+    my_booking_pal:
+      products:
+        creating: >
+          MyBookingPal product setup enqueued. It may take a moment for all data to
+          be pushed. Don't forget to validate and activate the product afterwards.
+        deleting: >
+          The MyBookingPal product for %{villa} is enqueued. It may take a moment
+          for the data to be removed from their systems.
+      update_progress:
+        steps:
+          start: product data
+          images: images
+          fees_taxes: fees and taxes
+          los_prices: prices
+    occupancies:
+      layout:
+        please_select:
+          boat: Plesase select a boat.
+          villa: Plesase select a villa.
+        monthly_plans: Monthly occpupancy
+        yearly_plans: Occupancies
+        show: show
+        villas: Villas
+        boats: Boats
+        calendar: Calendar
+        list: List
+        stats: Statistics
+      js_calendar:
+        info: >-
+          To block dates, first click on the arrival date, then on the
+          departure date.
+    overview:
+      index:
+        active: active?
+        all_bookings: all Bookings
+        boats: Boats
+        cables:
+          description: Here you'll find the 20 most recent cables.
+          none_found: None found.
+          recent: Recent cables
+        current_bookings: 'Bookings for %{year}'
+        name: Name
+        none: >-
+          No objects references. If you expected to see some here, you may just
+          be logged into the wrong account.
+        occupancies: Occupancies
+        toggle_hidden:
+          btn: show/hide
+          text:
+            one: Table contains one inactive objects
+            other: 'Table contains %{count} inactive objects'
+        utilization: Utilization
+        villas: Villas
+    pages:
+      index:
+        heading: Pages
+        create: create new page
+      created: Page created
+      updated: Page updated
+      destroyed: Page deleted
+    password_expiry_banner:
+      expired: Your password has expires, please set a new one.
+      warning: Your password will expire in a few days.
+    payments:
+      tabs:
+        index:
+          name:  All
+          title: All payments
+        unpaid:
+          name:  Unpaid
+          title: Unpaid sums
+        overdue:
+          name:  Overdue
+          title: Overdue payments
+        external:
+          name:  External
+          title: External bookings
+        balance:
+          name:  By Year
+          title: Balance by year
+        balance_for:
+          name:  Balance %{year}
+          title: Balance for %{year}
+        acked:
+          name:  Approved
+          title: Approved downpayments
+        paypal:
+          name:  Paypal
+          title: Payment receipts from Paypal
+        bsp1:
+          name:  PAYONE
+          title: Payment receipts from PAYONE
+      payments_table:
+        booking: Booking/tenant
+        downpayment: Downpayment
+        deficit: deficit in parentheses
+        total_payment: Total sum
+        payment_receipt: Payments received
+        total_sum: total
+        difference: Difference
+        comment: Comments
+      payment:
+        last_minute: last minute
+        payment_reminder: Payment reminder
+      balance:
+        info: Payments received until %{to} (incl.) for bookings in %{year} or later.
+        show_payments: Show individual payments
+      balance_table:
+        number: IV-No.
+        object: Object
+        start_date: Start date
+        end_date: End data
+        status: Status
+        sum: Sum
+      sidebar:
+        search:
+          heading: Seach
+          number: IV-No.
+          tenant: Tenant
+          search_booking: find booking
+          search_tenant: find tenant
+        export:
+          heading: "Data export: %{kind}"
+          download_csv: Download CSV file
+          note: Compiling all data might take a moment.
+    bsp1_payment_processes:
+      payments_table:
+        booking: IV-No.
+        date: Date
+        transaction_id: Payment Process ID
+        status: Status
+        sum: Sum
+        incl_fees: incl. fees
+        fees: Fees
+      payment_process:
+        copy: copy Payment Process ID
+        txmanager: zur Debitorenverwaltung
+        details: show details
+        restart: restart payment process
+        restart_confirmation: >-
+          Warning: This allows the customer to fill out the credit card
+          fields again. You should only do this, if the transaction is
+          marked as error'ed in the transaction manager of BS PAYONE.
+    paypal_transactions:
+      payments_table:
+        booking: IV-No.
+        date: Date
+        transaction_id: Transactions ID
+        status: Status
+        sum: Sum
+        incl_fees: incl. fees
+        fees: Fees
+        expected_fees: expected
+        actual_fees: actual
+        fee_difference: difference
+        fee_percentage: Percentage
+        effective_fees: effective
+      payment:
+        deficit: remargin required
+        surplus: credit recommended
+        details: details
+        unknown: unknown
+        pending: payment not complete yet
+    reviews:
+      create:
+        success: Review saved.
+        failure: Failed to create review.
+      update:
+        success: Review updated.
+        failure: Failed to update review.
+      filter:
+        complete: complete
+        incomplete: incomplete
+        nostars: 'incomplete (has text, but no stars)'
+        publishable: not yet published
+        archived: archived/deleted
+    routes:
+      edit:
+        heading: Edit route
+      i18n_field:
+        in_german: in German
+        in_english: in English
+      item:
+        edit: edit
+        inactive: inactive
+      form:
+        belongs_to_resource: Route belongs to
+    specials:
+      index:
+        add: Create Last-Minunte special
+      edit:
+        heading: Edit Last-Minute special
+      new:
+        heading: Add new Last-Minute special
+    summaries:
+      filter:
+        grouping:
+          summary_on: Scope to summary date
+          start_date: Scope to arrival date
+        whole_year: whole year
+        show: show
+        download_csv: download CSV file
+    two_factor_settings:
+      required: You don't have setup two factor authentication. This has become a requirement for your user account.
+      created: Two factor authentication was setup successfully. Please read the following note carefully.
+      deactivated: Two factor authentication has been deactivated.
+      invalid_otp: The entered code is not valid. Please try again.
+      not_prepared: Unexpected error while setting up two factor authentication. Please contact support.
+    users:
+      active: Active
+      inactive: Inactive
+
+      access_level:
+        detail:
+          admin: User has unconditional access to all data.
+          bookings: 'Like "Objects", plus user has read-access to booking data.'
+          inquiries: 'Like "Bookings", plus user has read-access to inquiry data.'
+          none: >-
+            User is not allowed to login. Login attempts are denied with
+            "invalid email address or password".
+          rentables: >-
+            The user may login with email and password, and has read-access to
+            all calendars of all owned (or managed) villas/boats.
+        oneline:
+          admin: Admin
+          bookings: Bookings and Objects
+          inquiries: 'Inquiries, Bookings, Objects'
+          none: none
+          rentables: only Objects
+        title:
+          admin: Admin
+          bookings: Bookings
+          inquiries: Inquiries
+          none: none
+          rentables: Objects
+      form:
+        bankverbindung: Bank information
+        berechtigungen: Privileges
+        billing: Billing
+      signin:
+        impersonation_successful: >-
+          Successfully impersonated user %{email}. To re-gain admin
+          privileges, simply logout.
+    villa_check:
+      success: success
+      failure: failure
+      skipped: not checked
+      checks:
+        people_prices:
+          title:       Villa has people prices
+          description: Go to Villa → Edit → Prices and add prices.
+        has_description:
+          title:       Villa has a description
+          description: Go to Villa → Edit → Tags and add at least the english description text.
+        clean_description:
+          title:       Villa has a clean description
+          description: |
+            Go to Villa → Edit → Tags and remove any mention of prices, taxes, deposit, cleaning,
+            etc. from the description text.
+        key_collection_placeholder:
+          title:       Key collection contains safe code
+          description: |
+            The placeholder text is still present (Villa → Edit → Additional Properties → Key
+            collection → How should keys be collected?)
+        tags:
+          title:       Villa has tags known to MyBookingPal
+          description: |
+            Go to Villa → Edit → Tags and select tags related to MyBookingPal. Go to Objects →
+            Tags to find tags with "Amenity ID"
+        has_bedroom:
+          title:       Villa has at least one bedroom
+          description: Go to Villa → Edit → Tags → Bedrooms and add a bedroom.
+        has_bathroom:
+          title:       Villa has at least one bathroom
+          description: Go to Villa → Edit → Tags → Bathrooms and add a bathroom.
+        has_image:
+          title:       Villa has at least one image
+          description: Go to Villa → Edit → Pictures and add or activate at least one image.
+    villa_inquiries:
+      form:
+        add_traveler: add traveler
+    villas:
+      index:
+        create: Create new Villa
+      index_owner_manager:
+        all_bookings: all Bookings
+        cables:
+          description: Here you'll find the 20 most recent cables.
+          none_found: None found.
+          recent: Recent cables
+        current_bookings: 'Bookings for %{year}'
+      item:
+        active_button: active
+        boat_external: extern
+        boat_state:
+          inclusive: inclusive
+          none: none
+          optional: optional
+      table:
+        actions: Actions
+        is_active: Active?
+      villa:
+        statistics: Statistics
+        seo_settings: SEO settings
+        missing_pool_orientation: missing orientation
+        ical:
+          export: Export bookings as iCal
+          without_external_events: exclude external events
+          only_internal_bookings: only own bookings/blockings
+          with_external_events: include external events
+          with_synced_bookings: via iCal imported blockings will be re-exported

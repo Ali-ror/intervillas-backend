@@ -1,0 +1,26 @@
+- @tracking_page = '/booking/create'
+
+= page_header do
+  = breadcrumb.add link_to_rentables
+  = breadcrumb.add link_to_rentable(rentable)
+  = breadcrumb.render t('bookings.new.reservierungsanfrage')
+  %h1= t('bookings.new.reservierungsanfrage')
+
+.container.mt-5
+  .row
+    .col-md-12
+      %p
+        %strong
+          = t('bookings.create.vielen_dank')
+      %p
+        = t('bookings.create.angebot')
+      - if inquiry.with_boat?
+        %p
+          = t('bookings.create.insurance')
+        %p
+          = link_to '/skipper-haftpflicht' do
+            = t('bookings.create.insurance_link')
+
+      %br
+      %p
+        = link_to t("bookings.create.weiter", name: rentable.display_name), rentable

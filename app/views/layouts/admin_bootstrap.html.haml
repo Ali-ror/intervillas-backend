@@ -1,0 +1,25 @@
+!!!
+%html{ "xmlns:og" => "http://opengraphprotocol.org/schema/" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ content: t("meta_description"), name: "Description" }
+    %title= raw [*title, t("title")].compact.join(" &bull; ")
+    %meta{ content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name: "viewport" }
+    = render "shared/favicons", app_name: "Intervilla Florida"
+    = sentry_integration_tag
+    = vite_client_tag
+    = vite_stylesheet_tag "theme-intervillas.sass"
+    = vite_stylesheet_tag "admin-print.sass", media: "print"
+    = vite_javascript_tag "frontend", "admin"
+    = csrf_meta_tags
+
+  %body.admin{ lang: I18n.locale }
+    = render partial: "admin/main_nav"
+
+    .container-fluid#intervillas-app
+      = render "admin/password_expiry_banner" if current_user.password_expiry_warning?
+      = flash_messages
+      = yield
+
+    - unless %w[test production].include?(Rails.env)
+      = render "shared/environment_banner"

@@ -1,0 +1,27 @@
+%h2= salute customer
+%p
+  leider konnten wir keinen Zahlungseingang bis zum festgesetzten
+  Zahlungstermin feststellen.
+%p
+  <strong>#{rentables}</strong>, Buchung #{booking.number}
+%p
+  Wir erlauben uns daher höflich, Sie an den Ausgleich des Betrages in Höhe von
+  %strong= display_price payment_deadlines.due_balances
+  zu erinnern.
+
+%p
+  Wenn von Ihrer Seite noch Fragen offen wären, teilen Sie uns dies bitte mit,
+  damit wir uns umgehend darum kümmern können. Andernfalls bitten wir Sie, die
+  Zahlung innerhalb den nächsten Tagen zu veranlassen.
+
+= mail_button_link_to payments_booking_url do
+  &gt;&gt; Zahlungsübersicht für #{booking.number} aufrufen
+
+%p
+  Besten Dank für die prompte Erledigung.
+%p
+  Sollten Sie den ausstehenden Betrag bereits angewiesen haben, betrachten Sie
+  dieses Schreiben als gegenstandslos.
+%p
+  Mit freundlichen Grüssen <br/>
+  Ihr INTERVILLAS-Team

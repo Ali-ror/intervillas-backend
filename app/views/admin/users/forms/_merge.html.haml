@@ -1,0 +1,27 @@
+= semantic_form_for merge_user_form, url: [:admin, merge_user_form, anchor: "merge"], html: { class: "form-horizontal panel panel-danger" } do |f|
+  = f.hidden_field :form_id, id: nil, name: "form"
+
+  .panel-heading
+    Benutzer zusammenführen
+
+  .panel-body
+    = f.inputs do
+      = f.input :victim_id, as: :ui_select, collection: merge_user_form.victims.map{ [_1.email, _1.id] }, prompt: true
+      .form-group
+        %span.form-label
+        %span.form-wrapper
+          = vite_image_tag "images/merge-users.png", class: "pull-left"
+          Berechtigungen, Nachrichten, int. Meldungen, Kontakte, Häuse, Boote
+      .form-group
+        %span.form-label
+          %label Ziel
+        %span.form-wrapper.form-control-static
+          %code= merge_user_form.user.email
+          %small.text-muted (dieser Nutzer)
+
+    %p
+      %strong Wichtig!
+      Dieser Vorgang kann nicht rückgängig gemacht werden.
+
+  .panel-footer.text-right
+    = f.action :submit, label: "zusammenführen", button_html: { data: { disable_with: t(:wait) }, class: "btn btn-danger" }

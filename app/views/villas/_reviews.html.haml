@@ -1,0 +1,13 @@
+%h4.h2.lined-heading
+  %span= t 'villas.show.ratings'
+
+%p
+  = t 'villas.show.ratings_text'
+  = link_to t("villas.show.ratings_all"), villa_reviews_path(@villa)
+
+%lazy-applet
+  %intervillas-testimonials
+    - @villa.reviews.order(published_at: :desc).each_slice(2) do |reviews|
+      %slide.item
+        - reviews.each do |r|
+          = render 'reviews/review', resource: r, controller_action: 'villas#show'

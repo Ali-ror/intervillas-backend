@@ -1,0 +1,53 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage{fontspec,xunicode,array,graphicx,parskip}
+\usepackage[
+  pdfproducer={Intervilla Florida},
+  pdfcreator={Intervilla Florida}
+]{hyperref}
+
+\usepackage[
+  margin={20mm,15mm}
+]{geometry}
+
+% Schrift
+\def\setXfont#1#2{
+  \setmainfont[#1]{#2}
+  \setsansfont[#1]{#2}
+}
+
+<% fonts = Rails.root.join("config/xetex-fonts/") %>
+\setXfont{
+  BoldFont=<%= texd_reference fonts.join("Helvetica-Bold.otf"), rename: false %>,
+  ItalicFont=<%= texd_reference fonts.join("Helvetica-Oblique.otf"), rename: false %>
+}{<%= texd_reference fonts.join("Helvetica.otf"), rename: false %>}
+
+\def\currency#1{\makebox[.225\linewidth][r]{#1}}
+\def\account#1{\makebox[10em][l]{\textbf{#1:}}}
+
+\pagestyle{empty}
+
+\begin{document}
+\includegraphics[height=2cm]{<%= texd_reference Rails.root.join("public/assets/logo.pdf") %>}\\[1ex]
+\begin{minipage}[c]{0.55\linewidth}
+  <% if inquiry.for_corporate? %>
+    4929 SW 26th Ave\\
+    Cape Coral, FL 33914\\
+    +1\,(239)~268-7053\\
+  <% else %>
+    Rebenstrasse 34, CH-8309 Nürensdorf\\
+    +49\,(0)~881\,42\,123\,005\\
+    +41\,(0)~43\,543\,05\,42\\
+  <% end %>
+  info@intervillas-florida.com\\
+  www.intervillas-florida.com
+\end{minipage}%
+\begin{minipage}[c]{0.45\linewidth}
+  \small\itshape
+  <%= t "billings.header.partner" %>\\
+  <%= t "billings.header.top_service" %>
+\end{minipage}
+\vspace*{10mm}
+<%= yield %>
+\end{document}

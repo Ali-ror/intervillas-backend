@@ -1,0 +1,46 @@
+- if villa_billing.new_record?
+  %p.alert.alert-info= t "admin.billings.edit.new_record"
+
+%p= t "admin.billings.edit.prices_in", currency: villa_billing.booking.currency
+
+= semantic_form_for villa_billing_form, url: [:admin, villa_billing_form, anchor: "villa"], html: { class: "form-horizontal form-condensed" } do |form|
+  = form.hidden_field :type
+
+  = form.inputs name: t(".villa") do
+    - ecc = villa_billing_form.flat_energy_cost_calculation
+    - if ecc == "defer"
+      = form.input :energy_pricing, as: :radio, collection: VillaBilling.energy_pricings.keys.map { [t(_1, scope: "formtastic.enums.billing_forms/villa.energy_pricings"), _1] }
+    - else
+      .form-group
+        %span.form-label
+          %label.control-label= t "formtastic.labels.billing_forms/villa.energy_pricing"
+        .form-wrapper
+          %p.form-control-static
+            = form.hidden_field :energy_pricing, value: ecc
+            = t ecc, scope: "js.inquiry_editor.energy_cost.options"
+
+    - case ecc
+    - when "defer"
+      = form.input :meter_reading_begin, required: false, hint: t("formtastic.hints.billing_forms/villa.meter_reading_begin_defer")
+      = form.input :meter_reading_end, required: false, hint: t("formtastic.hints.billing_forms/villa.meter_reading_end_defer")
+      = form.input :energy_price, required: false, hint: t("formtastic.hints.billing_forms/villa.energy_price_defer")
+    - when "usage"
+      = form.input :meter_reading_begin, required: false
+      = form.input :meter_reading_end, required: false
+      = form.input :energy_price, required: false, hint: t("formtastic.hints.billing_forms/villa.energy_price_usage")
+    - when "flat"
+      = form.input :energy_price, required: false, hint: t("formtastic.hints.billing_forms/villa.energy_price_flat")
+
+    = form.input :agency_fee
+    = form.input :commission
+
+    = form.inputs name: t(".charges"), class: "js-add-association" do
+      %p= link_to_add_association t(".add_charge"), :charges, template: "villa-charges-template"
+      = form.semantic_fields_for :charges do |cf|
+        = render "charge_fields", form: cf
+
+  = form.action :submit, label: t(".submit"), button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary mt-3" }
+
+  %script#villa-charges-template{ type: "text/x-template" }
+    = form.semantic_fields_for :charges, ChargesForm.new, { child_index: "__new_id__" } do |f|
+      = render "charge_fields", form: f, dynamic: true

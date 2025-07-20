@@ -1,0 +1,131 @@
+= semantic_form_for [:admin, page_form] do |form|
+  = form.inputs "Seitentitel" do
+    .row
+      .col-sm-6= form.input :de_name, label: "deutsch"
+      .col-sm-6= form.input :en_name, label: "englisch"
+
+  = form.inputs "Inhalt" do
+    - if form.object.template_path?
+      %p.alert.alert-info
+        Die sichtbaren Inhalte der Seite werden wegen ihrer komplexen Struktur
+        aus einer statischen Vorlage generiert und können hier nicht angepasst
+        werden.
+    - else
+      .row
+        .col-sm-6= form.input :de_content, as: :text, input_html: { rows: 20, class: "input-sm" }, label: "deutsch"
+        .col-sm-6= form.input :en_content, as: :text, input_html: { rows: 20, class: "input-sm" }, label: "englisch"
+      %details.small.mt-3
+        %summary.btn.btn-default.btn-xxs Variablen/Funktionen anzeigen
+
+        .border.border-light.mt-3.p-3
+          %dl
+            %dt
+              %code %intervillas_bank_account%
+            %dd.ml-5
+              %p
+                Gibt die aktuellen Bank-Konten als HTML aus.<sup>1</sup>
+
+            %dt
+              %code %intervillas_address(<em>type</em>)%
+            %dd.ml-5
+              %p
+                Gibt die Firmenadresse aus.<sup>1</sup> <code>type</code> kann einen der folgenden Werte annehmen:
+              %ul
+                %li
+                  %code dl
+                  Generiert Adresse als Definitionsliste (<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>,
+                  <code>&lt;dd&gt;</code>).
+                %li
+                  %code breaks
+                  Generiert Adresse mit einfachen Zeilenumbrüchen (<code>&lt;br/&gt;</code>).
+                %li andere Angaben führen zu einer leeren Ausgabe
+
+            %dt
+              %code %intervillas_tax_info%
+            %dd.ml-5
+              %p
+                Gibt steuerrelevante Daten aus (MwSt- und Firmen-Nr.).<sup>2</sup>
+
+            %dt
+              %code %carousel(<em>id</em>)%
+            %dd.ml-5
+              %p
+                Gibt die URL zu einem Bild mit der angegebenen <code>id</code> aus. Das Bild hat die Abmessungen 750×481px.
+              %p
+                Es wird nur die URL produziert, nicht das umschließende <code>&lt;img/&gt;</code>-Tag!
+              %p
+                Der Karoussell-Code kann in der Bilderverwaltung gefunden werden (Villa → Bearbeiten → Fotos, dann ein
+                Bild anklicken; der Code steht in der Seitenleiste rechts unten).
+
+            %dt
+              %em Sonstige
+            %dd.ml-5
+              %p
+                Bei unbekannten Funktionen wird ein Fehler ausgegeben ("unknown template function").
+
+          %p
+            <sup>1</sup>: Bank-Konten und Adresse sind abhängig vom Datum. Bis einschließlich 31.05.2024 werden die Daten der
+            Intervilla GmbH verwendet, und ab dem 01.06. die Daten der Intervilla Corp.<br>
+            <sup>2</sup>: Daten sind nur für die Intervilla GmbH vorhanden (also bis einschl. 31.05.). Für die Corp. wird
+            ein leerer Text ausgegeben.
+
+
+  = form.inputs "Routing", class: "form-horizontal" do
+    - e = form.object.errors[:domain_ids]
+    .form-group{ class: ("has-error" if e.any?) }
+      %label.control-label.col-sm-2 Domains
+      .col-sm-10
+        = form.collection_check_boxes :domain_ids, Domain.all, :id, :name do |chk|
+          .checkbox{ class: ("has-error" if e.any?) }
+            %label #{chk.check_box} #{chk.text}
+        - if e.any?
+          %span.help-block= e.to_sentence
+
+    .form-group
+      %label.control-label.col-sm-2 Pfad
+      .col-sm-10
+        = form.input :route_path, label: false, prepend: "www.example.com/"
+
+  = form.inputs "Sonstiges", class: "form-horizontal" do
+    .form-group
+      %label.control-label.col-sm-2 No-Index
+      .col-sm-10
+        .checkbox
+          %label
+            = form.check_box :noindex
+            verhindern, dass Suchmaschinen die Seite in ihren Index aufnehmen
+
+    - e = form.object.errors[:route_name]
+    .form-group{ class: ("has-error" if e.any?) }
+      %label.control-label.col-sm-2 Name (intern)
+      .col-sm-10
+        - if form.object.route_name_editable?
+          = form.text_field :route_name, label: false
+        - else
+          %p.form-control-static
+            %code= form.object.route_name
+        - if e.any?
+          %span.help-block= e.to_sentence
+        %span.help-block
+          Interne Namen sollten nur Routen vergeben werden, wenn diese im Quell-Code
+          referenziert werden. Einmal gesetzt, können diese nicht mehr geändert
+          werden.
+
+  = form.inputs "Strukturierte Daten", class: "form-horizontal" do
+    %p
+      siehe
+      = link_to "https://developers.google.com/search/docs/data-types/article"
+    .form-group
+      %label.control-label.col-sm-4 veröffentlicht am (datePublished)
+      .col-sm-8
+        = form.input :published_at, label: false, as: :datetime_select, start_year: 2010, hint: "Seite wurde erstellt am: #{I18n.l form.object.model.created_at}"
+    .form-group
+      %label.control-label.col-sm-4 zuletzt geändert am (dateModified)
+      .col-sm-8
+        = form.input :modified_at, label: false, as: :datetime_select, start_year: 2010, hint: "Seite wurde laut Datenbank zuletzt geändert am: #{I18n.l form.object.model.updated_at}"
+
+  = form.actions do
+    = form.action :submit, label: "speichern", button_html: { class: "btn btn-primary" }
+    = link_to "zurück zur Liste", admin_pages_path, class: "btn btn-default"
+
+  %hr.clear

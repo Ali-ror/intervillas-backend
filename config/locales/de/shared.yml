@@ -1,0 +1,106 @@
+de:
+  shared:
+    admin_menu:
+      billings: Abrechnungen
+      bookings: Buchungen
+      contacts: Kontakte
+      invoicables: Abrechenbar
+      objects: Objekte
+      payments: Zahlungen
+      payments_counter: Anzahl überfälliger Zahlungen
+      reviews: Bewertungen
+      reviews_counter: Anzahl unveröffentlichter Bewertungen der letzten 14 Tage
+      seo: SEO
+      specials: Specials
+      summaries: Summary
+      texts: Texte
+      translate: translate
+      website: Website
+    currencies:
+      switch_to:
+        EUR: Preise in Euro anzeigen
+        USD: Preise in US$ anzeigen
+    discount:
+      days_count:
+        one: 1 Tag
+        other: '%{count} Tage'
+      nights_count:
+        one: 1 Nacht
+        other: '%{count} Nächte'
+      range: '%{start} bis %{end}'
+      subjects:
+        christmas: Weihnachten
+        easter: Ostern
+        high_season: Hochsaison
+        special: Last Minute
+      types:
+        addition: '%{amount}% Aufschlag'
+        discount: '%{amount}% Rabatt'
+      kinds:
+        addition:
+          add: Aufschlag hinzufügen
+          edit: Aufschlag bearbeiten
+        discount:
+          add: Rabatt hinzufügen
+          edit: Rabatt bearbeiten
+    footer:
+      agb: AGB
+      home: Home
+      impressum: Impressum
+      kontakt: Kontakt
+      social: Soziale Netzwerke
+      villas: Villas
+    menu:
+      boats: Boote
+      cape_coral: Cape Coral
+      karte: Karte
+      kontakt: Kontakt
+      more: Mehr
+      rental_cars: Mietwagen
+      reviews: Bewertungen
+      skipper_insurance: Skipper Haftpflicht
+      travel_cancellation_insurance: Reiserücktrittsversicherung
+      specials: Last Minute
+      villas: Ferienhaus Cape Coral
+      login: Eigentümer-Login
+    opengraph:
+      villa: Ferienhaus
+    panel:
+      addition: Nächte mit %{amount}% Aufschlag
+      at_christmas: über Weihnachten
+      at_easter: über Ostern
+      boat: Boot
+      booked_on: verbindlich gebucht am
+      booking_details: Buchungsdetails
+      born: ' (geb. %{date})'
+      cancelled_at: storniert am
+      house: Haus
+      offer_from: Anfrage/Angebot vom
+      period: Zeitraum
+      title_boat: Boot
+      title_inquiry: Anfrage
+      title_villa: Villa
+      travelers: weitere Reisende
+      updated_at: zuletzt geändert am
+    sidebar:
+      abreise: Abreise
+      agb: AGB
+      anreise: Anreise
+      cape_coral: CAPE CORAL, FL.
+      esta: ESTA
+      impressum: Impressum
+      information: INFORMATION
+      preis: Preis pro Person
+      reisezeitraum: Reisezeitraum
+      skipper_haftpflicht: Skipper Haftpflicht
+      specials: Angebote
+      submit_suchen: suchen
+      suchen: SUCHEN
+      ubersichtskarte: Übersichtskarte
+      villas: VILLAS
+      zeitraum_auswaehlen: Wählen Sie den gewünschten Zeitraum Ihrer Reise
+    ssl:
+      info: Ihre Daten werden verschlüsselt übertragen.
+      secure: Sicher
+    villas_menu:
+      index_link: Übersicht

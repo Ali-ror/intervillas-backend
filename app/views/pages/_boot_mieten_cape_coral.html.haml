@@ -1,0 +1,64 @@
+- content_for :header do
+  = render "static_header_image", img_path: "header/boot-mieten-cape-coral", href: top_villas_path, link_text: "Jetzt anfragen"
+
+%p.lead.mt-5
+  Die beliebte Ferienregion Cape Coral im Sunshine State Florida ist vor allem für ihre wunderschöne
+  Kanal- und die kilometerlangen Strände bekannt. Wer hier Urlaub macht, sollte deshalb unbedingt
+  ein Boot mieten und die vielschichtige Flora und Fauna vom Wasser aus erkunden. Wir von Intervilla
+  bieten Ihnen luxuriöse Ferienvillen im praktischen Paket mit Boot und Anlegeplatz. Buchen Sie jetzt
+  und gönnen Sie sich ein ganz besonderes Erlebnis.
+
+%h2 Bootsvermietung in Cape Coral - Welche Voraussetzungen müssen erfüllt sein?
+%p
+  Ein Boot in Cape Coral zu mieten, ist ganz einfach. Neben unserem hauseigenen Verleih gibt es noch
+  andere Vermieter, bei denen Sie sich unkompliziert ein passendes Modell aussuchen können.
+  Wer mindestens 21 Jahre alt ist, benötigt keinen Bootsführerschein. Ein deutscher Pkw-Führerschein
+  ist in diesem Fall ausreichend. Lediglich Personen, die jünger als 21 Jahre sind, brauchen eine Florida
+  = succeed "." do
+    %a{:href => "https://www.boaterexam.com/usa/florida/"} Boating Safety Identification Card
+
+%h2 Das passende Boot für jeden Bedarf
+%p
+  In Cape Coral können Sie verschiedenste Arten von Booten schnell und unkompliziert mieten. Dabei
+  ist für jeden Bedarf die passende Ausstattung dabei. So gibt es etwa Kühlboxen, Schwimmleitern,
+  herausnehmbare Picknick-Tische, Schwimmplattformen mit Stauraum, Außenduschen und viele
+  weitere Extras. Je nach Angebot ist im Bootspreis auch ein All-Inclusive-Paket eingeschlossen. Darin
+  sind unter anderem die Anlieferung des Bootes, die Endreinigung, aber auch Beach Packages und
+  Wassersport-Equipment enthalten. Auf größeren Booten haben bis zu 10 Personen Platz.
+  Hinweis: Alle Boote sind über SEA TOW Haftpflicht- und Vollkasko-versichert. Darüber hinaus ist der
+  Abschluss einer Skipper-Haftpflicht- bzw. einer Charter-Versicherung empfehlenswert. Die
+  entsprechenden Links finden Sie auf unserer Homepage.
+
+%h3 Unsere Boote im Angebot
+
+.room-grid.with-sidebar.mt-4
+  = render partial: "boats/boat", collection: Boat.three_random
+
+.row
+  .col-sm-4.col-sm-offset-4.mt-4
+    = link_to top_villas_path, class: 'btn btn-primary btn-block' do
+      Villa + Boot mieten
+
+%h2 Einweisung vor der ersten Fahrt
+%p
+  Ehe es mit dem Bootfahren losgeht, bekommen Sie eine umfangreiche Einweisung. Das ist in Florida
+  Pflicht. So wissen Sie in den vielbefahrenen Kanälen von Cape Coral immer genau, wie Sie Ihr Boot
+  sicher führen. Außerdem erfahren Sie bei der Einweisung auch, wie Sie elektrisch und
+  benzinbetriebene Boote richtig aufladen bzw. tanken.
+
+%h2 Cape Coral mit dem Boot entdecken
+%p
+  Dass die Ferienregion Cape Coral bei deutschen Urlaubern immer beliebter wird, hat seinen guten
+  Grund. Das maritime Kleinod im Sunshine State Florida bietet das ganze Jahr über sonniges Wetter,
+  wehende Palmen, eine große Vielfalt an Erlebnismöglichkeiten und eine atemberaubende Pflanzen-
+  und Tierwelt. Mit einem kraftvollen, wendigen und komfortablen Powerboot entdeckt man dieses
+  Ambiente mit seinen weitverzweigten Kanälen und langgezogenen Stränden auf eine besonders
+  eindrucksvolle Weise.
+%p
+  Einen Besuch wert sind zum Beispiel die vorgelagerten Inseln Pine Island, Sanibel Island, La Costa
+  Island und Little Pine Island. Diese sind nicht nur wegen ihrer faszinierenden Flora zu empfehlen.
+  Auch die artenreiche Tierwelt sucht ihresgleichen. Vom Boot aus können überall Delfine betrachtet
+  werden, die einem nicht selten während der ganzen Fahrt folgen.
+  Zu guter Letzt gibt es an der Küste auch zahlreiche Restaurants, die bequem mit dem Boot erreicht
+  werden können. Speziell zu empfehlen wäre Cabbage Key. Sie legen einfach an und genießen kurze
+  Zeit später schon viele regionale Köstlichkeiten.

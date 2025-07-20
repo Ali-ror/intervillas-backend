@@ -1,0 +1,76 @@
+-# TODO: sollte weg und durch PriceTable.vue ersetzt werden
+%table.table.table-striped.table-condensed
+  -# Kaltmietpreise
+  - clearing.rentable_clearings.each do |rentable_clearing|
+    - next if rentable_clearing.rents.blank? # bei inklusiv-Booten der Fall
+    %tr
+      %th= t(".#{rentable_clearing.to_key}.human_name")
+      %th.text-right= t(".#{rentable_clearing.to_key}.count")
+      %th.text-right= t(".#{rentable_clearing.to_key}.time_unit")
+      %th.text-right= t(".#{rentable_clearing.to_key}.single_rate")
+      %th.text-right= t(".#{rentable_clearing.to_key}.sum")
+
+    - rentable_clearing.rents.each do |clearing_item|
+      - next if clearing_item.total.zero?
+      %tr{ data: { price: clearing_item.price, subject: clearing_item.category } }
+        %td= clearing_item.human_category
+        %td.text-right= clearing_item.amount
+        %td.text-right= clearing_item.time_units
+        %td.text-right= number_for_price_table clearing_item.price
+        %td.text-right= number_for_price_table(clearing_item.total)
+
+  -# Summe Mietpreis
+  %tr.top-rule
+    %td{ colspan: 4 }
+      %strong= t('.total_rent')
+    %td.text-right
+      %strong= number_for_price_table(clearing.total_rents)
+
+%table.table.table-striped.table-condensed.mt-4
+  -# Nebenkosten
+  - clearing.utilities.each do |clearing_item|
+    - next if clearing_item.total.zero?
+    %tr{ data: { price: clearing_item.price, subject: clearing_item.category } }
+      %td{ colspan: 4 }= clearing_item.human_category
+      %td.text-right= number_for_price_table(clearing_item.total)
+
+  -# Summe Mietpreis+Nebenkosten
+  %tr.top-rule
+    %td{ colspan: 4 }
+      %strong Total
+    %td.text-right
+      %strong= number_for_price_table(clearing.sub_total)
+
+  - if clearing.discounts.present?
+    - clearing.discounts.each do |discount|
+      -# Rabatt
+      %tr.discount.top-rule
+        %td{ colspan: 4 }
+          = t('.discount')
+          - if note = discount.note.presence
+            = " (#{note})"
+        %td.text-right= number_for_price_table(discount.total)
+
+    -# rabattieter Preis
+    %tr.discount.top-rule
+      %td{ colspan: 4 }
+        %strong= t('.discounted_price')
+      %td.text-right
+        %strong= number_for_price_table(clearing.total)
+
+%table.table.table-striped.table-condensed.mt-4
+  -# Kaution
+  - clearing.rentable_clearings.each do |rentable_clearing|
+    - rentable_clearing.deposits.each do |clearing_item|
+      %tr{ data: { price: clearing_item.price, subject: clearing_item.category } }
+        %td= clearing_item.human_category
+        %td.text-right= number_for_price_table(clearing_item.total)
+
+  -# Rechnungsbetrag = Summe Mietpreis+Nebenkosten+Nebenkosten
+  %tr
+    %td
+      %strong= t('deadlines.total')
+      = surround ' (', ')' do
+        = t "deadlines.incl_deposit"
+    %td.text-right
+      %strong= number_for_price_table(clearing.total)

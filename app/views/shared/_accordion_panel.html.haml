@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading
+    %h3.h4.panel-title
+      %a{"data-parent" => "#accordion", "data-toggle" => "collapse", href: "##{dom_id}"}
+        = heading
+  .panel-collapse.collapse{ id: dom_id, class: options[:class] }
+    = yield

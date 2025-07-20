@@ -1,0 +1,49 @@
+@use "sass:math"
+
+.rating
+  unicode-bidi:               bidi-override
+  direction:                  rtl
+  text-align:                 left
+
+  i.star
+    font-family:              FontAwesome
+    font-weight:              normal
+    font-style:               normal
+    display:                  inline-block
+
+    &:before
+      content:                "\f006"
+      padding-right:          5px
+      color:                  #ccc // theme-independent
+
+    table &
+      padding:                0
+
+  // Kunden geben Bewertung ab
+  form &
+    font-size:                30px
+    line-height:              floor(14px * math.div(20, 14))
+
+    i.star
+      &:hover
+        cursor:                 pointer
+
+  // Im Header einer Villa-Ansich (neben  breadcrumb)
+  .page-heading &
+    &, &:hover
+      color:                    #fff
+
+    @media screen and (min-width: 768px) // $screen-sm-min
+      margin:                   30px 0 5px
+
+    @media screen and (max-width: 479px) // ?
+      float:                    none !important
+      margin:                   20px 0 10px
+
+
+  form & i.star:hover:before,
+  form & i.star:hover ~ i.star:before,
+  i.star.active:before,
+  i.star.active ~ i.star:before
+    content:                  "\f005"
+    color:                    #ffad2d // theme-independent

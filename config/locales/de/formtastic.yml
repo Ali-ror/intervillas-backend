@@ -1,0 +1,368 @@
+---
+de:
+  formtastic:
+    actions:
+      boat_inquiry: Ja, das ausgewählte Boot mieten
+      create: speichern
+      submit: "%{model} speichern"
+      update: "%{model} speichern"
+    hints:
+      billing_forms/villa:
+        energy_price_defer: Preis pro kWh (wenn Abrechnung nach Verbrauch), Fixpreis (wenn Pauschale), andernfalls leer lassen
+        energy_price_usage: Preis pro kWh
+        energy_price_flat: Gesamtkosten für Energie
+        meter_reading_begin_defer: nur wenn Abrechnung nach Verbrauch, andernfalls leer lassen
+        meter_reading_end_defer: nur wenn Abrechnung nach Verbrauch, andernfalls leer lassen
+      booking:
+        email: Bitte geben Sie eine E-Mail-Adresse an, unter der wir Ihnen ein unverbindliches Angebot zukommen lassen können.
+      contact_forms/basics:
+        company_name: Erforderlich, wenn Anrede «Firma» ist.
+        phone: Telefonnummer wird bei Reiseantritts-Mails an Mieter angegeben, wenn Kontakt dort als Verwaltung hinterlegt
+          ist.
+      contact_forms/billing:
+        email_addresses: Eine E-Mail-Adresse pro Zeile.
+        locale: Für automatisch generierte E-Mail, wie Buchungsnotizen.
+        net: Payout unter <a href="/admin/clearings">Abgerechnet</a> basiert auf der Netto-Summe
+        wants_auto_booking_confirmation_mail: >-
+          Wenn ein Mieter eine Buchung bestätigt, wird automatisch eine kurze Bestätigung an die obigen E-Mail-Adressen verschickt.
+        payout_reminder_days: >-
+          Wenn gesetzt, wird für die angegebene Anzahl an Tagen vor Reiseantritt eines Mieters eine E-Mail versendet, die
+          an vorzeitige Auszahlungen dieses Eigentümers erinnert. Hinweis: "0" bedeutet "am Tag der Anreise", "14" bedeutet
+          "2 Wochen vor Anreise".
+      payment_form:
+        scope: "«Anzahlung» und «Restzahlung» existieren nur noch aus historischen Gründen und werden nicht mehr beachtet"
+      price_form:
+        discount_note: Optional. Kurz halten, wird dem Kunden angezeigt.
+        handling_note: Optional. Kurz halten, wird dem Kunden angezeigt.
+      route:
+        h1: Text für den H1-Tag der Seite.
+        path: ohne führenden Slash, z.B. <code>impressum</code>
+      user:
+        additional_emails: Weitere E-Mail-Adressen (eine pro Zeile), an welche die Abrechnungen ebenfalls versendet werden
+          sollen.
+        commission: in %
+      villa_inquiry_forms/for_inquiry:
+        children_under_12: Kinder bis zum vollendeten 12. Lebensjahr (am Anreisedatum)
+        children_under_6: Kinder bis zum vollendeten 6. Lebensjahr (am Anreisedatum)
+    labels:
+      admin_booking:
+        address: Straße
+        adults: Anzahl Erwachsene
+        appnr: Hausnummer
+        boat_deposit: Kaution (Boot)
+        boat_price: Tagespreis Boot
+        boat_training: Boot-Anliefergebühr
+        children_under_12: Anzahl Kinder bis zum vollendeten 12. Lebensjahr
+        children_under_6: Anzahl Kinder bis zum vollendeten 6. Lebensjahr
+        city: Ort
+        cleaning: Reinigungskosten
+        country: Land
+        discount: Rabatt
+        email: E-Mail-Adresse
+        email_confirmation: Bitte bestätigen Sie Ihre E-Mail-Adresse
+        end_date: Abreise
+        first_name: Vorname
+        house_deposit: Kaution (Haus)
+        last_name: Nachname
+        newsletter: Ich möchte mich für den Newsletter anmelden
+        note: Bemerkungen
+        phone: Telefon
+        postal_code: Postleitzahl
+        price_people: Preis pro Person
+        start_date: Anreise
+        state: Status
+        title: Anrede
+        villa: Objekt
+        with_boat: Boot ist erwünscht
+      billing_forms/boat:
+        agency_fee: Gebühren
+        commission: Provisionssatz (Prozent)
+      billing_forms/villa:
+        agency_fee: Gebühren
+        commission: Provisionssatz (Prozent)
+        energy_pricing: Abrechnungsart für Energiekosten
+        energy_price: Energiepreis
+        meter_reading_begin: Zählerstand (Beginn, kWh)
+        meter_reading_end: Zählerstand (Ende, kWh)
+      blocking_form:
+        comment: Kommentar
+        end_date: Ende
+        start_date: Beginn
+        villa_id: Haus
+      boat:
+        de_description: Beschreibung
+        deposit: Kaution
+        description: Beschreibung
+        en_description: Beschreibung auf Englisch
+        external: als extern markieren (in der Eigentümer-Abrechnung wird der Boots-Posten neutralisiert)
+        file: Datei wählen (.zip, .pdf)
+        horse_power: PS
+        manager_id: Bootsverwaltung
+        matriculation_number: Immatrikulationsnummer
+        minimum_days: Mindest-Mietdauer in Tagen
+        model: Modell
+        owner_id: Eigentümer
+        training: Anlieferung
+        url: Link
+        optional_villa_ids: Buchbar bei folgenden Häusern
+      boat_holiday_discounts_form:
+        days_after: Tage danach
+        days_before: Tage vorher
+        description: Feiertag
+        percent: Prozent
+      boat_assignment_form:
+        exclusive_boat: Exklusives Boot
+        inclusion: Einschließlichkeit
+        inclusions:
+          exclusive: eigenes Boot (im Mietpreis enthalten)
+          none: kein Boot möglich
+          optional: Boot optional buchbar
+        optional_boats: Optionale Boote
+      boat_inquiry_forms/admin:
+        boat_daily: Mietpreis pro Tag
+        boat_deposit: Bootkaution
+        boat_id: Boot
+        boat_name: Name des Boots
+        boat_training: Boot-Anlieferung
+        date_range: Zeitraum
+        end_date: Rücknahme am
+        start_date: Übergabe am
+      boat_inquiry_forms/for_inquiry:
+        end_date: mieten bis
+        start_date: mieten von
+        with_boat: Ich möchte ein Boot mieten.
+      boat_prices_form:
+        amount: Tage (minimum)
+        value: Preis pro Tag
+      cable_form:
+        text: Meldungstext
+        user_id: Empfänger
+      charges_form:
+        amount: Anzahl
+        text: Beschreibung
+        value: Wert
+      contact_forms/bank_account:
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Konto-Inhaber
+        bank_address: Adresse der Bank
+        bank_code: IBAN
+        bank_name: Name der Bank
+        bank_routing_number: Routing-Nr.
+        usd_bank_account_number: SWIFT-BIC
+        usd_bank_account_owner: Konto-Inhaber
+        usd_bank_address: Adresse der Bank
+        usd_bank_code: IBAN
+        usd_bank_name: Name der Bank
+        usd_bank_routing_number: Routing-Nr.
+      contact_forms/basics:
+        address: Anschrift
+        city: Stadt
+        company_name: Firmenname
+        country: Land
+        first_name: Vorname
+        gender: Anrede
+        last_name: Nachname
+        phone: Telefonnummer
+        zip: Postleitzahl
+      contact_forms/billing:
+        agency_fee: Gebühren
+        commission: Provisionssatz (Prozent)
+        email_addresses: E-Mail-Adressen
+        locale: Sprache
+        net: Boot wird Netto abgerechnet
+        tax_id_number: Steuer-Nr. (Tax-ID, TIN)
+        wants_auto_booking_confirmation_mail: automatische Buchungsbestätigung
+        payout_reminder_days: Erinnerung an vorzeitige Auszahlung
+      customer_forms/admin:
+        address: Straße
+        appnr: Hausnummer
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Konto-Inhaber
+        bank_code: IBAN
+        bank_name: Name der Bank
+        city: Ort
+        country: Land
+        state_code: Kanton/Bundesland
+        currency: Währung
+        email: E-Mail-Adresse
+        email_confirmation: Bitte bestätigen Sie Ihre E-Mail-Adresse
+        first_name: Vorname
+        last_name: Nachname
+        locale: Sprache
+        newsletter: Ich möchte mich für den Newsletter anmelden
+        note: Bemerkungen
+        phone: Telefon
+        postal_code: Postleitzahl
+        title: Anrede
+        travel_insurance: Reiseversicherung
+        us_bank_routing_number: Routing-Nr.
+      customer_forms/admin_offer:
+        address: Straße
+        appnr: Hausnummer
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Konto-Inhaber
+        bank_code: IBAN
+        bank_name: Name der Bank
+        city: Ort
+        country: Land
+        state_code: Kanton/Bundesland
+        currency: Währung
+        email: E-Mail-Adresse
+        email_confirmation: Bitte bestätigen Sie Ihre E-Mail-Adresse
+        first_name: Vorname
+        last_name: Nachname
+        locale: Sprache
+        newsletter: Ich möchte mich für den Newsletter anmelden
+        note: Bemerkungen
+        phone: Telefon
+        postal_code: Postleitzahl
+        title: Anrede
+        travel_insurance: Reiseversicherung
+        us_bank_routing_number: Routing-Nr.
+      customer_forms/for_booking:
+        address: Straße
+        appnr: Hausnummer
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Konto-Inhaber
+        bank_code: IBAN
+        bank_name: Name der Bank
+        city: Ort
+        country: Land
+        state_code: Kanton/Bundesland
+        first_name: Vorname
+        last_name: Nachname
+        postal_code: Postleitzahl
+        travel_insurance: Reiseversicherung
+        us_bank_routing_number: Routing-Nr.
+      customer_forms/for_inquiry:
+        currency: Währung
+        email: E-Mail-Adresse
+        email_confirmation: Bitte bestätigen Sie Ihre E-Mail-Adresse
+        first_name: Vorname
+        last_name: Nachname
+        locale: Sprache
+        newsletter: Ich möchte mich für den Newsletter anmelden
+        phone: Telefon
+        title: Anrede
+      media/image:
+        active: Aktiv?
+        de_name: Dateiname
+        en_name: Dateiname auf Englisch
+      misc_forms/booking:
+        comment: Kommentar
+      misc_forms/inquiry:
+        comment: Kommentar
+      payment_form:
+        comment: Kommentar
+        paid_on: Datum
+        scope: Typ
+        sum: Betrag
+      price_form:
+        cleaning: Reinigungskosten
+        discount: Rabatt
+        discount_note: Notiz f. Rabatt
+        handling: Bearbeitungsgebühr
+        handling_note: Notiz f. Gebühr
+        house_deposit: Kaution (Haus)
+        price_children_under_12: Preis pro Kind bis 12 J.
+        price_children_under_6: Preis pro Kind bis 6 J.
+        price_people: Preis pro Erwachsener
+      review_forms/admin:
+        city: Ort
+        name: Name
+        published: freigeschaltet
+        archived: archiviert/gelöscht
+        rating: Bewertung
+        text: Kommentar
+      traveler:
+        born_on: Geburtstag
+        first_name: Vorname
+        last_name: Nachname
+        title: Anrede
+      traveler_form:
+        born_on: Geburtstag
+        first_name: Vorname
+        last_name: Nachname
+        title: Anrede
+      user:
+        commission: Provisionssatz (in Prozent)
+        remember_me: Angemeldet bleiben
+      user_forms/basic:
+        access_level: Freigabe-Level
+        email: E-Mail-Adresse
+      user_forms/contacts:
+        contact_ids: Kontakte
+      user_forms/merge:
+        victim: Quelle
+        victim_id: Quelle
+      villa:
+        active: aktiviert?
+        aussendusche: Aussendusche
+        babybett: Babybett
+        badewanne: Badewanne
+        bidet: Bidet
+        buyable: zu verkaufen?
+        country: Land
+        description: Beschreibung
+        domain_ids: Routing
+        doppelbett: Doppelbett
+        duschbad: Duschbad
+        dusche: Dusche
+        einzelbett: Einzelbett
+        einzimmerwohnung: Einzimmerwohnung
+        fahrraeder: Fahrräder
+        fernseher: Fernseher
+        franzoesischbettgross: Kingsize (Doppelbett gross)
+        franzoesischbettklein: Queensize (Doppelbett normal)
+        gaestewc: Gäste-WC
+        gartenstuehle: Gartenstühle
+        header: Kopftext
+        jacuzzi: Jacuzzi
+        kinderbett: Kinderbett
+        liegen: Liegen
+        living_area: Wohnfläche
+        locality: Ort
+        meta_description: HTML Meta Description
+        postal_code: Postleitzahl
+        region: Region
+        schlafsofa: Schlafsofa
+        schlafzimmer: Schlafzimmer
+        sitzgelegenheiten: Sitzgelegenheiten
+        sonstiges: Sonstiges
+        street: Straße
+        teaser: Intro Text
+        title: HTML Title
+        vollbad: Vollbad
+        wc: WC
+      villa_inquiry_forms/for_inquiry:
+        adults: Anzahl Erwachsene
+        children_under_12: Anzahl Kinder bis 12 Jahre
+        children_under_6: Anzahl Kinder bis 6 Jahre
+        end_date: Abreise
+        start_date: Anreise
+    titles:
+      accessoires: Zubehör
+      bathrooms: Badezimmer
+      bedrooms: Schlafzimmer
+      boat: Wassersport
+      comfort: Annehmlichkeiten
+      communication: Kommunikation
+      diningroom: Essgelegenheit
+      entertainment: Unterhaltung
+      gym: Sportmöglichkeiten
+      highlights: Highlights
+      kitchen: Küche
+      lavatory: Waschraum
+      livingroom: Wohnraum
+      location: Umgebung
+      outdoor: Außenbereich
+      personnel: Personal
+      pool: Schwimmbäder
+      theme: Thema
+    required: Pflichtfeld
+    enums:
+      billing_forms/villa:
+        energy_pricings:
+          usage: nach Verbrauch
+          flat: Pauschale
+          included: Energiekosten in Mietpreis enthalten

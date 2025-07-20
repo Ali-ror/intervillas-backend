@@ -1,0 +1,12 @@
+%p= salute owner
+%p
+  attached to this email you will find the accounting for
+  #{rentable.display_name}, booking number #{booking.number}.
+
+- if imessage.text?
+  %p= imessage.text
+
+%p
+  Sincerely,
+  %br
+  Your INTERVILLAS-Team

@@ -1,0 +1,29 @@
+.panel.panel-primary
+  .panel-heading PayPal Surplus Fees
+  .panel-body
+    %p
+      Balance:
+      %strong{ class: (paypal_surplus > 0 ? "text-danger" : "text-success"), style: "white-space:no-wrap" }
+        = display_price(paypal_surplus)
+    %p
+      - if paypal_surplus > 0
+        The customer did not pay enough PayPal fees.
+      - else
+        The customer has paid too much PayPal fees.
+    %p
+      Calculating the correct PayPal fees is not always possible, because
+      they vary for different reasons:
+    %ul
+      %li Location of the payer's PayPal account
+      %li Means of payment (e.g. unknown fees for CC and check transactions)
+      %li monthly turnover on the merchant's PayPal account
+    %p
+      Those factors are only known <em>after completion</em> of the PayPal
+      transaction. However, we need to submit the grand total <em>before
+      starting</em> the transaction (if the customer should bear the costs).
+    %p
+      For future payments, you may need to adjust the PayPal fees stored
+      in the
+      = succeed ", " do
+        = link_to "settings", admin_settings_path
+      should the differences accumulate to unacceptable amounts.

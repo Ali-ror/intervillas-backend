@@ -1,0 +1,42 @@
+%tr
+  %td= link_to payment.inquiry.number, edit_admin_booking_path(payment.inquiry_id, anchor: "payments")
+  %td= timestamp payment.created_at, "P, p 'Uhr'"
+
+  %td
+    %code.small= payment.admin_display_id
+  %td= paypal_payment_status(payment)
+  %td.text-right
+    = display_price payment.transaction_sum
+
+  - if payment.sale_id.present?
+    %td.text-right
+      = display_price payment.expected_handling_fee
+
+    - if payment.sale_status == "completed"
+      %td.text-right
+        = display_price payment.actual_handling_fee
+      %td.text-right
+        - case
+        - when payment.surplus < 0
+          .text-danger{ title: t(".deficit") }
+            +#{display_price -payment.surplus}
+        - when payment.surplus > 0
+          .text-success{ title: t(".surplus") }
+            –#{display_price payment.surplus}
+        - else
+          = display_price payment.surplus
+      %td.text-right
+        = succeed "%" do
+          = number_with_precision payment.effective_percentage.value, strip_insignificant_zeros: true
+
+    - else
+      %td.text-center.text-muted{ colspan: 3 }
+        %em= t ".unknown"
+
+  - else
+    %td.text-center.text-muted{ colspan: 4 }
+      %em= t ".pending"
+
+  %td
+    = link_to admin_paypal_transaction_path(payment.transaction_id) do
+      = fa :search, :lg, title: t(".details")

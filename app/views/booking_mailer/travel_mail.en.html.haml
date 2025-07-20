@@ -1,0 +1,91 @@
+%p= salute customer
+
+= confirmation_subsection "Your vacation is starting soon in sunny Florida!" do
+  %p
+    Booking number: #{booking.number}
+    - if has_villa?
+      %br
+      Villa #{villa.name.sub /^Villa /, ''} booked
+      from #{l villa_inquiry.start_date} to #{l villa_inquiry.end_date}
+    - if has_boat?
+      %br
+      Boat "#{boat.display_name}" booked
+      from #{l boat_inquiry.start_date} to #{l boat_inquiry.end_date}
+  %p
+    The villa is available from 4 pm on for you. Should you need to move in earlier
+    than 4 pm, we have to check the booking situation and we will inform you as
+    soon as possible.
+  - if has_safe_code?
+    %p
+      %strong Please note: New code for key safe at the entrance:
+    %p
+      %strong{style: "font-size:20px;color:red"}= villa.safe_code
+      %br
+      (Please press each button only once.)
+  %p
+    %strong Telephone numbers for property management:
+  - if has_villa?
+    %p Villa: #{villa_manager}
+  - if has_boat?
+    %p Boat: #{boat_manager}
+  %p
+    Please make an appointment with the property managment for the day
+    after your arrival (not after 8pm).
+
+= confirmation_subsection "Travel information" do
+  %p
+    The address of
+    %strong= villa.name
+    is as follows:
+  %p
+    %strong
+      = succeed ", " do
+        = villa.street
+      = succeed ", " do
+        = villa.locality
+      = villa.region
+      = villa.postal_code
+    %br
+    \&gt; use this address for your navigation.
+
+= confirmation_subsection "Entry to the US / ESTA form" do
+  %p
+    You can apply for ESTA
+    = succeed "." do
+      = link_to "here", "https://esta.cbp.dhs.gov/esta/"
+  %p
+    More information regarding passport requirements is available
+    = succeed "." do
+      = link_to "here", "https://www.intervillas-florida.com/einreisebestimmungen"
+  %p
+    You need US contact information for the ESTA form. Please fill in the
+    appropriate field as follows:
+  %ul
+    %li
+      %strong Name:
+      = villa.name
+    %li
+      %strong Address:
+      = villa.street
+    %li
+      %strong City:
+      Cape Coral
+    %li
+      %strong Phone number:
+      = villa.phone
+  %p
+    You can fill in the contact person as <em>UNKNOWN</em>. It is only required
+    to state your whereabouts.
+
+= confirmation_subsection "Miscellaneous" do
+  %p
+    We recommend that you purchase a Toll Pass from your car rental company.
+  %p
+    Please report complaints immediately and directly to the property management
+    noted above and <u>don't wait until after your vacation</u>.
+%p
+  Have a great vacation in sunny Florida,
+  %br
+  Sincerely,
+  %br
+  Your INTERVILLAS-Team

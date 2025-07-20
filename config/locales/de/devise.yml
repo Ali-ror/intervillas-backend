@@ -1,0 +1,101 @@
+---
+de:
+  devise:
+    confirmations:
+      confirmed: Vielen Dank für Ihre Registrierung. Sie sind jetzt angemeldet.
+      instructions_missing: Keine E-Mail zur Account-Aktivierung erhalten?
+      request_instructions: E-Mail für Aktivierung erneut zusenden
+      send_instructions: Sie erhalten in wenigen Minuten eine E-Mail, mit der Sie Ihre Registrierung bestätigen können.
+      send_paranoid_instructions: >-
+        Falls Ihre E-Mail-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine E-Mail mit der die Sie
+        Ihre Registrierung bestätigen können.
+    failure:
+      access_denied: Zugriff verweigert.
+      already_authenticated: Sie sind bereits angemeldet.
+      expired_password_reset_link: Der Link zum Zurücksetzen des Passwortes ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen Link an.
+      inactive: Ihr Account ist nicht aktiv.
+      invalid: Ungültige Anmeldedaten.
+      invalid_token: Der Anmelde-Token ist ungültig.
+      locked: Ihr Account ist gesperrt.
+      not_found_in_database: Ungültige Anmeldedaten.
+      timeout: Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an.
+      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.
+      unconfirmed: Sie müssen Ihren Account bestätigen, bevor Sie fortfahren können.
+    mailer:
+      confirmation_instructions:
+        subject: Anleitung zur Bestätigung Ihres Accounts
+      reset_password_instructions:
+        subject: 'Intervilla Florida: Password Reset / Passwort zurücksetzen'
+      unlock_instructions:
+        subject: Anleitung um Ihren Account freizuschalten
+    omniauth_callbacks:
+      failure: Sie konnten nicht Ihrem %{kind}-Account angemeldet werden, weil "%{reason}".
+      success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
+    passwords:
+      forgot_password: Passwort vergessen?
+      new_password: Neues Passwort
+      no_token: ''
+      password_confirmation: Neues Passwort bestätigen
+      request_instructions: E-Mail für Passwort-Reset zuschicken
+      send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie ihr Passwort zurücksetzen
+        können.
+      send_paranoid_instructions: >-
+        Falls Ihre E-Mail-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung,
+        wie Sie Ihr Passwort zurücksetzen können.
+      update: Passwort ändern
+      updated: Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.
+      updated_not_active: Ihr Passwort wurde geändert.
+    providers:
+      facebook: Facebook
+      google_oauth2: Google
+      twitter: Twitter
+    registrations:
+      back: zurück
+      cancel: Account löschen
+      cancel_confirmation: Bist du dir sicher?
+      current_password: Aktuelles Passwort
+      current_password_hint: zur Bestätigung brauchen wir das aktuelle Passwort
+      destroyed: Ihr Account wurde gelöscht.
+      new_password_hint: >-
+        mindestens %{min_length} Zeichen, muss alle 90 Tage erneuert werden und darf nicht mit den letzten vier
+        verwendeten Passworten übereinstimmen (wir empfehlen den Einsatz eines Passwort-Managers)
+      settings: Passwort-Einstellungen
+      sign_up: Registrieren
+      signed_up: Sie haben sich erfolgreich registriert.
+      signed_up_but_inactive: Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account
+        inaktiv ist.
+      signed_up_but_locked: Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account gesperrt
+        ist.
+      signed_up_but_unconfirmed: >-
+        Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account noch nicht bestätigt ist.
+        Sie erhalten in Kürze eine E-Mail mit der Anleitung, wie Sie Ihren Account freischalten können.
+      unhappy: Unzufrieden?
+      update: Aktualisieren
+      update_needs_confirmation: >-
+        Ihre Daten wurden aktualisiert, aber Sie müssen Ihre neue E-Mail-Adresse bestätigen. Sie erhalten in wenigen Minuten
+        eine E-Mail, mit der Sie die Änderung Ihrer E-Mail-Adresse abschließen können.
+      updated: Ihre Daten wurden aktualisiert.
+    sessions:
+      already_signed_out: Erfolgreich abgemeldet.
+      sign_in: Einloggen
+      sign_in_provider: Einloggen mit %{provider}
+      sign_out: Abmelden
+      signed_in: Erfolgreich angemeldet.
+      signed_in_as: Angemeldet als %{user}.
+      signed_out: Erfolgreich abgemeldet.
+    two_factor:
+      sign_in: Sicherheitsabfrage
+      otp: Einmal-Code
+      invalid_otp: Der eingegebene Code ist ungültig. Bitte versuchen Sie es erneut.
+      help: >-
+        Bitte geben Sie den Einmal-Code aus Ihrer Authenticator-App ein.
+        Alternativ können Sie auch einen Ihrer Backup-Codes verwenden.
+      confirm: Bestätigen
+    unlocks:
+      instructions_missing: Keine E-Mail zur Account-Entsperrung erhalten?
+      request_instructions: E-Mail für Account-Entsperrung versenden
+      send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihren Account entsperren können.
+      send_paranoid_instructions: >-
+        Falls Ihre E-Mail-Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung,
+        wie Sie Ihren Account entsperren können.
+      unlocked: Ihr Account wurde entsperrt. Bitte melden Sie sich nun an.

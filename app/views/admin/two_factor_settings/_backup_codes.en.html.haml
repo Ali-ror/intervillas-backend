@@ -1,0 +1,36 @@
+.panel.panel-warning.hidden-print
+  .panel-heading
+    %strong Important: Backup Codes
+  .panel-body
+    %p
+      Should you loose access to your authenticator app (e.g. due to theft of your
+      smartphone), you may log in with one of the following backup codes.
+    %p
+      These backup codes can be used in place of regular TOTPs.
+    %p
+      Please write down these codes <strong>now</strong>, and keep the note in
+      a safe place. The backup codes are only shown once and cannot be recovered.
+
+    .justify-content-around.align-items-baseline.my-3.gap-3{ style: "display: grid; grid-template-columns: 1fr 1fr; font-size: 1.8rem" }
+      - backup_codes.each do |code|
+        %code.text-center.p-2= code
+    %p
+      Please note that each code can only be used once.
+  .panel-footer.text-right
+    = link_to "OK", edit_admin_two_factor_settings_path, class: "btn btn-default"
+
+.visible-print-block.mt-n5
+  %h1.mt-n5 Two Factor Authentication
+  %p.lead Backup-Codes for https://en.intervilla-florida.com/admin/
+
+  %p
+    Should you loose access to your authenticator app (e.g. due to theft of your
+    smartphone), you may log in with one of the following backup codes.
+  %p
+    These backup codes can be used in place of regular TOTPs.
+  %ul
+    - backup_codes.each do |code|
+      %li.my-3
+        %tt= code
+  %p
+    Please note that each code can only be used once.

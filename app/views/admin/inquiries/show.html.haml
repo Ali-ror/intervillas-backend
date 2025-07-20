@@ -1,0 +1,175 @@
+.row
+  .col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
+    %h1.page-header
+      .pull-right
+        = link_to adapter.index_path, class: "btn btn-primary btn-xs mr-1" do
+          = fa :caret_left, class: "pr-0", text: t("admin.bookings.show.to_index")
+
+        - if current_user.admin?
+          = link_to [:edit, :admin, inquiry], class: "btn btn-default btn-xs" do
+            = fa :pencil, class: "pr-0", text: t("admin.bookings.show.to_edit")
+
+      - if inquiry.cancelled?
+        - @title = [t("admin.inquiries.sidebar_left.cancellation"), inquiry.number]
+        %s= inquiry.number
+        .small= t("admin.inquiries.sidebar_left.cancellation")
+      - else
+        = @title = inquiry.number
+
+.row.booking.owner_manager
+  .col-sm-6.col-md-5.col-lg-4.col-md-offset-1.col-lg-offset-2
+    %h3= t "admin.bookings.show.dates"
+    %dl.dl-horizontal
+      = dt_dd_for adapter, :start_date, :l
+      = dt_dd_for adapter, :end_date, :l
+      = dt_dd_for adapter, :nights
+
+  .col-sm-6.col-md-5.col-lg-4
+    %h3= t "admin.bookings.show.rentables"
+    %dl.dl-horizontal
+      - if adapter.villa.present?
+        = dt_dd_for adapter, :villa
+      - if adapter.boat.present?
+        = dt_dd_for(adapter, :boat) {|boat| boat.display_name }
+
+.row.booking.owner_manager
+  .col-sm-6.col-md-5.col-lg-4.col-md-offset-1.col-lg-offset-2
+    %h3= t "admin.bookings.show.booking_data"
+
+    %dl.dl-horizontal
+      = dt_dd_for adapter, :adults
+      = dt_dd_for adapter, :children_under_12
+      = dt_dd_for adapter, :children_under_6
+
+      - if adapter.boat_possible? && adapter.boat_optional?
+        = dt_dd_for adapter, :with_boat?
+        - if adapter.with_boat?
+          = dt_dd_for adapter, :boat_start_date, :l
+          = dt_dd_for adapter, :boat_end_date, :l
+
+    - if current_user.access_level?(:inquiries) && (k = adapter.customer.presence)
+      %h3= t "admin.bookings.show.customer_data"
+
+      %dl.dl-horizontal
+        %dt= t "admin.bookings.show.customer_name"
+        %dd= k.name
+
+        - if current_user.admin?
+          %dl.dl-horizontal
+            %dt= t "admin.bookings.show.customer_address"
+            %dd
+              = k.address
+              = k.appnr
+              %br
+              = k.postal_code
+              = k.city
+              %br
+              = k.country
+
+          %dl.dl-horizontal
+            = dt_dd_for k, :email, :mail_to
+            = dt_dd_for k, :phone
+            = dt_dd_for k, :locale
+            = dt_dd_for adapter, :currency
+
+          %dl.dl-horizontal
+            = dt_dd_for k, :bank_account_owner
+            = dt_dd_for k, :bank_code
+            = dt_dd_for k, :bank_name
+            = dt_dd_for k, :bank_account_number
+
+
+    - if current_user.access_level?(:inquiries)
+      %h3= t "admin.bookings.show.traveler_list"
+
+      %table.table.table-condensed.table-striped
+        %thead
+          %th= t "admin.bookings.show.traveler_name"
+          %th= t "admin.bookings.show.traveler_birthday"
+        %tbody
+          - adapter.travelers.each do |tr|
+            %tr
+              %td
+                - if tr.name.present?
+                  = tr.name
+                - else
+                  %em.text-muted= t "admin.bookings.show.traveler_unnamed"
+              %td= l tr.born_on if tr.born_on?
+
+    %h3= t "admin.bookings.show.state"
+    %p= t adapter.state, scope: "states"
+    - if adapter.cancelled? && inquiry.cancellation.reason?
+      = simple_format inquiry.cancellation.reason
+
+    %dl.dl-horizontal
+      = dt_dd_for adapter, :created_at, :timestamp
+      = dt_dd_for adapter, :updated_at, :timestamp
+      - if adapter.booked?
+        = dt_dd_for adapter, :booked_on, :timestamp
+      - if adapter.cancelled?
+        = dt_dd_for adapter, :cancelled_at, :timestamp
+
+  .col-sm-6.col-md-5.col-lg-4
+    = render "clearing", clearing: inquiry.clearing
+
+  - if current_user.admin? && adapter.payments.any?
+    .col-sm-6.col-md-5.col-lg-4
+      %h3= t "admin.bookings.show.payments"
+
+      %table.table.table-condensed.table-striped
+        %thead
+          %tr
+            %th= t "admin.bookings.show.payment_date"
+            %th= t "admin.bookings.show.payment_scope"
+            %th.text-right= t "admin.bookings.show.payment_sum"
+        %tbody
+          - adapter.payments.each do |payment|
+            %tr
+              %td= payment.paid_on ? l(payment.paid_on) : t("admin.bookings.show.payment_date_unknown")
+              %td= t payment.scope, scope: "payments.scope"
+              %td.text-right= display_price payment.sum
+        %tfoot
+          %tr
+            %th.text-right{ colspan: 2 }= t "admin.bookings.show.payment_total"
+            %th.text-right= display_price adapter.payments.sum(&:sum)
+
+
+- if messages.any?
+  .row.booking.owner_manager
+    .col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
+      %h3= t "admin.bookings.show.notes"
+      %table.table.table-condensed.table-striped
+        %thead
+          %tr
+            %th= t "admin.bookings.show.note_date"
+            %th= t "admin.bookings.show.note_subject"
+            %th= t "admin.bookings.show.note_recipient"
+        %tbody
+          - messages.each do |msg|
+            - case msg
+            - when Message
+              = render "comm_message_row", message: msg
+            - when Cable
+              = render "comm_cable_row", cable: msg
+
+- if current_user.admin? && (adapter.cancelled? || adapter.comment.present?)
+  .row.booking.owner_manager
+    .col-sm-6.col-md-5.col-lg-4.col-md-offset-1.col-lg-offset-2
+      %h3= t "admin.bookings.show.comment"
+
+      - if adapter.cancelled?
+        = form_for inquiry, url: admin_cancellation_path(inquiry), method: :patch, html: { class: "form-horizontal form-condensed" } do |f|
+          .form-group
+            .col-sm-12= f.text_area :comment, class: "form-control", style: "resize: vertical", rows: 10
+          .form-group
+            .col-sm-12= f.submit "Speichern", class: "btn btn-default btn-sm", data: { disable: t(:wait) }
+
+      - else
+        = simple_format adapter.comment
+
+- if current_user.admin? && adapter.booking_pal_reservations.any?
+  .row.booking.owner_manager.mb-3
+    .col-sm-12.col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
+      %my-booking-pal-reservations{ url: admin_inquiry_booking_pal_reservations_path(adapter) }
+
+.mb-5

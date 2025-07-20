@@ -1,0 +1,27 @@
+# Default values for an empty DB. Snippets with key "house_rules" take precedence
+de: |
+  Das Mietobjekt ist sorgfältig zu gebrauchen.
+  Die Reinigung der Kücheneinrichtungen, des Geschirrs und Bestecks ist Sache des Mieters (und nicht in der Endreinigung inbegriffen).
+
+  Ein Pool wird wöchentlich von einem Fachmann überprüft und wird entsprechend gewartet.
+
+  Die Entfernung von oberflächlicher Verschmutzung ist Sache des Mieters.
+
+  Verursacht der Mieter oder Mitbenutzer einen Schaden, ist dieser unverzüglich der Hausverwaltung vor Ort zu melden.
+  Der Mieter haftet für allfällige von ihm oder den Mitbenutzern verursachten Schäden.
+  Alle vom Mieter verursachten Schäden sind ohne weitere Frist zu beheben.
+
+  Haustiere sind grundsätzlich nicht gestattet.
+en: |
+  Renters must take good care of the rental property.
+  It is the renter’s responsibility to clean kitchen appliances, dishes and cutlery (not included in final clean-up service).
+
+  A trained professional will check and maintain the pool once a week.
+
+  It is the renter’s responsibility to remove dirt and debris.
+
+  Any damage caused by the renter or another user must be reported to the property manager on site without delay.
+  The renter will be liable for any damage caused by themselves or other users.
+  Any and all damage done by the renter without advance notification.
+
+  Pets are generally not allowed.

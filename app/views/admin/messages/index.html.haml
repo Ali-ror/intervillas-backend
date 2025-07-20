@@ -1,0 +1,13 @@
+-# gedacht als Debug-Ansicht für uns Entwickler
+
+= render layout: "layout" do
+  %table.table.table-condensed.table-striped.js-sticky-header
+    %thead
+      %tr
+        %th ID
+        %th{ colspan: 2 } Template
+        %th Anfrage/Buchung
+        %th Empfänger
+        %th erzeugt am
+        %th versendet
+    = render partial: "message", collection: messages

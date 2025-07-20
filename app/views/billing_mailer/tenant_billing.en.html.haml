@@ -1,0 +1,16 @@
+%p= salute customer
+%p
+  your vacation is over and we hope you've spent a wonderful time in Cape Coral,
+  Florida. Has everything met your expectations?
+%p
+  Attached you'll find, in PDF form, the statement (deposit/charges) of
+  your booking #{booking.number} (#{rentable.display_name}).
+- if imessage.text?
+  %p= imessage.text
+%p
+  We are looking forward to accommodating you again in the near future and wish
+  you all the best.
+%p
+  Kind Regards,
+  %br/
+  Your INTERVILLAS team

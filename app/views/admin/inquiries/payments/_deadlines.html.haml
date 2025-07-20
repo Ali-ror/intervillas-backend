@@ -1,0 +1,111 @@
+%table.table.booking-deadlines
+  %tbody
+    %tr.active
+      %td{ colspan: 2 }
+        %strong= t "deadlines.total"
+        %br
+        = t "deadlines.deposits"
+      %td.text-right
+        %strong= display_price(deadlines.total - deadlines.deposits)
+        %br
+        = precede "+ " do
+          = display_price deadlines.deposits
+      %td
+
+    - deadlines.each do |deadline|
+      %tr{ class: ("danger" if deadline.overdue?) }
+        %td.indent
+          = t deadline.name, scope: "payments.scope"
+          - if deadline.name == :downpayment
+            = surround "(", ")" do
+              = number_to_percentage(100 * deadlines.downpayment_percentage, format: "%n %", precision: 0)
+          - if deadline.overdue?
+            = fa :times, class: "text-danger"
+        %td= t "payments.payments.due_date", date: l(deadline.date)
+        %td.text-right= display_price deadline.display_sum
+        %td.text-right
+          - if deadlines.difference > 0 && deadline.display_sum > 0
+            %button.btn.btn-xxs.btn-default.js-apply-payment{ data: { scope: deadline.name, sum: deadline.display_sum, target: "#new_payment" } }
+              = fa :arrow_circle_down, text: t("admin.bookings.payments.deadlines.apply")
+
+    %tr.active
+      %td{ colspan: 2 }
+        %strong= t "deadlines.paid_total"
+      %td.text-right
+        %strong= display_price deadlines.paid_total
+      %td
+
+    - deadlines.payments.select(&:paid_on?).each do |payment|
+      %tr
+        %td.indent= t(payment.direction, scope: "deadlines.direction")
+        %td
+          = l payment.paid_on
+          - if (sc = payment.scope.presence) && !["downpayment", "remainder"].include?(sc)
+            .small.text-muted
+              - if sc == "paypal"
+                - if ppp = payment.paypal_payment.presence
+                  = link_to admin_paypal_transaction_path(ppp.transaction_id) do
+                    = fa :paypal, text: ppp.admin_display_id
+                  %br
+                  = paypal_payment_status(ppp)
+                - else
+                  = fa :paypal, text: payment.transaction_id
+                  - if payment.transaction_id.present?
+                    %br
+                  %em= t ".no_paypal_status"
+              - else
+                = t sc, scope: "payments.scope"
+        %td.text-right= display_price payment.sum
+        %td.text-right
+          - unless payment.scope == "paypal"
+            .btn-group.btn-group-xs
+              = link_to [:edit, :admin, inquiry, payment], class: "btn btn-xxs btn-default" do
+                = fa :pencil, text: t("admin.bookings.payments.deadlines.edit")
+              = link_to [:admin, inquiry, payment], method: "delete", class: "btn btn-xxs btn-danger", title: t("admin.bookings.payments.deadlines.delete"), data: { confirm: "Wirklich löschen?" } do
+                = fa :trash
+
+    %tr.active
+      %td{ colspan: 4 }
+        %strong= t "deadlines.due_amounts"
+
+    - if (deadline = deadlines.downpayment_deadline).present? && deadline.overdue?
+      %tr
+        %td.indent{ colspan: 2 }= t "deadlines.due_balance"
+        %td.text-right
+          %strong= display_price deadline.due_balance
+        %td.text-right
+          - if deadlines.difference > 0
+            %button.btn.btn-xxs.btn-default.js-apply-payment{ data: { scope: deadline.name, sum: deadline.due_balance, target: "#new_payment" } }
+              = fa :arrow_circle_down, text: t("admin.bookings.payments.deadlines.apply")
+
+    %tr
+      %td.indent{ colspan: 2 }= t "deadlines.difference"
+      %td.text-right
+        %strong= display_price deadlines.difference
+      %td.text-right
+        - if deadlines.difference > 0
+          %button.btn.btn-xxs.btn-default.js-apply-payment{ data: { scope: "", sum: deadlines.difference, target: "#new_payment" } }
+            = fa :arrow_circle_down, text: t("admin.bookings.payments.deadlines.apply")
+
+  - remove_ack  = inquiry.ack_downpayment? && deadlines.difference > 0
+  - ack_payment = deadlines.acceptable_downpayment_security?
+  - if remove_ack || ack_payment
+    %tfoot
+      %tr.warning{ data: { on_ack: "reload" } }
+        - form_object = BookingForms::PaymentAcknowledge.from inquiry
+        - if remove_ack
+          %td.indent{ colspan: 2 }
+            = t "admin.bookings.payments.deadlines.remove_ack.desc", sum: display_price(deadlines.paid_total)
+          %td.text-right{ colspan: 2 }
+            = form_for form_object, url: api_admin_payment_path(id: form_object.id), remote: true, html: { class: "js-acknowledge-downpayment" } do |f|
+              = f.hidden_field :ack_downpayment, value: false
+              %button.btn.btn-xxs.btn-warning{ type: :submit }
+                = fa :times, text: t("admin.bookings.payments.deadlines.remove_ack.button")
+        - else
+          %td.indent{ colspan: 2 }
+            = t "admin.bookings.payments.deadlines.ack_payment.desc", sum: display_price(deadlines.paid_total)
+          %td.text-right{ colspan: 2 }
+            = form_for form_object, url: api_admin_payment_path(id: form_object.id), remote: true, html: { class: "js-acknowledge-downpayment" } do |f|
+              = f.hidden_field :ack_downpayment, value: true
+              %button.btn.btn-xxs.btn-warning{ type: :submit }
+                = fa :check, text: t("admin.bookings.payments.deadlines.ack_payment.button")

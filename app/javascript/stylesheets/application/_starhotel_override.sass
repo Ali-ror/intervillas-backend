@@ -1,0 +1,92 @@
+@import starhotel_override/admin
+@import starhotel_override/bootstrap_override
+
+//
+// Anpassungen die primär das Starhotel-Theme betreffen.
+// Anpassungen an Bootstrap in _bootstrap_override.sass einfügen!
+//
+
+.text-uppercase
+  text-transform:       uppercase
+
+.btn-slider
+  box-shadow:           none
+  border-radius:        0
+  text-transform:       none
+  color:                #fff
+  background:           rgba(0, 0, 0, 0.5)
+
+  &:hover
+    color:              #fff
+    background:         $brand-primary
+
+// InfoWindow in GoogleMaps auf /karte
+.info-window-content
+  margin:               0
+  color:                black
+
+.content-page
+  img
+    padding:            5px
+
+.tile-checkmark
+  white-space:          nowrap
+  text-overflow:        ellipsis
+  overflow:             hidden
+
+// form inputs textfarbe schwarz
+.form-control
+  color:                #000
+
+// Placeholder Farbe Header
+.navbar-form
+  .form-control:-moz-placeholder
+    color:              $gray-light
+
+  .form-control::-moz-placeholder
+    color:              $gray-light
+    opacity: 1
+
+  .form-control:-ms-input-placeholder
+    color:              $gray-light
+
+  .form-control::-webkit-input-placeholder
+    color:              $gray-light
+
+.row.mt-5 h3
+  margin-top:           0
+
+.thumbnail.selected
+  border:               1px solid #35929e
+  background:           $brand-primary
+  .btn
+    display:            none
+
+.card
+  padding:              15px
+  border:               1px solid $gray-lighter
+  margin-bottom:        15px
+  box-shadow:           0 2px 0 0 $gray-lighter
+
+  &.selected
+    border-color:       $brand-primary
+
+.sortable-placeholder
+  background:           $gray-lighter
+
+.table .btn i
+  color:                inherit
+
+table.js-action-row
+  [data-action-row-id]
+    cursor:             pointer
+
+.nav-pills .nav-pills
+  margin-top:           0
+  margin-left:          $padding-base-horizontal
+
+section.container
+  @extend .mt-5
+
+textarea.no-resize
+  resize:               none

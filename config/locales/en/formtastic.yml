@@ -1,0 +1,378 @@
+---
+en:
+  formtastic:
+    actions:
+      boat_inquiry: Yes, rent the selected boat
+      create: save
+      submit: save %{model}
+      update: save
+    hints:
+      billing_forms/villa:
+        energy_price_defer: price per kWh (wenn billed by usage), or total price (when flat pricing), otherwise leave empty
+        energy_price_usage: price per kWh
+        energy_price_flat: total price for energy
+        meter_reading_begin_defer: only if billed by usage, otherwise leave empty
+        meter_reading_end_defer: only if billed by usage, otherwise leave empty
+      booking:
+        email: Please provide an e-mail address, we will send you an offer.
+      contact_forms/basics:
+        company_name: required for companies
+        phone: >-
+          Phone number is sent to the customer in the travel mail two weeks prior to arrival, if this contact is listed as
+          management contact
+      contact_forms/billing:
+        email_addresses: one email address per line
+        language: used for automatically generated mails, like booking notes
+        wants_auto_booking_confirmation_mail: Upon booking confirmation, an automatic mail will be send to the addresses listed
+          above.
+        payout_reminder_days: >-
+          When set, a mail is sent the given number of days prior to arrival of a tenant, to remind of the owners early
+          payout. Note: "0" means "on the day of arrival", "14" means "two weeks prior".
+      payment_form:
+        scope: "«Downpayment» and «Remainder» only exist for historical reasons and are no longer processed anywhere."
+      price_form:
+        discount_note: Optional. Keep short, will be shown to customer.
+        handling_note: Optional. Keep short, will be shown to customer.
+      route:
+        h1: Text for the H1-tag of the page.
+        path: no leading slash, eg <code>impressum</code>
+      user:
+        additional_emails: Additional email addresses (one per row), used to send billings to.
+        commission: in %
+      villa_inquiry_forms/for_inquiry:
+        children_under_12: This category holds, if the 12th birthday falls on the date of arrival (or later).
+        children_under_6: This category holds, if the 6th birthday falls on the date of arrival (or later).
+    labels:
+      admin_booking:
+        address: Street
+        adults: Number of adults
+        appnr: Street no.
+        boat_deposit: Deposit (boat)
+        boat_price: Daily price boat
+        boat_training: Boat deliverey
+        children_under_12: Number of children up to the age of 12
+        children_under_6: Number of children up to the age of 6
+        city: Place
+        cleaning: Cleaning costs
+        country: country
+        discount: Discount
+        email: Email Address
+        email_confirmation: Please confirm your Email address
+        end_date: Departure
+        first_name: Given name
+        house_deposit: Deposit (home)
+        last_name: Last name
+        newsletter: I want to subscribe to the newsletter
+        phone: Phone
+        postal_code: Zip code
+        price_people: Price per person
+        start_date: Getting there
+        state: Status
+        title: Salutation
+        villa: Object
+        with_boat: Client wishes to rent boat
+      billing_forms/boat:
+        agency_fee: Agency fee
+        commission: Commission (in %)
+      billing_forms/villa:
+        agency_fee: Agency fee
+        commission: Commission (in %)
+        energy_pricing: Energy pricing
+        energy_price: Energy price
+        meter_reading_begin: Meter reading (at begin, kWh)
+        meter_reading_end: Meter reading (at end, kWh)
+      blocking_form:
+        comment: Comment
+        end_date: end date
+        start_date: start date
+        villa_id: Villa
+      boat:
+        de_description: Description
+        deposit: Deposit
+        description: Description
+        en_description: Description
+        external: mark as externally rented (Boat will not appear on owner billing)
+        file: Select file (.zip, .pdf)
+        horse_power: bhp
+        manager_id: Boat manager
+        matriculation_number: Matriculation Number
+        minimum_days: Min. rental period (days)
+        model: Model
+        owner_id: Owner
+        training: Delivery
+        url: Link
+      boat_holiday_discounts_form:
+        days_after: days after
+        days_before: days before
+        description: Holiday
+        percent: percent
+      boat_assignment_form:
+        exclusive_boat: Boat exclusive
+        inclusion: Inclusion
+        inclusions:
+          exclusive: boat included in Villa rent
+          none: no boat possible
+          optional: optional boat
+        optional_boats: Optional boats
+      boat_inquiry_forms/admin:
+        boat_daily: Daily rent
+        boat_deposit: Deposit
+        boat_id: Boat
+        boat_name: Boat name
+        boat_training: Boat delivery
+        date_range: date range
+        end_date: returning date
+        start_date: handover date
+      boat_inquiry_forms/for_inquiry:
+        end_date: rent until
+        start_date: rent from
+        with_boat: I'd like to rent a boat
+      boat_prices_form:
+        amount: Days (minimum)
+        value: Price per day
+      cable_form:
+        text: Cable text
+        user_id: Recipient
+      charges_form:
+        amount: Amount
+        text: Description
+        value: Value
+      contact_forms/bank_account:
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Account owner
+        bank_address: Adress of Bank
+        bank_code: IBAN
+        bank_name: Name of Bank
+        bank_routing_number: Routing no.
+        usd_bank_account_number: SWIFT-BIC
+        usd_bank_account_owner: Account owner
+        usd_bank_address: Adress of Bank
+        usd_bank_code: IBAN
+        usd_bank_name: Name of Bank
+        usd_bank_routing_number: Routing no.
+      contact_forms/basics:
+        address: Address
+        city: City
+        company_name: Company
+        country: Country
+        first_name: Given name
+        gender: Title
+        last_name: Last name
+        phone: Phone no.
+        zip: ZIP
+      contact_forms/billing:
+        agency_fee: Agency fees
+        commission: Commission (in percent)
+        email_addresses: Email addresses
+        locale: Language
+        tax_id_number: Tax ID (TIN)
+        wants_auto_booking_confirmation_mail: automatic booking confirmation mail
+        payout_reminder_days: Reminder for early payment
+      customer_forms/admin:
+        address: Street
+        appnr: Street no.
+        bank_account_number: SWIFT/BIC
+        bank_account_owner: Account owner
+        bank_code: IBAN
+        bank_name: Bank name
+        city: City
+        country: Country
+        state_code: State/Province
+        currency: Currency
+        email: Email
+        email_confirmation: Please confirm your Email
+        first_name: Given name
+        last_name: Last name
+        locale: Language
+        newsletter: Register for newsletter
+        note: Note
+        phone: Phone number
+        postal_code: ZIP
+        title: Title
+        travel_insurance: Travel Insurance
+        us_bank_routing_number: Routing no.
+      customer_forms/admin_offer:
+        address: Street
+        appnr: Street no.
+        bank_account_number: SWIFT/BIC
+        bank_account_owner: Account owner
+        bank_code: IBAN
+        bank_name: Bank name
+        city: City
+        country: Country
+        state_code: State/Province
+        currency: Currency
+        email: Email
+        email_confirmation: Please confirm your Email
+        first_name: Given name
+        last_name: Last name
+        locale: Language
+        newsletter: Register for newsletter
+        note: Note
+        phone: Phone number
+        postal_code: ZIP
+        title: Title
+        travel_insurance: Travel Insurance
+        us_bank_routing_number: Routing no.
+      customer_forms/for_booking:
+        address: Street
+        appnr: Street no.
+        bank_account_number: SWIFT/BIC
+        bank_account_owner: Account owner
+        bank_code: IBAN
+        bank_name: Bank name
+        city: City
+        country: Country
+        state_code: State/Province
+        first_name: Given name
+        last_name: Last name
+        postal_code: ZIP
+        travel_insurance: Travel Insurance
+        us_bank_routing_number: Routing no.
+      customer_forms/for_inquiry:
+        currency: Währung
+        email: Email
+        email_confirmation: Please confirm your Email
+        first_name: Given name
+        last_name: Last name
+        locale: Language
+        newsletter: Register for newsletter
+        phone: Phone number
+        title: Title
+      media/image:
+        active: active?
+        de_name: Filename in German
+        en_name: Filename
+      misc_forms/booking:
+        comment: Comment
+      misc_forms/inquiry:
+        comment: Comment
+      payment_form:
+        comment: Note
+        paid_on: Paid on
+        scope: Type
+        sum: Paid sum
+      price_form:
+        cleaning: Cleaning
+        discount: Discount
+        discount_note: Discount note
+        handling: Handling fee
+        handling_note: Handling note
+        house_deposit: Deposit (Villa)
+        price_children_under_12: Price per child up to age 12
+        price_children_under_6: Price per child up to age 6
+        price_people: Price per adult
+      review_forms/admin:
+        city: City
+        name: Name
+        published: published
+        archived: archived/deleted
+        rating: Rating
+        text: Comment
+      traveler:
+        born_on: Date of birth
+        first_name: Given name
+        last_name: Last name
+        title: Salutation
+      traveler_form:
+        born_on: Date of birth
+        first_name: Given name
+        last_name: Last name
+        title: Title
+      user:
+        commission: Commission (in %)
+        remember_me: Remember me
+      user_forms/basic:
+        access_level: Access level
+        email: Email address
+      user_forms/contacts:
+        contact_ids: Contacts
+      user_forms/merge:
+        victim: Source
+        victim_id: Source
+      villa:
+        active: enabled?
+        aussendusche: Outside shower
+        babybett: Baby bed
+        badewanne: Bath
+        bidet: Bidet
+        buyable: for sale?
+        country: country
+        description: Description
+        domain_ids: Routing
+        doppelbett: Double bed
+        duschbad: Shower
+        dusche: Shower
+        einzelbett: Single bed
+        einzimmerwohnung: Studio
+        fahrraeder: Bicycles
+        fernseher: TV
+        franzoesischbettgross: King size (double size)
+        franzoesischbettklein: Queen (double normal)
+        gaestewc: Guest toilet
+        gartenstuehle: Garden chairs
+        header: Header Text
+        jacuzzi: Jacuzzi
+        kinderbett: Baby Bed
+        liegen: Lounge Chairs
+        living_area: Living space
+        locality: Place
+        meta_description: HTML Meta Description
+        postal_code: Zip code
+        region: Region
+        schlafsofa: 'Sleeper Sofa '
+        schlafzimmer: Bedroom
+        sitzgelegenheiten: Seating
+        sonstiges: Other
+        street: Street
+        teaser: Intro Text
+        title: HTML Title
+        vollbad: Bath
+        wc: WC
+      villa_inquiry_forms/admin:
+        adults: No. of adults
+        children_under_12: No. of children up to age 12
+        children_under_6: No. of children up to age 6
+        end_date: Departure
+        start_date: Arrival
+        villa_id: Villa
+      villa_inquiry_forms/admin_offer:
+        adults: No. of adults
+        children_under_12: No. of children up to age 12
+        children_under_6: No. of children up to age 6
+        email: Email
+        email_confirmation: Please confirm your Email
+        end_date: Departure
+        first_name: Given name
+        last_name: Last name
+        locale: Language
+        newsletter: Register for newsletter
+        phone: Phone number
+        start_date: Arrival
+        title: Title
+        villa_id: Villa
+      villa_inquiry_forms/for_inquiry:
+        adults: No. of adults
+        children_under_12: No. of children up to age 12
+        children_under_6: No. of children up to age 6
+        end_date: Departure
+        start_date: Arrival
+    titles:
+      accessoires: Accessories
+      bathrooms: Bathroom
+      bedrooms: Bedroom
+      boat: Water Sports
+      comfort: Amenities
+      communication: Communication
+      diningroom: Dining area
+      entertainment: Entertainment
+      gym: Sports
+      highlights: Highlights
+      kitchen: Kitchen
+      lavatory: Washroom
+      livingroom: Living space
+      location: Environment
+      outdoor: Outside area
+      personnel: Staff
+      pool: Swimming Pools
+      theme: Topic

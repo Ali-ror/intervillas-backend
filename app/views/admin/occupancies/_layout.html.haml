@@ -1,0 +1,17 @@
+.row
+  .col-sm-2
+    %ul.nav.nav-pills.nav-justified
+      %li{ class: params[:type] == 'villas' && :active }
+        = link_to t(".villas"), occupancies_admin_villas_path
+      %li{ class: params[:type] == 'boats' && :active }
+        = link_to t(".boats"), occupancies_admin_boats_path
+    .list-group.list-group-condensed.mt-3
+      - rentables.each do |rentable|
+        = link_to occupancies_path(rentable), class: ["list-group-item", active_class(rentable)] do
+          = render "#{params[:type]}/list_group_item_content", rentable: rentable
+
+  - if action_name == "show"
+    .col-sm-9= yield
+    .col-sm-1= yield :sidebar_right
+  - else
+    .col-sm-10= yield

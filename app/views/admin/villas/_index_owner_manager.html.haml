@@ -1,0 +1,32 @@
+.row
+  .col-md-9.mt-4
+    - now = Time.now
+    %table.table.table-striped.table-condensed.table-hover
+      %thead
+        %tr
+          %th= Villa.model_name.human
+          %th{ colspan: 3 }= t ".current_bookings", year: now.year
+          %th{ colspan: 3 }= t ".current_bookings", year: now.year+1
+      %tbody
+        - villas.each do |villa|
+          %tr
+            %td= link_to villa.name, villa
+            - [now, now + 1.year].each do |yearset|
+              %td
+                = link_to occupancies_admin_villa_path(villa, year: yearset.year, anchor: "list") do
+                  = fa :lg, :eye, text: t("helper.links.show")
+              %td
+                = link_to occupancies_calendar_admin_villa_path(villa, year: yearset.year) do
+                  = fa :lg, :calendar, text: t("helper.links.print")
+              %td
+                = link_to occupancies_calendar_admin_villa_path(villa, year: yearset.year, format: :csv) do
+                  = fa :lg, :table, text: t("helper.links.csv_download")
+  .col-sm-3
+    %h3= t ".cables.recent"
+    - if current_user.recent_cables.none?
+      %p
+        %em= t ".cables.none_found"
+    - else
+      - current_user.recent_cables.each do |cable|
+        = render "admin/cables/cable", cable: cable
+    %p.small= t ".cables.description"

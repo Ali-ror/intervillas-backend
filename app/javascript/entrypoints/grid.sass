@@ -1,0 +1,173 @@
+@use "sass:math"
+
+@page
+  margin:                     1cm
+
+@media print
+  html
+    margin:                   11.5pt
+
+  body, table
+    font-size:                7pt
+
+  table
+    margin:                   0
+    border-spacing:           0
+    border-collapse:          collapse
+
+  table, tr, td, th, h1 + h2
+    line-height:              100%
+    page-break-inside:        avoid
+    page-break-before:        avoid
+
+  h2
+    page-break-before:        always
+
+  td
+    strong
+      font-weight:            normal
+    small
+      font-size:              5pt
+
+  table
+    thead th
+      border-bottom:          0.2pt solid #333
+    tfoot
+      td, th
+        border-top:           0.2pt solid #333
+    th
+      border-width:           0 0 0 0.2pt
+    td
+      border:                 0.2pt solid #333
+
+*
+  box-sizing:                 border-box
+
+body
+  font-size:                  11px
+  font-family:                "Helvetica Neue", Helvetica, Arial, sans-serif
+
+h1
+  font-size:                  16px
+  margin-bottom:              1em
+
+h2
+  margin:                     0
+  font-size:                  14px
+
+table
+  border-collapse:            collapse
+
+  tr
+    height:                   8px
+
+  &.grid
+    margin:                   20px 0
+    width:                    100%
+    th, td
+      width:                  50px
+      max-width:              math.div(100, 31) * 1%
+      &[colspan="1"]
+        width:                25px
+        max-width:            math.div(50, 31) * 1%
+
+  &.caption
+    width:                    500px
+    margin-top:               1em
+
+    thead th
+      border-bottom:          1px solid #333
+    tfoot
+      td, th
+        border-top:           1px solid #333
+    th, td
+      text-align:             left
+    .field
+      width:                  20%
+
+th
+  border:                     0px solid #333
+  .calendar &
+    border-width:             0 0 0 1px
+  &.invis
+    border-width:             0 1px 0 0
+  &.pagination
+    font-weight:              normal
+    text-align:               left
+
+$dark-red: darken(red, 20%)
+$dark-orange: darken(orange, 15%)
+
+td
+  .calendar &
+    border:                   1px solid #333
+    &.blank
+      border:                 none
+  .occupation &
+    width:                    100px
+
+  a
+    font-weight:              bold
+    text-decoration:          none
+
+  &.blocked
+    color:                    green
+    background:               rgba(green, 0.2)
+    a
+      color:                  green
+
+    &.my-booking-pal
+      color:                  $dark-orange
+      background:             rgba(orange, 0.2)
+      a
+        color:                $dark-orange
+
+  &.booked
+    color:                    red
+    background:               rgba(red, 0.2)
+    a
+      color:                  red
+
+  &.external
+    color:                    $dark-red
+    background:               rgba($dark-red, 0.2)
+    a
+      color:                  $dark-red
+
+  &.double-booking
+    background-image:         url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKAQMAAAC3/F3+AAAABlBMVEX///8AAABVwtN+AAAAAnRSTlMUM+fte3sAAAAlSURBVAgdY35wgfEAA9NBBgbmA8xssgz8DExAJMfAZMPA8IEBAGxLBY/g23WSAAAAAElFTkSuQmCC")
+    background-repeat:        repeat
+    background-attachment:    fixed
+
+  &.day
+    width:                    22px
+    text-align:               right
+
+td.caption
+  > div
+    display: inline-block
+    padding: 2px 4px
+
+    &.blocked
+      color:                    green
+      background:               rgba(green, 0.2)
+      &.fresh
+        background:             green
+
+      &.my-booking-pal
+        color:                  $dark-orange
+        background:             rgba(orange, 0.2)
+        &.fresh
+          color:                $dark-orange
+
+    &.booked
+      color:                    red
+      background:               rgba(red, 0.2)
+      &.fresh
+        background:             red
+
+    &.external
+      color:                    $dark-red
+      background:               rgba($dark-red, 0.2)
+      a
+        color:                  $dark-red

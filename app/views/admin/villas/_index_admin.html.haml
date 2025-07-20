@@ -1,0 +1,14 @@
+%ul.nav.nav-tabs
+  %li.active
+    = link_to "#active", class: "nav-link", data: { toggle: "tab" } do
+      = t "admin.users.active"
+  %li
+    = link_to "#inactive", class: "nav-link", data: { toggle: "tab" } do
+      = t "admin.users.inactive"
+
+.tab-content
+  #active.tab-pane.active
+    = render "table", villas: villas.active
+
+  #inactive.tab-pane
+    = render "table", villas: villas.inactive

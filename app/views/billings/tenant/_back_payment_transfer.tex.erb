@@ -1,0 +1,16 @@
+<%= t "billings.tenant.back_payment.text" %>:
+
+\begin{tabbing}
+  \null$\qquad$\=\hspace{.25\linewidth}\=\\\kill
+  \>\textbf{<%= t "billings.tenant.bank.owner" %>}    \><%= escape tpl.bank_account[:owner] %>\\
+  <%- if tpl.bank_account.key?(:name) -%>
+    \>\textbf{<%= t "billings.tenant.bank.name" %>}   \><%= escape tpl.bank_account[:name] %>\\
+  <%- end -%>
+  <%- if tpl.bank_account[:swift] %>
+    \>\textbf{<%= t "billings.tenant.bank.swift" %>}  \><%= escape tpl.bank_account[:number] %>\\
+    \>\textbf{<%= t "billings.tenant.bank.iban" %>}   \><%= escape tpl.bank_account[:code] %>
+  <%- else -%>
+    \>\textbf{<%= t "billings.tenant.bank.number" %>} \><%= escape tpl.bank_account[:number] %>\\
+    \>\textbf{<%= t "billings.tenant.bank.code" %>}   \><%= escape tpl.bank_account[:code] %>
+  <%- end -%>
+\end{tabbing}

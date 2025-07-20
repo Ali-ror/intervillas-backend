@@ -1,0 +1,35 @@
+= page_header do
+  -# breadcrumb.add link_to t("shared.menu.boats"), "/boats"
+  - breadcrumb.add t("shared.menu.boats")
+  = breadcrumb.render link_to boat.model, boat
+
+  %h1= h1 || boat.model
+
+.container.mt-5
+  .row
+    %section.col-sm-12.col-md-8.col-md-offset-2.applet{ name: "Gallery" }
+      = image_gallery boat.images.active
+
+.container.mt-5
+  %h2.lined-heading
+    %span= t ".description"
+  .row
+    .col-sm-6
+      %h3= boat.model
+      = simple_format boat.description
+
+      %p
+        - if request.env.fetch("HTTP_REFERER", "").downcase.include?("intervilla")
+          = link_to t(".back"), :back, class: "btn btn-default"
+        = link_to t(".more"), boat.url, class: "btn btn-primary", target: "_blank"
+
+    .col-sm-6
+      %h3= t ".technical"
+      %table.table.table-striped.mt-4
+        %tbody
+          %tr
+            %th= t ".power"
+            %td= boat.horse_power
+
+      %h3= t ".prices"
+      = render "daily_prices", boat: boat

@@ -1,0 +1,39 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      %th= t ".subject"
+      %th= t ".recipient"
+      %th= t ".created_at"
+      %th= t ".sent_at"
+      %th.text-right= t ".actions"
+  %tbody
+    - messages.each do |message|
+      %tr
+        %td= t message.template, scope: "messages.templates"
+        %td
+          = message.recipient
+          %ul.list-unstyled.small.text-muted
+            - message.recipient.email_addresses.each do |email|
+              %li= email
+        %td= timestamp message.created_at, "P, p", ignore_blank: true, convert_with: :to_datetime
+        %td
+          - if message.sent_at?
+            = link_to fa(:lg, :refresh), [:resend, :admin, message.inquiry, message],
+                title:  t(".resend"),
+                method: :post,
+                remote: true,
+                class:  "btn btn-default btn-xxs mr-2 js-resend-message",
+                data:   { confirm: "#{t('.resend')}?", disable_with: t("wait") }
+          = timestamp message.sent_at, "P, p", ignore_blank: true, convert_with: :to_datetime
+
+        %td.text-right
+          = link_to fa(:lg, :eye, text: t("messages.preview")), [:admin, message.inquiry, message],
+              remote: true,
+              class:  "btn btn-default btn-xxs js-message-preview"
+
+      - if message.text?
+        %tr
+          %td{ class: "border-0" }
+          %td{ class: "border-0", colspan: 4 }
+            %div.well.well-sm
+              = simple_format message.message_text

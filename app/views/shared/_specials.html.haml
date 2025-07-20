@@ -1,0 +1,8 @@
+- specials = (@specials || Special.all)
+- if specials.any?
+  %h2
+    = t('shared.sidebar.specials')
+  %ul.itemMenu
+    - specials.each do |special|
+      %li
+        = link_to special.description, specials_path( anchor: dom_id(special) )

@@ -1,0 +1,18 @@
+.row
+  .col-sm-9
+    = render "admin/inquiries/header"
+    .mt-3.mb-2= render "filter"
+
+    - if valid_clearing_date?
+      - owner_clearings.each do |curr, owner_clearing|
+        - if owner_clearing.size == 0 # ist bereits ein Array
+          .alert.alert-info= t ".no_clearings_found", curr: curr
+        - else
+          %h3= curr
+          = render "table", owner_clearings: owner_clearing
+    - else
+      .alert.alert-info= t ".invalid_date"
+
+  %aside.col-sm-3
+    = render "controls"
+    = render "admin/billings/search_panel"

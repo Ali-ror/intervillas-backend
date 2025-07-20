@@ -1,0 +1,33 @@
+= cache [:rails7, I18n.locale, resource.villa, resource, controller_action, :review] do
+  .text-balloon{ itemprop: "review", itemscope: "itemscope", itemtype: "http://schema.org/Review" }
+    - if medium = resource.villa.main_image.presence
+      %meta{ itemprop: "image", content: media_url(medium, preset: :teaser) }
+
+    %strong= link_to resource.villa.name, resource.villa
+
+    - if resource.rating?
+      .rating{ itemprop: "reviewRating", itemscope: "itemscope", itemtype: "http://schema.org/Rating" }><
+        %meta{ itemprop: "worstRating", content: 1 }>
+        %meta{ itemprop: "ratingValue", content: resource.rating }>
+        %meta{ itemprop: "bestRating", content: 5 }>
+        - Review::RATING_RANGE.reverse_each do |i|
+          %i.star{ class: ("active" if i == resource.rating) }>
+
+    %div{ itemprop: "description" }
+      - case controller_action
+      - when "reviews#preview", "reviews#show", "reviews#index", "reviews#edit", "villas#show"
+        = format_review resource
+      - when "home#index"
+        = format_review resource, 20, link_to("weiterlesen", villa_reviews_path(resource.villa, anchor: dom_id(resource)), class: "btn btn-xs btn-link")
+
+    - date = (resource.published_at || DateTime.current).to_date
+    %meta{ itemprop: "datePublished", content: date.iso8601 }
+    %p.small
+      - if resource.name.present?
+        %span{ itemprop: "author" }= resource.name
+        &bull;
+      - if resource.city.present?
+        %span= resource.city
+        &bull;
+      - if resource.booking.end_date >= Review::START_DATE
+        %span= l date

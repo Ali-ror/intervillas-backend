@@ -1,0 +1,34 @@
+.text-center
+  = will_paginate paypal_payments
+
+%table.table.table-hover.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= t ".booking"
+      %th= t ".date"
+      %th= t ".transaction_id"
+      %th= t ".status"
+      %th.text-right
+        = t ".sum"
+        .small.text-muted
+          = surround "(", ")" do
+            = t ".incl_fees"
+      %th.text-right
+        = t ".fees"
+        .small.text-muted= t ".expected_fees"
+      %th.text-right
+        = t ".fees"
+        .small.text-muted= t ".actual_fees"
+      %th.text-right
+        = t ".fees"
+        .small.text-muted= t ".fee_difference"
+      %th.text-right
+        = t ".fee_percentage"
+        .small.text-muted= t ".effective_fees"
+      %th
+
+  %tbody
+    = render partial: "payment", collection: paypal_payments
+
+.text-center
+  = will_paginate paypal_payments

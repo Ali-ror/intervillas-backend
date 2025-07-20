@@ -1,0 +1,29 @@
+.row
+  .col-sm-6= form.input :model
+  .col-sm-6= form.input :horse_power
+  .col-sm-6= form.input :matriculation_number, prepend: "FL-"
+.row
+  - I18n.available_locales.each do |locale|
+    .col-sm-6
+      = form.input :"#{locale}_description", as: :text, input_html: { rows: 20 }
+= form.input :url
+
+= form.inputs "Abrechnung" do
+  = form.input :minimum_days
+
+= form.inputs "Kontakte" do
+  - contact_collection = Contact.all.map{|c| [c.to_s, c.id] }
+  .row
+    .col-sm-6= form.input :manager_id, as: :ui_select, collection: contact_collection
+    .col-sm-6= form.input :owner_id,   as: :ui_select, collection: contact_collection
+
+= form.inputs "Routing", class: "form-horizontal" do
+  - e = form.object.errors[:domain_ids]
+  .form-group{ class: ("has-error" if e.any?) }
+    %label.control-label.col-sm-2 Domains
+    .col-sm-10
+      = form.collection_check_boxes :domain_ids, Domain.all, :id, :name do |chk|
+        .checkbox{ class: ("has-error" if e.any?) }
+          %label= "#{chk.check_box} #{chk.text}"
+      - if e.any?
+        %span.help-block= e.to_sentence

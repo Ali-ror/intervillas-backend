@@ -1,0 +1,11 @@
+- if rentable.hidden?
+  = rentable.model
+- else
+  %strong= rentable.model
+
+.small
+  .pull-right
+    - if rentable.hidden?
+      = fa :fw, :eye_slash, title: "ausgeblendetes Boot aus Bestandsbuchungen"
+    = rentable.id
+  = rentable.formatted_matriculation_number || "FL-???"

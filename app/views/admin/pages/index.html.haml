@@ -1,0 +1,50 @@
+%h1.page-header
+  .small.pull-right
+    = link_to new_admin_page_path, class: "btn btn-sm btn-primary" do
+      = fa :plus, text: t(".create")
+  = t ".heading"
+
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th Name (intern)
+      %th
+        %span.fi.fi-de
+        Seitentitel
+      %th
+        %span.fi.fi-us
+        Seitentitel
+      %th Pfad
+      %th SEO
+      %th Domain(s)
+      %th{ colspan: 2 }
+  %tbody
+    - pages.each do |pg|
+      %tr
+        %td
+          - if pg.route_with_name?
+            %code= pg.route.name
+        %td
+          %strong= pg.name(:de)
+        %td= pg.name(:en)
+        %td
+          %code /#{pg.route.path}
+        %td
+          = link_to edit_admin_route_path(pg.route), title: "SEO-Einstellungen bearbeiten" do
+            = fa :cogs, :x2
+        %td
+          %ul
+            - pg.domains.each do |dom|
+              %li
+                %code= dom
+                = surround ' (', ')' do
+                  = link_to "Vorschau", "//#{dom}/#{pg.route.path}"
+        %td
+          - if can? :edit, pg
+            = link_to edit_admin_page_path(pg) do
+              = fa :pencil, :x2, class: 'text-warning', title: t('helper.links.edit')
+        %td
+          - if can? :destroy, pg
+            = link_to admin_page_path(pg), method: :delete do
+              = fa :trash, :x2, class: 'text-danger', title: t('helper.links.delete')
+

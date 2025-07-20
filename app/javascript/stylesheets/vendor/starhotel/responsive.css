@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+@media (min-width: 768px) {
+  .boxed .navbar {
+    max-width: 1170px;
+  }
+  .boxed .navbar .container {
+    margin: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Navbar */
+  .navbar-nav > li > a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  header #logo, .navbar.shrink #logo {
+    padding-right: 30px;
+  }
+  .navbar-nav > li:first-child {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 13px;
+  }
+  /* Top Header */
+  #top-header .th-item {
+    padding: 0 3px;
+  }
+  #top-header .container {
+    padding: 0 5px;
+  }
+  .sticky-wrapper {
+    max-height: 74px;
+  }
+  /* Navbar */
+  .navbar-nav {
+    margin: 0 -15px;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: #e1e1e1;
+    margin-top: 20px;
+  }
+  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #fff;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #cccccc;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li {
+    color: #5e5e5e;
+    font-size: 13px;
+    background-color: transparent;
+    border-bottom: 1px dotted #e1e1e1;
+    padding: 10px 15px;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li:last-child {
+    border: none;
+  }
+  .navbar-default .navbar-nav > li {
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .navbar-default .navbar-nav > li > a {
+    padding: 15px 15px 15px 15px;
+  }
+  .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .navbar-default .navbar-nav li:last-child {
+    border-bottom: none;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    padding: 0;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-color: transparent;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    background-color: transparent;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+  /* Go-Top Button */
+  #go-top {
+    display: none !important;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 351px) {
+  .breadcrumb {
+    margin: 15px 0 10px 0;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 300px) {
+  body {
+    min-width: 280px;
+  }
+  .navbar-brand {
+    padding: 15px 2px;
+  }
+}

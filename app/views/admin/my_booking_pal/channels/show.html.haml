@@ -1,0 +1,17 @@
+= render layout: "admin/my_booking_pal/layout" do
+  .panel.panel-danger.d-flex.flex-column{ style: "min-height: 85vh" }
+    .panel-heading
+      %ul.list-inline.mb-0
+        External site, not part of intervillas-florida.com!
+        %strong DO NOT CHANGE PRODUCTS/PROPERTIES/VILLAS HERE!
+    - if Rails.env.production?
+      %iframe.panel-body.border-0.flex-grow-1{ src: MyBookingPal.client.channel_connector_url, style: "width: 100%; height: 100%" }
+      .panel-footer.text-right.small
+        Channel Connector wizard doesn't show?
+        = link_to wizard_admin_my_booking_pal_channel_path, target: :_blank do
+          %i.fa.fa-external-link
+          Open in New Window/Tab
+    - else
+      .d-flex.justify-content-center.align-items-center.flex-grow-1.bg-light
+        %p.text-center
+          %em.text-muted Channel Connector Wizard not available.

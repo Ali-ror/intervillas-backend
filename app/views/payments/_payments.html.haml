@@ -1,0 +1,68 @@
+%h2#overview= t ".title"
+%p= t ".instructions"
+
+%table.table
+  %tbody
+    %tr.active
+      %td{ colspan: 2 }
+        %strong= t ".total"
+      = display_price deadlines.total do |val|
+        %td.text-right
+          %strong= val
+
+    - deadlines.each do |deadline|
+      %tr
+        %td
+          &emsp;
+          = t deadline.name, scope: "payments.scope"
+          - if deadline.name == :downpayment
+            = surround "(", ")" do
+              = number_to_percentage(100 * deadlines.downpayment_percentage, format: "%n %", precision: 0)
+        %td
+          = t ".due_date", date: l(deadline.date)
+          - if deadline.due_balance <= 0
+            = fa :check, class: "text-success", title: t(".paid"), data: { toggle: :tooltip }
+          - if deadline.overdue?
+            = fa :exclamation_triangle, class: "text-danger", title: t(".overdue"), data: { toggle: :tooltip }
+        = display_price deadline.display_sum do |val|
+          %td.text-right= val
+
+    %tr.active
+      %td{ colspan: 2 }
+        %strong= t ".paid_total"
+      = display_price deadlines.paid_total do |val|
+        %td.text-right
+          %strong= val
+
+    - deadlines.payments.select(&:paid_on?).each do |payment|
+      %tr
+        %td &emsp; #{t ".paid_sum"}
+        %td
+          = l payment.paid_on
+          - case payment.scope
+          - when "paypal"
+            .small.text-muted
+              - if ppp = payment.paypal_payment.presence
+                = fa :paypal, text: ppp.admin_display_id
+                %br
+                = paypal_payment_status(ppp)
+              - else
+                = fa :paypal, text: payment.transaction_id
+          - when "regions_bank", "chase_bank", "spk_hochrhein", "zurich_kb"
+            .small.text-muted= t payment.scope, scope: "payments.scope"
+          - when "paypal_manual"
+            .small.text-muted PayPal
+        = display_price payment.paid_sum do |val|
+          %td.text-right= val
+
+    %tr.active
+      %td{ colspan: 2 }
+        %strong= t ".difference"
+      = display_price deadlines.difference do |val|
+        %td.text-right
+          %strong= val
+
+  %tfoot
+    %tr
+      %td{ colspan: (current_currency == Currency::EUR ? 3 : 4) }
+        %em= t ".note"

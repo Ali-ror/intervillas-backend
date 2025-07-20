@@ -1,0 +1,64 @@
+.container
+  .navbar-header
+    %button.navbar-toggle.collapsed{ type: :button, data: { target: "#main-menu", toggle: :collapse } }
+      %i.fa.fa-3x
+    = render "shared/logo"
+    #main-menu.navbar-collapse.collapse
+      .navbar-links
+        %ul.nav.navbar-nav
+          %li= link_to nav_icon_with_text("villas"),   villas_path
+          = li_link_to_page "vacation_in_florida_boats" do
+            = nav_icon_with_text("boats")
+          %li= link_to nav_icon_with_text("specials"), specials_path
+          %li.hidden-sm
+            = link_to nav_icon_with_text("karte"),     "/karte"
+          = li_link_to_page "capecoral" do
+            = nav_icon_with_text("cape_coral")
+          %li.hidden-sm
+            = link_to nav_icon_with_text("reviews"),   localized_path(:reviews)
+
+        %ul.nav.navbar-nav.navbar-extra
+          - if Rails.env.test?
+            - currencies.each do |curr|
+              - next if curr == current_currency
+              %li= link_to_currency curr
+
+          - if current_domain.multilingual?
+            %li.dropdown
+              = link_to "#", title: t("locale"), data: { toggle: :dropdown } do
+                = fa :fw, :globe
+                = t I18n.locale, scope: :locales
+              %ul.dropdown-menu.dropdown-menu-right
+                - I18n.available_locales.each do |loc|
+                  - next if loc == I18n.locale
+                  %li= link_to_locale loc
+
+          %li.visible-sm-block
+            = link_to nav_icon_with_text("karte"),     "/karte"
+          %li.visible-sm-block
+            = link_to nav_icon_with_text("reviews"),   localized_path(:reviews)
+          %li.dropdown
+            = link_to "#", data: { toggle: :dropdown } do
+              = nav_icon_with_text("more")
+              = fa :caret_down
+            %ul.dropdown-menu.dropdown-menu-right
+              = li_link_to_page "top_villas"
+              = li_link_to_page "rental_cars" do
+                = t("shared.menu.rental_cars")
+              = li_link_to_page "skipper_insurance" do
+                = t("shared.menu.skipper_insurance")
+              = li_link_to_page "boot_mieten_cape_coral"
+              = li_link_to_page "boat_villas"
+              = li_link_to_page "ferienhaus_florida_mieten"
+              = li_link_to_page "travel_info"
+              = li_link_to_page "reiseruecktrittsversicherung" do
+                = t("shared.menu.travel_cancellation_insurance")
+              %li= link_to t("shared.sidebar.esta"), "https://esta.cbp.dhs.gov", target: "_blank", rel: "noopener noreferrer"
+              %li= link_to t("shared.menu.kontakt"),    "#contact"
+              %li.divider.hidden-xs
+              %li= link_to t("shared.menu.login"), (controller_name != "sessions" && user_signed_in? ? user_root_path : new_user_session_path)
+
+          %li.visible-lg-block
+            %header-search-inline
+          %li.hidden-lg
+            %header-search-popup

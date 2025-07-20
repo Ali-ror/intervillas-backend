@@ -1,0 +1,41 @@
+.text-center
+  = will_paginate cancellations, params: { anchor: (keep_anchor if defined?(keep_anchor)) }
+
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= Booking.human_attribute_name :number
+      %th
+        = Booking.human_attribute_name :start_date
+        %br
+        = Booking.human_attribute_name :end_date
+      %th= Booking.human_attribute_name :villa
+      %th= Booking.human_attribute_name :boat
+      %th= Booking.human_attribute_name :name
+      %th= Booking.human_attribute_name :created_at
+      %th= Cancellation.human_attribute_name :cancelled_at
+      %th
+  %tbody
+    - cancellations.each do |cancellation|
+      %tr[cancellation]
+        %td= inquiry_number(cancellation)
+        %td
+          = l cancellation.start_date
+          %br
+          = l cancellation.end_date
+        %td= cancellation.villa.name if cancellation.villa.present?
+        %td
+          - if bi = cancellation.boat_inquiry.presence
+            = bi.boat.try(:admin_display_name)
+            <br>#{l bi.start_date}–#{l bi.end_date}
+          - else
+            keins
+        %td= cancellation.name
+        %td= l cancellation.created_at.to_date
+        %td= l cancellation.cancelled_at.to_date
+        %td.options
+          = link_to admin_cancellation_path(cancellation), title: "anzeigen", class: "mr-1" do
+            = fa :eye, :x2
+          - if can? :update, cancellation
+            = link_to edit_admin_cancellation_path(cancellation), title: "bearbeiten" do
+              = fa :pencil, :x2

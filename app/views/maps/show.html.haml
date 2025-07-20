@@ -1,0 +1,7 @@
+= page_header do
+  = breadcrumb.render t('maps.show.uebersichtskarte')
+  %h1
+    = h1 || t('maps.show.uebersichtskarte')
+
+%section.applet{ name: "Maps" }
+  %overview-map

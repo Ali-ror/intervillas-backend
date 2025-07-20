@@ -1,0 +1,131 @@
+%header.hidden-print.navbar.navbar-default.mb-md-4
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{ type: :button, data: { target: "#main-menu", toggle: :collapse } }
+        %i.fa.fa-3x
+      = render "shared/logo"
+
+      #main-menu.navbar-collapse.collapse
+        .navbar-links
+          %ul.nav.navbar-nav
+            %li= link_to t(".items.website"), root_path
+
+            - if can?(:index, User) || can?(:index, Contact)
+              %li.dropdown{ class: nav_li_class(admin_users_path, admin_contacts_path) }
+                %a.dropdown-toggle{ href: "#", role: "button", data: { toggle: :dropdown } }
+                  = t ".items.contacts"
+                  = fa :caret_down
+                %ul.dropdown-menu
+                  - if can?(:index, User)
+                    = list_link_to t(".contacts.users"),            admin_users_path,               icon: :users
+                  - if can?(:index, Contact)
+                    = list_link_to t(".contacts.owners"),           admin_contacts_path,            icon: :id_card
+
+            - if current_user.admin?
+              %li.dropdown{ class: nav_li_class(admin_villas_path, admin_boats_path, admin_specials_path, admin_tags_path) }
+                %a.dropdown-toggle{ href: "#", role: "button", data: { toggle: :dropdown } }
+                  = t ".items.objects"
+                  = fa :caret_down
+                %ul.dropdown-menu
+                  - if can?(:index, Villa)
+                    = list_link_to t(".objects.villas"),            admin_villas_path,              icon: :home
+                  - if can?(:index, Boat)
+                    = list_link_to t(".objects.boats"),             admin_boats_path,               icon: :ship
+                  - if can?(:index, Special)
+                    = list_link_to t(".objects.specials"),          admin_specials_path,            icon: :bolt
+                  - if can?(:edit, Tag)
+                    = list_link_to t(".objects.tags"),              admin_tags_path,                icon: :tags
+                  - if can?(:edit, HighSeason)
+                    = list_link_to t(".objects.high_seasons"),      admin_high_seasons_path,        icon: :calendar
+            - else
+              = list_link_to t(".items.objects"), admin_root_url
+
+            %li.dropdown{
+              class: nav_li_class(
+                admin_inquiries_path,
+                new_admin_inquiry_path,
+                admin_bookings_path,
+                admin_cancellations_path,
+                occupancies_admin_villas_path,
+                occupancies_admin_boats_path,
+                admin_reviews_path,
+                admin_billings_path,
+                admin_summaries_path,
+              )
+            }
+              %a.dropdown-toggle{ href: "#", role: "button", data: { toggle: :dropdown } }
+                = t ".items.bookings"
+                = fa :caret_down
+              %ul.dropdown-menu
+                - if current_user.admin?
+                  = list_link_to t(".bookings.inquiries_admin"),    admin_inquiries_path,           icon: :address_book_o
+                  = list_link_to t(".bookings.bookings"),           admin_bookings_path,            icon: :address_book
+                  = list_link_to t(".bookings.cancellations"),      admin_cancellations_path,       icon: :bolt
+                - elsif can?(:index, Booking)
+                  = list_link_to t(".bookings.inquiries_owner"),    admin_bookings_path,            icon: :address_book
+
+                - if can?(:index, Booking) # Submenu?
+                  = list_link_to t(".bookings.occupancies.villas"), occupancies_admin_villas_path,  icon: :calendar
+                  = list_link_to t(".bookings.occupancies.boats"),  occupancies_admin_boats_path,   icon: :calendar
+                - if can?(:index, Review)
+                  = list_link_to menu_reviews_counter,              admin_reviews_path(review: { filter: :publishable }), icon: :star_half_o
+                - if can?(:index, Billing)
+                  = list_link_to t(".bookings.billings"),           admin_billings_path,            icon: :list_alt
+                  = list_link_to menu_invoicables_counter,          invoicable_admin_billings_path, icon: :credit_card
+                - if current_user.admin?
+                  = list_link_to t(".bookings.summaries"),          admin_summaries_path,           icon: :table
+
+            - if can?(:index, Payment)
+              = list_link_to menu_payments_counter,                 overdue_admin_payments_path
+
+            - if current_user.admin?
+              %li.dropdown{
+                class: nav_li_class(
+                  admin_root_path,
+                  admin_domains_path,
+                  admin_snippets_path,
+                  admin_pages_path,
+                  admin_routes_path,
+                  export_admin_customers_path,
+                  admin_stats_path,
+                  admin_comparisons_path,
+                  admin_sales_path,
+                  admin_settings_path,
+                  active: controller.class.module_parent == Admin::MyBookingPal,
+                )
+              }
+                %a.dropdown-toggle{ href: "#", role: "button", data: { toggle: :dropdown } }
+                  = t ".items.misc"
+                  = fa :caret_down
+                %ul.dropdown-menu
+                  = list_link_to t(".misc.overview"),    admin_root_path,                   icon: :home
+                  = list_link_to t(".misc.domains"),     admin_domains_path,                icon: :leaf
+                  = list_link_to t(".misc.snippets"),    admin_snippets_path,               icon: :font
+                  = list_link_to t(".misc.pages"),       admin_pages_path,                  icon: :file_o
+                  = list_link_to t(".misc.seo"),         admin_routes_path,                 icon: :google
+                  = list_link_to t(".misc.newsletter"),  export_admin_customers_path,       icon: :envelope_o
+                  = list_link_to t(".misc.stats"),       admin_stats_path,                  icon: :line_chart
+                  = list_link_to t(".misc.comparisons"), admin_comparisons_path,            icon: :line_chart
+                  = list_link_to t(".misc.sales"),       admin_sales_path,                  icon: :bar_chart
+                  = list_link_to t(".misc.settings"),    admin_settings_path,               icon: :cogs
+                  = list_link_to "MyBookingPal",         admin_my_booking_pal_channel_path, icon: :cogs, active: controller.class.module_parent == Admin::MyBookingPal
+
+          %ul.nav.navbar-nav.navbar-extra
+            - if current_domain.multilingual?
+              %li.dropdown
+                = link_to "#", title: t("locale"), data: { toggle: :dropdown } do
+                  = t I18n.locale, scope: :locales
+                  = fa :caret_down
+                %ul.dropdown-menu.dropdown-menu-right
+                  - I18n.available_locales.each do |loc|
+                    - next if loc == I18n.locale
+                    %li= link_to_locale loc
+
+            %li.dropdown
+              %a.dropdown-toggle{ href: "#", role: "button", class: ("impersonation" if session[:admin]), data: { toggle: :dropdown } }
+                = fa :user, text: current_user.email
+                = fa :caret_down
+              %ul.dropdown-menu.dropdown-menu-right
+                = list_link_to t("devise.passwords.update"),  admin_edit_user_registration_path,   icon: :key
+                = list_link_to t(".two_factor_settings"),     edit_admin_two_factor_settings_path, icon: :mobile
+                = list_link_to t("devise.sessions.sign_out"), destroy_user_session_path,           icon: :sign_out, method: :delete

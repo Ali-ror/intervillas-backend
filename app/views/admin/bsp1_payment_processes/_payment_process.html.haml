@@ -1,0 +1,33 @@
+%tr
+  %td= link_to payment_process.inquiry.number,
+  edit_admin_booking_path(payment_process.inquiry_id, anchor: "payments")
+  %td= timestamp payment_process.created_at, "P, p"
+
+  %td
+    - if payment_process.txid.present?
+      %code.small= payment_process.txid
+      %span.btn-group
+        %span.btn.btn-default.btn-xs{ title: t(".copy") }
+          = fa :files_o, data: { "clipboard-text": payment_process.txid }
+        = link_to "https://pmi.pay1.de/merchants/txmanager.popup.php",
+          target: "_blank", class: "btn btn-default btn-xs" do
+          = fa :arrow_right, title: t(".txmanager")
+  %td
+    = payment_process.status
+    - if payment_process.processing?
+      %em noch nicht abgeschlossen
+    - if response = payment_process.bsp1_responses.last
+      %span.label{ class: "label-#{response.txaction == 'paid' ? "success" : "warning" }"}= response.txaction
+  %td.text-right
+    = display_price payment_process.amount_currency
+
+  %td.text-right
+    = display_price payment_process.handling_fee
+
+  %td
+    %span.btn-group
+      = link_to admin_bsp1_payment_process_path(payment_process.id), class: "btn btn-default btn-xs" do
+        = fa :search, title: t(".details")
+      - if payment_process.pending?
+        = link_to restart_admin_bsp1_payment_process_path(payment_process.id), method: :patch, class: "btn btn-danger btn-xs", data: { confirm: t(".restart_confirmation") } do
+          = fa :undo, title: t(".restart")

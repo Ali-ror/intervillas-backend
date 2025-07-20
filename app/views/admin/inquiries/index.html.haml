@@ -1,0 +1,22 @@
+- @title = "Angebote"
+.row
+  .col-sm-9
+    - if can? :create, Inquiry
+      .pull-right.btn-group
+        = link_to new_admin_inquiry_path, class: "btn btn-primary" do
+          = t ".create"
+          = fa :plus
+
+    = render "header"
+    = render "inquiries_table"
+
+  %aside.col-sm-3
+    - if can?(:read, Booking)
+      = render "search_panel", title: t(".search")
+
+    - if can? :create, Booking
+      .list-group
+        = link_to t(".all"), admin_inquiries_path, class: "list-group-item #{params[:state].blank? ? "active" : nil}"
+        - %w[submitted admin_submitted].each do |state|
+          = link_to admin_inquiries_path(state: state), class: "list-group-item #{params[:state] == state ? "active" : nil }" do
+            = t state, scope: :states

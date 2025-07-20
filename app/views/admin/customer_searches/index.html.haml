@@ -1,0 +1,8 @@
+%h1.page-header= t ".heading"
+
+.row
+  .col-sm-9
+    - if results && results.any?
+      = render "results"
+  %aside.col-sm-3.sidebar-right
+    = render "filter"

@@ -1,0 +1,13 @@
+= page_header do
+  - breadcrumb.add link_to resource.villa.name, resource.villa
+  = breadcrumb.render t('.breadcrumb')
+  %h1= t '.title'
+
+.container.mt-5
+  .row
+    .col-md-8
+      = render 'form'
+
+    %aside.col-md-4
+      = render 'preview'
+      = render 'why'

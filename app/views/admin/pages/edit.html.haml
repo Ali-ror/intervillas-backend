@@ -1,0 +1,12 @@
+= render layout: "layout" do
+  %h1 Page bearbeiten
+
+  - if Rails.env.staging?
+    .alert.alert-warning
+      %strong Achtung:
+      Die Inhalte werden beim nächsten Deployment der Staging-Umgebung mit den Daten aus der
+      Produktiv-Umgebung synchronisiert. Daten und Änderungen, die bis dahin nicht auf
+      = link_to "intervillas-florida.com", url_for(host: "https://www.intervillas-florida.com")
+      vorhanden sind, gehen verloren!
+
+  = render "form"

@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading= t ".heading"
+  .panel-body
+    = form_tag search_admin_billings_path, method: :get, class: "search form-inline", id: "search_by_id" do
+      .form-group
+        .input-group.input-group-sm
+          %label.input-group-addon{ for: "id" }= t ".number"
+          = text_field_tag :id, nil, class: "form-control"
+          .input-group-btn
+            %button.btn.btn-primary{ type: :submit }= fa :search
+
+= render "admin/customer_searches/filter", results: false

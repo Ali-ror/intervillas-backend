@@ -1,0 +1,53 @@
+%ul.nav.nav-tabs.nav-tabs-tight{ role: :tablist }
+  %li.active{ role: :presentation }
+    %a{ href: "#messages", data: { toggle: :tab } }
+      = t ".titles.message_list"
+      %span.badge= booking.messages.count
+
+  - if villa.present?
+    %li{ role: :presentation }
+      %a{ href: "#owner-message", data: { toggle: :tab } }
+        = t ".titles.owner_message"
+
+  - if boat.present?
+    %li{ role: :presentation }
+      %a{ href: "#boat-owner-message", data: { toggle: :tab } }
+        = t ".titles.boat_owner_message"
+
+  - if villa.present?
+    %li{ role: :presentation }
+      %a{ href: "#villa-manager-message", data: { toggle: :tab } }
+        = t ".titles.villa_manager_notes"
+
+  - if boat.present?
+    %li{ role: :presentation }
+      %a{ href: "#boat-manager-message", data: { toggle: :tab } }
+        = t ".titles.boat_manager_notes"
+
+  %li{ role: :presentation }
+    %a{ href: "#cables", data: { toggle: :tab } }
+      = t ".titles.cables_list"
+      %span.badge= inquiry.cables.count
+
+.tab-content
+  .tab-pane.message.active#messages{ role: :tabpanel }
+    = render "admin/bookings/communication/messages"
+
+  - if villa.present?
+    .tab-pane.message#owner-message{ role: :tabpanel }
+      = render "admin/bookings/communication/villa_owner_form"
+
+  - if boat.present?
+    .tab-pane.message#boat-owner-message{ role: :tabpanel }
+      = render "admin/bookings/communication/boat_owner_form"
+
+  - if villa.present?
+    .tab-pane.message#villa-manager-message{ role: :tabpanel }
+      = render "admin/bookings/communication/villa_manager_form"
+
+  - if boat.present?
+    .tab-pane.message#boat-manager-message{ role: :tabpanel }
+      = render "admin/bookings/communication/boat_manager_form"
+
+  .tab-pane.message#cables{ role: :tabpanel }
+    = render "admin/bookings/communication/cables"

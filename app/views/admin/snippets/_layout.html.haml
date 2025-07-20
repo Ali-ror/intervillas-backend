@@ -1,0 +1,5 @@
+%h1.page-header
+  = local_assigns[:title] || "Text-Schnipsel"
+.row
+  .col-md-9= yield
+  .col-md-3= render "sidebar"

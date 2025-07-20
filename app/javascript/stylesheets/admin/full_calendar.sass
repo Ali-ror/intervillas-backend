@@ -1,0 +1,50 @@
+@import ../vendor/fullcalendar
+
+@mixin calendar-highlight($color)
+  background: $color
+  border-color: darken($color, 10%)
+  &.fresh
+    background: lighten($color, 20%)
+    border-color: $color
+    color: #000
+
+$calendar-red: #ad3a3a
+$calendar-dark-red: darken($calendar-red, 10%)
+$calendar-blue: #3a87ad
+
+.js-calendar
+  .blocked, .booked, .full_payment_received, .commission_received
+    @include calendar-highlight($calendar-red)
+
+  .external
+    @include calendar-highlight($calendar-dark-red)
+
+  .submitted, .admin_submitted, .other_booked
+    @include calendar-highlight($calendar-blue)
+
+  .fresh
+    span.fc-event-title:after
+      content: ' *'
+
+.calendar-caption
+  list-style: none
+  li
+    padding: 3px 0
+
+  .calendar-caption-label
+    display: inline-block
+    width: 1em
+    height: 1em
+    border: 1px solid transparent
+    vertical-align: middle
+    border-radius: 1px
+    text-align: center
+
+    &.blocked, &.booked, &.full_payment_received, &.commission_received
+      @include calendar-highlight($calendar-red)
+
+    &.external
+      @include calendar-highlight($calendar-dark-red)
+
+    &.submitted, &.admin_submitted, &.other_booked
+      @include calendar-highlight($calendar-blue)

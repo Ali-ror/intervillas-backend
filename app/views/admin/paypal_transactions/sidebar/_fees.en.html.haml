@@ -1,0 +1,16 @@
+.well.well-sm
+  %p
+    %strong Fee difference:
+    Calculating the actual fees for a PayPal transaction is not possible,
+    because it is affected by several factors:
+  %ul
+    %li place of business of the payer's Paypal account (i.e. cross-border fees),
+    %li method of payment (additional fees for CC and Check transactions),
+    %li monthly revenue generated through Paypal by the merchant.
+  %p
+    We cannot determine these factors beforehand, but we need to submit to
+    Paypal the complete sum (<em>including fees</em>) before we can start
+    a transaction. We have a configuration knob in the
+    = link_to "settings,", admin_settings_path
+    which should be adjusted if the fee difference grows too large (in
+    either direction).

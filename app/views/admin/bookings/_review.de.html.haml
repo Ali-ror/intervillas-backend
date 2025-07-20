@@ -1,0 +1,45 @@
+%fieldset
+  %legend Kundenbewertung
+
+- if review.present?
+  - if review.deleted_at?
+    .alert.alert-danger.fa-alert
+      = fa :trash, class: "text-danger"
+      Diese Bewertung wurde am #{l review.deleted_at.to_date} gelöscht/archiviert.
+      Sie wird nicht mehr in der Villa angezeigt.
+
+  = render "admin/reviews/form",
+      review_form: ReviewForms::Admin.from_review(review),
+      return_to: edit_admin_booking_url(booking, anchor: "review")
+
+- else
+  %p
+    %strong.text-danger Keine Bewertung vorhanden.
+  - if booking.end_date < Date.parse('2014-12-01')
+    %p
+      Diese Buchung endete vor dem 01.12.2014. Nur jüngere Buchungenen
+      werden beim Versand der E-Mails beachtet.
+  - if booking.end_date > 5.days.ago.to_date
+    %p
+      Die Buchung ist noch nicht 5 Tage vorbei. Nach dieser Karenzzeit wird
+      automatisch eine E-Mail an <code>#{booking.customer.email}</code> versendet.
+
+  %hr
+
+  = form_tag [:admin, :reviews], method: :post do
+    .row
+      %p.col-md-5.col-lg-3
+        = hidden_field_tag "review[inquiry_id]", booking.inquiry_id, id: nil
+        = hidden_field_tag "review[deliver_review_mail]", "1"
+        = submit_tag "Vorbereiten", class: "btn btn-warning btn-xs"
+      %p.col-md-7.col-lg-9
+        An die E-Mail-Adresse des Kunden wird eine Benachrichtigung versendet.
+
+  = form_tag [:admin, :reviews], method: :post do
+    .row
+      %p.col-md-5.col-lg-3
+        = hidden_field_tag "review[inquiry_id]", booking.inquiry_id, id: nil
+        = submit_tag "Manuell erstellen", class: "btn btn-default btn-xs"
+      %p.col-md-7.col-lg-9
+        Es geht <strong>keine</strong> Benachrichtigung an die E-Mail-Adresse
+        des Kunden raus.

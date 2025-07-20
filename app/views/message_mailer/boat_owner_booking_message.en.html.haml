@@ -1,0 +1,18 @@
+= render layout: "owner_booking_message_layout" do
+  %tr
+    %td
+      %strong Boat rental
+    %td= boat.formatted_matriculation_number
+  %tr
+    %td
+      %strong Rental period
+    %td
+      = boat_inquiry.start_date
+      to #{boat_inquiry.end_date}
+  %tr
+    %td
+      %strong Total rental price
+    %td
+      - price = boat_rent_for_owner_message
+      = price ? display_price(price) : "incl."
+

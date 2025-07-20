@@ -1,0 +1,15 @@
+- accounts = IntervillasBankAccount.for_currency(reservation.currency, type: inquiry.for_corporate? ? :corp : :gmbh)
+= render layout: "information_transfer_layout", locals: { accounts: accounts, title: "Pay via bank transfer" } do
+  %p
+    Please ensure that the payments are transferred to the following
+    - if accounts.size == 1
+      bank account
+    - else
+      bank accounts
+    only and indicate your booking number (#{inquiry.number}).
+
+    %strong Note:
+    Payments to previous accounts in Switzerland or Germany are no longer possible.
+
+  %p
+    Kindly note that your bank may charge transaction fees for international bank transfers (e.g. from the EU).

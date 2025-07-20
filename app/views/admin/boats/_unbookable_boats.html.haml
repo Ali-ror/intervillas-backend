@@ -1,0 +1,10 @@
+.well
+  %h2 Aktive, aber nicht mietbare Boote
+
+  %p
+    In der Datenbank sind #{pluralize unbookable_boats.count, "Boot", "Boote"}
+    eingetragen, die keiner Villa zugeordnet sind.
+
+  %ul
+    - unbookable_boats.each do |b|
+      %li= link_to b.admin_display_name, [:edit, :admin, b]

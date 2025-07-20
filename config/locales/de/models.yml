@@ -1,0 +1,202 @@
+---
+de:
+  activemodel:
+    attributes:
+      payment_form:
+        additional_message_downpayment: Nachricht an Mieter (optional)
+        additional_message_payment: Nachricht an Mieter (optional)
+        downpayment_paid_on: Anzahlung bezahlt am
+        downpayment_paid_sum: Summe Anzahlung
+        paid_on: bezahlt am
+        paid_sum: Summe
+  activerecord:
+    attributes:
+      blocking:
+        comment: Bemerkungen
+        created_at: erstellt am
+        end_date: Ende
+        start_date: Beginn
+        updated_at: aktualisiert am
+        villa: Haus
+      boat_inquiry:
+        boat_deposit: Kaution (Boot)
+        boat_end_date: bis
+        boat_external: Boot ist extern angemietet (für Eigentümer-Abrechnung)
+        boat_name: Name
+        boat_start_date: von
+        boat_state: Boot
+        boat_training: Bootseinweisung
+      booking:
+        adults: Erwachsene
+        boat_end_date: Boot bis
+        boat_start_date: Boot von
+        booked_on: verbindlich gebucht am
+        children_under_12: Kinder bis 12 J.
+        children_under_6: Kinder bis 6 J.
+        created_at: Eingangsdatum
+        currency: Währung
+        end_date: Abreise
+        nights: Nächte
+        number: Buchungs-Nr.
+        start_date: Anreise
+        state: Status
+        updated_at: zuletzt geändert am
+        with_boat?: mit Boot?
+      cancellation:
+        adults: Erwachsene
+        boat_end_date: Boot bis
+        boat_start_date: Boot von
+        booked_on: verbindlich gebucht am
+        cancelled_at: storniert am
+        children_under_12: Kinder bis 12 J.
+        children_under_6: Kinder bis 6 J.
+        created_at: Eingangsdatum
+        end_date: Abreise
+        nights: Nächte
+        number: Buchungs-Nr.
+        start_date: Anreise
+        state: Status
+        updated_at: zuletzt geändert am
+        with_boat?: mit Boot?
+      charge:
+        amount: Menge
+        text: Beschreibung
+        value: Wert
+      customer:
+        address: Straße
+        appnr: Hausnummer
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Konto-Inhaber
+        bank_code: IBAN
+        bank_name: Name der Bank
+        city: Ort
+        country: Land
+        state_code: Kanton/Bundesland
+        email: E-Mail-Adresse
+        email_confirmation: Bitte bestätigen Sie Ihre E-Mail-Adresse
+        first_name: Vorname
+        last_name: Nachname
+        locale: Sprache
+        name: Mieter
+        newsletter: Ich möchte mich für den Newsletter anmelden
+        phone: Telefon
+        postal_code: Postleitzahl
+        title: Anrede
+        travel_insurance: Reiseversicherung
+        travel_insurance/unknown: unbekannt
+        travel_insurance/insured: vorhanden
+        travel_insurance/not_insured: nicht vorhanden
+        us_bank_routing_number: Routing-Nr.
+      high_season:
+        addition: Aufschlag
+        ends_on: Ende
+        starts_on: Anfang
+      inquiry:
+        adults: Erwachsene
+        boat_end_date: Boot bis
+        boat_start_date: Boot von
+        cancelled_at: storniert am
+        children_under_12: Kinder bis 12 J.
+        children_under_6: Kinder bis 6 J.
+        comment: Kommentar
+        currency: Währung
+        created_at: Eingangsdatum
+        discount: Rabatt
+        end_date: Abreise
+        number: Buchungs-Nr.
+        start_date: Anreise
+        updated_at: zuletzt geändert am
+        with_boat?: mit Boot?
+      review:
+        city: Ihr Ort
+        name: Ihr Name
+        rating: Bewertung
+        text: Ihre Meinung
+      route:
+        html_title: HTML-Titel
+        meta_description: Meta-Beschreibung
+        obj_id: Objekt-ID (optional)
+        path: Pfad
+      special:
+        description: Beschreibung
+        end_date: Enddatum
+        percent: Rabatt in Prozent
+        start_date: Anfagsdatum
+        villas: betroffene Villen
+      traveler:
+        born_on: Geburtstag
+        first_name: Vorname
+        last_name: Nachname
+        title: Anrede
+      user:
+        additional_emails: weitere E-Mail-Adressen
+        address: Adresse
+        admin: Admin
+        bank_account_number: SWIFT-BIC
+        bank_account_owner: Konto-Inhaber
+        bank_address: Adresse
+        bank_code: IBAN
+        bank_name: Name der Bank
+        bank_routing_number: Routing-Nr.
+        city: Ort
+        country: Land
+        email: E-Mail-Adresse
+        first_name: Vorname
+        last_name: Nachname
+        login: Login Name
+        password: Passwort
+        password_confirmation: Passwort Bestätigung
+        phone: Telefon
+        state: Region
+        tax_id_number: TAX ID NUMBER
+        title: Anrede
+        villa_owner: Hauseigentümer
+        zip: Postleitzahl
+      villa:
+        active: aktiviert?
+        boat_external: extern
+        boat_state: Boot
+        buyable: zu verkaufen?
+        country: Land
+        description: Beschreibung
+        header: Kopftext
+        living_area: Wohnfläche
+        locality: Ort
+        manager: Hausverwaltung
+        meta_description: HTML Meta Description
+        name: Name
+        owner: Eigentümer
+        phone: Telefonnummer
+        postal_code: Postleitzahl
+        pool_orientation: Ausrichtung Pool
+        region: Region
+        safe_code: Safe-Code
+        street: Straße
+        teaser: Intro Text
+        title: HTML Title
+      villa_inquiry:
+        adults: Anzahl Erwachsene
+        children_under_12: Anzahl Kinder bis zum vollendeten 12. Lebensjahr
+        children_under_6: Anzahl Kinder bis zum vollendeten 6. Lebensjahr
+        cleaning: Reinigungskosten
+        end_date: Abreise
+        house_deposit: Kaution (Haus)
+        nights: Anzahl Übernachtungen
+        price_people: Preis pro Person
+        start_date: Anreise
+        villa: Haus
+    models:
+      billing: Abrechnung
+      booking: Buchung
+      customer: Kunde
+      media/image: Objekt Bilder
+      owner: Eigentümer
+      owner_billing: Abrechnung für Eigentümer
+      review: Kundenbewertung
+      route: Resource
+      tenant_billing: Nebenkostenabrechnung
+      traveler: Reisender
+      user: Benutzer
+      page: Unterseite
+      boat: Boot
+      villa: Villa

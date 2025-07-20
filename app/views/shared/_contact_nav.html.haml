@@ -1,0 +1,12 @@
+%nav.contact-nav
+  = social_link_to :whatsapp
+  = current_phone_number_link
+
+  = link_to "mailto:info@intervillas-florida.com", class: "contact-nav-item" do
+    = fa :fw, :envelope
+    %span info@intervillas-florida.com
+
+  = social_link_to :facebook
+  = social_link_to :twitter
+  = social_link_to :instagram
+  = social_link_to :pinterest

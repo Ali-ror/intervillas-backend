@@ -1,0 +1,48 @@
+.text-center
+  = will_paginate inquiries
+
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th= Inquiry.human_attribute_name :number
+      %th
+        = Inquiry.human_attribute_name :start_date
+        %br
+        = Inquiry.human_attribute_name :end_date
+      %th= Inquiry.human_attribute_name :villa
+      %th= Inquiry.human_attribute_name :boat
+      - if can? :create, Inquiry
+        %th= Inquiry.human_attribute_name :name
+        %th= Inquiry.human_attribute_name :state
+      %th= Inquiry.human_attribute_name :created_at
+      - if current_user.admin? || current_user.villa_owner?
+        %th
+  %tbody
+    - inquiries.each do |inquiry|
+      %tr[inquiry]{ class: "inquiry-#{inquiry.state}" }
+        %td= inquiry_number(inquiry)
+        %td
+          = l inquiry.start_date
+          %br
+          = l inquiry.end_date
+        %td= inquiry.villa.name if inquiry.villa.present?
+        %td
+          - if bi = inquiry.boat_inquiry.presence
+            = bi.boat.try(:admin_display_name)
+            .small #{l bi.start_date}–#{l bi.end_date}
+          - else
+            %em.text-muted= t ".none"
+        - if can? :create, Inquiry
+          %td= inquiry.customer.name
+          %td= I18n.t(inquiry.state, scope: :states)
+        %td=  l(inquiry.created_at.to_date)
+        %td.text-nowrap
+          - if can? :read, inquiry
+            = link_to admin_inquiry_path(inquiry), title: t(".show") do
+              = fa :eye, :x2
+          - if can? :update, inquiry
+            = link_to [:edit, :admin, inquiry_or_booking(inquiry)], title: t(".edit") do
+              = fa :pencil, :x2
+          - if can?(:destroy, inquiry) && inquiry.destroyable? && !inquiry.booked?
+            = link_to admin_inquiry_path(inquiry), title: t(".delete"), method: :delete, data: { confirm: t(".confirm") } do
+              = fa :trash, :x2

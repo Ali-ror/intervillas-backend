@@ -1,0 +1,13 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": false,
+    "fit": false
+  },
+  "rules": {
+    "no-debugger": "off"
+  }
+}

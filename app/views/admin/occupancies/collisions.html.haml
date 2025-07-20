@@ -1,0 +1,9 @@
+.row
+  .col-sm-6.col-sm-offset-3
+    %h1.mt-4.mt-3= rentable.admin_display_name
+
+    %admin-occupancy-collisions{
+      type:      rentable.class.to_s,
+      id:        rentable.to_param,
+      ":year" => params[:year],
+    }

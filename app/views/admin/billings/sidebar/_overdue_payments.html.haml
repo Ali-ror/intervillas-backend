@@ -1,0 +1,21 @@
+.panel.panel-danger
+  .panel-heading
+    %strong= t ".heading"
+  %table.table.table-striped.text-danger
+    %tr
+      %td{ colspan: 2 }= t "payments.payments.total"
+      %td.text-right= display_price deadlines.total
+    - deadlines.each do |deadline|
+      - next unless deadline.overdue?
+      %tr
+        %td &emsp; #{t deadline.name, scope: "payments.scope"}
+        %td= t "payments.payments.due_date", date: l(deadline.date)
+        %td.text-right= display_price deadline.display_sum
+    %tr
+      %td{ colspan: 2 }= t "payments.payments.paid_total"
+      %td.text-right= display_price deadlines.paid_total
+    %tr
+      %td{ colspan: 2 }
+        %strong= t "payments.payments.difference"
+      %td.text-right
+        %strong= display_price deadlines.difference

@@ -1,0 +1,86 @@
+- running_total = 0.to_d
+%table.table.table-striped.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th{ style: "width: 30%" }= t ".owner"
+      %th{ style: "width: 45%" }
+        = t ".rentables"
+        %button.btn.btn-xxs.btn-default{ type: :button, data: { toggle: :collapse, target: ".inquiry-list" } }
+          = t ".toggle_details"
+      %th.text-right
+        = fa :info_circle, title: t(".payout_hint"), data: { toggle: :tooltip, placement: :bottom }
+        = t ".payout"
+      %th.text-center{ colspan: 2 }= t ".last_sent_at"
+  %tbody
+    - owner_clearings.sort_by { |(_, cl)| cl.owner.display_name }.each do |owner_id, clearing|
+      %tr
+        %td
+          %ul.list-unstyled
+            - if (name = clearing.owner.company_name.presence)
+              %li= name
+            %li= clearing.owner.display_name.presence || content_tag(:em, t(".noname"), class: "text-muted")
+            - clearing.owner.email_addresses.each do |email|
+              %li
+                %code= email
+        %td
+          .collapse.inquiry-list
+            %table.table.table-condensed.table-transparent.small{ style: "width: 100%" }
+              %tbody
+                %colgroup
+                  %col{ width: "80px" }
+                  %col
+                  %col{ width: "100px" }
+                - clearing.each_summary do |inquiry, payout, rentables|
+                  %tr
+                    %td= link_to inquiry.number, edit_admin_billing_path(id: inquiry.id, anchor: "billings")
+                    %td
+                      %ul.list-unstyled
+                        - rentables.each do |r|
+                          %li= r.display_name
+                    %td.text-right= display_price payout
+          .collapse.in.inquiry-list
+            = t ".villas", count: clearing.villas.size
+            &bull;
+            = t ".boats", count: clearing.boats.size
+            &bull;
+            = t ".bookings", count: clearing.summaries.size
+            %br
+            %em.text-muted.small (#{t ".details_hidden"})
+
+        %td.text-right
+          - running_total += clearing.total_payout
+          %strong= display_price clearing.total_payout
+
+        - if report = current_owner_reports[owner_id].presence
+          - if report.sent_at?
+            %td.text-right
+              = timestamp report.sent_at, "P, p"
+            %td
+              = button_to_deliver_admin_clearing owner_id,
+                currency: clearing.currency,
+                icon: :refresh,
+                text: t(".resend")
+
+          - else
+            %td.text-right
+              %em.text-muted{ title: l(report.created_at, format: t(".since")) }
+                = t ".status_sending_short"
+            %td
+              %button.btn.btn-xxs.btn-default.disabled{ type: :button, title: t(".status_sending") }
+                = fa :hourglass_half, text: t(".send")
+        - else
+          %td.text-right
+            %em.text-muted= t ".never"
+          %td
+            = button_to_deliver_admin_clearing owner_id,
+              currency: clearing.currency,
+              icon: :envelope_o,
+              text: t(".send")
+
+  %tfoot
+    %tr
+      %td.text-right{ colspan: 2 }
+        %strong= t ".total_sum"
+      %td.text-right
+        %strong= display_price running_total
+      %td{ colspan: 2 }

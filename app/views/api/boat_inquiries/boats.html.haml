@@ -1,0 +1,6 @@
+- available_boats.each do |boat|
+  = render "boat_inquiries/boat", boat: boat
+
+- if available_boats.none?
+  %p.alert.alert-warning
+    = t ".no_boats_available", start_date: l(start_date), end_date: l(end_date)

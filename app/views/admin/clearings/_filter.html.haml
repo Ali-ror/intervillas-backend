@@ -1,0 +1,26 @@
+= form_tag admin_clearings_path, method: :get, class: "form-inline text-center", enforce_utf8: false do
+  - pred, succ = clearing_date - 1.month, clearing_date + 1.month
+
+  .btn-group.btn-group-sm.mr20
+    - if pred.year >= year_range.begin
+      = link_to({ month: pred.month, year: pred.year }, class: "btn btn-default") do
+        = fa :chevron_left
+        = l pred, format: "%b %Y"
+    - else
+      %button.disabled.btn.btn-sm.btn-default{ type: :button }
+        = fa :chevron_left
+        = l pred, format: "%b %Y"
+
+    - if succ.year <= year_range.end
+      = link_to({ month: succ.month, year: succ.year }, class: "btn btn-default") do
+        = l succ, format: "%b %Y"
+        = fa :chevron_right
+    - else
+      %button.disabled.btn.btn-sm.btn-default{ type: :button }
+        = l succ, format: "%b %Y"
+        = fa :chevron_right
+
+  .form-group.ml20
+    = select_tag :month, options_for_select((1..12).to_a.map{|i| [t("date.month_names")[i], i.to_s] }, clearing_date.month), class: "form-control"
+    = select_tag :year,  options_for_select(year_range, clearing_date.year), class: "form-control"
+    = submit_tag t(".show"), name: nil, class: "btn btn-sm btn-primary"

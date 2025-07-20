@@ -1,0 +1,25 @@
+.modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{ type: :button, data: { dismiss: :modal } }
+          = fa :times
+        %strong.modal-heading Vorschau
+
+      .modal-body
+        %table.table.table-condensed.table-bordered.small
+          %tr
+            %th Empfänger
+            %td= message.email_addresses.join "; "
+          %tr
+            %th Absender
+            %td Intervilla Florida &lt;info@intervillas-florida.com&gt;
+          %tr
+            %th Betreff
+            %td= preview.subject
+          - if preview.attachments.any?
+            %tr
+              %th Anhänge
+              %td= preview.attachments.map(&:filename).join ", "
+
+        = embed_email_iframe(preview)

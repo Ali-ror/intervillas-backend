@@ -1,0 +1,23 @@
+%table{ border: 0, cellpadding: 0, cellspacing: 0, width: 600, style: "margin:0;padding:0" }
+  %tr
+    %td{ valign: "top" }
+      = render "layouts/mailer/signature_#{signature_template}"
+    %td{ valign: "top", align: "right" }
+      %table{ border: 0, cellpadding: 0, cellspacing: 0, style: "margin:0;padding:0" }
+        %tr{ align: "left" }
+          %td.bold{ valign: "top" }= t('.telephone')
+          %td
+            🇩🇪
+            = link_to "+49 (0) 881 42 123 005", "tel:+4988142123005"
+            <br>
+            🇨🇭
+            = link_to "+41 (0) 43 543 05 42", "tel:+41435430542"
+            <br>
+            🇺🇸
+            = link_to "+1 (239) 268 7053", "tel:+12392687053"
+        %tr{ align: "left" }
+          %td.bold= t('.email')
+          %td= link_to "info@intervillas-florida.com", "mailto:info@intervillas-florida.com"
+        %tr{ align: "left" }
+          %td.bold Homepage
+          %td= link_to t('.homepage_url'), t('.homepage_url')

@@ -1,0 +1,6 @@
+%table.table{ border: 0, cellspacing: 0, cellpadding: 0, style: "margin:0;padding:0" }
+  - if villa_inquiry
+    = render "message_mailer/note_mail/villa"
+  - if inquiry.with_boat?
+    = render "message_mailer/note_mail/boat"
+  = render "message_mailer/note_mail/customer"

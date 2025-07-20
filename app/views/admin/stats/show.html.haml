@@ -1,0 +1,97 @@
+= render layout: "layout" do
+  %table.table.table-striped
+    %thead
+      %tr
+        %th
+          Nationalität des Eigentümers:
+          = rentable.owner.country
+        - current_user.booking_year_range.each do |y|
+          %th.text-center{ class: ("active" if y == current_year) }= y
+    %tbody
+      %tr
+        %th Belegungsplan
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }
+            - case rentable
+            - when Villa
+              = link_to fa(:fw, :calendar), occupancies_calendar_admin_villa_path(rentable, year: y), class: "btn btn-default btn-xxs"
+            - when Boat
+              = link_to fa(:fw, :calendar), occupancies_calendar_admin_boat_path(rentable, year: y), class: "btn btn-default btn-xxs"
+      %tr
+        %td
+          %strong Anzahl Anfragen
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :inquiries, y
+      %tr
+        %td &emsp; &hellip; davon Offerten
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :admin_inquiries, y
+      %tr
+        %td &emsp; &hellip; davon extern
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :external, y
+      %tr
+        %td
+          %strong Anzahl Buchungen
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :bookings, y
+      %tr
+        %td
+          %strong Auslastung
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :utilization, y
+      %tr
+        %td
+          &emsp; &hellip; davon Intervilla
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :iv_utilization, y
+      %tr
+        %td
+          &emsp; &hellip; davon Eigennutzung
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }= count_data :owner_utilization, y
+
+      - if params[:type] == "villas"
+        %tr
+          %td
+            %strong Anzahl Personen (Durchschnitt)
+          - current_user.booking_year_range.each do |y|
+            %td.text-center{ class: ("active" if y == current_year) }= count_data :people, y
+        %tr
+          %td &emsp; &hellip; davon Erwachsene
+          - current_user.booking_year_range.each do |y|
+            %td.text-center{ class: ("active" if y == current_year) }= count_data :adults, y
+        %tr
+          %td &emsp; &hellip; davon Kinder bis 12 J.
+          - current_user.booking_year_range.each do |y|
+            %td.text-center{ class: ("active" if y == current_year) }= count_data :children_under_12, y
+        %tr
+          %td &emsp; &hellip; davon Kinder bis 6 J.
+          - current_user.booking_year_range.each do |y|
+            %td.text-center{ class: ("active" if y == current_year) }= count_data :children_under_6, y
+
+      %tr
+        %td
+          %strong Bruttomiete
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }
+            = display_price rents(y, Currency::EUR)
+            %br
+            = display_price rents(y, Currency::USD)
+      %tr
+        %td
+          %strong Kommission
+          %abbr{ title: "Steht erst nach dem Erstellen der Abrechnung zur Verfügung" } *
+        - current_user.booking_year_range.each do |y|
+          %td.text-center{ class: ("active" if y == current_year) }
+            = display_price agency_commission(y, Currency::EUR)
+            %br
+            = display_price agency_commission(y, Currency::USD)
+    %tfoot
+      %tr
+        %td
+        %td.muted.text-center{ colspan: current_user.booking_year_range.to_a.size }
+          %em.small
+            Die Zahlen sind nicht 100% genau: Anfragen/Buchungen die auf
+            die Jahresgrenzen fallen, werden in beiden Jahren gezählt, und
+            der Personen-Durchschnitt kann Rundungsfehler enthalten.

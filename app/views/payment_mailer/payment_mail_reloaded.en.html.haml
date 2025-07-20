@@ -1,0 +1,20 @@
+%p= salute customer
+%p
+  with today's date we can confirm the receipt of a payment of total
+  %strong= display_price payment_deadlines.paid_total
+  for booking #{booking.number} (#{rentables}#{', cancelled' if inquiry.cancelled?}).
+  - if difference <= 0
+    Your booking is now fully paid.
+
+- if imessage.text?
+  %p= imessage.text
+
+%p
+  Below you will find a list of all previous payments for your information:
+
+= render "payment_table"
+= render "outstanding_payment" if !inquiry.cancelled? && outstanding_payment
+
+%p
+  Sincerely,<br/>
+  Your INTERVILLAS-Team

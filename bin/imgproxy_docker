@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# Starts and runs a imgproxy docker container.
+#
+# Please use docker compose should this needs to become more involved.
+
+bind_addr=127.0.0.1:2206
+container_name="iv-imgproxy"
+root="$(cd $(dirname $0)/..; pwd)"
+
+mkdir -p data/blobs tmp/data-test/blobs config/watermarks
+
+stop_imgproxy() {
+  docker container stop "$container_name" || true
+}
+
+trap stop_imgproxy INT TERM
+
+set -x
+
+docker run --rm -it --name "$container_name" \
+  -e IMGPROXY_LOCAL_FILESYSTEM_ROOT=/data \
+  -e IMGPROXY_WATERMARK_PATH=/watermarks/watermark.svg \
+  -e IMGPROXY_MAX_SRC_RESOLUTION=50 \
+  -e IMGPROXY_FORMAT_QUALITY=jpeg=75,avif=50,webp=60 \
+  -p "${bind_addr}:8080" \
+  -v "${root}/data/blobs:/data/development:ro" \
+  -v "${root}/tmp/data-test/blobs:/data/test:ro" \
+  -v "${root}/config/watermarks:/watermarks:ro" \
+  darthsim/imgproxy:latest

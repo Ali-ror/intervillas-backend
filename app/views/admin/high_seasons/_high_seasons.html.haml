@@ -1,0 +1,41 @@
+- today = Date.current
+%table.table.table-hover.table-condensed.js-sticky-header
+  %thead
+    %tr
+      %th.text-right
+        Hochsaison
+        .small
+          Begin
+          %br
+          Ende
+          %br
+          Aufschlag
+      - high_seasons.each do |hs|
+        %th.text-center
+          = hs.name
+          .small
+            = l hs.starts_on
+            %br
+            = l hs.ends_on
+            %br
+            = number_to_percentage hs.addition, precision: 0
+    %tr
+      %th Villa
+      - high_seasons.each do |hs|
+        %th.text-center
+          .btn-group.btn-group-sm
+            = link_to [:edit, :admin, hs], title: "Hochsaison #{hs.name} bearbeiten", class: "btn btn-default" do
+              = fa :fw, :pencil
+            = link_to [:admin, hs], title: "Hochsaison #{hs.name} löschen", class: "btn btn-danger", method: :delete, data: { confirm: "Wirklich löschen?" } do
+              = fa :fw, :trash
+  %tbody
+    - villas.each do |villa|
+      %tr
+        %td= villa.admin_display_name
+        - high_seasons.each do |hs|
+          %td.text-center
+            - if hs.villas.include?(villa)
+              = fa :check, class: "text-success"
+              %span.sr-only Hochsaison #{hs.name} gilt für Villa #{villa.admin_display_name}
+            - else
+              %span.sr-only Hochsaison #{hs.name} gilt nicht für Villa #{villa.admin_display_name}

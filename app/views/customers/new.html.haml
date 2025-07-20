@@ -1,0 +1,39 @@
+- @tracking_page = "/inquiry/customer/new"
+= page_header do
+  = breadcrumb.add link_to_rentables
+  = breadcrumb.add link_to_rentable(rentable)
+  = breadcrumb.render t("bookings.new.reservierungsanfrage")
+  %h1= t("bookings.new.reservierungsanfrage")
+
+.container.mt-5
+  .row
+    .col-md-12
+      = render "shared/ssl"
+      .alert.alert-warning
+        = raw t "bookings.new.pflichtfeld", image: vite_image_tag("images/arrow_form.png", height: 10, width: 10)
+
+      %h2.lined-heading.mt-5
+        %span= t("bookings.new.infos_reisende")
+
+      .row
+        .col-md-8.clearfix
+          = semantic_form_for customer_form, url: customer_path, html: { class: "form-horizontal" } do |c_form|
+            = c_form.input :locale, as: :hidden, input_html: { value: I18n.locale }
+
+            = c_form.inputs do
+              = c_form.input :title, as: :select, collection: localized_titles
+              = c_form.input :first_name
+              = c_form.input :last_name
+
+              = c_form.input :email
+              = c_form.input :email_confirmation
+              = c_form.input :phone
+              = c_form.input :newsletter, as: :boolean
+
+            = c_form.actions do
+              = c_form.action :submit,
+                label: t("bookings.new.anfrage_absenden"),
+                button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary" }
+
+        %aside.col-md-4
+          = render "shared/sidebar_fineprint"

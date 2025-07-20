@@ -1,0 +1,35 @@
+.row.mt-4
+  - deadlines.select { |dl| dl.due_balance > 0 }.each do |deadline|
+    - enabled = deadline.paid_sum < deadline.deadline_sum
+    - ppch = cc.add(deadline.due_balance)
+    .col-sm-6{ class: ("refreshing" unless enabled) }
+      %table.table.table-condensed.table-striped
+        - if inquiry.prices_include_cc_fee
+          %tr{ style: "border-top:1px solid #333" }
+          %th= t deadline.name, scope: "payments.scope"
+          = display_price deadline.due_balance do |val|
+            %td.text-right
+              %strong= val
+        - else
+          %thead
+            %tr
+              %th= t deadline.name, scope: "payments.scope"
+              = display_price ppch.net do |val|
+                %th.text-right= val
+          %tr
+            %td
+              = t(".fees")
+              = surround "(", ")" do
+                = fees
+            = display_price ppch.charge do |val|
+              %td.text-right= val
+          %tr{ style: "border-top:1px solid #333" }
+            %td= t(".total")
+            = display_price ppch.gross do |val|
+              %td.text-right
+                %strong= val
+
+      %p.text-center{ class: ("text-danger" if deadline.overdue?) }
+        %em= fa :calendar, text: t("payments.payments.due_date", date: l(deadline.date))
+
+      = yield [deadline, enabled, ppch]

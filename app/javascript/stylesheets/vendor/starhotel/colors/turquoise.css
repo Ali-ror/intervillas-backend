@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* Starhotel template color: Turqoise
+				HEX = #75c5cf
+				RGB = 90, 186, 198
+====================================================
+*/
+
+/* Basic Styles
+-------------------------------------------------- */
+
+/* Links color */
+
+a {
+  color: #478087;
+}
+
+/* Icon color */
+
+.box-icon i,
+table i,
+#go-top i,
+#go-top {
+  color: #75c5cf;
+}
+
+/* UI border color */
+
+#top-header,
+.navbar-nav .dropdown-menu,
+.blog-author img,
+.comment .avatar img,
+aside h3,
+blockquote,
+#go-top,
+.box-icon .circle {
+  border-color: #75c5cf !important;
+}
+
+/* UI background color */
+
+#top-header .th-text .th-item .btn-group ul.dropdown-menu>li>a:hover,
+article .meta-date,
+.comment .reply-button,
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:hover,
+.nav-pills>li.active>a:focus,
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus,
+#go-top:hover,
+.box-icon .circle:hover {
+  background: #75c5cf;
+}
+
+/* RGB background color */
+
+.comment,
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th,
+.panel-default>.panel-heading {
+  background-color: rgba(90, 186, 198, 0.05);
+}
+
+/* Header
+-------------------------------------------------- */
+
+/* Navigation text colors */
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav .dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav .dropdown-menu>li>a:focus {
+  color: #75c5cf;
+}
+
+.navbar-default .navbar-nav .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .dropdown-menu > .active > a:focus {
+  background-color: #75c5cf;
+  color: #fff;
+}
+
+/* Navigation Mobile colors */
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+    color: #75c5cf;
+    background-color: transparent;
+  }
+}
+
+/*Primary Button Color
+-------------------------------------------------- */
+
+.btn-default {
+  color: #75c5cf;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #75c5cf;
+}
+
+.btn-primary {
+  background-color: #75c5cf;
+  border-color: #35929e;
+  text-shadow: 0 -1px 0 #50878e;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: #64cedb;
+  border-color: #35929e;
+}

@@ -1,0 +1,10 @@
+%table.table.table-condensed.table-striped.table-hover.js-sticky-header.js-action-row{ data: { action_row_url: edit_admin_user_url(":id") } }
+  %thead
+    %tr
+      %th E-Mail-Adresse
+      %th{ colspan: 2 }= fa :link, text: "Kontakt(e)"
+      %th Berechtigungen
+      %th
+
+  %tbody
+    = render partial: "user", collection: collection

@@ -1,0 +1,12 @@
+- if inquiry.villa_inquiry.energy_cost_calculation_included?
+  %p
+    Die Kosten für Wasser, Kehrichtentsorgung sowie Strom, die während der
+    Mietperiode anfallen, sind Bestandteil des Mietpreises. Nicht im Mietpreis
+    enthalten sind allfällige Gaskosten für den Grill.
+- else
+  %p
+    Die Kosten für Wasser und Kehrichtentsorgung, die während der Mietperiode
+    anfallen, sind Bestandteil des Mietpreises. Nicht im Mietpreis enthalten
+    sind die Stromkosten. Diese werden zum lokalen Tarif zuzüglich Steuer in
+    Rechnung gestellt und mit der Kaution verrechnet. Ebenfalls nicht im
+    Mietpreis enthalten sind allfällige Gaskosten für den Grill.

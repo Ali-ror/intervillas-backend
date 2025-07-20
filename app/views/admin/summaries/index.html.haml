@@ -1,0 +1,44 @@
+= render "filter"
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th{ rowspan: 2 } Owner<br>(TIN)
+      %th{ rowspan: 2 } Property
+      %th{ rowspan: 2 } Invoice&nbsp;#
+      %th{ rowspan: 2 } Renter name<br>and date
+      %th{ rowspan: 2 } Currency
+      %th{ rowspan: 2 } Exchange rate
+
+      %th.sub{ colspan: 5 } House
+      %th.sub{ colspan: 4 } Boat
+
+      %th{ rowspan: 2 } Total ex. taxes
+      %th{ rowspan: 2 } Total incl. taxes
+      %th{ rowspan: 2 } Agency commission
+      %th{ rowspan: 2 } Agency admin fee
+      %th{ rowspan: 2 } Payout
+
+    %tr
+      %th Rent*
+      %th Cleaning*
+      %th Electric*
+      %th Sales tax
+      %th Tourist tax
+
+      %th Name
+      %th Rent*
+      %th Instruction*
+      %th Sales tax
+  %tfoot
+    %tr
+      %td{ colspan: 24 } (*) Net book value, unless otherwise noted
+
+  %tbody
+    - owner_billings.each do |owner_billing|
+      = render "summary",
+        booking: owner_billing.booking,
+        ob:      owner_billing,
+        vb:      owner_billing.villa_billing,
+        bb:      owner_billing.boat_billing,
+        mb:      owner_billing.main_billing

@@ -1,0 +1,22 @@
+%tr
+  %td.text-nowrap
+    - if message.sent_at?
+      = timestamp message, "P, p", convert_with: :sent_at
+    - else
+      = timestamp message, "P, p", convert_with: :created_at
+
+  %td
+    %p
+      = t ".email"
+      &bull;
+      = t message.template, scope: "messages.templates"
+      - if message.deliveries.any?
+        &bull;
+        = link_to [:admin, inquiry, message], remote: true, class: "js-message-preview" do
+          = t ".preview"
+    - if message.text.present?
+      = simple_format message.text
+
+  %td.text-nowrap
+    = message.recipient
+

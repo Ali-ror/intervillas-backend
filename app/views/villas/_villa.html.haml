@@ -1,0 +1,54 @@
+- spec          = defined?(special) ? special : villa.current_special
+- special_price = spec && villa.teaser_special_price(spec)
+- main_image    = villa.main_image
+
+= cache [:rails7, I18n.locale, villa, main_image, search_criteria_period, spec, { boat: villa.boat_inclusive? }, villa.reviews.order(:updated_at).last&.id, current_currency, :villa5] do
+  .room-thumb{ data: { villa_id: villa.id } }
+    .teaser-image
+      - if main_image
+        = image_srcset_tag(main_image, preset: :teaser, alt: "#{villa.name} Florida")
+
+      - if (locality = villa.locality.presence)
+        .locality= locality
+
+      - if villa.show_reviews?
+        .feedbacks{ title: pluralize(villa.number_of_ratings, "Feedback", "Feedbacks") }><
+          - s = villa.stars
+          - s[0].times do
+            = fa :star
+          - s[1].times do
+            = fa :star_half_o
+          - (Review::RATING_RANGE.end - s.sum).times do
+            = fa :star_o
+
+    .ident
+      %h4
+        = link_to_villa_with_search villa do
+          = villa.name
+
+      .price.h5
+        = t "villas.tile.price_from"
+        = display_price(special_price || villa.teaser_price)
+
+    %small.notes
+      - if villa.villa_price.weekly_pricing?
+        = t "villas.tile.price_time_unit.weekly", count: villa.beds_count
+      - else
+        = t "villas.tile.price_time_unit.nightly", count: villa.minimum_people
+      - if special_price
+        %br
+        = spec.description
+
+    .features
+      %div
+        %i.fa.fa-fw.fa-bed
+        = t "villas.tile.bedrooms", count: villa.bedrooms_count
+      %div
+        %i.fa.fa-fw.fa-bath
+        = t "villas.tile.bathrooms", count: villa.bathrooms_count
+      %div
+        %i.fa.fa-fw.fa-home
+        = t "villas.tile.living_area", area: living_area(villa)
+      %div
+        %i.fa.fa-fw.fa-compass
+        = t villa.pool_orientation, scope: "villas.tile.pool_orientation"

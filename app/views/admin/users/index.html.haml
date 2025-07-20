@@ -1,0 +1,24 @@
+.row.mt-3
+  .col-md-10
+    %ul.nav.nav-tabs
+      %li.active
+        = link_to t("admin.main_nav.contacts.users"), admin_users_path
+      %li
+        = link_to t("admin.main_nav.contacts.owners"), admin_contacts_path
+
+    %ul.nav.nav-tabs.mt-3
+      %li.active
+        = link_to t("admin.users.active"), { anchor: "active" }, class: "nav-link", data: { toggle: "tab" }
+      %li
+        = link_to t("admin.users.inactive"), { anchor: "inactive" }, class: "nav-link", data: { toggle: "tab" }
+
+    .tab-content
+      #active.tab-pane.active
+        = render "table", collection: collection.with_access
+
+      #inactive.tab-pane
+        = render "table", collection: collection.without_access
+
+  .col-md-2
+    %p= link_to fa(:plus, text: "neuer Benutzer"), [:new, :admin, :user], class: "btn btn-success"
+    = render "info_access_level"

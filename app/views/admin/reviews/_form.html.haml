@@ -1,0 +1,12 @@
+= semantic_form_for review_form, url: [:admin, review_form], html: { class: "form-horizontal" } do |form|
+  - if local_assigns[:return_to]
+    = hidden_field_tag "return_to", return_to
+  = form.input :rating, as: :number, min: Review::RATING_RANGE.begin, max: Review::RATING_RANGE.end
+  = form.input :name
+  = form.input :city
+  = form.input :text, as: :text
+  = form.input :published, as: :boolean
+  = form.input :archived,  as: :boolean
+
+  = form.actions do
+    = form.action :submit, button_html: { class: 'btn btn-primary' }

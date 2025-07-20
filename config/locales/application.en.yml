@@ -1,0 +1,529 @@
+en:
+  bsp1:
+    error_please_retry:
+      safari: >-
+        An error has occured while processing your payment. We've observed such problems
+        in the past with Safari, so we recommend trying again with an alternative web
+        browser, like Google Chrome or Mozilla Firefox.
+      other: An error has occurred while processing your payment. Please try again.
+  boat_inquiries:
+    boat:
+      deposit: Deposit
+      horse_power: Horse power
+      horse_power_value: '%{value} bhp'
+      more_info: Video
+      prices: Prices
+      select: select
+      training: Delivery
+    edit:
+      boat_name: Boat
+      boat_period: Rental Perios
+      no_boat: 'No, I don''t wish to rent a boat'
+      no_boats_available: >-
+        Sorry, we don't have boats available for your selection (from
+        %{start_date} until %{end_date}).
+    new:
+      next: next
+  boat_states:
+    charged: optional and booked
+    free: inclusive
+    none: none
+    unknown: unknown
+  boats:
+    boat:
+      ab: from
+      bei_buchung_von_x_tagen: 'when booking %{x} days'
+      inclusive: inclusive
+      mehr_infos: more info
+    daily_prices:
+      days:
+        max:
+          one: 1 day and more
+          other: '%{count} days and more'
+        min:
+          one: 1 day (min. period)
+          other: '%{count} days (min. period)'
+        normal:
+          one: 1 day
+          other: '%{count} days'
+      per_day: Price per day
+      period: Rental period
+      starting_from: starting from
+      total: Total
+    show:
+      back: go back to villa
+      description: Description
+      more: learn more
+      other_boats: more boats
+      power: Power in bhp
+      prices: Prices
+      technical: Technical specifications
+  bookings:
+    create:
+      angebot: We will soon provide your personal offer by email.
+      belegt: >-
+        <p>Sorry for your inconvenience, but your chosen Villa was booked in the
+        meantime by someone else.</p> <p>Please have a look on our homepage if
+        there are other free villas in your chosen time period.</p>
+        <p>Thanks,<br>Your Team Intervilla</p>
+      fehler: Error
+      insurance: >-
+        For your safety, you should take out a skipper's liability insurance
+        and a deposit insurance for your holiday .
+      insurance_link: For more information see here
+      not_timely: >-
+        For a binding booking, the start of the journey must be at least 2 days
+        after the booking.
+      reserved: >-
+        <p>Sorry for your inconvenience, but your chosen Villa is temporarily
+        reserved for another customer.</p> <p>Please try again in about 30
+        minutes.</p> <p>Thanks,<br>Your Team Intervilla</p>
+      reservierungsanfrage: Reservation request
+      title: Book
+      vielen_dank: Thank you for your inquiry!
+      weiter: 'Skip to %{name}'
+    confirmation:
+      title: Booking Confirmation
+    edit:
+      abfahrt: departure
+      adresse: Address
+      agb: Terms and Conditions
+      agb_hint: Please verify all information before proceeding.
+      agb_hint2: >-
+        By clicking "continue with payment", your reservation is completed.
+        You will receive a confirmation of the booking by e-mail.
+      agb_label: I agree to the Payments and Cancellation fees.
+      agb_show: 'Show %{link}'
+      ankunft: arrival
+      bankverbindung: Bank Details
+      bankverbindung_eu_only: Only for European citizens. US and CA citizens leave blank.
+      bankverbindung_intro: >-
+        To refund your deposits, we will need your bank account information.
+        Please provide your Business Identifier Code (SWIFT code/BIC) and your
+        International Bank Account Number (IBAN).
+      boot: Boat
+      boot_dauer: Boat Booking Duration
+      booteinweisung: Boat Delivery Fee
+      bootkaution: Boat Deposit
+      continue: continue with payment
+      dauer: Duration
+      erwachsene:
+        one: 1 adult
+        other: '%{count} adults'
+      hauptbucher: Principal Tenant
+      hauskaution: Security deposit
+      jetzt_buchen: Book now
+      kaution: Deposit
+      kinder: Children
+      mietpreis: Rent
+      mietpreis_boot: Rent (Boat)
+      naechte: nights
+      name: Name
+      namen: >-
+        Please enter the name of further persons and then click Book Now to
+        complete the booking.
+      nebenkosten: Additional costs
+      preis: Price
+      rabatt: Discount
+      rabattierter_preis: Discounted price
+      tage: days
+      total: Total
+      villa: Villa
+      weitere_reisende: Travelers
+    edit_sidebar:
+      boot_im_mietpreis_enthalten: The boat is included in rent.
+      rueckgabe: return
+      uebernahme: takeover
+    layout:
+      complete: The payment for this booking is completed. Thank you very much!
+      nav:
+        confirmation:
+          boat: Boat
+          esta: ESTA
+          important: Notes
+          links: Links
+          misc: Miscellaneous
+          overview: Overview
+          payment: Payment
+          people: People
+          prices: Price
+          rent: Rent price
+          tenant: Tenant
+          travel_info: Travel information
+          utilities: Utilities
+          villa: Villa
+        payments:
+          bsp1: Credit Card
+          overview: Payment Overview
+          paypal: PayPal
+          transfer: Bank Transfer
+      titles:
+        confirmation: Booking confirmation
+        payments: Payment overview
+    new:
+      agb: Terms and Conditions
+      anfrage_absenden: Send request
+      choose_adults: Please select the number of travelers on the left side of this box.
+      dauer: Duration
+      title: Book
+      infos_reisende: TRAVELER INFORMATION
+      naechte: Nights
+      not_enough_boat_days:
+        one: You cannot rent the boat for one day.
+        other: 'You cannot rent the boat for %{count} days.'
+      not_enough_boat_days_note:
+        one: The minimum boat booking length is 1 day (without arrival/departure).
+        other: >-
+          The minimum boat booking length is %{count} days (without
+          arrival/departure).
+      objekt: Property
+      overlapping_boat:
+        end_date_note: >-
+          The last day of the boot booking must not be the same as the day of
+          departure.
+        start_date_note: >-
+          The first day of the boot booking must not be the same as the day of
+          arrival.
+      pflichtfeld: 'The fields marked with a %{image} are required and must be completed.'
+      reserved: >-
+        This house is temporarily reserved for another customer. Please try
+        again in about 30 minutes.
+      reservierungsanfrage: Offer request
+      tage: Days
+      travel_insurance:
+        insured: >-
+          We have travel cancellation and travel incident insurance, which also
+          covers force majeure and pandemics.
+        not_insured: >-
+          We <strong>do not</strong> have travel cancellation and travel incident insurance and we
+          are aware that we bear the financial risk of any cancellation, including
+          due to force majeure or a pandemic, ourselves.
+  calendar:
+    boat: 'Boat: %{start_date}–%{end_date} (%{name})'
+    persons: 'Ppl.: %{adults}/%{children_under_12}/%{children_under_6}'
+    recently_created: created within the last 2 weeks
+    title: >-
+      Booking for %{rentable} %{year} (property utilization: %{utilization}%)
+    villa: '%{name}'
+  clearing:
+    boat:
+      christmas: 'Christmas addition Boat (%{count} days)'
+      daily: 'Boat (%{count} days)'
+      deposit: Deposit Boat
+      easter: 'Easter addition Boat (%{count} days)'
+      training: Boat delivery fee
+    inquiry:
+      handling: Handling fee
+    title: Prices
+    villa:
+      adults:
+        one: 1 adult
+        other: '%{count} adults'
+      children_under_12:
+        one: 1 child 7-12 yrs.
+        other: '%{count} children 7-12 yrs.'
+      children_under_6:
+        one: 1 child 0-6 yrs.
+        other: '%{count} children 0-6 yrs.'
+      christmas: Christmas Addition
+      cleaning: Cleaning
+      deposit: Deposit Villa
+      easter: Easter Addition
+      high_season: high season addition
+      special: Discount Last Minute
+  deadlines:
+    deposits: plus deposit
+    difference: to total
+    direction:
+      receipt: incoming
+      refund: refund
+    due_amounts: Difference
+    due_balance: to downpayment
+    paid_total: Paid total
+    total: Total rent
+  descriptions:
+    accessoires: Accessories
+    bathrooms: Bathrooms
+    bedrooms: Bedrooms
+    boat: Water Sports
+    comfort: Amenities
+    communication: Communications
+    diningroom: Dining area
+    entertainment: Entertainment
+    gym: Sports
+    highlights: Highlights
+    kitchen: Kitchen
+    lavatory: Washroom
+    livingroom: Livingroom
+    location: Environment
+    outdoor: Outside area
+    personnel: Personal
+    pool: Swimming Pools
+    theme: Topic
+  discount:
+    christmas: Christmas
+    easter: Easter
+    high_season_range: from mid December until the end of May
+    name_amount: '%{discount}: %{percent}% surcharge'
+    range: '%{days_before} days ahead to %{days_after} days later'
+  footer:
+    heading: Contact
+    subheading: We'll advise you personally
+    closing: Your Intervilla Team
+    call_us: Call Us
+    ch: Switzerland
+  flash:
+    actions:
+      update:
+        alert: '%{resource_name} was not updated.'
+        notice: '%{resource_name} was successfully updated.'
+    reviews:
+      update:
+        notice: >-
+          Thank you for your rating! We will manually publish it after a short
+          review.
+  helper:
+    links:
+      csv_download: download CSV
+      delete: delete
+      edit: edit
+      print: print view
+      show: show
+    'no': 'no'
+    no-content: ./.
+    'yes': 'yes'
+  helpers:
+    select:
+      prompt: Please select
+  home:
+    dynamic:
+      buttons_villas_specials:
+        specials: view Last Minute offers
+        villas: view all Villas
+      last_minute:
+        all_specials: all Last Minute Offers
+        last_minute: Last Minute Offers
+      seo_block:
+        heading: Intervilla — your professional partner
+      slide:
+        disrupt:
+          boat_rental: Boat rental
+          goto_boat_rental: Show current selection
+          search_profile: Seach profile
+        view: Discover holiday home
+      testimonials:
+        heading: What do our Customers say about us?
+      usp:
+        usp: Why Intervilla Florida?
+  inquiries:
+    inconsistencies:
+      boat:
+        date_mismatch: boat duration is fully or partially out of duration for the villa
+        not_possible: >-
+          for the villa no boat pool is defined, however this booking contains a
+          boat
+        pool_mismatch: the selected boat is not in the pool for this villa
+    indestructable_reasons:
+      billing: billing already exist
+      booked: booking is already booked
+      cancelled: booking was cancelled
+      payements: payments exist
+    new:
+      next: next
+  intervillas_bank_account:
+    account: Account Number
+    address: Bank Address
+    bank_identifier: Bank identifier code
+    clearing: Clearing Number
+    iban: IBAN
+    owner: Account Title
+    routing: Routing Number
+    scope:
+      ch: For payments from Switzerland in Euro
+      eu: For payments from the EU in Euro
+      usd: For all payments in USD
+      any: For all payments
+    swift: SWIFT Code
+  locale: Language
+  locales:
+    de: German
+    en: English
+  maps:
+    show:
+      uebersichtskarte: Map
+  messages:
+    recipients: Recipients
+    table:
+      subject: Subject
+      recipient: Recipient
+      created_at: Created
+      sent_at: Sent
+      seen_at: Seen
+      actions: Actions
+      resend: send again
+    preview: preview
+    submit: send
+    templates:
+      boat_owner_billing: Owner billing (boat)
+      boat_owner_booking_message: Booking confirmation for owner
+      confirmation_mail: Booking confirmation
+      note_mail: Booking notes
+      owner_billing: Owner billing
+      owner_booking_message: Booking confirmation for owner
+      payment_mail_reloaded: Payment confirmation
+      payment_prenotification: Reminder for upcoming due date for payment
+      payment_reminder: Payment reminder
+      reminder_mail: Reminder mail
+      review: Review mail
+      submission_mail: Inquiry confirmation
+      tenant_billing: Tenant billing
+      travel_mail: Travel mail
+      villa_owner_billing: Owner billing (villa)
+  meta_description: There are numerous holiday homes offered in Cape Coral and Florida.
+  occupancies:
+    boat: boat
+    house: house
+  payments:
+    deadlines:
+      fees: fees
+      paid: already paid
+      pay: 'pay %{price} now'
+      total: total
+    how_paypal_works: Checkout with PayPal – Faster. Easier.
+    index:
+      page_title: 'Payment details for booking %{number}'
+    information:
+      cancelled: Payment transaction cancelled.
+      completed: >-
+        Payment transaction sucessfully finished. It may take some time until
+        the payment is processed and displayed here.
+      error: 'Derzeit nicht möglich, bitte später nochmal versuchen. Vielen Dank!'
+      unexpected_amount: >-
+        The amount to pay has changed. Please check your payments below and try
+        again.
+    information_bsp1:
+      pay_cc: Pay with Credit Card
+    information_paypal:
+      pay_paypal: Pay with Credit Card via PayPal
+    payments:
+      difference: Unpaid sum
+      due_date: 'due %{date}'
+      instructions: 'Here, you can you view a list of open and paid totals.'
+      note: >-
+        Depending on bank handling delays, capturing your payments might take a
+        few days.
+      overdue: late payment
+      paid: already paid
+      paid_sum: paid
+      paid_total: Total paid sum
+      title: Payments overview
+      total: Total rent price (incl. deposits and discounts)
+    paypal:
+      handling: fees
+      pending_reason:
+        buyer_complaint: buyer complaint
+        chargeback: chargeback
+        echeck: e-Check
+        guarantee: guarantee
+        international_withdrawal: internatinal withdrawal
+        payment_review: payment under review
+        receiving_preference_mandates_manual_action: need manual approval from seller
+        refund: refund
+        regulatory_review: payment under regulatory view
+        transaction_approved_awaiting_funding: awaitung funding
+        unconfirmed_shipping_address: unconfirmed shipping address
+        unilateral: unilateral
+        verification_required: verification required
+      status:
+        sale:
+          completed: payment complete
+          denied: payment denied
+          partially_refunded: payment partially refunded
+          pending: waiting for payment
+          refunded: payment refunded
+        transaction:
+          approved: transaction approved (maybe waiting for payment)
+          created: waiting for completion
+          failed: transaction failed
+    scope:
+      bsp1: BS PAYONE
+      downpayment: downpayment
+      paypal: PayPal
+      paypal_manual: PayPal (manually)
+      regions_bank: Regions Bank Cape Coral
+      chase_bank: JPMorgan Chase Bank, N.A.
+      remainder: remainder
+      spk_hochrhein: Sparkasse Hochrhein
+      zurich_kb: Zürcher Kantonalbank
+      wise: Wise
+      remiss: Goodwill on bank fees
+  rentables:
+    boats: Boats
+    villas: Villas
+  reviews:
+    edit:
+      breadcrumb: Customer feedback
+      title: We care about what you think!
+    form:
+      city_hint: You may add your place of residence (optional).
+      message_hint: Did everything met your expactations?
+      name_hint: 'You may use an ancronym, if you don''t want your name published.'
+      object: Object
+      period: Period
+      submit: Send feedback
+      title: How would you rate your holidays?
+    index:
+      breadcrumb: Customer feedback
+      link_back_to: 'Back to %{villa}'
+      title: What other customers are saying about %{villa}
+  salutation:
+    c: Dear Sir or Madam
+    f: Dear Mrs. %s
+    m: Dear Mr. %s
+  specials:
+    index:
+      none_found: 'Sorry, but all our villas are currently occupied.'
+  states:
+    admin_submitted: Offer
+    blocked: Date blocked
+    booked: No payment received
+    cancelled: Cancelled
+    commission_received: Deposit received
+    external: external
+    full_payment_received: Payment + final payment received
+    other_booked: Another offer posted
+    submitted: Inquiry
+  templates:
+    billing:
+      boat:
+        deposit: Deposit boat
+        rent: Rent boat
+        total: Total taxable boat
+        training: Boat instruction
+      tax:
+        sales: 6% Sales tax
+        sales_2019: 6.5% Sales tax
+        tourist: 5% Tourist tax
+      villa:
+        cleaning: Cleaning
+        deposit: Deposit villa
+        energy: Electric
+        pet_fee: Pet fee
+        early_checkin: Early check-in
+        late_checkout: Late check-out
+        rent: Rent house
+        total: Total taxable house
+  title: 'Your holiday home in Cape Coral, Florida'
+  titles:
+    c: Company
+    f: Mrs.
+    m: Mr.
+  villa_inquiries:
+    new:
+      next: next
+  wait: Please wait …
+  wait_data: 'Please wait, loading data…'
+  will_paginate:
+    next_label: next page »
+    page_gap: '&hellip;'
+    previous_label: « previous page

@@ -1,0 +1,56 @@
+%tr.summary[booking]
+  %td
+    - if ob.owner
+      = ob.owner
+      %br
+      - if tin = ob.owner.tax_id_number.presence
+        %tt= tin
+      - else
+        %strong= link_to 'TIN hinterlegen', [:edit, :admin, ob.owner]
+    - else
+      %em Kein Eigentümer hinterlegt
+  %td= link_to ob.billables.first.rentable.admin_display_name, [:edit, :admin, ob.billables.first.rentable]
+
+  %td
+    = link_to booking.number, [:admin, booking]
+    - if booking.inquiry.external
+      %br
+      %em.small external
+    - if ob.owner
+      %br
+      = surround '(', ')' do
+        = link_to 'Statement', owner_admin_billing_path(ob.booking, ob.owner.id, format: :pdf)
+  %td
+    = booking.name
+    %br
+    = mb.start_date
+    to
+    %br
+    = mb.end_date
+    (#{mb.days}&nbsp;days)
+
+  %td= booking.summary_currency
+  %td=# Exchange rate
+
+  - if vb.present?
+    %td.num= number_for_price_table vb.rent.net
+    %td.num= number_for_price_table vb.cleaning.net
+    %td.num= number_for_price_table vb.energy_unfeed.net
+    %td.num= number_for_price_table vb.total.proportions[:sales]
+    %td.num= number_for_price_table vb.total.proportions[:tourist]
+  - else
+    %td{ colspan: 5 }
+
+  - if bb.present?
+    %td= booking.boat_name || 'n/a'
+    %td.num= number_for_price_table bb.rent.net
+    %td.num= number_for_price_table bb.training.net
+    %td.num= number_for_price_table bb.total.tax
+  - else
+    %td{ colspan: 4 }
+
+  %td.num= number_for_price_table ob.accounting
+  %td.num= number_for_price_table ob.taxes
+  %td.num= number_for_price_table ob.agency_commission
+  %td.num= number_for_price_table ob.agency_fee
+  %td.num= number_for_price_table ob.payout

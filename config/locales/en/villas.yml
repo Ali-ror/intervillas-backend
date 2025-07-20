@@ -1,0 +1,105 @@
+---
+en:
+  villas:
+    boats:
+      heading: The following boats are available for rent
+    cardinal_directions:
+      e: east
+      n: north
+      ne: north east
+      nw: north west
+      s: south
+      se: south east
+      sw: south west
+      w: west
+    gone:
+      message: >-
+        We're sorry, but this villa is currently not available for rent. Please feel free to have a look at these alternatives,
+        or search for other options.
+    index:
+      h1: Your holiday home in Cape Coral, Florida
+      special: Special Offer
+    tile:
+      # needed for propper formatting:
+      # \u00AD = soft hyphen, \u00A0 = non-breaking space
+      price_from: from
+      price_time_unit:
+        weekly: upto %{count} people / per week
+        nightly: included %{count} people / per week
+      boat_inclusive: Boat inclusive
+      special_discount: "%{discount}\u00A0%% discount"
+      living_area: "area %{area}\u00A0sqft"
+      bathrooms:
+        zero:  "No\u00A0bath\u00ADroom"
+        one:   "1\u00A0bath\u00ADroom"
+        other: "%{count}\u00A0bath\u00ADrooms"
+      bedrooms:
+        zero:  "No\u00A0bed\u00ADroom"
+        one:   "1\u00A0bed\u00ADroom"
+        other: "%{count}\u00A0bed\u00ADrooms"
+      pool_orientation:
+        e:  pool east
+        n:  pool north
+        ne: "pool north\u00A0east"
+        nw: "pool north\u00A0west"
+        s:  pool south
+        se: "pool south\u00A0east"
+        sw: "pool south\u00A0west"
+        w:  pool west
+    other_villas:
+      other_villas: Other Villas
+    prices:
+      base_price: "price for %{minimum_people} adults"
+      additional_person: "additional person"
+      weekly_price: "weekly price (for up to %{bed_count} people)"
+      additional_night: "additional night"
+    show:
+      abreise: Departure
+      anreise: Arrival
+      aufschlag: Surcharge
+      ausstattung: AMENITIES
+      badezimmer: "%{bathrooms_count} Bathrooms, %{wcs_count} WC / Toilets"
+      badezimmer_details: Bathroom %{index} - %{tags}
+      bilder_im_vollbild_anzeigen: View images in full size
+      bootsbeschreibung: Boat description
+      build_year: year of completion
+      child: Child(ren) up to age %{age}
+      datei: File
+      dateien_zu_diesem_boot: Files to this boat
+      discount: "%{discount}: %{percent}% surcharge"
+      ergaenzung: Supplement
+      fotogalerie_von: Photo Gallery of %{name}
+      fotos: PHOTOS
+      high_season: High Season
+      highlights: Highlights
+      incl_taxes: incl. 5 % tourist tax and 6 % sales tax
+      incl_taxes_2019: incl. 5% tourist tax and 6.5% sales tax
+      jetzt_anfragen: send request
+      kinder_bis_zum_vollendeten: 'Children under the age of %{max_age}:'
+      last_renovation: last renovated
+      map: Map
+      mehr_infos_zu_diesem_boot: 'More info on this boat:'
+      mietpreis: Rent
+      overview: Overview
+      panorama_bilder: virtual tour
+      preise: Prices
+      preise_pro_person: per person / per night
+      rabatt: Discount
+      ratings: Customer ratings
+      ratings_all: Continue here with all customer ratings.
+      ratings_text: >-
+        Many of our customers have given positive feedback. Starting with January 2015, we are publishing them so that you
+        can find the right villa for you, much easier!
+      schlafzimmer: "%{bedrooms_count} Bedrooms for %{beds_count} guests"
+      schlafzimmer_details: Bedrooms %{index} - %{tags}
+      read_more:
+        tags: View all Features
+        description: Show more
+      tabs:
+        boat: Boat
+        description: Description
+      wohnflaeche: 'Area: %{living_area}'
+      wohnflaeche_details: 'Area:'
+      zeitraum_belegt: Period not available
+      zeitraum_verfuegbar: Period available
+      zurueck_zu: back to %{name}

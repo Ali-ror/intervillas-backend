@@ -1,0 +1,254 @@
+$header-transition-time:      300ms
+$logo-height:                 70px
+$logo-text-height:            0.47 // bottom n% occupied by the text
+
+$navbar-extra-item-padding-h: 6px
+$navbar-extra-item-padding-v: 12px
+
+body
+  // estimate height, doesn't need to be too accurate
+  --header-height: 80px
+  padding-top: var(--header-height)
+  > header
+    margin-top: calc(-1 * var(--header-height))
+
+  &.home
+    // special heandling for banner
+    --header-height: 0
+  &.admin
+    header.navbar-default
+      position: static !important
+
+header.navbar-default
+  height:                     auto
+  width:                      100%
+  background:                 #fff
+  border:                     none
+  box-shadow:                 0 0 15px -5px #000
+  border-radius:              0
+  padding-top:                8px
+  padding-bottom:             8px
+  transition-property:        background-color, text-shadow, padding-top, padding-bottom
+  transition-duration:        $header-transition-time
+
+  position:                   fixed !important
+  z-index:                    1000
+  max-height:                 95vh
+  overflow-y:                 auto
+
+  .navbar-header
+    margin:                   0
+
+  @media screen and (min-width: $screen-sm-min)
+    max-height:               auto
+    overflow-y:               unset
+
+  .navbar-toggle
+    border:                   none
+    margin:                   0
+    color:                    $text-muted
+
+    &, &:hover, &:active, &:focus
+      background:             none
+
+    i.fa
+      @extend .fa-times
+    &.collapsed i.fa
+      @extend .fa-bars
+
+  &.navbar-transparent
+    background:               transparent
+    box-shadow:               none
+
+    .navbar-toggle i
+      color:                  #fff
+      text-shadow:            0 0 3px #000
+
+    .navbar-nav > li > a
+      text-shadow:            0 0 3px #000
+      color:                  #fff
+
+      &:hover, &:focus
+        background:           #fff
+        text-shadow:          none
+        color:                inherit
+
+    .header-search-inline form
+      i, .form-control
+        background:           transparent
+        border-color:         #fff8
+        color:                #fff
+
+      .form-control
+        text-shadow:          0 0 3px #000
+
+        &::placeholder
+          color:              #fff
+        &:focus, &:active
+          background:         #fff
+          color:              $text-color
+          text-shadow:        none
+          &::placeholder
+            opacity:          0
+          ~ i
+            color:            $text-color
+
+  a.currency
+    .switch-currency
+      display:                none
+    @media screen and (min-width: $screen-sm-min)
+      &:hover, &:active, &:focus
+        .switch-currency
+          display:            inline-block
+
+#main-menu.navbar-collapse
+  margin-left:                -0.5*$grid-gutter-width
+  margin-right:               -0.5*$grid-gutter-width
+
+@media screen and (min-width: $screen-sm-min)
+  #main-menu.navbar-collapse
+    width:                    100%
+    padding:                  0
+    margin-left:              0
+    margin-right:             0
+  .navbar-header
+    width:                    100%
+    .dropdown-menu
+      min-width:              auto
+      > li > a
+        padding:              $navbar-extra-item-padding-h $navbar-extra-item-padding-v
+
+.navbar-header
+  .navbar-extra
+    border-top:               1px solid #e1e1e1
+
+  @media screen and (max-width: $screen-xs-max)
+    .navbar-links
+      overflow-x:             hidden
+      overflow-y:             scroll
+
+  @media screen and (min-width: $screen-sm-min)
+    display:                  flex
+
+    .navbar-links
+      font-weight:            bold
+      flex-grow:              1
+      display:                flex
+      flex-direction:         column-reverse
+
+      > .navbar-nav
+        display:              flex
+        justify-content:      space-between
+        body.admin &:not(.navbar-extra)
+          justify-content:    flex-start
+        align-items:          center
+
+        &.navbar-extra
+          justify-content:    flex-end
+          gap:                $navbar-extra-item-padding-h $navbar-extra-item-padding-v
+
+          > li > a
+            font-size:        90%
+            padding:          $navbar-extra-item-padding-h $navbar-extra-item-padding-v
+
+        &::before, &::after
+          content:            none
+
+        > li
+          float:              none
+
+          > a
+            padding-top:      12px
+            padding-bottom:   12px
+            white-space:      nowrap
+            border-radius:    $navbar-border-radius
+
+    .navbar-extra
+      border-top:             none
+      font-weight:            normal
+      margin-bottom:          8px
+      height:                 32px
+      transition-property:    opacity, height, margin-bottom
+      transition-duration:    $header-transition-time
+
+.logo
+  align-self:                 flex-end
+  display:                    block
+
+  @media screen and (min-width: $screen-md-min)
+    margin-right:             16px
+
+  span
+    // hide fallback text
+    display:                  none
+
+  svg
+    display:                  inline-block
+    height:                   $logo-height
+    width:                    auto
+    color:                    $text-muted // propagates as currentColor into svg>.iv-palms
+    transition-property:      color, margin-top, filter
+    transition-duration:      $header-transition-time
+
+    .iv-left, .iv-right
+      transition:             fill $header-transition-time
+    .iv-left
+      fill:                   $text-color
+    .iv-right
+      fill:                   $brand-primary
+
+    .navbar-transparent &
+      color:                  #fff
+      filter:                 drop-shadow(0 0 5px #000)
+      .iv-left, .iv-right
+        fill:                 #fff
+
+    .iv-palms
+      transition-property:    opacity,                     transform
+      transition-duration:    0.5*$header-transition-time, $header-transition-time
+
+nav.contact-nav
+  z-index:                      1000
+  display:                      flex
+  flex-direction:               column
+  justify-content:              space-between
+
+  .contact-nav-item
+    display:                    flex
+    align-items:                center
+    padding:                    8px
+    margin:                     4px 0 // `gap: 8px` not supported in Safari
+
+  @media screen and (min-width: $screen-sm-min)
+    $cnav-width:                250px
+    $cnav-icon-size:            20px
+    $cnav-icon-margin:          0.5 * $cnav-icon-size
+
+    $cnav-drawer-length:        -1 * ($cnav-width - $cnav-icon-size - 2 * $cnav-icon-margin - 4px)
+
+    position:                   fixed
+    right:                      $cnav-drawer-length
+    top:                        50%
+    transform:                  translateY(-50%)
+    width:                      $cnav-width
+
+    .contact-nav-item
+      background:               rgba(0, 0, 0, 0.5)
+      color:                    #fff
+      border-top-left-radius:   $navbar-border-radius
+      border-bottom-left-radius: $navbar-border-radius
+      line-height:              1.3em
+
+      transition-property:      transform, background
+      transition-duration:      $header-transition-time
+
+      &:hover
+        background:             $brand-primary
+        transform:              translateX($cnav-drawer-length)
+
+      i.fa
+        font-size:              $cnav-icon-size
+        line-height:            1
+        width:                  $cnav-icon-size + $cnav-icon-margin
+        text-align:             center
+        margin-right:           $cnav-icon-margin

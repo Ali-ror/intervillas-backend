@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading= t ".heading", kind: payment_tab_title
+  .panel-body
+    %p.text-center
+      = link_to url_for(format: :csv), class: "btn btn-primary" do
+        = fa :download, :lg, text: t(".download_csv")
+    %p.text-muted= t ".note"

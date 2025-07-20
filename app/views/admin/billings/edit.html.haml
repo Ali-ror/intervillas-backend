@@ -1,0 +1,22 @@
+.row
+  %aside.col-md-3.sidebar-left
+    = render "sidebar_left"
+
+  .col-md-9
+    .tab-content.main-tab-content
+      - if villa_billing_form
+        #villa.tab-pane.active
+          = render "form_villa"
+
+      - if boat_billing_form
+        #boat.tab-pane{ class: ("active" unless villa_billing_form) }
+          = render "form_boat"
+
+      - if billing.billings_persisted?
+        #billings.tab-pane= render "billings"
+        #communication.tab-pane= render "communication"
+      - else
+        #billings.tab-pane
+          %p.alert.alert-info= t ".new_record"
+        #communication.tab-pane
+          %p.alert.alert-info= t ".new_record"

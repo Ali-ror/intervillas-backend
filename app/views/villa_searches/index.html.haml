@@ -1,0 +1,11 @@
+= page_header do
+  = breadcrumb.render t('shared.menu.villas')
+  %h1= h1 || t("villas.index.h1")
+
+.container
+  %villa-facet-search.px-sm-0{ "data-config" => facet_search_configuration.to_json }
+    .text-center= fa :x2, :spinner, :pulse, text: t(:wait_data)
+
+%section.mt-3
+  .container
+    %display-search-results{ data: { url: villa_searches_path } }

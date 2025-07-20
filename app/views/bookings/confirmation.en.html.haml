@@ -1,0 +1,182 @@
+= page_header do
+  - page_title = t "bookings.layout.titles.confirmation"
+  = breadcrumb.add link_to t('shared.menu.villas'), '/villas'
+  = breadcrumb.add link_to villa.name, villa
+  = breadcrumb.add link_to booking.number, confirmation_booking_path(token: inquiry.token)
+  = breadcrumb.render page_title
+  %h1 #{page_title} # #{booking.number}
+
+= render layout: "layout" do
+  %h2#overview Thank you for choosing Intervilla for your Florida vacation.
+  %p
+    We confirm your booking as follows. You will also receive this information
+    per Email.
+
+  = confirmation_subsection "Tenant", id: "tenant" do
+    %dl.dl-horizontal
+      %dt Name
+      %dd #{customer.title} #{customer.name}
+      %dt Address
+      %dd #{customer.address} #{customer.appnr}
+      %dd #{customer.postal_code} #{customer.city}
+      %dd #{customer.country}
+
+      %dt Phone
+      %dd= customer.phone.presence || "./."
+      %dt E-Mail
+      %dd= customer.email
+
+  = confirmation_subsection "Persons staying at the house", id: "people" do
+    %dl.dl-horizontal
+      %dt #{villa_inquiry.travelers.count} persons
+      - booking.traveler_names.each do |traveler|
+        %dd= traveler
+
+  = confirmation_subsection "Villa", id: "villa" do
+    %dl.dl-horizontal
+      %dt= villa.name
+      %dd #{villa.locality}, #{villa.region}, #{villa.country}
+      - if villa.phone?
+        %dt Phone
+        %dd= villa.phone
+
+      %dt Booking period
+      %dd
+        = l villa_inquiry.start_date
+        until
+        = l villa_inquiry.end_date
+      %dd #{villa_inquiry.nights} nights
+
+  - if inquiry.with_boat?
+    = confirmation_subsection "Boat", id: "boat" do
+      %dl.dl-horizontal
+        %dt Model
+        %dd= boat.model
+        %dt Booking period
+        %dd
+          = l boat_inquiry.start_date
+          bis
+          = l boat_inquiry.end_date
+        - if !inquiry.boat_charged?
+          %dd.text-muted (included in rent price)
+
+  = confirmation_subsection "Rent price", id: "rent" do
+    %p
+      %strong= display_price villa_clearing.total_rents
+    %p
+      6.5% Sales Tax und 5% Tourist Tax are included in the rent.
+
+  = confirmation_subsection "Price", id: "prices" do
+    .applet{ name: "BookingPrices" }
+      = clearing_table_tag(inquiry)
+
+  = confirmation_subsection "Additional cost", id: "utilities" do
+    = render "bookings/energy_costs", inquiry: inquiry
+
+  = confirmation_subsection "Payment conditions", id: "payment" do
+    - if booking.late?
+      %p.alert.alert-danger
+        Last minute booking - please pay total <u>immediately</u>:
+        %strong= display_price clearing.total
+
+    - else
+      .alert.alert-info
+        .row
+          .col-sm-5
+            %h4
+              Reservation-deposit
+              = surround "(", ")" do
+                = number_to_percentage(100 * booking.downpayment_percentage, format: "%n %", precision: 0)
+            %p
+              %strong= display_price downpayment
+
+            %p
+              = fa :calendar
+              due #{l downpayment_deadline}
+
+          .col-sm-5
+            %h4 Rest-payment
+            %p
+              %strong= display_price remainder
+
+            %p
+              = fa :calendar
+              due #{l payment_deadline}
+
+    %p.text-center
+      = link_to [:payments, token: inquiry.token], class: "btn btn-primary" do
+        continue with payment
+
+  = confirmation_subsection "Travel information", id: "travel-info" do
+    %p
+      Do you have a GPS ? The address of
+      %strong #{villa.name}
+      is as follows:
+    %p
+      %strong
+        #{villa.street},
+        #{villa.locality},
+        #{villa.region}
+        #{villa.postal_code}
+      &gt; use this address for your naviagation.
+    %p
+      The villa is available from 4pm of the day of arrival (check-in), and
+      the check-out must happen until 10am.
+    %p
+      Upon arrival at the villa, you find a lockbox/keysafe attached next to the
+      front entrance door. You will receive the code <u>2&nbsp;weeks prior to your
+      arrival</u> in a seperate email.
+    %p
+      This mail will also contain the name und die phone number of the property
+      management.
+
+  = confirmation_subsection "Miscellaneous", id: "misc" do
+    %p
+      If you bring your laptop computer and want to use the wireless internet
+      provided free of charge, you normally just log in to the network (usually
+      the house name is the network name) some networks are password protected,
+      in this case the password will be provided by the property managers
+      (sometimes the password is written next to, or under the modem or router).
+    %p
+      Should you have additional questions, please contact us by mail:
+      %a{ href: "mailto:info@intervillas-florida.com" } info@intervillas-florida.com
+
+  = confirmation_subsection "IMPORTANT", title_class: "text-danger", id: "important" do
+    %ol
+      %li
+        %strong Smoking in the house is strictly forbidden!
+      %li
+        %strong Do not remove or relocate any furniture and decorations!
+      %li
+        %strong
+          The pool area is protected against insects with a screen, playing
+          ball at the pool is not allowed!! Soft air-filled balls are ok to use.
+      %li
+        %strong
+          Fishing from the sport boats is not allowed, unless the boat included
+          is a fishing boat Boat.
+      %li
+        %strong Do not remove automatic pool cleaners yourself or handle the pool valves.
+
+    %p
+      All cleanings are being performed according to the guidelines of
+      = link_to "CDC (Center for Disease, Control and Preventions).", "https://www.cdc.gov/"
+      Our cleaning personnel is wearing disposable gloves and disposable face
+      masks while cleaning and disinfecting the property.
+
+  = confirmation_subsection "Links", id: "links" do
+    %p
+      Here are the AGB-terms, Travel- info and Cape Coral again for your review:
+
+    %ul
+      %li <a href="https://www.intervillas-florida.com/agb">AGB (terms)</a>
+      %li <a href="https://www.intervillas-florida.com/reiseinfo">Travel Info</a>
+      %li <a href="https://www.intervillas-florida.com/capecoral">Cape Coral Info</a>
+
+  .well.mt-5
+    %p.lead
+      Have a great vacation at #{villa.name}!
+    %p
+      Sincerely,
+      %br
+      your Intervilla team

@@ -1,0 +1,714 @@
+## Rubocop base configuration - https://docs.rubocop.org/rubocop/cops.html
+
+AllCops:
+  Exclude:
+  - bin/**/*
+  - db/migrate/**/*
+  - db/schema.rb
+  - db/seeds.rb
+  - node_modules/**/*
+  - tmp/**/*
+  - vendor/**/*
+  - Gemfile
+  DisplayCopNames: true
+  StyleGuideCopsOnly: false
+  TargetRubyVersion: 2.7
+
+## Gemspec Cops - https://docs.rubocop.org/rubocop/cops_gemspec.html
+
+Gemspec/DeprecatedAttributeAssignment: # new in 1.35
+  Enabled: true
+
+Gemspec/RequireMFA: # new in 1.23
+  Enabled: false
+
+Gemspec/DevelopmentDependencies: # new in 1.44
+  Enabled: false
+
+Gemspec/AddRuntimeDependency: # new in 1.65
+  Enabled: true
+
+## Layout Cops - https://docs.rubocop.org/rubocop/cops_layout.html
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+  IndentationWidth: 2
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/EmptyLinesAroundArguments:
+  Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: start_of_line
+
+Layout/ExtraSpacing:
+  AllowBeforeTrailingComments: true
+  ForceEqualSignAlignment: true
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Layout/LineEndStringConcatenationIndentation: # new in 1.18
+  Enabled: true
+  EnforcedStyle: indented
+
+Layout/LineLength:
+  Exclude:
+    - spec/**/*.rb
+    - config/**/*.rb
+    - app/lib/cleanup.rb
+    - app/lib/takedown.rb
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyleForEmptyBraces: space
+
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Layout/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: true
+
+Layout/LineContinuationLeadingSpace: # new in 1.31
+  Enabled: false # either style is fine
+
+Layout/LineContinuationSpacing: # new in 1.31
+  Enabled: true
+
+## Lint Cops - https://docs.rubocop.org/rubocop/cops_lint.html
+
+Lint/AmbiguousOperatorPrecedence: # new in 1.21
+  Enabled: true
+
+Lint/AmbiguousRange: # new in 1.19
+  Enabled: true
+
+Lint/EmptyInPattern:
+  Enabled: true
+  AllowComments: true
+
+Lint/DuplicateMagicComment: # new in 1.37
+  Enabled: true
+
+Lint/IncompatibleIoSelectWithFiberScheduler: # new in 1.21
+  Enabled: true
+
+Lint/NumberedParameterAssignment: # new in 1.9
+  Enabled: true
+
+Lint/OrAssignmentToConstant:
+  Enabled: true
+
+Lint/RequireRelativeSelfPath: # new in 1.22
+  Enabled: true
+
+Lint/SymbolConversion: # new in 1.9
+  Enabled: true
+  EnforcedStyle: strict
+
+Lint/TripleQuotes:
+  Enabled: true
+
+Lint/UselessRuby2Keywords: # new in 1.23
+  Enabled: true
+
+Lint/DeprecatedConstants:
+  Enabled: true
+
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true
+
+Lint/RedundantDirGlobSort:
+  Enabled: false # this is only redundant in Ruby 3.0+
+
+Lint/AmbiguousAssignment:
+  Enabled: true
+
+Lint/DuplicateBranch:
+  Enabled: true
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+  AllowComments: true
+  AllowEmptyLambdas: true # sometimes needed as fallback
+
+Lint/EmptyClass:
+  Enabled: true
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+
+Lint/ToEnumArguments:
+  Enabled: true
+
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: false # generates false positives
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+Lint/DuplicateMatchPattern: # new in 1.50
+  Enabled: true
+
+Lint/DuplicateRescueException:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  AllowComments: false
+  Enabled: true
+
+Lint/FloatComparison:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+
+Lint/RefinementImportMethods: # new in 1.27
+  Enabled: true
+
+Lint/ConstantOverwrittenInRescue: # new in 1.31
+  Enabled: true
+
+Lint/NonAtomicFileOperation: # new in 1.31
+  Enabled: true
+
+Lint/RequireRangeParentheses: # new in 1.32
+  Enabled: true
+
+Lint/UselessRescue: # new in 1.43
+  Enabled: true
+
+Lint/MixedCaseRange: # new in 1.53
+  Enabled: true
+
+Lint/RedundantRegexpQuantifiers: # new in 1.53
+  Enabled: true
+
+Lint/HashNewWithKeywordArgumentsAsDefault: # new in 1.69
+  Enabled: true
+
+Lint/NumericOperationWithConstantResult: # new in 1.69
+  Enabled: true
+
+Lint/UselessDefined: # new in 1.69
+  Enabled: true
+
+# maybe consider deactivating: we've got lot of namespaced exceptions, i.e.
+# something like:
+#
+#   module Foo
+#     Exception    = Class.new(StandardError)
+#     TimeoutError = Class.new(Exception)
+#   end
+#
+# which might cause false positives
+Lint/RaiseException:
+  Enabled: true
+
+Lint/SelfAssignment:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Lint/SuppressedException:
+  AllowComments: true
+
+Lint/TopLevelReturnWithArgument:
+  Enabled: true
+
+Lint/UnreachableLoop:
+  Enabled: true
+
+Lint/UselessAccessModifier:
+  ContextCreatingMethods:
+    - concerning
+    - class_methods
+  MethodCreatingMethods:
+    - delegate
+
+Lint/ItWithoutArgumentsInBlock: # new in 1.59
+  Enabled: true
+
+Lint/LiteralAssignmentInCondition: # new in 1.58
+  Enabled: true
+
+Lint/UselessNumericOperation: # new in 1.66
+  Enabled: true
+
+Lint/DuplicateSetElement: # new in 1.67
+  Enabled: true
+
+Lint/UnescapedBracketInRegexp: # new in 1.68
+  Enabled: true
+
+Lint/ConstantReassignment: # new in 1.70
+  Enabled: true
+
+Lint/SharedMutableDefault: # new in 1.70
+  Enabled: true
+
+Lint/ArrayLiteralInRegexp: # new in 1.71
+  Enabled: true
+
+Lint/CopDirectiveSyntax: # new in 1.72
+  Enabled: true
+
+Lint/RedundantTypeConversion: # new in 1.72
+  Enabled: true
+
+Lint/SuppressedExceptionInNumberConversion: # new in 1.72
+  Enabled: true
+
+Lint/UselessConstantScoping: # new in 1.72
+  Enabled: true
+
+## Metrics Cops - https://docs.rubocop.org/rubocop/cops_metrics.html
+
+Metrics/AbcSize:
+  CountRepeatedAttributes: false
+  Exclude:
+    - spec/**/*.rb
+
+Metrics/BlockLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+  Exclude:
+    - spec/**/*.rb
+    - config/**/*.rb
+  AllowedMethods:
+    - included
+    - class_methods
+    - concerning
+
+Metrics/CollectionLiteralLength: # new in 1.47
+  Enabled: true
+
+Metrics/MethodLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+  Max: 20
+
+Metrics/ModuleLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+  CountComments: false  # count full line comments?
+  Max: 120
+
+Metrics/ParameterLists:
+  Max: 6
+
+## Naming Cops - https://docs.rubocop.org/rubocop/cops_naming.html
+
+Naming/AccessorMethodName:
+  Exclude:
+  - 'app/controllers/**/*.rb' # sigh, InheritedResources...
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  AllowedNames: [io, id, db, ex]
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: err
+
+Naming/BlockForwarding: # new in 1.24
+  Enabled: true
+  EnforcedStyle: explicit
+
+## Security Cops - https://docs.rubocop.org/rubocop/cops_security.html
+
+Security/IoMethods: # new in 1.22
+  Enabled: true
+
+Security/CompoundHash: # new in 1.28
+  Enabled: true
+
+## Style Cops - https://docs.rubocop.org/rubocop/cops_style.html
+
+Style/AccessModifierDeclarations:
+  AllowModifiersOnSymbols: true
+  AllowModifiersOnAttrs: true
+
+Style/ArrayIntersect: # new in 1.40
+  Enabled: true
+
+Style/ComparableClamp: # new in 1.44
+  Enabled: true
+
+Style/ConcatArrayLiterals: # new in 1.41
+  Enabled: true
+
+Style/DataInheritance: # new in 1.49
+  Enabled: true
+
+Style/DirEmpty: # new in 1.48
+  Enabled: true
+
+Style/ExactRegexpMatch: # new in 1.51
+  Enabled: true
+
+Style/FileEmpty: # new in 1.48
+  Enabled: true
+
+Style/HashConversion:
+  Enabled: true
+  AllowSplatArgument: false
+
+Style/IfWithBooleanLiteralBranches:
+  Enabled: true
+
+Style/InPatternThen:
+  Enabled: true
+
+Style/MapToSet: # new in 1.42
+  Enabled: true
+
+Style/MinMaxComparison: # new in 1.42
+  Enabled: true
+
+Style/MultilineInPatternThen:
+  Enabled: true
+
+Style/NumberedParameters: # new in 1.22
+  Enabled: true
+  EnforcedStyle: allow_single_line
+
+Style/NumberedParametersLimit: # new in 1.22
+  Enabled: true
+
+Style/OpenStructUse: # new in 1.23
+  Enabled: true
+
+Style/OperatorMethodCall: # new in 1.37
+  Enabled: true
+
+Style/QuotedSymbols:
+  Enabled: true
+
+Style/RedundantConstantBase: # new in 1.40
+  Enabled: true
+
+Style/RedundantDoubleSplatHashBraces: # new in 1.41
+  Enabled: true
+
+Style/RedundantEach: # new in 1.38
+  Enabled: true
+
+Style/RedundantLineContinuation: # new in 1.49
+  Enabled: true
+
+Style/RedundantHeredocDelimiterQuotes: # new in 1.45
+  Enabled: true
+
+Style/RedundantStringEscape: # new in 1.37
+  Enabled: true
+
+Style/StringChars:
+  Enabled: true
+
+Style/EndlessMethod:
+  Enabled: true
+
+Style/ArgumentsForwarding:
+  Enabled: true
+
+Style/CollectionCompact:
+  Enabled: true
+
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+
+Style/HashExcept:
+  Enabled: true
+
+Style/NegatedIfElseCondition:
+  Enabled: true
+
+Style/NilLambda:
+  Enabled: true
+
+Style/RedundantArgument:
+  Enabled: false # does not make code clearer
+
+Style/RedundantSelfAssignmentBranch: # new in 1.19
+  Enabled: true
+
+Style/SelectByRegexp: # new in 1.22
+  Enabled: true
+
+Style/SwapValues:
+  Enabled: true
+
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/ArrayCoercion:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/BlockDelimiters:
+  AllowBracesOnProceduralOneLiners: true
+  EnforcedStyle: semantic
+
+Style/CaseLikeIf:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/models/**/*.rb
+    - app/controllers/**/*.rb
+    - app/lib/pages/*.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/ExplicitBlockArgument:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+  EnforcedStyle: engineering
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: true
+
+Style/StderrPuts:
+  Enabled: false
+
+Style/HashAsLastArrayItem:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashLikeCase:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+Style/RedundantRegexpEscape:
+  Enabled: true
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/SingleArgumentDig:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Style/StringConcatenation:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/FetchEnvVar: # new in 1.28
+  Enabled: true
+
+Style/FileRead: # new in 1.24
+  Enabled: true
+
+Style/FileWrite: # new in 1.24
+  Enabled: true
+
+Style/MapToHash: # new in 1.24
+  Enabled: true
+
+Style/NestedFileDirname: # new in 1.26
+  Enabled: true
+
+Style/ObjectThen: # new in 1.28
+  Enabled: true
+
+Style/RedundantInitialize: # new in 1.27
+  Enabled: false # too many false positives
+
+Style/EmptyHeredoc: # new in 1.32
+  Enabled: true
+
+Style/EnvHome: # new in 1.29
+  Enabled: true
+
+Style/MagicCommentFormat: # new in 1.35
+  Enabled: true
+
+Style/MapCompactWithConditionalBlock: # new in 1.30
+  Enabled: true
+
+Style/YodaExpression: # new in 1.42
+  Enabled: false # too many false positives
+
+Style/RedundantArrayConstructor: # new in 1.52
+  Enabled: true
+
+Style/RedundantFilterChain: # new in 1.52
+  Enabled: true
+
+Style/RedundantRegexpConstructor: # new in 1.52
+  Enabled: true
+
+Style/RedundantCurrentDirectoryInPath: # new in 1.53
+  Enabled: true
+
+Style/RedundantRegexpArgument: # new in 1.53
+  Enabled: true
+
+Style/ReturnNilInPredicateMethodDefinition: # new in 1.53
+  Enabled: true
+
+Style/YAMLFileRead: # new in 1.53
+  Enabled: true
+
+Style/SingleLineDoEndBlock: # new in 1.57
+  Enabled: true
+
+Style/SuperWithArgsParentheses: # new in 1.58
+  Enabled: false
+
+Style/MapIntoArray: # new in 1.63
+  Enabled: true
+
+Style/SendWithLiteralMethodName: # new in 1.64
+  AllowSend: true
+  Enabled: true
+
+Style/SuperArguments: # new in 1.64
+  Enabled: true
+
+Style/RedundantInterpolationUnfreeze: # new in 1.66
+  Enabled: true
+
+Style/AmbiguousEndlessMethodDefinition: # new in 1.68
+  Enabled: true
+
+Style/BitwisePredicate: # new in 1.68
+  Enabled: true
+
+Style/CombinableDefined: # new in 1.68
+  Enabled: true
+
+Style/KeywordArgumentsMerging: # new in 1.68
+  Enabled: true
+
+Style/SafeNavigationChainLength: # new in 1.68
+  Enabled: true
+  Max: 4 # default: 2
+
+Style/DigChain: # new in 1.69
+  Enabled: true
+
+Style/FileNull: # new in 1.69
+  Enabled: true
+
+Style/FileTouch: # new in 1.69
+  Enabled: true
+
+Style/ItAssignment: # new in 1.70
+  Enabled: true
+
+Style/HashSlice: # new in 1.71
+  Enabled: true
+
+Style/RedundantFormat: # new in 1.72
+  Enabled: true

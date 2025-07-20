@@ -1,0 +1,46 @@
+%h3= t "villas.show.preise"
+%p
+  - unless villa_price.weekly_pricing?
+    = succeed ", " do
+      = t "villas.show.preise_pro_person"
+  = t "villas.show.incl_taxes_2019"
+
+.panel.panel-default
+  %table.table.border-light
+    - if villa_price.weekly_pricing?
+      %tr
+        %th= t "villas.prices.weekly_price", bed_count: villa.beds_count
+        %td.text-right= display_price(villa_price.base_rate * 7)
+      %tr
+        %th= t "villas.prices.additional_night"
+        %td.text-right= display_price(villa_price.base_rate)
+    - else
+      %tr
+        %th= t "villas.prices.base_price", minimum_people: villa.minimum_people
+        %td.text-right= display_price(villa_price.base_rate)
+      %tr
+        %th= t "villas.prices.additional_person"
+        %td.text-right= display_price(villa_price.additional_adult)
+      - if villa_price.traveler_price_categories.include?("children_under_6")
+        %tr
+          %th= t "villas.show.child", age: 6
+          %td.text-right= display_price(villa_price.children_under_6)
+      - if villa_price.traveler_price_categories.include?("children_under_12")
+        %tr
+          %th= t "villas.show.child", age: 12
+          %td.text-right= display_price(villa_price.children_under_12)
+
+- villa.holiday_discounts.each do |discount|
+  %p
+    = t "discount.name_amount", discount: t(discount.description, scope: :discount), percent: discount.percent
+    %span.small
+      = surround " (", ")" do
+        = t "discount.range", days_before: discount.days_before, days_after: discount.days_after
+
+- hs_scope = villa.high_seasons.after(Date.current)
+- if (min = hs_scope.minimum(:addition).presence) && (max = hs_scope.maximum(:addition).presence)
+  %p
+    = t "discount.name_amount", discount: t("villas.show.high_season"), percent: [min, max].uniq.join("-")
+    %span.small
+      = surround " (", ")" do
+        = t "discount.high_season_range"

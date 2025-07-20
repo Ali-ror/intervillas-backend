@@ -1,0 +1,17 @@
+.well.well-sm
+  %p
+    Die <strong>Gebühren-Differenz</strong> kommt zustande, weil die Höhe
+    der tatsächlichen PayPal-Gebühren abhängig von diesen Faktoren sind:
+  %ul
+    %li Sitz des zahlenden PayPal-Kontos
+    %li Form des Zahlungmittels (auf KK- und Check-Transaktionen fallen weitere Gebühren an)
+    %li monatlicher Umsatz des Händler-Kontos
+  %p
+    Diese Faktoren sind erst <em>nach Abschluss</em> der PayPal-Transaktion
+    bekannt. Der an PayPal zu übermittelnde Gesamt-Betrag muss aber schon
+    <em>zu Beginn</em> der Transaktion bekannt sein, wenn der Kunde die
+    Gebühren tragen soll.
+  %p
+    Für zukünftige Zahlungen können in den
+    = link_to "Einstellungen", admin_settings_path
+    die PayPal-Gebühren justiert werden.

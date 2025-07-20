@@ -1,0 +1,26 @@
+= semantic_form_for customer_form, url: admin_customer_path(customer_form, anchor: "customer"), html: { class: "form-horizontal" } do |form|
+  = form.inputs t(".customer") do
+    = form.input :locale, as: :select, collection: { t(".de") => "de", t(".en") => "en" }, include_blank: false
+    = form.input :title,  as: :select, collection: { t(".mr") => "Herr", t(".mrs") => "Frau" }
+    = form.input :first_name
+    = form.input :last_name
+    = form.input :email
+    = form.input :phone
+    = form.input :address
+    = form.input :appnr
+    = form.input :postal_code
+    = form.input :city
+    %admin-customer-state-info{
+      country:    form.object.country,
+      state_code: form.object.state_code,
+    }
+    = form.input :bank_account_owner
+    = form.input :bank_name
+    = form.input :bank_account_number # SWIFT/BIC [!]
+    = form.input :bank_code           # IBAN [!]
+    = form.input :us_bank_routing_number
+    = form.input :note, as: :text
+    = form.input :travel_insurance, as: :select, collection: Customer.travel_insurances.keys.map { [Customer.human_attribute_name("travel_insurance/#{_1}"), _1] }
+
+  = form.actions class: "hidden-print" do
+    = form.action :submit, button_html: { class: 'btn btn-primary' }

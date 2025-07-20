@@ -1,0 +1,27 @@
+!!!
+%html{ "xmlns:og" => "http://opengraphprotocol.org/schema/" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ content: t("meta_description"), name: "Description" }
+    %title= t("title")
+    %meta{ content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name: "viewport" }
+    = render "shared/favicons", app_name: "Intervilla Florida"
+    = csrf_meta_tags
+    = vite_client_tag
+    = vite_stylesheet_tag "theme-intervillas.sass"
+    = vite_javascript_tag "frontend", "admin"
+
+  %body{ lang: I18n.locale }
+    %header.hidden-print
+      #sticky.navbar.navbar-default
+        = render "shared/header"
+
+    .container
+      .row.mt-5.pt-5
+        .col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+          - if controller_name != "sessions" && current_user&.password_expiry_warning?
+            = render "admin/password_expiry_banner"
+          = flash_messages
+          = yield
+
+    = render "shared/footer"

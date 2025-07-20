@@ -1,0 +1,11 @@
+- if villa.show_reviews?
+  = link_to villa_path(villa, anchor: "ratings"), class: "rating pull-right", itemscope: "itemscope", itemtype: "http://schema.org/AggregateRating", itemprop: "aggregateRating" do
+    %meta{ itemprop: "ratingValue", content: villa.avg_rating }><
+    %meta{ itemprop: "reviewCount", content: villa.number_of_ratings }><
+    - s = villa.stars
+    - (Review::RATING_RANGE.end - s.sum).times do
+      = fa :x2, :star_o
+    - s[1].times do
+      = fa :x2, :star_half_o
+    - s[0].times do
+      = fa :x2, :star

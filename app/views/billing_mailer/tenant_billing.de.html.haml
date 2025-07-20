@@ -1,0 +1,16 @@
+%p= salute customer
+%p
+  die Ferien sind vorüber und wir hoffen sehr, dass Sie wunderbare Ferien
+  in Florida verbracht haben und alles Ihren Vorstellungen entsprochen hat.
+%p
+  In der Anlage finden Sie die Nebenkosten/-Kautionsabrechnung für Ihre
+  Buchung #{booking.number} (#{rentable.display_name})
+  im PDF-Format.
+- if imessage.text?
+  %p= imessage.text
+%p Wir hoffen, Sie bald wieder als Gäste von Intervillas begrüssen zu dürfen.
+%p Bis dahin wünschen wir Ihnen eine schöne Zeit und alles Gute.
+%p
+  Freundliche Grüße,
+  %br/
+  Ihr INTERVILLAS-Team

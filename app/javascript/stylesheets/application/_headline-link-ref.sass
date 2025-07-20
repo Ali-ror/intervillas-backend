@@ -1,0 +1,22 @@
+// Wir haben einen fixen Header, der bei Sprungmarken das Sprunkziel
+// verdeckt.
+//
+// Lösung ist ein (versteckter) relativ verschobener Bereich, das die
+// anzuspringende Fläche so vergrößert, dass der Header das eigentliche
+// Ziel nicht mehr verdeckt.
+//
+// 28 = image-height("logo-shrunk.png")
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+section,
+a[name]
+  $header-height:             2 * 28 + $padding-large-horizontal
+
+  &:target:before
+    content:                  ''
+    display:                  block
+    margin-top:               -1 * $header-height
+    height:                   $header-height
+    width:                    1px
+    background:               transparent
+    pointer-events:           none

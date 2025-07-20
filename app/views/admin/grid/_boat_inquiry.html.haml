@@ -1,0 +1,14 @@
+= link_to rentable_inquiry.number, [:admin, rentable_inquiry.inquiry.booking]
+%br
+= succeed ", " do
+  = rentable_inquiry.inquiry.customer.name
+%br
+= succeed ", " do
+  %strong
+    = rentable_inquiry.inquiry.customer.country
+
+- if rentable_inquiry.inquiry.with_villa? # rentable_inquiry.with_villa? erzeugt neuen Query!
+  %br
+  = t 'calendar.villa', name: rentable_inquiry.inquiry.villa.display_name.titlecase
+%br
+= [l(rentable_inquiry.start_date, format: '%d.%m.'), l(rentable_inquiry.end_date, format: '%d.%m.')].join('–')

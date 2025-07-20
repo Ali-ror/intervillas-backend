@@ -1,0 +1,396 @@
+---
+de:
+  countries:
+    AC: Ascension
+    AD: Andorra
+    AE: Vereinigte Arabische Emirate
+    AF: Afghanistan
+    AG: Antigua und Barbuda
+    AI: Anguilla
+    AL: Albanien
+    AM: Armenien
+    AN: Niederländische Antillen
+    AO: Angola
+    AQ: Antarktis
+    AR: Argentinien
+    AS: Amerikanisch-Samoa
+    AT: Österreich
+    AU: Australien
+    AW: Aruba
+    AX: Alandinseln
+    AZ: Aserbaidschan
+    BA: Bosnien und Herzegowina
+    BB: Barbados
+    BD: Bangladesch
+    BE: Belgien
+    BF: Burkina Faso
+    BG: Bulgarien
+    BH: Bahrain
+    BI: Burundi
+    BJ: Benin
+    BL: St. Barthélemy
+    BM: Bermuda
+    BN: Brunei Darussalam
+    BO: Bolivien
+    BQ: Plurinationaler Staat Bolivien
+    BR: Brasilien
+    BS: Bahamas
+    BT: Bhutan
+    BV: Bouvetinsel
+    BW: Botsuana
+    BY: Belarus
+    BZ: Belize
+    CA: Kanada
+    CC: Kokosinseln
+    CD: Demokratische Republik Kongod
+    CF: Zentralafrikanische Republik
+    CG: Kongo-Brazzavilled
+    CH: Schweiz
+    CI: Elfenbeinküste
+    CK: Cookinseln
+    CL: Chile
+    CM: Kamerun
+    CN: China
+    CO: Kolumbien
+    CP: Clipperton-Insel
+    CR: Costa Rica
+    CS: Serbien und Montenegro
+    CU: Kuba
+    CV: Kap Verde
+    CX: Weihnachtsinsel
+    CY: Zypern
+    CZ: Tschechische Republik
+    DE: Deutschland
+    DG: Diego Garcia
+    DJ: Dschibuti
+    DK: Dänemark
+    DM: Dominica
+    DO: Dominikanische Republik
+    DZ: Algerien
+    EA: Ceuta und Melilla
+    EC: Ecuador
+    EE: Estland
+    EG: Ägypten
+    EH: Westsahara
+    ER: Eritrea
+    ES: Spanien
+    ET: Äthiopien
+    # EU: Europäische Union
+    FI: Finnland
+    FJ: Fidschi
+    FK: Falklandinseln
+    FM: Mikronesien
+    FO: Färöer
+    FR: Frankreich
+    FX: Metropolitan-Frankreichd
+    GA: Gabun
+    GB: Vereinigtes Königreich
+    GD: Grenada
+    GE: Georgien
+    GF: Französisch-Guayana
+    GG: Guernsey
+    GH: Ghana
+    GI: Gibraltar
+    GL: Grönland
+    GM: Gambia
+    GN: Guinea
+    GP: Guadeloupe
+    GQ: Äquatorialguinea
+    GR: Griechenland
+    GS: Südgeorgien und die Südlichen Sandwichinseln
+    GT: Guatemala
+    GU: Guam
+    GW: Guinea-Bissau
+    GY: Guyana
+    HK: Hongkong
+    HM: Heard- und McDonald-Inseln
+    HN: Honduras
+    HR: Kroatien
+    HT: Haiti
+    HU: Ungarn
+    IC: Kanarische Inseln
+    ID: Indonesien
+    IE: Irland
+    IL: Israel
+    IM: Isle of Man
+    IN: Indien
+    IO: Britisches Territorium im Indischen Ozean
+    IQ: Irak
+    IR: Iran
+    IS: Island
+    IT: Italien
+    JE: Jersey
+    JM: Jamaika
+    JO: Jordanien
+    JP: Japan
+    KE: Kenia
+    KG: Kirgisistan
+    KH: Kambodscha
+    KI: Kiribati
+    KM: Komoren
+    KN: St. Kitts und Nevis
+    KP: Demokratische Volksrepublik Korea
+    KR: Republik Korea
+    KW: Kuwait
+    KY: Kaimaninseln
+    KZ: Kasachstan
+    LA: Laos
+    LB: Libanon
+    LC: St. Lucia
+    LI: Liechtenstein
+    LK: Sri Lanka
+    LR: Liberia
+    LS: Lesotho
+    LT: Litauen
+    LU: Luxemburg
+    LV: Lettland
+    LY: Libyen
+    MA: Marokko
+    MC: Monaco
+    MD: Republik Moldau
+    ME: Montenegro
+    MF: St. Martin
+    MG: Madagaskar
+    MH: Marshallinseln
+    MI: Midwayinseln
+    MK: Mazedoniend
+    ML: Mali
+    MM: Myanmar
+    MN: Mongolei
+    MO: Macaud
+    MP: Nördliche Marianen
+    MQ: Martinique
+    MR: Mauretanien
+    MS: Montserrat
+    MT: Malta
+    MU: Mauritius
+    MV: Malediven
+    MW: Malawi
+    MX: Mexiko
+    MY: Malaysia
+    MZ: Mosambik
+    NA: Namibia
+    NC: Neukaledonien
+    NE: Niger
+    NF: Norfolkinsel
+    NG: Nigeria
+    NI: Nicaragua
+    NL: Niederlande
+    'NO': Norwegen
+    NP: Nepal
+    NR: Nauru
+    NU: Niue
+    NZ: Neuseeland
+    OM: Oman
+    PA: Panama
+    PE: Peru
+    PF: Französisch-Polynesien
+    PG: Papua-Neuguinea
+    PH: Philippinen
+    PK: Pakistan
+    PL: Polen
+    PM: St. Pierre und Miquelon
+    PN: Pitcairn
+    PR: Puerto Rico
+    PS: Palästinensische Autonomiegebiete
+    PT: Portugal
+    PW: Palau
+    PY: Paraguay
+    QA: Katar
+    QO: Äußeres Ozeanien
+    RE: Réunion
+    RO: Rumänien
+    RS: Serbien
+    RU: Russische Föderation
+    RW: Ruanda
+    SA: Saudi-Arabien
+    SB: Salomonen
+    SC: Seychellen
+    SD: Sudan
+    SE: Schweden
+    SG: Singapur
+    SH: St. Helena
+    SI: Slowenien
+    SJ: Svalbard und Jan Mayen
+    SK: Slowakei
+    SL: Sierra Leone
+    SM: San Marino
+    SN: Senegal
+    SO: Somalia
+    SR: Suriname
+    ST: São Tomé und Príncipe
+    SV: El Salvador
+    SY: Syrien
+    SZ: Swasiland
+    TA: Tristan da Cunha
+    TC: Turks- und Caicosinseln
+    TD: Tschad
+    TF: Französische Süd- und Antarktisgebiete
+    TG: Togo
+    TH: Thailand
+    TJ: Tadschikistan
+    TK: Tokelau
+    TL: Osttimor
+    TM: Turkmenistan
+    TN: Tunesien
+    TO: Tonga
+    TR: Türkei
+    TT: Trinidad und Tobago
+    TV: Tuvalu
+    TW: Taiwan
+    TZ: Tansania
+    UA: Ukraine
+    UG: Uganda
+    UM: Amerikanisch-Ozeanien
+    US: Vereinigte Staaten
+    UY: Uruguay
+    UZ: Usbekistan
+    VA: Vatikanstadt
+    VC: St. Vincent und die Grenadinen
+    VE: Venezuela
+    VG: Britische Jungferninseln
+    VI: Amerikanische Jungferninseln
+    VN: Vietnam
+    VU: Vanuatu
+    WF: Wallis und Futuna
+    WS: Samoa
+    YE: Jemen
+    YT: Mayotte
+    ZA: Südafrika
+    ZM: Sambia
+    ZW: Simbabwe
+    # ZZ: Unbekannte oder ungültige Region
+
+  state_names:
+    AE: true # country has states, but we don't list them; user gets a simple text field
+    AR: true
+    AT: true
+    AU: true
+    BA: true
+    BE: true
+    BR: true
+    ET: true
+    FM: true
+    IN: true
+    IQ: true
+    KM: true
+    MX: true
+    MY: true
+    NG: true
+    NP: true
+    PK: true
+    SO: true
+    VE: true
+    CA:
+      label: Provinz/Territorium
+      AB:    Alberta
+      BC:    British Columbia
+      MB:    Manitoba
+      NL:    Neufundland und Labrador
+      NB:    New Brunswick
+      NT:    Nordwest-Territorien
+      NS:    Nova Scotia
+      NU:    Nunavut
+      "ON":  Ontario
+      PE:    Prince Edward Island
+      QC:    Québec
+      SK:    Saskatchewan
+      YT:    Yukon
+    CH:
+      label: Kanton
+      AG:    Aargau
+      AI:    Appenzell Innerrhoden
+      AR:    Appenzell Ausserrhoden
+      BE:    Bern
+      BL:    Basel-Landschaft
+      BS:    Basel-Stadt
+      FR:    Freiburg
+      GE:    Genève
+      GL:    Glarus
+      GR:    Graubünden
+      JU:    Jura
+      LU:    Luzern
+      NE:    Neuchâtel
+      NW:    Nidwalden
+      OW:    Obwalden
+      SG:    St. Gallen
+      SH:    Schaffhausen
+      SO:    Solothurn
+      SZ:    Schwyz
+      TG:    Thurgau
+      TI:    Ticino
+      UR:    Uri
+      VD:    Vaud
+      VS:    Wallis
+      ZG:    Zug
+      ZH:    Zürich
+    DE:
+      label: Bundesland
+      BB:    Brandenburg
+      BE:    Berlin
+      BW:    Baden-Württemberg
+      BY:    Bayern
+      HB:    Bremen
+      HE:    Hessen
+      HH:    Hamburg
+      MV:    Mecklenburg-Vorpommern
+      NI:    Niedersachsen
+      NW:    Nordrhein-Westfalen
+      RP:    Rheinland-Pfalz
+      SH:    Schleswig-Holstein
+      SL:    Saarland
+      SN:    Sachsen
+      ST:    Sachsen-Anhalt
+      TH:    Thüringen
+    US:
+      label: Bundesstaat
+      AL:    Alabama
+      AK:    Alaska
+      AZ:    Arizona
+      AR:    Arkansas
+      CA:    Kalifornien
+      CO:    Colorado
+      CT:    Connecticut
+      DE:    Delaware
+      FL:    Florida
+      GA:    Georgia
+      HI:    Hawaii
+      ID:    Idaho
+      IL:    Illinois
+      IN:    Indiana
+      IA:    Iowa
+      KS:    Kansas
+      KY:    Kentucky
+      LA:    Louisiana
+      ME:    Maine
+      MD:    Maryland
+      MA:    Massachusetts
+      MI:    Michigan
+      MN:    Minnesota
+      MS:    Mississippi
+      MO:    Missouri
+      MT:    Montana
+      NE:    Nebraska
+      NV:    Nevada
+      NH:    New Hampshire
+      NJ:    New Jersey
+      NM:    New Mexico
+      NY:    New York
+      NC:    North Carolina
+      ND:    North Dakota
+      OH:    Ohio
+      OK:    Oklahoma
+      OR:    Oregon
+      PA:    Pennsylvania
+      RI:    Rhode Island
+      SC:    South Carolina
+      SD:    South Dakota
+      TN:    Tennessee
+      TX:    Texas
+      UT:    Utah
+      VT:    Vermont
+      VA:    Virginia
+      WA:    Washington
+      WV:    West Virginia
+      WI:    Wisconsin
+      WY:    Wyoming

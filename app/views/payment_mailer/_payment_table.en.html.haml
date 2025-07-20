@@ -1,0 +1,43 @@
+- border_style = "border-top: 1px solid #9D9D9D"
+%table.table{ border: 0, cellpadding: 0, cellspacing: 0 }
+  %tbody
+    %tr
+      %th
+      %th{ align: "left" } Date
+      %th{ align: "right" }= inquiry.currency
+    %tr
+      %td{ style: border_style }
+        %strong= t "deadlines.total"
+        = surround " (", ")" do
+          = t "deadlines.incl_deposit"
+      %td{ style: border_style }
+      = display_price payment_deadlines.total do |val|
+        %td{ align: "right", style: border_style }
+          %strong= val
+    - deadlines.each do |deadline|
+      %tr
+        %td= deadline.name
+        %td due #{deadline.date}
+        = display_price deadline.sum do |val|
+          %td{ align: "right" }= val
+    - payments.each_with_index do |payment,i|
+      %tr
+        %td{ style: (border_style if i == 0) }= payment.sum > 0 ? "Payment receipt" : "Back payment"
+        %td{ style: (border_style if i == 0) }= payment.date
+        = display_price payment.sum do |val|
+          %td{ align: "right", style: (border_style if i == 0) }= val
+    - if difference?
+      %tr
+        %td{ style: border_style }
+          %strong Unpaid sum
+        %td{ style: border_style }
+        = display_price difference do |val|
+          %td{ align: "right", style: border_style }
+            %strong= val
+    - if overpaid?
+      %tr
+        %td{ style: border_style } Overpaid sum
+        %td{ style: border_style }
+        = display_price difference do |val|
+          %td{ align: "right", style: border_style }= val
+

@@ -1,0 +1,24 @@
+%h2.mt-5.pt-5#bsp1
+  .pull-right
+    = vite_image_tag "images/payments/mc_vrt_pos.svg", height: 64
+    = vite_image_tag "images/payments/visa_pos_fc_rgb.svg", height: 64
+    = vite_image_tag "images/payments/amex.svg", height: 64
+  = fa :credit_card, :fw, text: t(".pay_cc")
+
+= render "bsp1_description"
+
+= render "deadlines", cc: charge_calculator(:bsp1), fees: bsp1_fees
+
+.row
+  .col-sm-6.col-sm-offset-3.mt-5
+    - if (bsp1_process_id = reservation.payment_processing_id)
+      #app{ name: "Bsp1PaymentProgress" }
+        %payment-progress{
+          provider:          "bsp1",
+          "process-id"    => bsp1_process_id,
+          "inquiry-token" => params[:token],
+          redirect:          reservation.is_a?(Reservation) ? inquiry_processing_path : nil
+        }
+    - else
+      = render "bsp1_form", deadline: reservation.payment_deadlines.first_unpaid
+

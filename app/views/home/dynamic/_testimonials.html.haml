@@ -1,0 +1,16 @@
+- if reviews.any?
+  %section.container.applet{ name: "Reviews" }
+    %h2.lined-heading
+      %span= t(".heading")
+    %intervillas-testimonials
+      - reviews.includes(villa: :route).each_slice(2) do |slice|
+        %slide.item
+          - slice.each do |r|
+            = cache [:rails7, I18n.locale, r.villa, r, controller_action, :review_itemscope2] do
+              %div{ itemscope: "itemscope", itemtype: "http://schema.org/LocalBusiness" }
+                %meta{ itemprop: "url", content: villa_url(r.villa) }
+                %meta{ itemprop: "name", content: r.villa.name }>
+                %meta{ itemprop: "branchOf", content: (intervilla_corp? ? "Intervilla Corp." : "Intervilla GmbH") }>
+                - if image = r.villa.main_image.presence
+                  %meta{ itemprop: "image", content: media_url(image, preset: :teaser) }
+                = render "reviews/review", resource: r

@@ -1,0 +1,6 @@
+= content_for(:header) || page_header do
+  = breadcrumb.render page.name
+  %h1= h1 || page.name
+
+= full_width_section do
+  = yield

@@ -1,0 +1,12 @@
+.col-sm-6
+  .panel.panel-default
+    .panel-heading
+      = account.t "scope"
+    %table.table.table-condensed
+      %tr
+        %th= t "intervillas_bank_account.address"
+        %td= account.address.join("<br>").html_safe
+      - account.each_detail do |detail, value|
+        %tr
+          %th= t detail, scope: "intervillas_bank_account"
+          %td= value.join("<br>").html_safe

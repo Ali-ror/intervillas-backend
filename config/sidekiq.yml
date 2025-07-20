@@ -1,0 +1,8 @@
+---
+:concurrency: 4 # production host has 6 cores
+:verbose: true
+:timeout: 15
+:queues:
+  - mailers   # top priority: send mails
+  - media     # then process image uploads
+  - default   # then anything else

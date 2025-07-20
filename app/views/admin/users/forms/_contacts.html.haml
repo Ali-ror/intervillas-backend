@@ -1,0 +1,12 @@
+= semantic_form_for contacts_form, url: [:admin, contacts_form, anchor: "contacts"], html: { class: "form-horizontal panel panel-default" } do |f|
+  = f.hidden_field :form_id, id: nil, name: "form"
+
+  .panel-heading
+    Verknüpfungen mit Kontakten
+
+  .panel-body
+    = f.inputs do
+      = f.input :contact_ids, as: :check_boxes, collection: contact_list_for_user(contacts_form)
+
+  .panel-footer.text-right
+    = f.action :submit, label: "speichern", button_html: { data: { disable_with: t(:wait) }, class: "btn btn-primary" }

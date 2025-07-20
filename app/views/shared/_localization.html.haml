@@ -1,0 +1,3 @@
+- if show_localization_select?
+  .applet{ name: "Localization" }
+    %localization-select{ currency: (Rails.env.test? ? Currency.current : ""), locale: @preferred_locale }

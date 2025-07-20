@@ -1,0 +1,228 @@
+@use "sass:math"
+
+@function brightness($color)
+  $sum: red($color) + green($color) + blue($color)
+  @return percentage(math.div($sum, 255*3))
+
+@function contrast-color($color)
+  $dark:  #333
+  $light: #eee
+  $br:    brightness($color)
+
+  @return if(abs($br - brightness($light)) > abs($br - brightness($dark)), $light, $dark)
+
+@mixin colorize-drp($color, $important: false)
+  $alpha: alpha($color)
+  @if $important == true
+    --am:             #{rgba($color, $alpha)} !important
+    --pm:             #{rgba($color, $alpha)} !important
+  @else
+    --am:             #{rgba($color, $alpha)}
+    --pm:             #{rgba($color, $alpha)}
+
+// vars from bootstrap
+$brand-success:               #5cb85c !default
+$brand-danger:                #d9534f !default
+$gray-base:                   #000    !default
+$gray-light:                  lighten($gray-base, 46.7%) !default
+
+$state-success-text:          #3c763d !default
+$state-success-bg:            #dff0d8 !default
+$state-danger-text:           #a94442 !default
+$state-danger-bg:             #f2dede !default
+$text-muted:                  $gray-light !default
+
+$panel-body-padding:          15px !default
+$grid-gutter-width:           30px !default
+
+
+// size of a date cell
+$drp-cell-size:               32px  !default
+$drp-table-width:             7*$drp-cell-size + $grid-gutter-width
+$drp-width:                   2*$drp-table-width + 2px
+$drp-breakpoint:              $drp-width + 1px
+
+$drp-text-color:              #333                           !default
+$drp-blocked-bg:              $brand-danger                  !default
+$drp-selected-bg:             $brand-success                 !default
+$drp-active-bg:               lighten($drp-selected-bg, 20%) !default
+$drp-disabled-text:           $text-muted                    !default
+$drp-unselectable-bg:         lighten($drp-blocked-bg, 15%)  !default
+
+.date-range-picker-wrapper
+  position:                   relative
+
+  .display
+    cursor:                   pointer
+
+  @media screen and (max-width: $drp-breakpoint)
+    .date-range-picker-caption
+      width:                  $drp-table-width - $grid-gutter-width
+
+.date-range-picker
+  background-color:           #fff
+  color:                      #333
+  &:not(.inline)
+    position:                 absolute
+    z-index:                  3001
+    box-shadow:               0 6px 12px rgba(0, 0, 0, 0.175)
+
+  user-select:                none
+  cursor:                     default
+
+  @media screen and (min-width: $drp-breakpoint)
+    &:not(.date-range-picker-single)
+      width:                  $drp-width
+
+  .arrow
+    $size:                      6px
+
+    position:                   absolute
+    top:                        0
+    left:                       9px
+
+    &:before, &:after
+      position:                 absolute
+      display:                  inline-block
+      border-bottom-color:      rgba(0, 0, 0, 0.2)
+      content:                  ''
+
+    &:before
+      top:                      -$size - 1px
+      left:                     $size
+      border-left:              $size + 1px solid transparent
+      border-right:             $size + 1px solid transparent
+      border-bottom:            $size + 1px solid #e3e3e3
+
+    &:after
+      top:                      -$size
+      left:                     $size + 1px
+      border-left:              $size solid transparent
+      border-right:             $size solid transparent
+      border-bottom:            $size solid #fff
+
+.date-range-picker-calendar
+  margin-bottom:              10px
+
+  &.controls-left .form-inline
+    text-align:               left
+  &.controls-both .form-inline
+    text-align:               center
+  &.controls-right .form-inline
+    text-align:               right
+
+  .form-inline
+    line-height:              30px
+    vertical-align:           middle
+    select
+      display:                inline-block
+      width:                  auto
+
+  table
+    border-collapse:          separate
+    width:                    100%
+
+    .date-range-picker-single &
+      margin:                 0 auto
+
+  th, td
+    border-collapse:          separate
+    text-align:               center
+
+  &.inline table
+    max-width:                1.3 * $drp-table-width
+    margin:                   0 auto
+
+    th, td
+      width:                  math.div(100%, 7)
+
+  &:not(.inline)
+    width:                    $drp-table-width
+
+    th, td, td a
+      width:                  $drp-cell-size
+
+  th, td, td a
+    height:                 $drp-cell-size
+    line-height:            $drp-cell-size
+    padding:                0
+
+
+.date-range-picker-caption
+  table
+    margin-bottom:            0
+
+  .date
+    width:                    math.div(2, 3) * $drp-cell-size
+    height:                   math.div(2, 3) * $drp-cell-size
+    line-height:              math.div(2, 3) * $drp-cell-size
+    padding:                  0
+    text-align:               center
+
+  td.date + td
+    padding-left:             1em
+
+.date-range-picker
+  a.date
+    color:                    inherit
+    display:                  block
+
+    &, &:hover, &:active
+      text-decoration:        none
+
+  .full-days a.date
+    background:               var(--am) !important
+    &.preselected
+      &.start
+        --am:                 #{lighten($drp-selected-bg, 15%)}
+    &.selected
+      &.start
+        --am:                 #{$drp-selected-bg}
+
+  .date
+    --am:                     transparent
+    --pm:                     transparent
+    background:               linear-gradient(135deg, var(--am) 50%, var(--pm) 50%) no-repeat
+    color:                    $drp-text-color
+    text-shadow:              0 0 3px #fff
+
+    &.other-month
+      cursor:                 inherit
+      pointer-events:         none
+
+    &.blocked:not(.other-month)
+      @include colorize-drp($drp-blocked-bg, true)
+      cursor:                 not-allowed
+
+      &.free
+        @include colorize-drp($drp-unselectable-bg, true)
+        cursor:               alias
+
+    &.blocked-am:not(.other-month)
+      --am:                   #{$drp-blocked-bg} !important
+
+    &.blocked-pm:not(.other-month)
+      --pm:                   #{$drp-blocked-bg} !important
+
+    &.free:hover:not(.preselected)
+      @include colorize-drp(lighten($drp-selected-bg, 15%))
+
+    &.preselected
+      &.start
+        --pm:                 #{lighten($drp-selected-bg, 15%)}
+      &.within
+        --am:                 #{lighten($drp-selected-bg, 15%)}
+        --pm:                 #{lighten($drp-selected-bg, 15%)}
+      &.end
+        --am:                 #{lighten($drp-selected-bg, 15%)}
+
+    &.selected
+      &.start
+        --pm:                 #{$drp-selected-bg}
+      &.within
+        --am:                 #{$drp-selected-bg}
+        --pm:                 #{$drp-selected-bg}
+      &.end
+        --am:                 #{$drp-selected-bg}
+
+

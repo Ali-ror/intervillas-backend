@@ -1,0 +1,5 @@
+<%= render partial: "billings/tenant/billing" %>
+\vspace*{5mm}
+<%= render partial: (tpl.total > 0 ? "billings/tenant/back_payment_#{tpl.payment_method}" : "billings/tenant/additional_payment") %>
+
+<%= render partial: "billings/tenant/footer" %>

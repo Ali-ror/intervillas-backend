@@ -1,0 +1,30 @@
+.modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %button.close{ type: :button, data: { dismiss: :modal } }
+          = fa :times
+        %strong.modal-heading versendete E-Mail
+
+      .modal-body
+        %table.table.table-condensed.table-bordered.small
+          %tr
+            %th Datum
+            %td= l @delivery.date
+          %tr
+            %th Empfänger
+            %td
+              = @delivery.to.join "; "
+              .small.text-muted Aus technischen Gründen wird hier nur eine E-Mail-Adresse angezeigt.
+          %tr
+            %th Absender
+            %td= @delivery.from.join "; "
+          %tr
+            %th Betreff
+            %td= @delivery.subject
+          - if (attachments = @delivery.eml.attachments).any?
+            %tr
+              %th Anhänge
+              %td= attachments.map(&:filename).join ", "
+
+        = embed_email_iframe(@delivery.eml)

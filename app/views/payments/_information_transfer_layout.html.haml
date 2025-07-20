@@ -1,0 +1,8 @@
+%h2.mt-5.pt-5#transfer
+  = fa :institution, :fw
+  = title
+
+= yield
+
+.row
+  = render partial: "pages/intervillas_bank_account", collection: accounts, as: :account

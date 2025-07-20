@@ -1,0 +1,18 @@
+.panel.panel-primary
+  - if booking.summary_on?
+    .panel-heading Abrechnungsmonat: #{l booking.summary_on, format: "%b. %Y"}
+    .panel-footer
+      = link_to "Anpassen", [:edit, :admin, booking, anchor: "misc"], class: "btn btn-default"
+  - else
+    .panel-heading Abrechnungsmonat
+    .panel-body
+      %p
+        Es ist noch kein Abrechnungsmonat eingestellt.
+      %p
+        Beim Speichern wird
+        %strong= l Date.current, format: "%b. %Y"
+        gesetzt.
+      %p
+        Dies kann in der Buchung unter
+        = link_to "Sonstiges", [:edit, :admin, booking, anchor: "misc"]
+        (auch nachträglich) angepasst werden.

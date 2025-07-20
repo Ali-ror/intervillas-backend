@@ -1,0 +1,22 @@
+%h1.page-header
+  Boote
+  .small.pull-right
+    = link_to new_admin_boat_path, class: 'btn btn-sm btn-primary' do
+      = fa :plus, text: "neues Boot anlegen"
+
+%ul.nav.nav-tabs
+  %li.active
+    = link_to "Aktiv", { anchor: "active" }, class: "nav-link", data: { toggle: "tab" }
+  %li
+    = link_to "Ausgeblendet", { anchor: "inactive" }, class: "nav-link", data: { toggle: "tab" }
+
+.tab-content
+  #active.tab-pane.active
+    - if unbookable_boats.any?
+      .col-sm-9= render "table", boats: boats.visible
+      %aside.col-sm-3= render "unbookable_boats"
+    - else
+      = render "table", boats: boats.visible
+
+  #inactive.tab-pane
+    = render "table", boats: boats.hidden

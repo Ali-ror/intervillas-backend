@@ -1,0 +1,23 @@
+= semantic_form_for message, url: [*message, anchor: "communication"], html: { class: "form-horizontal", id: nil } do |form|
+  = form.inputs do
+    = form.input :text, as: :text, wrapper_html: { id: nil }, input_html: { id: SecureRandom.uuid } if text
+    = hidden_field_tag "message[type]", type, id: nil
+
+    .form-group
+      .form-label
+        %label.control-label= t "messages.recipients"
+      .form-wrapper
+        %ul.form-control-static.list-unstyled
+          - if Contact === form.object.recipient
+            %li
+              %strong= form.object.recipient.to_s
+          - form.object.email_addresses.each do |email|
+            %li= email
+
+    .form-group
+      .col-sm-8.col-sm-offset-4
+        = form.action :submit, label: t("messages.submit"), button_html: { class: 'btn btn-sm btn-warning', data: { disable_with: t("wait") }, id: nil }
+        - if preview
+          %button.btn.btn-sm.btn-default.js-message-live-preview{ type: :button, data: {
+            preview_url: live_preview_admin_inquiry_messages_path(message.last.inquiry)
+          } }= t "messages.preview"

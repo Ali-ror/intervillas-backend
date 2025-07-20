@@ -1,0 +1,8 @@
+%h2= t ".title"
+
+- messages = booking.messages.order(created_at: :desc).select(&:persisted?)
+
+- if messages.empty?
+  %p= t ".no_messages"
+- else
+  = render "messages/table", messages: messages
